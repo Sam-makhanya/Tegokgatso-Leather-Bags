@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TegoKgatso | Admin Portal</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<script>
+
+tailwind.config = {
+
+    darkMode: "class",
+
+    theme: {
+
+        extend: {
+
+            colors: {
+
+                obsidian: "#0b0805",
+
+                leather: {
+
+                    950: "#140D07",
+
+                    900: "#1E140B",
+
+                    800: "#342211",
+
+                    700: "#5A3B1E",
+
+                    500: "#9B6834"
+
+                },
+
+                amber: {
+
+                    gold: "#D4AF37",
+
+                    glow: "#FFB800"
+
+                }
+
+            },
+
+            fontFamily: {
+
+                serif: ["Cinzel", "serif"],
+
+                sans: ["Plus Jakarta Sans", "sans-serif"]
+
+            }
+
+        }
+
+    }
+
+};
+
+</script>
+
+
+<style>
+
+body {
+
+    background: #0b0805;
+
+    color: #f3f4f6;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+}
+
+.glass-panel {
+
+    background: rgba(30,20,11,.4);
+
+    backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(212,175,55,.15);
+
+}
+
+.glass-card {
+
+    background: rgba(20,13,7,.6);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.05);
+
+}
+
+.glow-gold {
+
+    box-shadow: 0 0 25px rgba(212,175,55,.2);
+
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+
+    width: 6px;
+
+    height: 6px;
+
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+
+    background: #342211;
+
+    border-radius: 4px;
+
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+
+    background: #D4AF37;
+
+}
+
+button:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+}
+
+</style>
+
+</head>
+
+
+<body class="min-h-screen bg-obsidian">
+
+
+<!-- =========================================================
+     LOGIN
+========================================================= -->
+
+<div
+    id="auth-section"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian"
+>
+
+    <div
+        class="glass-panel w-full max-w-md p-8 sm:p-10 rounded-2xl glow-gold text-center"
+    >
+
+        <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-leather-900 border border-amber-gold/30 mb-6"
+        >
+
+            <i class="fa-solid fa-user-shield text-2xl text-amber-gold"></i>
+
+        </div>
+
+
+        <h1
+            class="font-serif text-2xl sm:text-3xl font-bold tracking-widest text-amber-gold uppercase"
+        >
+
+            TegoKgatso
+
+        </h1>
+
+
+        <p
+            class="text-[10px] tracking-[0.3em] text-amber-gold/70 uppercase font-semibold mb-8"
+        >
+
+            Admin Sign In
+
+        </p>
+
+
+        <form
+            id="login-form"
+            class="space-y-4 text-left"
+        >
+
+            <div>
+
+                <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">
+
+                    Admin Email
+
+                </label>
+
+                <input
+                    type="email"
+                    id="login-email"
+                    required
+                    autocomplete="email"
+                    placeholder="Admin email"
+                    class="w-full bg-obsidian border border-leather-700/50 rounded-lg px-4 py-3 text-sm outline-none focus:border-amber-gold"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">
+
+                    Password
+
+                </label>
+
+                <input
+                    type="password"
+                    id="login-password"
+                    required
+                    autocomplete="current-password"
+                    placeholder="••••••••••••"
+                    class="w-full bg-obsidian border border-leather-700/50 rounded-lg px-4 py-3 text-sm outline-none focus:border-amber-gold"
+                >
+
+            </div>
+
+
+            <div
+                id="login-error"
+                class="hidden text-xs text-red-400 bg-red-950/40 border border-red-800/50 p-3 rounded-lg"
+            ></div>
+
+
+            <button
+                id="login-btn"
+                type="submit"
+                class="w-full bg-amber-gold hover:bg-yellow-500 text-obsidian font-bold py-3.5 rounded-lg uppercase tracking-wider text-xs transition"
+            >
+
+                Sign In
+
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+
+            </button>
+
+        </form>
+
+
+        <p class="text-[10px] text-gray-500 mt-6">
+
+            Admin access is restricted to authorised accounts.
+
+        </p>
+
+
+        <a
+            href="index.html"
+            class="mt-4 inline-flex items-center justify-center gap-2 text-xs text-amber-gold hover:text-white transition"
+        >
+
+            <i class="fa-solid fa-store"></i>
+
+            Back to Customer Store
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<div
+    id="dashboard-section"
+    class="hidden min-h-screen flex flex-col md:flex-row"
+>
+
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside
+    class="w-full md:w-64 glass-panel border-r border-leather-800/40 flex-shrink-0 flex flex-col justify-between"
+>
+
+
+    <div>
+
+        <div
+            class="p-6 border-b border-leather-800/30 flex items-center justify-between"
+        >
+
+            <div>
+
+                <h2 class="font-serif text-lg font-bold text-amber-gold uppercase">
+
+                    TegoKgatso
+
+                </h2>
+
+                <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400">
+
+                    Command Suite
+
+                </span>
+
+            </div>
+
+
+            <span
+                class="px-2 py-0.5 rounded text-[9px] font-bold bg-green-950 text-green-400 border border-green-800/40"
+            >
+
+                LIVE
+
+            </span>
+
+        </div>
+
+
+        <nav class="p-4 space-y-1.5">
+
+            <a
+                href="#"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-amber-gold/10 text-amber-gold font-medium text-xs uppercase border border-amber-gold/20"
+            >
+
+                <i class="fa-solid fa-box-archive"></i>
+
+                Orders Database
+
+            </a>
+
+
+            <a
+                href="#analytics-section"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-amber-gold text-xs uppercase"
+            >
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                Metrics & Revenue
+
+            </a>
+
+
+            <a
+                href="index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-amber-gold text-xs uppercase"
+            >
+
+                <i class="fa-solid fa-store"></i>
+
+                Customer Store
+
+            </a>
+
+        </nav>
+
+    </div>
+
+
+    <div class="p-4 border-t border-leather-800/30">
+
+        <div class="flex items-center justify-between">
+
+            <div class="truncate mr-2">
+
+                <p
+                    id="user-display-email"
+                    class="text-xs font-semibold truncate"
+                ></p>
+
+                <span
+                    class="text-[9px] text-amber-gold/70 uppercase tracking-widest"
+                >
+
+                    Authorised Admin
+
+                </span>
+
+            </div>
+
+
+            <button
+                onclick="handleLogout()"
+                class="p-2 text-gray-400 hover:text-red-400"
+                title="Sign out"
+            >
+
+                <i class="fa-solid fa-power-off"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="flex-grow flex flex-col min-w-0 bg-obsidian">
+
+
+<header
+    class="glass-panel border-b border-leather-800/40 px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sticky top-0 z-30"
+>
+
+    <div>
+
+        <h1 class="font-serif text-xl sm:text-2xl font-bold uppercase">
+
+            Orders & Fulfillment
+
+        </h1>
+
+        <p class="text-xs text-gray-400">
+
+            Real-time Cloud Firestore Database Sync
+
+        </p>
+
+    </div>
+
+
+    <button
+        onclick="openNewOrderModal()"
+        class="bg-amber-gold hover:bg-yellow-500 text-obsidian font-bold px-4 py-2.5 rounded-lg text-xs uppercase"
+    >
+
+        <i class="fa-solid fa-plus mr-2"></i>
+
+        New Manual Order
+
+    </button>
+
+</header>
+
+
+
+<div
+    class="p-4 sm:p-8 space-y-8 flex-grow custom-scrollbar overflow-y-auto"
+>
+
+
+<!-- =========================================================
+     ANALYTICS
+========================================================= -->
+
+<div
+    id="analytics-section"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+>
+
+
+<div class="glass-card p-5 rounded-2xl">
+
+    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+
+        Total Revenue
+
+    </p>
+
+    <h3
+        id="stat-revenue"
+        class="font-serif text-2xl font-bold text-amber-gold mt-1"
+    >
+
+        R0.00
+
+    </h3>
+
+    <span class="text-[10px] text-gray-500">
+
+        All recorded orders
+
+    </span>
+
+</div>
+
+
+
+<div class="glass-card p-5 rounded-2xl">
+
+    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+
+        Total Orders
+
+    </p>
+
+    <h3
+        id="stat-count"
+        class="font-serif text-2xl font-bold mt-1"
+    >
+
+        0
+
+    </h3>
+
+    <span class="text-[10px] text-gray-500">
+
+        Registered customer orders
+
+    </span>
+
+</div>
+
+
+
+<div class="glass-card p-5 rounded-2xl">
+
+    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+
+        Pending
+
+    </p>
+
+    <h3
+        id="stat-pending"
+        class="font-serif text-2xl font-bold text-amber-400 mt-1"
+    >
+
+        0
+
+    </h3>
+
+    <span class="text-[10px] text-gray-500">
+
+        Awaiting fulfillment
+
+    </span>
+
+</div>
+
+
+
+<div class="glass-card p-5 rounded-2xl">
+
+    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+
+        Completed
+
+    </p>
+
+    <h3
+        id="stat-completed"
+        class="font-serif text-2xl font-bold text-green-400 mt-1"
+    >
+
+        0
+
+    </h3>
+
+    <span class="text-[10px] text-gray-500">
+
+        Dispatched / Delivered
+
+    </span>
+
+</div>
+
+
+
+<div class="glass-card p-5 rounded-2xl">
+
+    <p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+
+        Awaiting Payment
+
+    </p>
+
+    <h3
+        id="stat-payment"
+        class="font-serif text-2xl font-bold text-blue-400 mt-1"
+    >
+
+        0
+
+    </h3>
+
+    <span class="text-[10px] text-gray-500">
+
+        Payment status
+
+    </span>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     ORDERS
+========================================================= -->
+
+<div
+    class="glass-card rounded-2xl border border-leather-800/40 overflow-hidden shadow-2xl"
+>
+
+
+<div
+    class="p-4 sm:p-6 border-b border-leather-800/40 flex flex-col sm:flex-row justify-between gap-4"
+>
+
+
+<div class="relative w-full sm:w-80">
+
+<i
+    class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-500 text-xs"
+></i>
+
+<input
+    id="table-search"
+    oninput="filterOrdersTable()"
+    placeholder="Search customer, item, phone, email..."
+    class="w-full bg-obsidian border border-leather-800/60 rounded-xl pl-9 pr-4 py-2 text-xs"
+>
+
+</div>
+
+
+
+<div class="flex gap-2 items-center">
+
+<span class="text-gray-400 uppercase text-[10px]">
+
+Status:
+
+</span>
+
+
+<select
+    id="status-filter"
+    onchange="filterOrdersTable()"
+    class="bg-obsidian border border-leather-800/60 text-gray-200 text-xs rounded-xl px-3 py-2"
+>
+
+<option value="ALL">All</option>
+
+<option value="Pending">Pending</option>
+
+<option value="In Production">In Production</option>
+
+<option value="Dispatched">Dispatched</option>
+
+<option value="Delivered">Delivered</option>
+
+<option value="Cancelled">Cancelled</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+
+<div class="overflow-x-auto custom-scrollbar">
+
+<table class="w-full text-left">
+
+<thead>
+
+<tr
+    class="bg-leather-950/80 border-b border-leather-800/40 text-[10px] uppercase tracking-widest text-amber-gold/80"
+>
+
+<th class="py-4 px-6">Order</th>
+
+<th class="py-4 px-6">Customer</th>
+
+<th class="py-4 px-6">Items</th>
+
+<th class="py-4 px-6">Total</th>
+
+<th class="py-4 px-6">Payment</th>
+
+<th class="py-4 px-6">Fulfillment</th>
+
+<th class="py-4 px-6 text-right">Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody
+    id="orders-tbody"
+    class="divide-y divide-leather-800/30 text-xs text-gray-300"
+>
+
+<tr>
+
+<td
+    colspan="7"
+    class="text-center py-12 text-gray-500"
+>
+
+<i
+    class="fa-solid fa-circle-notch fa-spin text-2xl text-amber-gold"
+></i>
+
+<p class="mt-2">
+
+Fetching live database entries...
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+
+
+<!-- =========================================================
+     ORDER DETAILS
+========================================================= -->
+
+<div
+    id="details-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+>
+
+<div
+    onclick="closeDetails()"
+    class="absolute inset-0 bg-black/80 backdrop-blur-md"
+></div>
+
+
+<div
+    class="relative z-10 glass-panel w-full max-w-2xl rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+>
+
+<div
+    class="flex justify-between border-b border-leather-800 pb-4 mb-5"
+>
+
+<div>
+
+<h3 class="font-serif text-lg font-bold text-amber-gold">
+
+Order Details
+
+</h3>
+
+<p
+    id="detail-id"
+    class="text-xs text-gray-500"
+></p>
+
+</div>
+
+
+<button onclick="closeDetails()">
+
+<i class="fa-solid fa-xmark text-xl"></i>
+
+</button>
+
+</div>
+
+
+<div id="detail-body"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MANUAL ORDER
+========================================================= -->
+
+<div
+    id="new-order-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+>
+
+<div
+    onclick="closeNewOrderModal()"
+    class="absolute inset-0 bg-black/80"
+></div>
+
+
+<div
+    class="relative z-10 glass-panel w-full max-w-lg rounded-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+>
+
+<div
+    class="flex justify-between border-b border-leather-800 pb-4 mb-6"
+>
+
+<h3 class="font-serif text-lg font-bold text-amber-gold uppercase">
+
+Create Manual Order
+
+</h3>
+
+
+<button onclick="closeNewOrderModal()">
+
+<i class="fa-solid fa-xmark text-xl"></i>
+
+</button>
+
+</div>
+
+
+<form
+    id="create-order-form"
+    class="space-y-4"
+>
+
+
+<div class="grid grid-cols-2 gap-4">
+
+<input
+    id="order-customer"
+    required
+    placeholder="First name"
+    class="bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<input
+    id="order-surname"
+    placeholder="Surname"
+    class="bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+</div>
+
+
+<input
+    id="order-email"
+    type="email"
+    placeholder="Email"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<input
+    id="order-phone"
+    required
+    placeholder="+27 82 123 4567"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<input
+    id="order-location"
+    placeholder="Location / suburb"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<input
+    id="order-items"
+    required
+    placeholder="1x Classic Leather Bag"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<div class="grid grid-cols-2 gap-4">
+
+<input
+    type="number"
+    step="0.01"
+    id="order-total"
+    required
+    placeholder="2890.00"
+    class="bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+
+<select
+    id="order-status"
+    class="bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+<option>Pending</option>
+
+<option>In Production</option>
+
+<option>Dispatched</option>
+
+<option>Delivered</option>
+
+</select>
+
+</div>
+
+
+<select
+    id="order-payment"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+<option>Awaiting Payment</option>
+
+<option>Paid</option>
+
+<option>Payment Failed</option>
+
+<option>Refunded</option>
+
+</select>
+
+
+<select
+    id="order-delivery"
+    class="w-full bg-obsidian border border-leather-800 rounded-lg px-3.5 py-2.5 text-xs"
+>
+
+<option>Courier Delivery</option>
+
+<option>Collection</option>
+
+<option>Other / Arrange</option>
+
+</select>
+
+
+<div
+    class="flex justify-end gap-3 border-t border-leather-800 pt-4"
+>
+
+<button
+    type="button"
+    onclick="closeNewOrderModal()"
+    class="px-5 py-2.5 text-xs text-gray-400"
+>
+
+Cancel
+
+</button>
+
+
+<button
+    id="manual-order-submit"
+    type="submit"
+    class="bg-amber-gold hover:bg-yellow-500 text-obsidian font-bold px-6 py-2.5 rounded-lg text-xs uppercase"
+>
+
+Save Order
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FIREBASE
+========================================================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    onSnapshot,
+    addDoc,
+    doc,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp,
+    query,
+    orderBy
+}
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyA3yTdx__mL8JxJZqETU7C-R2pK5mKDBKU",
+
+    authDomain:
+        "tegokgatso-leather-bags.firebaseapp.com",
+
+    projectId:
+        "tegokgatso-leather-bags",
+
+    storageBucket:
+        "tegokgatso-leather-bags.firebasestorage.app",
+
+    messagingSenderId:
+        "715889522973",
+
+    appId:
+        "1:715889522973:web:f49ae557ae469ff58449f4",
+
+    measurementId:
+        "G-4PPZNHMRR4"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+let allOrdersCache = [];
+
+let unsubscribeOrders = null;
+
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const esc = value => {
+
+    return String(value ?? "")
+        .replace(
+            /[&<>"']/g,
+            character => ({
+
+                "&": "&amp;",
+
+                "<": "&lt;",
+
+                ">": "&gt;",
+
+                '"': "&quot;",
+
+                "'": "&#039;"
+
+            }[character])
+        );
+
+};
+
+
+const money = value => {
+
+    return "R" +
+
+        Number(value || 0)
+            .toLocaleString(
+                "en-ZA",
+                {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }
+            );
+
+};
+
+
+const dateOf = timestamp => {
+
+    try {
+
+        if (timestamp?.seconds) {
+
+            return new Date(
+                timestamp.seconds * 1000
+            ).toLocaleString("en-ZA");
+
+        }
+
+        if (timestamp?.toDate) {
+
+            return timestamp
+                .toDate()
+                .toLocaleString("en-ZA");
+
+        }
+
+        return "Recently";
+
+    }
+
+    catch {
+
+        return "Recently";
+
+    }
+
+};
+
+
+const itemsText = order => {
+
+    if (Array.isArray(order.items)) {
+
+        return order.items
+
+            .map(
+                item =>
+                    `${item.product || "Item"} × ${item.quantity || 1}`
+            )
+
+            .join(", ");
+
+    }
+
+    return String(
+        order.items || "N/A"
+    );
+
+};
+
+
+
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if (!user) {
+
+            showLogin();
+
+            return;
+
+        }
+
+
+        try {
+
+            const adminReference =
+                doc(
+                    db,
+                    "admins",
+                    user.uid
+                );
+
+
+            const adminSnapshot =
+                await getDoc(
+                    adminReference
+                );
+
+
+            if (
+                !adminSnapshot.exists()
+            ) {
+
+                await signOut(auth);
+
+                showLogin(
+                    "This Firebase account is not authorised as an admin."
+                );
+
+                return;
+
+            }
+
+
+            const adminData =
+                adminSnapshot.data();
+
+
+            if (
+                adminData.role !== "admin"
+            ) {
+
+                await signOut(auth);
+
+                showLogin(
+                    "This account does not have admin privileges."
+                );
+
+                return;
+
+            }
+
+
+            document
+                .getElementById(
+                    "auth-section"
+                )
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById(
+                    "dashboard-section"
+                )
+                .classList
+                .remove("hidden");
+
+
+            document
+                .getElementById(
+                    "user-display-email"
+                )
+                .innerText =
+                    user.email || "Admin";
+
+
+            subscribeToOrders();
+
+        }
+
+        catch (error) {
+
+            console.error(error);
+
+            await signOut(auth);
+
+            showLogin(
+                "Unable to verify administrator access."
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   LOGIN SCREEN
+========================================================= */
+
+function showLogin(
+    message = ""
+) {
+
+    document
+        .getElementById(
+            "auth-section"
+        )
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById(
+            "dashboard-section"
+        )
+        .classList
+        .add("hidden");
+
+
+    const error =
+        document.getElementById(
+            "login-error"
+        );
+
+
+    if (message) {
+
+        error.innerText =
+            message;
+
+        error.classList.remove(
+            "hidden"
+        );
+
+    }
+
+    else {
+
+        error.innerText = "";
+
+        error.classList.add(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+document
+    .getElementById(
+        "login-form"
+    )
+    .addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "login-email"
+                    )
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "login-password"
+                    )
+                    .value;
+
+
+            const button =
+                document.getElementById(
+                    "login-btn"
+                );
+
+
+            const error =
+                document.getElementById(
+                    "login-error"
+                );
+
+
+            button.disabled = true;
+
+
+            error.classList.add(
+                "hidden"
+            );
+
+
+            button.innerHTML =
+                '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Signing In...';
+
+
+            try {
+
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+            }
+
+            catch (firebaseError) {
+
+                console.error(
+                    firebaseError
+                );
+
+
+                let message =
+                    "Sign in failed. Please check your details.";
+
+
+                if (
+                    firebaseError.code ===
+                    "auth/invalid-credential"
+                ) {
+
+                    message =
+                        "Incorrect email or password.";
+
+                }
+
+                else if (
+                    firebaseError.code ===
+                    "auth/too-many-requests"
+                ) {
+
+                    message =
+                        "Too many attempts. Please try again later.";
+
+                }
+
+
+                error.innerText =
+                    message;
+
+
+                error.classList.remove(
+                    "hidden"
+                );
+
+            }
+
+            finally {
+
+                button.disabled =
+                    false;
+
+
+                button.innerHTML =
+                    'Sign In <i class="fa-solid fa-arrow-right ml-2"></i>';
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+window.handleLogout =
+    async () => {
+
+        try {
+
+            if (
+                unsubscribeOrders
+            ) {
+
+                unsubscribeOrders();
+
+                unsubscribeOrders = null;
+
+            }
+
+
+            await signOut(auth);
+
+        }
+
+        catch (error) {
+
+            alert(
+                "Unable to sign out: " +
+                error.message
+            );
+
+        }
+
+    };
+
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+function subscribeToOrders() {
+
+    if (
+        unsubscribeOrders
+    ) {
+
+        unsubscribeOrders();
+
+    }
+
+
+    const ordersQuery =
+        query(
+            collection(
+                db,
+                "orders"
+            ),
+            orderBy(
+                "timestamp",
+                "desc"
+            )
+        );
+
+
+    unsubscribeOrders =
+        onSnapshot(
+
+            ordersQuery,
+
+            snapshot => {
+
+                allOrdersCache =
+                    snapshot.docs.map(
+                        document => ({
+
+                            id:
+                                document.id,
+
+                            ...document.data()
+
+                        })
+                    );
+
+
+                renderOrdersTable(
+                    allOrdersCache
+                );
+
+
+                calculateAnalytics(
+                    allOrdersCache
+                );
+
+            },
+
+            error => {
+
+                console.error(
+                    "Ordered query failed:",
+                    error
+                );
+
+
+                /*
+                 * Fallback without orderBy.
+                 */
+
+                unsubscribeOrders =
+                    onSnapshot(
+
+                        collection(
+                            db,
+                            "orders"
+                        ),
+
+                        snapshot => {
+
+                            allOrdersCache =
+                                snapshot.docs.map(
+                                    document => ({
+
+                                        id:
+                                            document.id,
+
+                                        ...document.data()
+
+                                    })
+                                );
+
+
+                            allOrdersCache.sort(
+                                (a, b) =>
+                                    (
+                                        b.timestamp?.seconds ||
+                                        0
+                                    ) -
+                                    (
+                                        a.timestamp?.seconds ||
+                                        0
+                                    )
+                            );
+
+
+                            renderOrdersTable(
+                                allOrdersCache
+                            );
+
+
+                            calculateAnalytics(
+                                allOrdersCache
+                            );
+
+                        },
+
+                        fallbackError => {
+
+                            console.error(
+                                fallbackError
+                            );
+
+
+                            document
+                                .getElementById(
+                                    "orders-tbody"
+                                )
+                                .innerHTML = `
+
+                                <tr>
+
+                                    <td
+                                        colspan="7"
+                                        class="text-center py-12 text-red-400"
+                                    >
+
+                                        <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+
+                                        <p class="mt-2">
+
+                                            Unable to load orders.
+
+                                        </p>
+
+                                    </td>
+
+                                </tr>
+
+                            `;
+
+                        }
+
+                    );
+
+            }
+
+        );
+
+}
+
+
+
+/* =========================================================
+   STATUS CLASSES
+========================================================= */
+
+function statusClass(
+    status
+) {
+
+    if (
+        status === "Delivered"
+    )
+        return "bg-green-950 text-green-400";
+
+
+    if (
+        status === "Dispatched"
+    )
+        return "bg-blue-950 text-blue-400";
+
+
+    if (
+        status === "In Production"
+    )
+        return "bg-amber-950 text-amber-400";
+
+
+    if (
+        status === "Cancelled"
+    )
+        return "bg-red-950 text-red-400";
+
+
+    return "bg-gray-900 text-gray-400";
+
+}
+
+
+function paymentClass(
+    status
+) {
+
+    if (
+        status === "Paid"
+    )
+        return "bg-green-950 text-green-400";
+
+
+    if (
+        status === "Payment Failed"
+    )
+        return "bg-red-950 text-red-400";
+
+
+    if (
+        status === "Refunded"
+    )
+        return "bg-purple-950 text-purple-400";
+
+
+    return "bg-blue-950 text-blue-400";
+
+}
+
+
+
+/* =========================================================
+   RENDER ORDERS
+========================================================= */
+
+function renderOrdersTable(
+    orders
+) {
+
+    const table =
+        document.getElementById(
+            "orders-tbody"
+        );
+
+
+    if (!orders.length) {
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="text-center py-12 text-gray-500"
+                >
+
+                    <i class="fa-solid fa-box-open text-2xl"></i>
+
+                    <p class="mt-2">
+
+                        No orders found.
+
+                    </p>
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        orders.map(
+            order => `
+
+            <tr
+                class="hover:bg-leather-900/40 transition"
+            >
+
+                <td class="py-4 px-6 font-mono text-[11px] text-amber-gold">
+
+                    #${esc(
+                        order.id
+                            .substring(
+                                0,
+                                8
+                            )
+                            .toUpperCase()
+                    )}
+
+                    <span
+                        class="block text-[9px] text-gray-500 font-sans mt-1"
+                    >
+
+                        ${dateOf(
+                            order.timestamp
+                        )}
+
+                    </span>
+
+                </td>
+
+
+                <td class="py-4 px-6">
+
+                    <div class="font-bold text-gray-100">
+
+                        ${esc(
+                            (
+                                order.customerName ||
+                                ""
+                            ) +
+                            " " +
+                            (
+                                order.surname ||
+                                ""
+                            )
+                        )}
+
+                    </div>
+
+
+                    <div class="text-[10px] text-gray-500">
+
+                        ${esc(
+                            order.email ||
+                            ""
+                        )}
+
+                    </div>
+
+
+                    ${
+                        order.phone
+
+                        ?
+
+                        `
+
+                        <a
+                            href="https://wa.me/${(
+                                order.phone || ""
+                            ).replace(/\D/g, "")}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-[10px] text-amber-gold hover:underline"
+                        >
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            ${esc(
+                                order.phone
+                            )}
+
+                        </a>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+
+                    <div class="text-[10px] text-gray-500">
+
+                        ${esc(
+                            order.location ||
+                            ""
+                        )}
+
+                    </div>
+
+                </td>
+
+
+                <td class="py-4 px-6 max-w-xs">
+
+                    <div class="truncate">
+
+                        ${esc(
+                            itemsText(
+                                order
+                            )
+                        )}
+
+                    </div>
+
+
+                    <span class="text-[10px] text-gray-500">
+
+                        ${esc(
+                            order.deliveryMethod ||
+                            "N/A"
+                        )}
+
+                    </span>
+
+                </td>
+
+
+                <td
+                    class="py-4 px-6 font-serif font-bold text-amber-gold"
+                >
+
+                    ${money(
+                        order.total
+                    )}
+
+                </td>
+
+
+                <td class="py-4 px-6">
+
+                    <select
+                        onchange="updatePaymentStatus('${esc(order.id)}', this.value)"
+                        class="bg-obsidian border border-leather-800 rounded px-2 py-1 text-[10px]"
+                    >
+
+                        <option
+                            value="Awaiting Payment"
+                            ${
+                                order.paymentStatus ===
+                                "Awaiting Payment"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Awaiting Payment
+
+                        </option>
+
+
+                        <option
+                            value="Paid"
+                            ${
+                                order.paymentStatus ===
+                                "Paid"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Paid
+
+                        </option>
+
+
+                        <option
+                            value="Payment Failed"
+                            ${
+                                order.paymentStatus ===
+                                "Payment Failed"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Payment Failed
+
+                        </option>
+
+
+                        <option
+                            value="Refunded"
+                            ${
+                                order.paymentStatus ===
+                                "Refunded"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Refunded
+
+                        </option>
+
+                    </select>
+
+
+                    <span
+                        class="block mt-1 px-2 py-1 rounded text-[9px] w-max ${paymentClass(order.paymentStatus)}"
+                    >
+
+                        ${esc(
+                            order.paymentStatus ||
+                            "Awaiting Payment"
+                        )}
+
+                    </span>
+
+                </td>
+
+
+                <td class="py-4 px-6">
+
+                    <select
+                        onchange="updateOrderStatus('${esc(order.id)}', this.value)"
+                        class="bg-obsidian border border-leather-800 rounded px-2 py-1 text-[10px]"
+                    >
+
+                        <option
+                            value="Pending"
+                            ${
+                                order.status ===
+                                "Pending"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Pending
+
+                        </option>
+
+
+                        <option
+                            value="In Production"
+                            ${
+                                order.status ===
+                                "In Production"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            In Production
+
+                        </option>
+
+
+                        <option
+                            value="Dispatched"
+                            ${
+                                order.status ===
+                                "Dispatched"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Dispatched
+
+                        </option>
+
+
+                        <option
+                            value="Delivered"
+                            ${
+                                order.status ===
+                                "Delivered"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Delivered
+
+                        </option>
+
+
+                        <option
+                            value="Cancelled"
+                            ${
+                                order.status ===
+                                "Cancelled"
+                                ? "selected"
+                                : ""
+                            }
+                        >
+
+                            Cancelled
+
+                        </option>
+
+                    </select>
+
+
+                    <span
+                        class="block mt-1 px-2 py-1 rounded text-[9px] w-max ${statusClass(order.status)}"
+                    >
+
+                        ${esc(
+                            order.status ||
+                            "Pending"
+                        )}
+
+                    </span>
+
+                </td>
+
+
+                <td
+                    class="py-4 px-6 text-right whitespace-nowrap"
+                >
+
+                    <button
+                        onclick="viewOrder('${esc(order.id)}')"
+                        class="p-2 text-amber-gold hover:text-white"
+                        title="View order"
+                    >
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </button>
+
+
+                    <button
+                        onclick="deleteOrderRecord('${esc(order.id)}')"
+                        class="p-2 text-gray-500 hover:text-red-400"
+                        title="Delete order"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `
+        ).join("");
+
+}
+
+
+
+/* =========================================================
+   ANALYTICS
+========================================================= */
+
+function calculateAnalytics(
+    orders
+) {
+
+    const revenue =
+        orders.reduce(
+            (
+                total,
+                order
+            ) =>
+                total +
+                Number(
+                    order.total ||
+                    0
+                ),
+            0
+        );
+
+
+    document
+        .getElementById(
+            "stat-revenue"
+        )
+        .innerText =
+            money(revenue);
+
+
+    document
+        .getElementById(
+            "stat-count"
+        )
+        .innerText =
+            orders.length;
+
+
+    document
+        .getElementById(
+            "stat-pending"
+        )
+        .innerText =
+            orders.filter(
+                order =>
+                    order.status ===
+                        "Pending" ||
+
+                    order.status ===
+                        "In Production"
+            ).length;
+
+
+    document
+        .getElementById(
+            "stat-completed"
+        )
+        .innerText =
+            orders.filter(
+                order =>
+                    order.status ===
+                        "Dispatched" ||
+
+                    order.status ===
+                        "Delivered"
+            ).length;
+
+
+    document
+        .getElementById(
+            "stat-payment"
+        )
+        .innerText =
+            orders.filter(
+                order =>
+                    order.paymentStatus ===
+                    "Awaiting Payment"
+            ).length;
+
+}
+
+
+
+/* =========================================================
+   UPDATE ORDER STATUS
+========================================================= */
+
+window.updateOrderStatus =
+    async (
+        id,
+        newStatus
+    ) => {
+
+        const order =
+            allOrdersCache.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (!order)
+            return;
+
+
+        const oldStatus =
+            order.status ||
+            "Pending";
+
+
+        if (
+            oldStatus ===
+            newStatus
+        )
+            return;
+
+
+        try {
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "orders",
+                    id
+                ),
+
+                {
+
+                    status:
+                        newStatus,
+
+                    previousStatus:
+                        oldStatus,
+
+                    statusUpdatedAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+            /*
+             * The email is NOT sent here.
+             *
+             * Firebase Cloud Function detects
+             * the change and sends the email.
+             */
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            alert(
+                "Could not update order status:\n\n" +
+                error.message
+            );
+
+        }
+
+    };
+
+
+
+/* =========================================================
+   UPDATE PAYMENT STATUS
+========================================================= */
+
+window.updatePaymentStatus =
+    async (
+        id,
+        newPaymentStatus
+    ) => {
+
+        const order =
+            allOrdersCache.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (!order)
+            return;
+
+
+        const oldPaymentStatus =
+            order.paymentStatus ||
+            "Awaiting Payment";
+
+
+        if (
+            oldPaymentStatus ===
+            newPaymentStatus
+        )
+            return;
+
+
+        try {
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "orders",
+                    id
+                ),
+
+                {
+
+                    paymentStatus:
+                        newPaymentStatus,
+
+                    previousPaymentStatus:
+                        oldPaymentStatus,
+
+                    paymentStatusUpdatedAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            alert(
+                "Could not update payment status:\n\n" +
+                error.message
+            );
+
+        }
+
+    };
+
+
+
+/* =========================================================
+   DELETE ORDER
+========================================================= */
+
+window.deleteOrderRecord =
+    async id => {
+
+        if (
+            !confirm(
+                "Are you sure you want to permanently delete this order?"
+            )
+        )
+            return;
+
+
+        try {
+
+            await deleteDoc(
+                doc(
+                    db,
+                    "orders",
+                    id
+                )
+            );
+
+
+        }
+
+        catch (error) {
+
+            alert(
+                "Could not delete order:\n\n" +
+                error.message
+            );
+
+        }
+
+    };
+
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+window.filterOrdersTable =
+    () => {
+
+        const search =
+            document
+                .getElementById(
+                    "table-search"
+                )
+                .value
+                .toLowerCase();
+
+
+        const status =
+            document
+                .getElementById(
+                    "status-filter"
+                )
+                .value;
+
+
+        const filtered =
+            allOrdersCache.filter(
+                order => {
+
+                    const matchesStatus =
+                        status === "ALL" ||
+                        order.status ===
+                        status;
+
+
+                    const searchable = [
+
+                        order.customerName,
+
+                        order.surname,
+
+                        order.email,
+
+                        order.phone,
+
+                        order.location,
+
+                        order.id,
+
+                        itemsText(order),
+
+                        order.deliveryMethod,
+
+                        order.paymentStatus,
+
+                        order.status
+
+                    ]
+                        .join(" ")
+                        .toLowerCase();
+
+
+                    return (
+
+                        matchesStatus &&
+                        searchable.includes(
+                            search
+                        )
+
+                    );
+
+                }
+            );
+
+
+        renderOrdersTable(
+            filtered
+        );
+
+    };
+
+
+
+/* =========================================================
+   VIEW ORDER
+========================================================= */
+
+window.viewOrder =
+    id => {
+
+        const order =
+            allOrdersCache.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (!order)
+            return;
+
+
+        document
+            .getElementById(
+                "detail-id"
+            )
+            .innerText =
+                "#" +
+                id
+                    .substring(
+                        0,
+                        8
+                    )
+                    .toUpperCase();
+
+
+        let itemsHTML = "";
+
+
+        if (
+            Array.isArray(
+                order.items
+            )
+        ) {
+
+            itemsHTML =
+                order.items
+                    .map(
+                        item => `
+
+                        <div
+                            class="flex justify-between border-b border-leather-800 py-2"
+                        >
+
+                            <span>
+
+                                ${esc(
+                                    item.product ||
+                                    "Item"
+                                )}
+
+                                ×
+
+                                ${Number(
+                                    item.quantity ||
+                                    1
+                                )}
+
+                            </span>
+
+
+                            <span>
+
+                                ${money(
+                                    Number(
+                                        item.price ||
+                                        0
+                                    ) *
+                                    Number(
+                                        item.quantity ||
+                                        1
+                                    )
+                                )}
+
+                            </span>
+
+                        </div>
+
+                    `
+                    )
+                    .join("");
+
+        }
+
+        else {
+
+            itemsHTML = `
+
+                <p class="text-xs">
+
+                    ${esc(
+                        order.items ||
+                        "N/A"
+                    )}
+
+                </p>
+
+            `;
+
+        }
+
+
+        document
+            .getElementById(
+                "detail-body"
+            )
+            .innerHTML = `
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div class="bg-obsidian p-4 rounded-xl">
+
+                        <p class="text-[10px] text-gray-500 uppercase">
+
+                            Customer
+
+                        </p>
+
+
+                        <p class="font-bold mt-1">
+
+                            ${esc(
+                                (
+                                    order.customerName ||
+                                    ""
+                                ) +
+                                " " +
+                                (
+                                    order.surname ||
+                                    ""
+                                )
+                            )}
+
+                        </p>
+
+
+                        <p class="text-xs text-gray-400">
+
+                            ${esc(
+                                order.email ||
+                                ""
+                            )}
+
+                        </p>
+
+
+                        <p class="text-xs text-gray-400">
+
+                            ${esc(
+                                order.phone ||
+                                ""
+                            )}
+
+                        </p>
+
+
+                        <p class="text-xs text-gray-400">
+
+                            ${esc(
+                                order.location ||
+                                ""
+                            )}
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-obsidian p-4 rounded-xl">
+
+                        <p class="text-[10px] text-gray-500 uppercase">
+
+                            Fulfillment
+
+                        </p>
+
+
+                        <p class="font-bold mt-1">
+
+                            ${esc(
+                                order.deliveryMethod ||
+                                "N/A"
+                            )}
+
+                        </p>
+
+
+                        <p class="text-xs text-gray-400 mt-1">
+
+                            ${esc(
+                                order.deliveryAddress ||
+                                "No delivery address recorded"
+                            )}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="bg-obsidian p-4 rounded-xl mt-4">
+
+                    <p class="text-[10px] text-gray-500 uppercase mb-3">
+
+                        Items
+
+                    </p>
+
+
+                    ${itemsHTML}
+
+
+                    <div
+                        class="flex justify-between font-bold text-amber-gold pt-3"
+                    >
+
+                        <span>
+
+                            Total
+
+                        </span>
+
+
+                        <span>
+
+                            ${money(
+                                order.total
+                            )}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-4 mt-4">
+
+                    <div>
+
+                        <p class="text-[10px] text-gray-500 uppercase">
+
+                            Payment
+
+                        </p>
+
+
+                        <p class="text-sm font-semibold">
+
+                            ${esc(
+                                order.paymentStatus ||
+                                "Awaiting Payment"
+                            )}
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="text-[10px] text-gray-500 uppercase">
+
+                            Order Status
+
+                        </p>
+
+
+                        <p class="text-sm font-semibold">
+
+                            ${esc(
+                                order.status ||
+                                "Pending"
+                            )}
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                ${
+                    order.notes
+
+                    ?
+
+                    `
+
+                    <div
+                        class="mt-4 bg-amber-950/30 border border-amber-900/50 p-4 rounded-xl"
+                    >
+
+                        <p class="text-[10px] uppercase text-amber-gold">
+
+                            Customer Notes
+
+                        </p>
+
+
+                        <p class="text-xs mt-1">
+
+                            ${esc(
+                                order.notes
+                            )}
+
+                        </p>
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+
+                }
+
+            `;
+
+
+        const modal =
+            document.getElementById(
+                "details-modal"
+            );
+
+
+        modal.classList.remove(
+            "hidden"
+        );
+
+
+        modal.classList.add(
+            "flex"
+        );
+
+    };
+
+
+
+/* =========================================================
+   CLOSE DETAILS
+========================================================= */
+
+window.closeDetails =
+    () => {
+
+        const modal =
+            document.getElementById(
+                "details-modal"
+            );
+
+
+        modal.classList.add(
+            "hidden"
+        );
+
+
+        modal.classList.remove(
+            "flex"
+        );
+
+    };
+
+
+
+/* =========================================================
+   MANUAL ORDER MODAL
+========================================================= */
+
+window.openNewOrderModal =
+    () => {
+
+        const modal =
+            document.getElementById(
+                "new-order-modal"
+            );
+
+
+        modal.classList.remove(
+            "hidden"
+        );
+
+
+        modal.classList.add(
+            "flex"
+        );
+
+    };
+
+
+window.closeNewOrderModal =
+    () => {
+
+        const modal =
+            document.getElementById(
+                "new-order-modal"
+            );
+
+
+        modal.classList.add(
+            "hidden"
+        );
+
+
+        modal.classList.remove(
+            "flex"
+        );
+
+    };
+
+
+
+/* =========================================================
+   MANUAL ORDER
+========================================================= */
+
+document
+    .getElementById(
+        "create-order-form"
+    )
+    .addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            const button =
+                document.getElementById(
+                    "manual-order-submit"
+                );
+
+
+            button.disabled = true;
+
+
+            button.innerHTML =
+                '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i>Saving...';
+
+
+            try {
+
+                const total =
+                    Number(
+                        document
+                            .getElementById(
+                                "order-total"
+                            )
+                            .value
+                    );
+
+
+                if (
+                    !Number.isFinite(
+                        total
+                    ) ||
+                    total < 0
+                ) {
+
+                    throw new Error(
+                        "Enter a valid order total."
+                    );
+
+                }
+
+
+                await addDoc(
+
+                    collection(
+                        db,
+                        "orders"
+                    ),
+
+                    {
+
+                        customerName:
+                            document
+                                .getElementById(
+                                    "order-customer"
+                                )
+                                .value
+                                .trim(),
+
+
+                        surname:
+                            document
+                                .getElementById(
+                                    "order-surname"
+                                )
+                                .value
+                                .trim(),
+
+
+                        email:
+                            document
+                                .getElementById(
+                                    "order-email"
+                                )
+                                .value
+                                .trim(),
+
+
+                        phone:
+                            document
+                                .getElementById(
+                                    "order-phone"
+                                )
+                                .value
+                                .trim(),
+
+
+                        location:
+                            document
+                                .getElementById(
+                                    "order-location"
+                                )
+                                .value
+                                .trim(),
+
+
+                        items:
+                            document
+                                .getElementById(
+                                    "order-items"
+                                )
+                                .value
+                                .trim(),
+
+
+                        subtotal:
+                            total,
+
+
+                        deliveryFee:
+                            0,
+
+
+                        total:
+                            total,
+
+
+                        deliveryMethod:
+                            document
+                                .getElementById(
+                                    "order-delivery"
+                                )
+                                .value,
+
+
+                        paymentStatus:
+                            document
+                                .getElementById(
+                                    "order-payment"
+                                )
+                                .value,
+
+
+                        status:
+                            document
+                                .getElementById(
+                                    "order-status"
+                                )
+                                .value,
+
+
+                        timestamp:
+                            serverTimestamp(),
+
+
+                        createdAt:
+                            serverTimestamp(),
+
+
+                        createdByAdmin:
+                            true
+
+                    }
+
+                );
+
+
+                event.target.reset();
+
+
+                closeNewOrderModal();
+
+
+                alert(
+                    "Manual order created successfully."
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                alert(
+                    "Could not create order:\n\n" +
+                    error.message
+                );
+
+            }
+
+            finally {
+
+                button.disabled =
+                    false;
+
+
+                button.innerHTML =
+                    "Save Order";
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeDetails();
+
+            closeNewOrderModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
