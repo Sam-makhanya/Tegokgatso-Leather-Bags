@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>TegoKgatso Leather Bags | Timeless & Genuine</title>
-
     <meta name="description"
           content="TegoKgatso Leather Bags - premium handcrafted genuine leather bags serving customers across South Africa.">
-
+    <!-- FAVICON LOGO ICON -->
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-
     <script>
         tailwind.config = {
             theme: {
@@ -47,13 +42,11 @@
             }
         }
     </script>
-
     <style>
         .glass-nav {
             background: rgba(44,26,9,.92);
             backdrop-filter: blur(12px);
         }
-
         .hero-gradient {
             background:
                 linear-gradient(
@@ -62,12 +55,10 @@
                     rgba(44,26,9,.98) 100%
                 );
         }
-
         .modal-scroll {
             max-height: 90vh;
             overflow-y: auto;
         }
-
         .password-toggle {
             position: absolute;
             right: 12px;
@@ -76,7 +67,6 @@
             color: #734B21;
             cursor: pointer;
         }
-
         .profile-card {
             background:
                 linear-gradient(
@@ -87,162 +77,120 @@
         }
     </style>
 </head>
-
 <body class="bg-leather-50 font-sans text-leather-900 selection:bg-leather-300 selection:text-leather-900 antialiased overflow-x-hidden">
-
 <!-- TOP BAR -->
 <div class="bg-leather-900 text-leather-200 text-[10px] sm:text-xs py-2 px-3 text-center tracking-wider sm:tracking-widest uppercase font-medium border-b border-leather-800">
     ✨ Free Nationwide Express Delivery On Orders Over R2,500
 </div>
-
 <!-- NAVIGATION -->
 <nav class="sticky top-0 z-40 glass-nav border-b border-leather-800 text-leather-100">
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex items-center justify-between">
-
-        <a href="#" class="flex flex-col">
-            <span class="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-wider text-amber-gold uppercase">
-                TegoKgatso
-            </span>
-
-            <span class="text-[8px] sm:text-[10px] tracking-[0.25em] text-leather-200 font-light -mt-1 uppercase">
-                Leather Bags
-            </span>
+        <a href="#" class="flex items-center gap-3">
+            <img src="logo.jpeg" alt="TegoKgatso Logo" class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border border-amber-gold">
+            <div class="flex flex-col">
+                <span class="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-wider text-amber-gold uppercase leading-none">
+                    TegoKgatso
+                </span>
+                <span class="text-[8px] sm:text-[10px] tracking-[0.25em] text-leather-200 font-light uppercase mt-1">
+                    Leather Bags
+                </span>
+            </div>
         </a>
-
         <div class="hidden md:flex items-center space-x-8 text-xs lg:text-sm uppercase tracking-widest font-medium">
             <a href="#featured" class="hover:text-amber-gold transition">Collection</a>
             <a href="#about" class="hover:text-amber-gold transition">Our Craft</a>
             <a href="#guarantee" class="hover:text-amber-gold transition">Quality</a>
             <a href="#contact" class="hover:text-amber-gold transition">Contact</a>
         </div>
-
         <div class="flex items-center space-x-2 sm:space-x-4">
-
             <button onclick="openAccountModal()"
                     class="hidden sm:flex items-center gap-2 p-2 text-leather-200 hover:text-amber-gold transition"
                     title="Account">
-
                 <i class="fa-solid fa-user"></i>
-
                 <span id="account-label"
                       class="text-[10px] uppercase tracking-wider">
                     Account
                 </span>
             </button>
-
             <button onclick="toggleCart()"
                     class="relative p-2 text-leather-200 hover:text-amber-gold transition">
-
                 <i class="fa-solid fa-bag-shopping text-lg sm:text-xl"></i>
-
                 <span id="cart-count"
                       class="absolute top-0 right-0 bg-amber-gold text-leather-900 text-[9px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
                     0
                 </span>
             </button>
-
             <a href="https://wa.me/?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20would%20like%20to%20inquire%20about%20your%20collection."
                target="_blank"
                class="hidden lg:inline-flex items-center space-x-2 bg-amber-gold hover:bg-yellow-500 text-leather-900 px-4 py-2.5 rounded-sm font-semibold text-xs tracking-wider uppercase transition">
-
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
-
             <button onclick="toggleMobileMenu()"
                     class="md:hidden text-leather-100 p-2 hover:text-amber-gold">
-
                 <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-
             </button>
-
         </div>
     </div>
-
     <div id="mobile-menu"
          class="hidden md:hidden bg-leather-900 border-b border-leather-800 px-6 py-4 space-y-3 text-center text-xs uppercase tracking-widest font-medium">
-
         <a href="#featured"
            onclick="toggleMobileMenu()"
            class="block py-2 text-leather-200 hover:text-amber-gold">
             Collection
         </a>
-
         <a href="#about"
            onclick="toggleMobileMenu()"
            class="block py-2 text-leather-200 hover:text-amber-gold">
             Our Craft
         </a>
-
         <a href="#guarantee"
            onclick="toggleMobileMenu()"
            class="block py-2 text-leather-200 hover:text-amber-gold">
             Quality
         </a>
-
         <button onclick="openAccountModal();toggleMobileMenu()"
                 class="block w-full text-leather-200 py-2">
             My Account
         </button>
-
     </div>
 </nav>
-
 <!-- HERO -->
 <section class="relative min-h-[75vh] sm:min-h-[85vh] flex items-center justify-center bg-leather-900 overflow-hidden">
-
     <div class="absolute inset-0 z-0">
-
         <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
              alt="TegoKgatso Leather Bag"
              class="w-full h-full object-cover object-center opacity-30 scale-105">
-
         <div class="hero-gradient absolute inset-0"></div>
-
     </div>
-
     <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 py-12 sm:py-20">
-
         <div class="inline-block border border-amber-gold/40 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6">
-
             <p class="text-amber-gold text-[10px] sm:text-xs tracking-[0.2em] uppercase font-semibold">
                 Master Artisanship
             </p>
-
         </div>
-
         <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl text-leather-50 font-bold tracking-tight mb-4 sm:mb-6 leading-tight">
             TIMELESS & GENUINE
         </h1>
-
         <p class="text-leather-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed">
             Handcrafted premium full-grain leather bags engineered for executives,
             travelers, and style connoisseurs. Built to age gracefully and last a lifetime.
         </p>
-
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-
             <a href="#featured"
                class="w-full sm:w-auto bg-amber-gold hover:bg-yellow-500 text-leather-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-bold text-xs tracking-[0.15em] uppercase transition shadow-lg">
                 Explore Collection
             </a>
-
             <a href="#about"
                class="w-full sm:w-auto border border-leather-200 text-leather-100 hover:bg-leather-100/10 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-semibold text-xs tracking-[0.15em] uppercase transition">
                 Discover Our Story
             </a>
-
         </div>
-
     </div>
 </section>
-
 <!-- FEATURES -->
 <section class="bg-leather-800 border-y border-leather-700 py-6 sm:py-8 text-leather-200">
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-
         <div class="p-2">
             <i class="fa-solid fa-shield-halved text-xl sm:text-2xl text-amber-gold mb-2"></i>
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
@@ -252,7 +200,6 @@
                 Ethically sourced hide
             </p>
         </div>
-
         <div class="p-2">
             <i class="fa-solid fa-gem text-xl sm:text-2xl text-amber-gold mb-2"></i>
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
@@ -262,7 +209,6 @@
                 Reinforced brass hardware
             </p>
         </div>
-
         <div class="p-2">
             <i class="fa-solid fa-clock-rotate-left text-xl sm:text-2xl text-amber-gold mb-2"></i>
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
@@ -272,7 +218,6 @@
                 Grows richer over time
             </p>
         </div>
-
         <div class="p-2">
             <i class="fa-solid fa-truck-fast text-xl sm:text-2xl text-amber-gold mb-2"></i>
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
@@ -282,113 +227,80 @@
                 Safe nationwide delivery
             </p>
         </div>
-
     </div>
 </section>
-
 <!-- COLLECTION -->
 <section id="featured"
          class="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-
     <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-
         <p class="text-leather-500 font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">
             Curated Handcrafts
         </p>
-
         <h2 class="font-serif text-2xl sm:text-4xl text-leather-900 font-bold uppercase tracking-wide">
             The Signature Collection
         </h2>
-
         <div class="w-12 sm:w-16 h-0.5 bg-amber-gold mx-auto mt-3 sm:mt-4"></div>
-
     </div>
-
     <div class="flex justify-center flex-wrap gap-2 mb-8 sm:mb-12">
-
         <button onclick="filterProducts('all')"
                 class="filter-btn bg-leather-900 text-leather-50 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
             All Models
         </button>
-
         <button onclick="filterProducts('backpack')"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
             Backpacks
         </button>
-
         <button onclick="filterProducts('briefcase')"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
             Briefcases & Satchels
         </button>
-
     </div>
-
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
          id="product-grid">
     </div>
-
 </section>
-
 <!-- ABOUT -->
 <section id="about"
          class="bg-leather-900 text-leather-100 py-16 sm:py-24 relative overflow-hidden">
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-
         <div class="relative">
-
             <div class="grid grid-cols-2 gap-3 sm:gap-4">
-
                 <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
                      alt="Leather Detail 1"
                      class="rounded-sm object-cover h-48 sm:h-64 w-full shadow-lg border border-leather-800">
-
                 <img src="WhatsApp Image 2026-09-09 at 16.46.51.jpeg"
                      alt="Leather Detail 2"
                      class="rounded-sm object-cover h-48 sm:h-64 w-full shadow-lg border border-leather-800 mt-4 sm:mt-8">
-
             </div>
-
             <div class="absolute -bottom-4 -left-2 bg-amber-gold text-leather-900 p-4 sm:p-6 rounded-sm font-serif shadow-xl">
-
                 <p class="text-2xl sm:text-3xl font-bold">
                     100%
                 </p>
-
                 <p class="text-[9px] sm:text-xs font-semibold uppercase tracking-widest">
                     Genuine Leather
                 </p>
-
             </div>
-
         </div>
-
         <div>
-
             <p class="text-amber-gold font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">
                 Our Philosophy
             </p>
-
             <h2 class="font-serif text-2xl sm:text-4xl font-bold text-leather-50 mb-4 sm:mb-6 leading-tight">
                 Crafted For Generations,
                 <br>
                 Not Just Seasons.
             </h2>
-
             <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 font-light">
                 At <strong>TegoKgatso Leather Bags</strong>, we believe true luxury lies
                 in authenticity and longevity. Every piece in our collection is carefully
                 cut, stitched, and finished using premium full-grain hides that develop a
                 rich patina over time.
             </p>
-
             <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 font-light">
                 From heavy-duty brass buckles to reinforced stitching and padded laptop
                 compartments, our bags combine old-world artisanship with modern functionality.
             </p>
-
             <div class="grid grid-cols-3 gap-4 sm:gap-6 border-t border-leather-800 pt-4 sm:pt-6">
-
                 <div>
                     <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
                         100%
@@ -397,7 +309,6 @@
                         Full Grain
                     </span>
                 </div>
-
                 <div>
                     <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
                         Brass
@@ -406,7 +317,6 @@
                         Hardware
                     </span>
                 </div>
-
                 <div>
                     <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
                         Lifetime
@@ -415,1069 +325,721 @@
                         Stitch Guarantee
                     </span>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </section>
-
 <!-- GUARANTEE -->
 <section id="guarantee"
          class="py-16 sm:py-20 bg-leather-100">
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-
         <p class="text-leather-500 font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">
             Customer Trust
         </p>
-
         <h2 class="font-serif text-2xl sm:text-3xl font-bold text-leather-900 uppercase tracking-wide">
             Loved By Professionals
         </h2>
-
         <div class="w-12 sm:w-16 h-0.5 bg-amber-gold mx-auto mt-3 sm:mt-4 mb-10 sm:mb-16"></div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-
             <div class="bg-white p-6 sm:p-8 rounded-sm border border-leather-200 shadow-sm text-left">
                 <div class="flex text-amber-gold mb-3 text-xs">
                     ★★★★★
                 </div>
-
                 <p class="text-xs text-leather-800 italic leading-relaxed mb-4 sm:mb-6">
                     "The leather quality on the Classic Director Briefcase is top-tier.
                     I receive compliments every time I walk into client meetings."
                 </p>
-
                 <div class="font-serif text-[11px] sm:text-xs font-bold text-leather-900 uppercase">
                     — Thabo M. | Executive
                 </div>
             </div>
-
             <div class="bg-white p-6 sm:p-8 rounded-sm border border-leather-200 shadow-sm text-left">
-
                 <div class="flex text-amber-gold mb-3 text-xs">
                     ★★★★★
                 </div>
-
                 <p class="text-xs text-leather-800 italic leading-relaxed mb-4 sm:mb-6">
                     "Bought the Heritage Backpack for daily commute and travel.
                     It holds my laptop securely and the leather smells incredible."
                 </p>
-
                 <div class="font-serif text-[11px] sm:text-xs font-bold text-leather-900 uppercase">
                     — Lerato K. | Architect
                 </div>
-
             </div>
-
             <div class="bg-white p-6 sm:p-8 rounded-sm border border-leather-200 shadow-sm text-left">
-
                 <div class="flex text-amber-gold mb-3 text-xs">
                     ★★★★★
                 </div>
-
                 <p class="text-xs text-leather-800 italic leading-relaxed mb-4 sm:mb-6">
                     "Timeless and genuine indeed. The ordering process was seamless
                     and the bag arrived safely."
                 </p>
-
                 <div class="font-serif text-[11px] sm:text-xs font-bold text-leather-900 uppercase">
                     — Sipho N. | Engineer
                 </div>
-
             </div>
-
         </div>
-
     </div>
 </section>
-
 <!-- FOOTER -->
 <footer id="contact"
         class="bg-leather-900 text-leather-200 pt-12 sm:pt-16 pb-10 border-t border-leather-800">
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
-
         <div>
-
-            <a href="#" class="flex flex-col mb-4">
-
-                <span class="font-serif text-2xl font-bold tracking-wider text-amber-gold uppercase">
-                    TegoKgatso
-                </span>
-
-                <span class="text-[9px] tracking-[0.3em] text-leather-300 font-light -mt-1 uppercase">
-                    Leather Bags
-                </span>
-
+            <a href="#" class="flex items-center gap-3 mb-4">
+                <img src="logo.jpeg" alt="TegoKgatso Logo" class="h-10 w-10 rounded-full object-cover border border-amber-gold">
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-wider text-amber-gold uppercase leading-none">
+                        TegoKgatso
+                    </span>
+                    <span class="text-[9px] tracking-[0.3em] text-leather-300 font-light uppercase mt-1">
+                        Leather Bags
+                    </span>
+                </div>
             </a>
-
             <p class="text-xs text-leather-300 leading-relaxed font-light mb-4">
                 Timeless & Genuine luxury handcrafted leather bags designed for enduring elegance.
             </p>
-
         </div>
-
         <div>
-
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
                 Quick Links
             </h4>
-
             <ul class="space-y-2 text-xs">
-
                 <li>
                     <a href="#featured" class="hover:text-amber-gold">
                         Shop All Collection
                     </a>
                 </li>
-
                 <li>
                     <a href="#about" class="hover:text-amber-gold">
                         Our Artisanship
                     </a>
                 </li>
-
                 <li>
                     <a href="#guarantee" class="hover:text-amber-gold">
                         Quality
                     </a>
                 </li>
-
             </ul>
-
         </div>
-
         <div>
-
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
                 Customer Care
             </h4>
-
             <ul class="space-y-2 text-xs">
-
                 <li>
                     <i class="fa-solid fa-truck text-amber-gold mr-2"></i>
                     Nationwide Delivery
                 </li>
-
                 <li>
                     <i class="fa-solid fa-rotate-left text-amber-gold mr-2"></i>
                     Hassle-Free Returns
                 </li>
-
                 <li>
                     <i class="fa-solid fa-shield text-amber-gold mr-2"></i>
                     Craftsmanship Warranty
                 </li>
-
             </ul>
-
         </div>
-
         <div>
-
             <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
                 Direct Support
             </h4>
-
             <p class="text-xs text-leather-300 mb-4">
                 Need help with an order? Contact TegoKgatso directly.
             </p>
-
             <a href="https://wa.me/?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20have%20an%20inquiry."
                target="_blank"
                class="inline-flex items-center gap-2 bg-amber-gold text-leather-900 px-4 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-yellow-500 transition w-full justify-center">
-
                 <i class="fa-brands fa-whatsapp"></i>
                 Connect On WhatsApp
-
             </a>
-
         </div>
-
     </div>
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-8 border-t border-leather-800 text-center text-[10px] sm:text-xs text-leather-400">
-
         <p>
             &copy; 2026 TegoKgatso Leather Bags. Timeless & Genuine. All Rights Reserved.
         </p>
-
     </div>
-
 </footer>
-
-
 <!-- CART -->
 <div id="cart-modal"
      class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
-
     <div onclick="toggleCart()"
          class="absolute inset-0 bg-black/60 backdrop-blur-sm">
     </div>
-
     <div id="cart-panel"
          class="absolute right-0 top-0 bottom-0 w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
-
         <div class="p-4 sm:p-6 bg-leather-900 text-leather-100 flex items-center justify-between">
-
             <h3 class="font-serif text-base sm:text-lg font-bold uppercase tracking-wider">
                 Your Shopping Bag
             </h3>
-
             <button onclick="toggleCart()" class="p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-
         </div>
-
         <div id="cart-items"
              class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-4">
         </div>
-
         <div class="p-4 sm:p-6 bg-leather-50 border-t border-leather-200">
-
             <div class="flex justify-between items-center mb-4">
-
                 <span class="font-serif text-sm uppercase text-leather-700">
                     Subtotal
                 </span>
-
                 <span id="cart-subtotal"
                       class="font-serif text-xl font-bold">
                     R0.00
                 </span>
-
             </div>
-
             <button onclick="beginCheckout()"
                     class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 font-bold py-3.5 rounded-sm text-xs uppercase tracking-widest transition flex items-center justify-center gap-2">
-
                 <i class="fa-solid fa-lock"></i>
                 <span>Secure Checkout</span>
-
             </button>
-
         </div>
-
     </div>
 </div>
-
-
 <!-- ACCOUNT MODAL -->
 <div id="account-modal"
      class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
-
     <div onclick="closeAccountModal()"
          class="absolute inset-0 bg-black/70 backdrop-blur-sm">
     </div>
-
     <div class="relative z-10 bg-white w-full max-w-md rounded-xl shadow-2xl modal-scroll">
-
         <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-
             <div>
-
                 <h3 class="font-serif text-lg font-bold text-amber-gold">
                     Customer Account
                 </h3>
-
                 <p class="text-xs text-leather-300">
                     Sign in, create your profile and manage your orders
                 </p>
-
             </div>
-
             <button onclick="closeAccountModal()">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-
         </div>
-
         <div class="p-6">
-
             <!-- CUSTOMER AUTH TABS -->
             <div id="auth-tabs"
                  class="grid grid-cols-2 gap-2 mb-5">
-
                 <button id="signin-tab"
                         onclick="showAuthTab('signin')"
                         class="py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold">
                     Sign In
                 </button>
-
                 <button id="signup-tab"
                         onclick="showAuthTab('signup')"
                         class="py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold">
                     Sign Up
                 </button>
-
             </div>
-
-
             <!-- SIGN IN -->
             <form id="signin-form"
                   class="space-y-3">
-
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-user text-xl text-leather-700"></i>
-
                     </div>
-
                     <h4 class="font-serif font-bold text-lg">
                         Customer Sign In
                     </h4>
-
                     <p class="text-xs text-leather-500 mt-1">
                         Sign in to purchase products and manage your orders.
                     </p>
-
                 </div>
-
                 <input id="signin-email"
                        type="email"
                        required
                        placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <div class="relative">
-
                     <input id="signin-password"
                            type="password"
                            required
                            placeholder="Password"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-
                     <button type="button"
                             onclick="togglePasswordVisibility('signin-password','signin-eye')"
                             class="password-toggle">
-
                         <i id="signin-eye"
                            class="fa-solid fa-eye">
                         </i>
-
                     </button>
-
                 </div>
-
                 <button type="button"
                         onclick="showPasswordReset()"
                         class="text-xs text-leather-700 hover:text-amber-700 underline">
                     Forgot Password?
                 </button>
-
                 <div id="signin-error"
                      class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
                 </div>
-
                 <button id="signin-btn"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
                     Sign In
                 </button>
-
             </form>
-
-
             <!-- PASSWORD RESET -->
             <form id="reset-form"
                   class="hidden space-y-3">
-
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-key text-xl text-leather-700"></i>
-
                     </div>
-
                     <h4 class="font-serif font-bold text-lg">
                         Reset Your Password
                     </h4>
-
                     <p class="text-xs text-leather-500 mt-1">
                         Enter your email and we will send you a password reset link.
                     </p>
-
                 </div>
-
                 <input id="reset-email"
                        type="email"
                        required
                        placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <div id="reset-message"
                      class="hidden text-xs p-3 rounded">
                 </div>
-
                 <button type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
                     Send Reset Link
                 </button>
-
                 <button type="button"
                         onclick="showAuthTab('signin')"
                         class="w-full border border-leather-200 py-3 rounded-lg text-xs font-bold uppercase">
                     Back To Sign In
                 </button>
-
             </form>
-
-
             <!-- SIGN UP -->
             <form id="signup-form"
                   class="hidden space-y-3">
-
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-user-plus text-xl text-leather-700"></i>
-
                     </div>
-
                     <h4 class="font-serif font-bold text-lg">
                         Create Your Account
                     </h4>
-
                     <p class="text-xs text-leather-500 mt-1">
                         Your information will be securely saved to your customer profile.
                     </p>
-
                 </div>
-
                 <div class="grid grid-cols-2 gap-3">
-
                     <input id="signup-first"
                            required
                            placeholder="First name"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                     <input id="signup-surname"
                            required
                            placeholder="Surname"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
-
                 <input id="signup-email"
                        type="email"
                        required
                        placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <input id="signup-phone"
                        required
                        placeholder="Contact number"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <input id="signup-location"
                        required
                        placeholder="Location / suburb"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <div class="grid grid-cols-2 gap-3">
-
                     <input id="signup-city"
                            required
                            placeholder="City / Town"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                     <input id="signup-province"
                            required
                            placeholder="Province"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
-
                 <div class="relative">
-
                     <input id="signup-password"
                            type="password"
                            minlength="6"
                            required
                            placeholder="Password (min 6 characters)"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-
                     <button type="button"
                             onclick="togglePasswordVisibility('signup-password','signup-eye')"
                             class="password-toggle">
-
                         <i id="signup-eye"
                            class="fa-solid fa-eye">
                         </i>
-
                     </button>
-
                 </div>
-
                 <div id="signup-error"
                      class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
                 </div>
-
                 <button id="signup-btn"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
                     Create Account
                 </button>
-
             </form>
-
-
             <!-- ====================================================
                  ADMIN SIGN IN
             ===================================================== -->
             <div id="admin-login-panel"
                  class="hidden space-y-4">
-
                 <div class="text-center mb-5">
-
                     <div class="w-16 h-16 mx-auto rounded-full bg-leather-900 text-amber-gold flex items-center justify-center text-2xl mb-3">
-
                         <i class="fa-solid fa-shield-halved"></i>
-
                     </div>
-
                     <h4 class="font-serif font-bold text-lg text-leather-900">
                         Admin Sign In
                     </h4>
-
                     <p class="text-xs text-leather-500 mt-1">
                         Authorised TegoKgatso administrators only.
                     </p>
-
                 </div>
-
-
                 <form id="admin-login-form"
                       class="space-y-3">
-
                     <input id="admin-email"
                            type="email"
                            required
                            placeholder="Admin email address"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                     <div class="relative">
-
                         <input id="admin-password"
                                type="password"
                                required
                                placeholder="Admin password"
                                class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-
                         <button type="button"
                                 onclick="togglePasswordVisibility('admin-password','admin-eye')"
                                 class="password-toggle">
-
                             <i id="admin-eye"
                                class="fa-solid fa-eye">
                             </i>
-
                         </button>
-
                     </div>
-
                     <div id="admin-login-error"
                          class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
                     </div>
-
                     <button id="admin-login-btn"
                             type="submit"
                             class="w-full bg-leather-900 hover:bg-leather-800 text-white py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition">
-
                         <i class="fa-solid fa-lock mr-2"></i>
                         Admin Sign In
-
                     </button>
-
                 </form>
-
-
                 <button type="button"
                         onclick="showCustomerSignIn()"
                         class="w-full border border-leather-200 text-leather-800 py-3 rounded-lg text-xs font-bold uppercase hover:bg-leather-50 transition">
-
                     <i class="fa-solid fa-arrow-left mr-2"></i>
                     Back To Customer Sign In
-
                 </button>
-
             </div>
-
-
             <!-- ====================================================
                  ADMIN SIGN IN LINK
                  ONLY VISIBLE BEFORE CUSTOMER LOGIN
             ===================================================== -->
             <div id="admin-login-link"
                  class="mt-6 pt-5 border-t border-leather-100">
-
                 <button type="button"
                         onclick="openAdminLogin()"
                         class="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-leather-600 hover:text-leather-900 transition">
-
                     <i class="fa-solid fa-shield-halved"></i>
                     Admin Sign In
-
                 </button>
-
             </div>
-
-
             <!-- LOGGED IN CUSTOMER ACCOUNT -->
             <div id="account-logged-in"
                  class="hidden space-y-4">
-
                 <div class="profile-card border border-leather-200 rounded-xl p-5">
-
                     <div class="text-center">
-
                         <div class="w-16 h-16 mx-auto rounded-full bg-leather-900 text-amber-gold flex items-center justify-center text-2xl mb-3">
-
                             <i class="fa-solid fa-user"></i>
-
                         </div>
-
                         <h4 id="account-name"
                             class="font-serif font-bold text-lg">
                         </h4>
-
                         <p id="account-email"
                            class="text-xs text-leather-500">
                         </p>
-
                     </div>
-
-
                     <!-- VERIFICATION STATUS -->
                     <div id="verification-box"
                          class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200">
-
                         <div class="flex gap-3">
-
                             <i id="verification-icon"
                                class="fa-solid fa-envelope text-amber-700 mt-1">
                             </i>
-
                             <div class="flex-grow">
-
                                 <p id="verification-title"
                                    class="font-bold text-xs text-leather-900">
                                     Verify your email
                                 </p>
-
                                 <p id="verification-text"
                                    class="text-[11px] text-leather-700 mt-1">
                                     We have sent a verification email to your email address.
                                     You can continue shopping while waiting.
                                 </p>
-
                             </div>
-
                         </div>
-
                         <div class="grid grid-cols-2 gap-2 mt-3">
-
                             <button onclick="resendVerificationEmail()"
                                     class="bg-leather-900 text-white py-2 rounded text-[10px] uppercase font-bold">
                                 Resend
                             </button>
-
                             <button onclick="checkEmailVerification(true)"
                                     class="border border-leather-300 text-leather-800 py-2 rounded text-[10px] uppercase font-bold">
                                 Check Now
                             </button>
-
                         </div>
-
                     </div>
-
-
                     <!-- PROFILE -->
                     <div class="mt-5">
-
                         <h5 class="font-serif font-bold text-sm mb-3">
                             My Profile
                         </h5>
-
                         <div class="space-y-2 text-xs">
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">First Name</span>
                                 <strong id="profile-first"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Surname</span>
                                 <strong id="profile-surname"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Phone</span>
                                 <strong id="profile-phone"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Location</span>
                                 <strong id="profile-location"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">City</span>
                                 <strong id="profile-city"></strong>
                             </div>
-
                             <div class="flex justify-between">
                                 <span class="text-leather-500">Province</span>
                                 <strong id="profile-province"></strong>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-
                 <!--
                     IMPORTANT:
                     There is intentionally NO ADMIN PORTAL button here.
                     Customers should never see the admin portal after signing in.
                 -->
-
-
                 <button onclick="signOutCustomer()"
                         class="w-full border border-red-200 text-red-700 py-3 rounded-lg text-xs font-bold uppercase">
                     Sign Out
                 </button>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
-
 <!-- CHECKOUT MODAL -->
 <div id="checkout-modal"
      class="fixed inset-0 z-[70] hidden items-center justify-center p-4">
-
     <div onclick="closeCheckoutModal()"
          class="absolute inset-0 bg-black/70 backdrop-blur-sm">
     </div>
-
     <div class="relative z-10 bg-white w-full max-w-2xl rounded-xl shadow-2xl modal-scroll">
-
         <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-
             <div>
-
                 <h3 class="font-serif text-lg font-bold text-amber-gold">
                     Complete Your Order
                 </h3>
-
                 <p class="text-xs text-leather-300">
                     Choose how you would like to receive your parcel
                 </p>
-
             </div>
-
             <button onclick="closeCheckoutModal()">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-
         </div>
-
         <form id="checkout-form"
               class="p-6 space-y-5">
-
             <div class="bg-leather-50 border border-leather-200 rounded-lg p-4">
-
                 <p class="text-[10px] uppercase tracking-wider text-leather-500 font-bold mb-2">
                     Customer
                 </p>
-
                 <div id="checkout-customer"
                      class="text-sm font-semibold">
                 </div>
-
                 <div id="checkout-customer-contact"
                      class="text-xs text-leather-500 mt-1">
                 </div>
-
             </div>
-
-
             <div>
-
                 <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">
                     Receiving Method
                 </label>
-
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
                         <input type="radio"
                                name="deliveryMethod"
                                value="Courier Delivery"
                                checked
                                onchange="toggleDeliveryFields()">
-
                         <i class="fa-solid fa-truck text-amber-gold ml-1"></i>
-
                         <span class="font-semibold text-xs">
                             Courier Delivery
                         </span>
-
                         <p class="text-[10px] text-leather-500 mt-1">
                             Delivered to your address
                         </p>
-
                     </label>
-
-
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
                         <input type="radio"
                                name="deliveryMethod"
                                value="Collection"
                                onchange="toggleDeliveryFields()">
-
                         <i class="fa-solid fa-store text-amber-gold ml-1"></i>
-
                         <span class="font-semibold text-xs">
                             Collection
                         </span>
-
                         <p class="text-[10px] text-leather-500 mt-1">
                             Collect in person
                         </p>
-
                     </label>
-
-
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
                         <input type="radio"
                                name="deliveryMethod"
                                value="Other / Arrange"
                                onchange="toggleDeliveryFields()">
-
                         <i class="fa-solid fa-comments text-amber-gold ml-1"></i>
-
                         <span class="font-semibold text-xs">
                             Other
                         </span>
-
                         <p class="text-[10px] text-leather-500 mt-1">
                             Arrange with TegoKgatso
                         </p>
-
                     </label>
-
                 </div>
-
             </div>
-
-
             <div id="delivery-fields"
                  class="space-y-3">
-
                 <p class="text-xs font-bold uppercase tracking-wider text-leather-700">
                     Delivery Address
                 </p>
-
                 <input id="address-line1"
                        required
                        placeholder="Street address / house number"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <input id="address-suburb"
                        required
                        placeholder="Suburb"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 <div class="grid grid-cols-2 gap-3">
-
                     <input id="address-city"
                            required
                            placeholder="City / Town"
                            class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                     <input id="address-postal"
                            required
                            placeholder="Postal code"
                            class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
-
                 <input id="address-province"
                        required
                        placeholder="Province"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
             </div>
-
-
             <div>
-
                 <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">
                     Order Notes (optional)
                 </label>
-
                 <textarea id="order-notes"
                           rows="3"
                           placeholder="Anything we should know?"
                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm"></textarea>
-
             </div>
-
-
             <div class="bg-leather-900 text-white rounded-lg p-5">
-
                 <div id="checkout-summary"
                      class="space-y-2 text-xs">
                 </div>
-
                 <div class="border-t border-leather-700 mt-3 pt-3 flex justify-between font-bold">
-
                     <span>Total</span>
-
                     <span id="checkout-total"
                           class="text-amber-gold text-lg">
                     </span>
-
                 </div>
-
             </div>
-
-
             <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-leather-700">
-
                 <i class="fa-solid fa-circle-info text-amber-gold mr-1"></i>
-
                 Your order will be securely recorded.
-
                 Payment status starts as
                 <strong>Awaiting Payment</strong>.
-
                 TegoKgatso will contact you with payment instructions.
-
             </div>
-
-
             <div id="checkout-error"
                  class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
             </div>
-
-
             <button id="place-order-btn"
                     type="submit"
                     class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 py-3.5 rounded-lg font-bold text-xs uppercase tracking-widest">
-
                 <i class="fa-solid fa-check mr-2"></i>
-
                 Place Order
-
             </button>
-
         </form>
-
     </div>
 </div>
-
-
 <!-- ORDER SUCCESS -->
 <div id="success-modal"
      class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
-
     <div class="absolute inset-0 bg-black/70"></div>
-
     <div class="relative bg-white w-full max-w-md rounded-xl shadow-2xl p-8 text-center">
-
         <div class="w-16 h-16 mx-auto rounded-full bg-green-100 text-green-700 flex items-center justify-center text-2xl mb-4">
-
             <i class="fa-solid fa-check"></i>
-
         </div>
-
         <h3 class="font-serif text-xl font-bold text-leather-900">
             Order Received
         </h3>
-
         <p class="text-sm text-leather-600 mt-2">
             Thank you. Your order has been successfully received by TegoKgatso Leather Bags.
         </p>
-
         <p class="text-xs text-leather-500 mt-4">
             Order reference
         </p>
-
         <p id="success-order-id"
            class="font-mono font-bold text-leather-900 mt-1">
         </p>
-
         <p class="text-xs text-leather-500 mt-4">
             An email confirmation will be sent to your email address.
         </p>
-
         <button onclick="closeSuccessModal()"
                 class="mt-6 w-full bg-leather-900 text-white py-3 rounded-lg text-xs font-bold uppercase">
             Continue Shopping
         </button>
-
     </div>
 </div>
-
-
 <!-- TOAST -->
 <div id="toast"
      class="fixed bottom-5 right-5 z-[100] hidden">
-
     <div id="toast-inner"
          class="bg-leather-900 text-white px-5 py-4 rounded-lg shadow-2xl max-w-sm">
-
         <div class="flex gap-3">
-
             <i id="toast-icon"
                class="fa-solid fa-check text-amber-gold mt-1">
             </i>
-
             <div>
-
                 <p id="toast-title"
                    class="font-bold text-sm">
                 </p>
-
                 <p id="toast-message"
                    class="text-xs text-leather-200 mt-1">
                 </p>
-
             </div>
-
         </div>
-
     </div>
 </div>
-
-
 <script type="module">
-
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-
-
 import {
     getAuth,
     createUserWithEmailAndPassword,
@@ -1489,8 +1051,6 @@ import {
     sendPasswordResetEmail,
     reload
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-
 import {
     getFirestore,
     doc,
@@ -1499,2228 +1059,1469 @@ import {
     addDoc,
     collection,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-
-/* ============================================================
-   FIREBASE CONFIGURATION
-============================================================ */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA3yTdx__mL8JxJZqETU7C-R2pK5mKDBKU",
-    authDomain: "tegokgatso-leather-bags.firebaseapp.com",
-    projectId: "tegokgatso-leather-bags",
-    storageBucket: "tegokgatso-leather-bags.firebasestorage.app",
-    messagingSenderId: "715889522973",
-    appId: "1:715889522973:web:f49ae557ae469ff58449f4",
-    measurementId: "G-4PPZNHMRR4"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-
-/* ============================================================
-   STATE
-============================================================ */
-
-let currentUser = null;
-
-let currentProfile = null;
-
-let previousEmailVerified = false;
-
-let verificationTimer = null;
-
-let cart = JSON.parse(
-    localStorage.getItem("tegokgatso_cart") || "[]"
-);
-
-
-/* ============================================================
-   PRODUCTS
-============================================================ */
-
-const products = [
-
-    [
-        "Heritage Dual-Buckle Backpack",
-        2450,
-        "WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg",
-        "backpack",
-        "Cognac Tan • Full Grain",
-        "Featuring reinforced front flap buckles, zipped utility compartment, and heavy-duty brass hardware.",
-        "Bestseller"
-    ],
-
-    [
-        "Executive Distressed Backpack",
-        2650,
-        "WhatsApp Image 2026-09-09 at 16.46.50.jpeg",
-        "backpack",
-        "Dark Espresso • Distressed",
-        "Deep brown rich textured leather built with quick-access dual zipped front compartments and padded straps.",
-        ""
-    ],
-
-    [
-        "Minimalist Urban Backpack",
-        2200,
-        "WhatsApp Image 2026-09-09 at 16.46.51 (1).jpeg",
-        "backpack",
-        "Honey Tan • Smooth Finish",
-        "Sleek, modern silhouette featuring concealed vertical zipped side pockets and ultra-smooth finishing.",
-        ""
-    ],
-
-    [
-        "Classic Director Briefcase",
-        2890,
-        "WhatsApp Image 2026-09-09 at 16.46.51.jpeg",
-        "briefcase",
-        "Vintage Brown • Double Pocket",
-        "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.",
-        "Executive Pick"
-    ],
-
-    [
-        "Mocha Sovereign Backpack",
-        2550,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (1).jpeg",
-        "backpack",
-        "Mocha Brown • Structured",
-        "Clean curved silhouette crafted with high-grade brass hardware and padded laptop sleeve.",
-        ""
-    ],
-
-    [
-        "Voyager Flap Backpack",
-        2750,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (2).jpeg",
-        "backpack",
-        "Chestnut Amber • Heavy Duty",
-        "Spacious interior layout with top zipper flap and dual front straps secured by authentic brass buckles.",
-        ""
-    ],
-
-    [
-        "Artisan Single-Buckle Satchel",
-        2350,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (3).jpeg",
-        "backpack",
-        "Caramel Tan • Single Buckle",
-        "Elegant top-handle design with a center flap closure and quick-access back storage pocket.",
-        ""
-    ],
-
-    [
-        "Sovereign Flap Messenger",
-        2950,
-        "WhatsApp Image 2026-09-09 at 16.46.53 (1).jpeg",
-        "briefcase",
-        "Mahogany Brown • Messenger",
-        "Professional horizontal laptop bag featuring dual buckle closure, leather carry handles, and shoulder strap.",
-        ""
-    ],
-
-    [
-        "Executive Commuter Backpack",
-        2400,
-        "WhatsApp Image 2026-09-09 at 16.46.53 (2).jpeg",
-        "backpack",
-        "Warm Tan • Zipper Shield",
-        "Ultra-slim laptop backpack built with smooth double zippers and padded leather top grab handle.",
-        ""
-    ]
-
-];
-
-
-/* ============================================================
-   HELPERS
-============================================================ */
-
-function money(n) {
-
-    return "R" + Number(n || 0).toLocaleString(
-        "en-ZA",
-        {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        }
-    );
-
-}
-
-
-function esc(s) {
-
-    return String(s ?? "").replace(
-        /[&<>"']/g,
-        m => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#039;"
-        }[m])
-    );
-
-}
-
-
-function showToast(title, message, success = true) {
-
-    const toast = document.getElementById("toast");
-
-    document.getElementById("toast-title").innerText = title;
-
-    document.getElementById("toast-message").innerText = message;
-
-    document.getElementById("toast-icon").className =
-        success
-        ? "fa-solid fa-check text-amber-gold mt-1"
-        : "fa-solid fa-circle-exclamation text-red-400 mt-1";
-
-    toast.classList.remove("hidden");
-
-    clearTimeout(window.toastTimer);
-
-    window.toastTimer = setTimeout(() => {
-        toast.classList.add("hidden");
-    }, 6000);
-
-}
-
-
-/* ============================================================
-   PRODUCT FILTER
-============================================================ */
-
-window.filterProducts = category => {
-
-    document.querySelectorAll(".product-card").forEach(card => {
-
-        card.style.display =
-            category === "all" ||
-            card.dataset.category === category
-                ? "flex"
-                : "none";
-
-    });
-
-    document.querySelectorAll(".filter-btn").forEach(button => {
-
-        button.classList.remove(
-            "bg-leather-900",
-            "text-leather-50"
-        );
-
-    });
-
-    if (window.event?.currentTarget) {
-
-        window.event.currentTarget.classList.add(
-            "bg-leather-900",
-            "text-leather-50"
-        );
-
-    }
-
-};
-
-
-/* ============================================================
-   RENDER PRODUCTS
-============================================================ */
-
-function renderProducts() {
-
-    document.getElementById("product-grid").innerHTML =
-        products.map((p, i) => `
-
-        <div
-            class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
-            data-category="${p[3]}"
-        >
-
-            <div class="relative overflow-hidden aspect-[4/5] bg-leather-100">
-
-                <img
-                    src="${p[2]}"
-                    alt="${esc(p[0])}"
-                    class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                >
-
-                ${
-                    p[6]
-                    ? `
-                    <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
-                        ${p[6]}
-                    </div>
-                    `
-                    : ""
-                }
-
-            </div>
-
-            <div class="p-4 sm:p-6 flex flex-col flex-grow">
-
-                <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
-                    ${esc(p[4])}
-                </span>
-
-                <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
-                    ${esc(p[0])}
-                </h3>
-
-                <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
-                    ${esc(p[5])}
-                </p>
-
-                <div class="flex items-center justify-between pt-3 border-t border-leather-100 mt-auto">
-
-                    <div>
-
-                        <span class="text-[10px] text-leather-500 block">
-                            Price
-                        </span>
-
-                        <span class="font-serif text-lg font-bold">
-                            ${money(p[1])}
-                        </span>
-
-                    </div>
-
-                    <button
-                        onclick="addToCart(${i})"
-                        class="bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-3 py-2 rounded-sm text-[10px] font-semibold uppercase tracking-wider transition"
-                    >
-                        Add To Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `).join("");
-
-}
-
-
-/* ============================================================
-   CART
-============================================================ */
-
-window.addToCart = i => {
-
-    const p = products[i];
-
-    const existing = cart.find(
-        item => item.title === p[0]
-    );
-
-    if (existing) {
-
-        existing.qty++;
-
-    } else {
-
-        cart.push({
-            title: p[0],
-            price: p[1],
-            img: p[2],
-            qty: 1
-        });
-
-    }
-
-    saveCart();
-
-    updateCartUI();
-
-    toggleCart(true);
-
-};
-
-
-function saveCart() {
-
-    localStorage.setItem(
-        "tegokgatso_cart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
-function updateCartUI() {
-
-    const count = cart.reduce(
-        (total, item) => total + item.qty,
-        0
-    );
-
-    const subtotal = cart.reduce(
-        (total, item) => total + item.price * item.qty,
-        0
-    );
-
-    document.getElementById("cart-count").innerText = count;
-
-    document.getElementById("cart-subtotal").innerText =
-        money(subtotal);
-
-    document.getElementById("cart-items").innerHTML =
-        cart.length
-        ? cart.map((item, index) => `
-
-            <div class="flex gap-3 border-b border-leather-100 pb-3">
-
-                <img
-                    src="${item.img}"
-                    class="w-16 h-20 object-cover rounded"
-                >
-
-                <div class="flex-grow">
-
-                    <h4 class="font-serif text-xs font-bold">
-                        ${esc(item.title)}
-                    </h4>
-
-                    <p class="text-xs text-leather-500">
-                        ${money(item.price)} × ${item.qty}
-                    </p>
-
-                    <div class="flex gap-2 mt-2">
-
-                        <button
-                            onclick="changeQty(${index},-1)"
-                            class="px-2 border rounded"
-                        >
-                            −
-                        </button>
-
-                        <button
-                            onclick="changeQty(${index},1)"
-                            class="px-2 border rounded"
-                        >
-                            +
-                        </button>
-
-                        <button
-                            onclick="removeFromCart(${index})"
-                            class="ml-auto text-red-700 text-xs"
-                        >
-                            Remove
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        `).join("")
-        : `
-            <p class="text-center text-sm text-leather-500 py-12">
-                Your shopping bag is currently empty.
-            </p>
-        `;
-
-}
-
-
-window.changeQty = (index, delta) => {
-
-    cart[index].qty += delta;
-
-    if (cart[index].qty <= 0) {
-
-        cart.splice(index, 1);
-
-    }
-
-    saveCart();
-
-    updateCartUI();
-
-};
-
-
-window.removeFromCart = index => {
-
-    cart.splice(index, 1);
-
-    saveCart();
-
-    updateCartUI();
-
-};
-
-
-window.toggleCart = forceOpen => {
-
-    const modal = document.getElementById("cart-modal");
-
-    const panel = document.getElementById("cart-panel");
-
-    const open =
-        forceOpen ??
-        modal.classList.contains("invisible");
-
-    if (open) {
-
-        modal.classList.remove(
-            "invisible",
-            "opacity-0",
-            "pointer-events-none"
-        );
-
-        panel.classList.remove(
-            "translate-x-full"
-        );
-
-    } else {
-
-        modal.classList.add(
-            "invisible",
-            "opacity-0",
-            "pointer-events-none"
-        );
-
-        panel.classList.add(
-            "translate-x-full"
-        );
-
-    }
-
-};
-
-
-window.toggleMobileMenu = () => {
-
-    document
-        .getElementById("mobile-menu")
-        .classList.toggle("hidden");
-
-};
-
-
-/* ============================================================
-   PASSWORD VISIBILITY
-============================================================ */
-
-window.togglePasswordVisibility = (inputId, iconId) => {
-
-    const input = document.getElementById(inputId);
-
-    const icon = document.getElementById(iconId);
-
-    if (input.type === "password") {
-
-        input.type = "text";
-
-        icon.className = "fa-solid fa-eye-slash";
-
-    } else {
-
-        input.type = "password";
-
-        icon.className = "fa-solid fa-eye";
-
-    }
-
-};
-
-
-/* ============================================================
-   ACCOUNT MODAL
-============================================================ */
-
-window.openAccountModal = () => {
-
-    const modal = document.getElementById("account-modal");
-
-    modal.classList.remove("hidden");
-
-    modal.classList.add("flex");
-
-    if (currentUser) {
-
-        showLoggedInAccount();
-
-    } else {
-
-        showCustomerSignIn();
-
-    }
-
-};
-
-
-window.closeAccountModal = () => {
-
-    const modal =
-        document.getElementById("account-modal");
-
-    modal.classList.add("hidden");
-
-    modal.classList.remove("flex");
-
-};
-
-
-/* ============================================================
-   CUSTOMER AUTH TABS
-============================================================ */
-
-window.showAuthTab = tab => {
-
-    document
-        .getElementById("admin-login-panel")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-link")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("reset-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("account-logged-in")
-        .classList.add("hidden");
-
-    document
-        .getElementById("auth-tabs")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("signin-form")
-        .classList.toggle(
-            "hidden",
-            tab !== "signin"
-        );
-
-    document
-        .getElementById("signup-form")
-        .classList.toggle(
-            "hidden",
-            tab !== "signup"
-        );
-
-    document.getElementById("signin-tab").className =
-        tab === "signin"
-        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
-        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-
-    document.getElementById("signup-tab").className =
-        tab === "signup"
-        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
-        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-
-};
-
-
-/* ============================================================
-   ADMIN LOGIN SCREEN
-============================================================ */
-
-window.openAdminLogin = () => {
-
-    if (currentUser) {
-
-        showToast(
-            "Customer Account Active",
-            "Please sign out of the customer account before using Admin Sign In.",
-            false
-        );
-
-        return;
-
-    }
-
-    document
-        .getElementById("auth-tabs")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signin-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signup-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("reset-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("account-logged-in")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-link")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-panel")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("admin-login-error")
-        .classList.add("hidden");
-
-};
-
-
-window.showCustomerSignIn = () => {
-
-    document
-        .getElementById("admin-login-panel")
-        .classList.add("hidden");
-
-    document
-        .getElementById("auth-tabs")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("admin-login-link")
-        .classList.remove("hidden");
-
-    showAuthTab("signin");
-
-};
-
-
-/* ============================================================
-   CUSTOMER LOGGED-IN UI
-============================================================ */
-
-function showLoggedInAccount() {
-
-    document
-        .getElementById("auth-tabs")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signin-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signup-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("reset-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-panel")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-link")
-        .classList.add("hidden");
-
-    document
-        .getElementById("account-logged-in")
-        .classList.remove("hidden");
-
-    updateAccountUI();
-
-}
-
-
-function updateAccountUI() {
-
-    if (!currentUser) return;
-
-    const firstName =
-        currentProfile?.firstName ||
-        currentUser.displayName?.split(" ")[0] ||
-        "Customer";
-
-    const surname =
-        currentProfile?.surname ||
-        "";
-
-    document.getElementById("account-name").innerText =
-        `${firstName} ${surname}`.trim();
-
-    document.getElementById("account-email").innerText =
-        currentUser.email || "";
-
-    document.getElementById("account-label").innerText =
-        firstName || "Account";
-
-    document.getElementById("profile-first").innerText =
-        currentProfile?.firstName || "Not provided";
-
-    document.getElementById("profile-surname").innerText =
-        currentProfile?.surname || "Not provided";
-
-    document.getElementById("profile-phone").innerText =
-        currentProfile?.phone || "Not provided";
-
-    document.getElementById("profile-location").innerText =
-        currentProfile?.location || "Not provided";
-
-    document.getElementById("profile-city").innerText =
-        currentProfile?.city || "Not provided";
-
-    document.getElementById("profile-province").innerText =
-        currentProfile?.province || "Not provided";
-
-    updateVerificationUI();
-
-}
-
-
-/* ============================================================
-   FORGOT PASSWORD
-============================================================ */
-
-window.showPasswordReset = () => {
-
-    document
-        .getElementById("auth-tabs")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signin-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("signup-form")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-panel")
-        .classList.add("hidden");
-
-    document
-        .getElementById("admin-login-link")
-        .classList.add("hidden");
-
-    document
-        .getElementById("reset-form")
-        .classList.remove("hidden");
-
-    const email =
-        document.getElementById("signin-email").value.trim();
-
-    if (email) {
-
-        document.getElementById("reset-email").value =
-            email;
-
-    }
-
-};
-
-
-document
-    .getElementById("reset-form")
-    .addEventListener("submit", async e => {
-
-        e.preventDefault();
-
-        const email =
-            document
-                .getElementById("reset-email")
-                .value
-                .trim();
-
-        const box =
-            document.getElementById("reset-message");
-
-        box.classList.add("hidden");
-
-        try {
-
-            await sendPasswordResetEmail(
-                auth,
-                email
-            );
-
-            box.className =
-                "text-xs p-3 rounded bg-green-50 text-green-700 border border-green-200";
-
-            box.innerText =
-                "If an account exists for that email, a password reset link has been sent. Please check your inbox and spam folder.";
-
-            box.classList.remove("hidden");
-
-        } catch (error) {
-
-            box.className =
-                "text-xs p-3 rounded bg-red-50 text-red-700 border border-red-200";
-
-            box.innerText =
-                "We could not send the reset email. Please check the email address and try again.";
-
-            box.classList.remove("hidden");
-
-        }
-
-    });
-
-
-/* ============================================================
-   SIGN UP
-============================================================ */
-
-document
-    .getElementById("signup-form")
-    .addEventListener("submit", async e => {
-
-        e.preventDefault();
-
-        const errorBox =
-            document.getElementById("signup-error");
-
-        const button =
-            document.getElementById("signup-btn");
-
-        errorBox.classList.add("hidden");
-
-        button.disabled = true;
-
-        button.innerText = "Creating Account...";
-
-
-        const profile = {
-
-            firstName:
-                document.getElementById("signup-first")
-                .value.trim(),
-
-            surname:
-                document.getElementById("signup-surname")
-                .value.trim(),
-
-            email:
-                document.getElementById("signup-email")
-                .value.trim()
-                .toLowerCase(),
-
-            phone:
-                document.getElementById("signup-phone")
-                .value.trim(),
-
-            location:
-                document.getElementById("signup-location")
-                .value.trim(),
-
-            city:
-                document.getElementById("signup-city")
-                .value.trim(),
-
-            province:
-                document.getElementById("signup-province")
-                .value.trim(),
-
-            createdAt:
-                serverTimestamp(),
-
-            emailVerified:
-                false
-
-        };
-
-
-        try {
-
-            /* ---------------------------------------------
-               1. CREATE FIREBASE AUTH ACCOUNT
-            --------------------------------------------- */
-
-            const credential =
-                await createUserWithEmailAndPassword(
-                    auth,
-                    profile.email,
-                    document
-                        .getElementById("signup-password")
-                        .value
-                );
-
-
-            currentUser = credential.user;
-
-
-            /* ---------------------------------------------
-               2. SAVE CUSTOMER PROFILE
-            --------------------------------------------- */
-
-            try {
-
-                await setDoc(
-                    doc(db, "users", credential.user.uid),
-                    profile
-                );
-
-                currentProfile = profile;
-
-            } catch (profileError) {
-
-                console.error(
-                    "Customer profile save error:",
-                    profileError
-                );
-
-                /*
-                 * The Firebase Authentication account already exists.
-                 * We do not incorrectly tell the customer that the
-                 * entire account creation failed.
-                 */
-
-                currentProfile = profile;
-
-                showToast(
-                    "Account Created",
-                    "Your login account was created, but some profile information could not be saved. Please contact TegoKgatso if needed.",
-                    false
-                );
-
-            }
-
-
-            /* ---------------------------------------------
-               3. UPDATE FIREBASE DISPLAY NAME
-            --------------------------------------------- */
-
-            try {
-
-                await updateProfile(
-                    credential.user,
-                    {
-                        displayName:
-                            `${profile.firstName} ${profile.surname}`
-                    }
-                );
-
-            } catch (profileUpdateError) {
-
-                console.error(
-                    "Display name update error:",
-                    profileUpdateError
-                );
-
-            }
-
-
-            /* ---------------------------------------------
-               4. SEND VERIFICATION EMAIL IMMEDIATELY
-            --------------------------------------------- */
-
-            try {
-
-                await sendEmailVerification(
-                    credential.user
-                );
-
-                showToast(
-                    "Welcome to TegoKgatso",
-                    `A verification email has been sent to ${profile.email}.`,
-                    true
-                );
-
-            } catch (verificationError) {
-
-                console.error(
-                    "Verification email error:",
-                    verificationError
-                );
-
-                showToast(
-                    "Account Created",
-                    "Your account was created, but we could not send the verification email. You can resend it from your profile.",
-                    false
-                );
-
-            }
-
-
-            /* ---------------------------------------------
-               5. SHOW CUSTOMER ACCOUNT
-            --------------------------------------------- */
-
-            showLoggedInAccount();
-
-            updateAccountUI();
-
-        } catch (error) {
-
-            console.error(
-                "Registration error:",
-                error
-            );
-
-
-            if (
-                error.code ===
-                "auth/email-already-in-use"
-            ) {
-
-                errorBox.innerText =
-                    "An account with this email already exists. Please sign in instead.";
-
-            } else {
-
-                errorBox.innerText =
-                    error.message ||
-                    "We could not create your account. Please try again.";
-
-            }
-
-            errorBox.classList.remove("hidden");
-
-        } finally {
-
-            button.disabled = false;
-
-            button.innerText =
-                "Create Account";
-
-        }
-
-    });
-
-
-/* ============================================================
-   CUSTOMER SIGN IN
-============================================================ */
-
-document
-    .getElementById("signin-form")
-    .addEventListener("submit", async e => {
-
-        e.preventDefault();
-
-        const errorBox =
-            document.getElementById("signin-error");
-
-        const button =
-            document.getElementById("signin-btn");
-
-        errorBox.classList.add("hidden");
-
-        button.disabled = true;
-
-        button.innerText = "Signing In...";
-
-
-        try {
-
-            await signInWithEmailAndPassword(
-                auth,
-                document.getElementById("signin-email").value.trim(),
-                document.getElementById("signin-password").value
-            );
-
-            closeAccountModal();
-
-        } catch (error) {
-
-            console.error(error);
-
-            errorBox.innerText =
-                "Sign in failed. Please check your email and password.";
-
-            errorBox.classList.remove("hidden");
-
-        } finally {
-
-            button.disabled = false;
-
-            button.innerText = "Sign In";
-
-        }
-
-    });
-
-
-/* ============================================================
-   ADMIN SIGN IN
-============================================================ */
-
-document
-    .getElementById("admin-login-form")
-    .addEventListener("submit", async e => {
-
-        e.preventDefault();
-
-        const errorBox =
-            document.getElementById("admin-login-error");
-
-        const button =
-            document.getElementById("admin-login-btn");
-
-        errorBox.classList.add("hidden");
-
-        button.disabled = true;
-
-        button.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Checking Access...';
-
-
-        const email =
-            document
-                .getElementById("admin-email")
-                .value
-                .trim();
-
-        const password =
-            document
-                .getElementById("admin-password")
-                .value;
-
-
-        try {
-
-            /*
-             * Authenticate with Firebase first.
-             */
-
-            const credential =
-                await signInWithEmailAndPassword(
-                    auth,
-                    email,
-                    password
-                );
-
-
-            /*
-             * Now check whether this authenticated Firebase UID
-             * exists inside the admins collection and has role=admin.
-             */
-
-            const adminSnapshot =
-                await getDoc(
-                    doc(
-                        db,
-                        "admins",
-                        credential.user.uid
-                    )
-                );
-
-
-            if (
-                !adminSnapshot.exists() ||
-                adminSnapshot.data().role !== "admin"
-            ) {
-
-                /*
-                 * IMPORTANT:
-                 * This user successfully authenticated but is NOT
-                 * authorised as an administrator.
-                 */
-
-                await signOut(auth);
-
-                throw new Error(
-                    "ADMIN_NOT_AUTHORIZED"
-                );
-
-            }
-
-
-            /*
-             * Only authorised administrators reach this point.
-             */
-
-            showToast(
-                "Admin Access Granted",
-                "Opening the TegoKgatso administration portal...",
-                true
-            );
-
-
-            setTimeout(() => {
-
-                window.location.href =
-                    "admin-updated.html";
-
-            }, 500);
-
-
-        } catch (error) {
-
-            console.error(
-                "Admin login error:",
-                error
-            );
-
-
-            if (
-                error.message ===
-                "ADMIN_NOT_AUTHORIZED"
-            ) {
-
-                errorBox.innerText =
-                    "Access denied. This account is not authorised as a TegoKgatso administrator.";
-
-            } else if (
-                error.code ===
-                "auth/invalid-credential"
-            ) {
-
-                errorBox.innerText =
-                    "Invalid admin email or password.";
-
-            } else if (
-                error.code ===
-                "auth/user-not-found"
-            ) {
-
-                errorBox.innerText =
-                    "No account was found with this email address.";
-
-            } else if (
-                error.code ===
-                "auth/wrong-password"
-            ) {
-
-                errorBox.innerText =
-                    "Incorrect admin password.";
-
-            } else if (
-                error.code ===
-                "permission-denied"
-            ) {
-
-                errorBox.innerText =
-                    "Admin access could not be verified because Firestore permissions are blocking the admin check.";
-
-            } else {
-
-                errorBox.innerText =
-                    "Admin sign in failed. Please check your credentials and try again.";
-
-            }
-
-            errorBox.classList.remove("hidden");
-
-        } finally {
-
-            button.disabled = false;
-
-            button.innerHTML =
-                '<i class="fa-solid fa-lock mr-2"></i> Admin Sign In';
-
-        }
-
-    });
-
-
-/* ============================================================
-   SIGN OUT
-============================================================ */
-
-window.signOutCustomer = async () => {
-
-    if (verificationTimer) {
-
-        clearInterval(
-            verificationTimer
-        );
-
-        verificationTimer = null;
-
-    }
-
-    await signOut(auth);
-
-    closeAccountModal();
-
-    showToast(
-        "Signed Out",
-        "You have been safely signed out.",
-        true
-    );
-
-};
-
-
-/* ============================================================
-   VERIFICATION UI
-============================================================ */
-
-function updateVerificationUI() {
-
-    if (!currentUser) return;
-
-    const box =
-        document.getElementById("verification-box");
-
-    const icon =
-        document.getElementById("verification-icon");
-
-    const title =
-        document.getElementById("verification-title");
-
-    const text =
-        document.getElementById("verification-text");
-
-    if (currentUser.emailVerified) {
-
-        box.className =
-            "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
-
-        icon.className =
-            "fa-solid fa-circle-check text-green-700 mt-1";
-
-        title.innerText =
-            "Email Verified ✓";
-
-        title.className =
-            "font-bold text-xs text-green-800";
-
-        text.innerText =
-            "Your email address has been successfully verified. Your TegoKgatso customer account is fully active.";
-
-        document
-            .querySelectorAll("#verification-box button")
-            .forEach(button => button.classList.add("hidden"));
-
-    } else {
-
-        box.className =
-            "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
-
-        icon.className =
-            "fa-solid fa-envelope text-amber-700 mt-1";
-
-        title.innerText =
-            "Verify your email";
-
-        title.className =
-            "font-bold text-xs text-leather-900";
-
-        text.innerText =
-            `We sent a verification email to ${currentUser.email}. You can continue shopping without verifying first.`;
-
-        document
-            .querySelectorAll("#verification-box button")
-            .forEach(button => button.classList.remove("hidden"));
-
-    }
-
-}
-
-
-/* ============================================================
-   RESEND VERIFICATION
-============================================================ */
-
-window.resendVerificationEmail = async () => {
-
-    if (!currentUser) return;
-
-    try {
-
-        await sendEmailVerification(
-            currentUser
-        );
-
-        showToast(
-            "Verification Email Sent",
-            "Please check your inbox and spam folder.",
-            true
-        );
-
-    } catch (error) {
-
-        console.error(error);
-
-        showToast(
-            "Unable To Send",
-            "Please wait a moment before trying again.",
-            false
-        );
-
-    }
-
-};
-
-
-/* ============================================================
-   AUTOMATIC EMAIL VERIFICATION CHECK
-============================================================ */
-
-async function checkEmailVerification(manual = false) {
-
-    if (!currentUser) return;
-
-    try {
-
-        await reload(currentUser);
-
-        if (
-            !previousEmailVerified &&
-            currentUser.emailVerified
-        ) {
-
-            previousEmailVerified = true;
-
-            await markEmailVerified();
-
-            showToast(
-                "Email Verified ✓",
-                "Welcome! Your TegoKgatso account is now verified.",
-                true
-            );
-
-        } else if (
-            manual &&
-            currentUser.emailVerified
-        ) {
-
-            showToast(
-                "Already Verified",
-                "Your email address is already verified.",
-                true
-            );
-
-        } else if (
-            manual &&
-            !currentUser.emailVerified
-        ) {
-
-            showToast(
-                "Not Verified Yet",
-                "Please click the verification link in your email first.",
-                false
-            );
-
-        }
-
-        updateVerificationUI();
-
-    } catch (error) {
-
-        console.error(
-            "Verification check:",
-            error
-        );
-
-    }
-
-}
-
-
-/* ============================================================
-   MARK VERIFIED + REQUEST WELCOME EMAIL
-============================================================ */
-
-async function markEmailVerified() {
-
-    if (!currentUser) return;
-
-    try {
-
-        /*
-         * Save verification status to customer profile.
-         */
-
-        await setDoc(
-            doc(db, "users", currentUser.uid),
-            {
-                emailVerified: true,
-                emailVerifiedAt: serverTimestamp()
-            },
-            {
-                merge: true
-            }
-        );
-
-
-        /*
-         * Create deterministic welcome-email request.
-         */
-
-        await setDoc(
-            doc(
-                db,
-                "welcomeRequests",
-                currentUser.uid
-            ),
-            {
-                uid: currentUser.uid,
-                email: currentUser.email,
-                firstName:
-                    currentProfile?.firstName ||
-                    currentUser.displayName ||
-                    "Customer",
-                requestedAt:
-                    serverTimestamp()
-            },
-            {
-                merge: false
-            }
-        );
-
-
-        if (currentProfile) {
-
-            currentProfile.emailVerified = true;
-
-        }
-
-        updateAccountUI();
-
-    } catch (error) {
-
-        /*
-         * If the welcome request already exists, do not
-         * create another one.
-         */
-
-        if (
-            error.code !==
-            "already-exists"
-        ) {
-
-            console.error(
-                "Welcome email request error:",
-                error
-            );
-
-        }
-
-    }
-
-}
-
-
-/* ============================================================
-   AUTH STATE
-============================================================ */
-
-onAuthStateChanged(
-    auth,
-    async user => {
-
-        currentUser = user;
-
-        if (!user) {
-
-            currentProfile = null;
-
-            previousEmailVerified = false;
-
-            document.getElementById(
-                "account-label"
-            ).innerText = "Account";
-
-            if (verificationTimer) {
-
-                clearInterval(
-                    verificationTimer
-                );
-
-                verificationTimer = null;
-
-            }
-
-            return;
-
-        }
-
-
-        try {
-
-            const snapshot =
-                await getDoc(
-                    doc(
-                        db,
-                        "users",
-                        user.uid
-                    )
-                );
-
-            if (snapshot.exists()) {
-
-                currentProfile =
-                    snapshot.data();
-
-            } else {
-
-                currentProfile = {
-
-                    firstName:
-                        user.displayName || "",
-
-                    surname: "",
-
-                    email:
-                        user.email || "",
-
-                    phone: "",
-
-                    location: "",
-
-                    city: "",
-
-                    province: "",
-
-                    emailVerified:
-                        user.emailVerified
-
-                };
-
-            }
-
-
-            previousEmailVerified =
-                user.emailVerified;
-
-
-            updateAccountUI();
-
-
-            if (verificationTimer) {
-
-                clearInterval(
-                    verificationTimer
-                );
-
-            }
-
-            verificationTimer =
-                setInterval(
-                    () => checkEmailVerification(false),
-                    5000
-                );
-
-
-            if (user.emailVerified) {
-
-                try {
-
-                    await setDoc(
-                        doc(
-                            db,
-                            "users",
-                            user.uid
-                        ),
-                        {
-                            emailVerified: true
-                        },
-                        {
-                            merge: true
-                        }
-                    );
-
-                } catch (error) {
-
-                    console.error(
-                        "Profile verification update:",
-                        error
-                    );
-
-                }
-
-            }
-
-        } catch (error) {
-
-            console.error(
-                "Loading customer profile:",
-                error
-            );
-
-            currentProfile = {
-                firstName:
-                    user.displayName || "",
-                email:
-                    user.email || ""
-            };
-
-            updateAccountUI();
-
-        }
-
-    }
-);
-
-
-/* ============================================================
-   CHECKOUT
-============================================================ */
-
-window.beginCheckout = () => {
-
-    if (!cart.length) {
-
-        alert(
-            "Your shopping bag is empty!"
-        );
-
-        return;
-
-    }
-
-
-    if (!currentUser) {
-
-        toggleCart(false);
-
-        showAuthTab("signin");
-
-        openAccountModal();
-
-        return;
-
-    }
-
-
-    openCheckoutModal();
-
-};
-
-
-function openCheckoutModal() {
-
-    const first =
-        currentProfile?.firstName || "";
-
-    const surname =
-        currentProfile?.surname || "";
-
-    document.getElementById(
-        "checkout-customer"
-    ).innerText =
-        `${first} ${surname}`.trim();
-
-
-    document.getElementById(
-        "checkout-customer-contact"
-    ).innerText =
-        `${currentProfile?.email || currentUser.email || ""} • ${currentProfile?.phone || ""} • ${currentProfile?.location || ""}`;
-
-
-    document.getElementById(
-        "checkout-summary"
-    ).innerHTML =
-        cart.map(item => `
-
-            <div class="flex justify-between">
-
-                <span>
-                    ${esc(item.title)} × ${item.qty}
-                </span>
-
-                <span>
-                    ${money(item.price * item.qty)}
-                </span>
-
-            </div>
-
-        `).join("");
-
-
-    document.getElementById(
-        "checkout-total"
-    ).innerText =
-        money(
-            cart.reduce(
-                (total, item) =>
-                    total + item.price * item.qty,
-                0
-            )
-        );
-
-
-    document
-        .getElementById("checkout-modal")
-        .classList.remove("hidden");
-
-    document
-        .getElementById("checkout-modal")
-        .classList.add("flex");
-
-
-    toggleCart(false);
-
-    toggleDeliveryFields();
-
-}
-
-
-window.closeCheckoutModal = () => {
-
-    const modal =
-        document.getElementById(
-            "checkout-modal"
-        );
-
-    modal.classList.add("hidden");
-
-    modal.classList.remove("flex");
-
-};
-
-
-window.toggleDeliveryFields = () => {
-
-    const method =
-        document.querySelector(
-            'input[name="deliveryMethod"]:checked'
-        ).value;
-
-    const box =
-        document.getElementById(
-            "delivery-fields"
-        );
-
-    const required =
-        method === "Courier Delivery";
-
-    box.classList.toggle(
-        "hidden",
-        !required
-    );
-
-    box.querySelectorAll(
-        "input"
-    ).forEach(input => {
-
-        input.required = required;
-
-    });
-
-};
-
-
-/* ============================================================
-   CREATE ORDER
-============================================================ */
-
-document
-    .getElementById("checkout-form")
-    .addEventListener(
-        "submit",
-        async e => {
-
-            e.preventDefault();
-
-            const errorBox =
-                document.getElementById(
-                    "checkout-error"
-                );
-
-            const button =
-                document.getElementById(
-                    "place-order-btn"
-                );
-
-            errorBox.classList.add(
-                "hidden"
-            );
-
-
-            if (!currentUser) {
-
-                errorBox.innerText =
-                    "Please sign in again.";
-
-                errorBox.classList.remove(
-                    "hidden"
-                );
-
-                return;
-
-            }
-
-
-            const method =
-                document.querySelector(
-                    'input[name="deliveryMethod"]:checked'
-                ).value;
-
-
-            const subtotal =
-                cart.reduce(
-                    (total, item) =>
-                        total +
-                        item.price *
-                        item.qty,
-                    0
-                );
-
-
-            let address = null;
-
-
-            if (
-                method ===
-                "Courier Delivery"
-            ) {
-
-                address = {
-
-                    line1:
-                        document
-                            .getElementById(
-                                "address-line1"
-                            )
-                            .value
-                            .trim(),
-
-                    suburb:
-                        document
-                            .getElementById(
-                                "address-suburb"
-                            )
-                            .value
-                            .trim(),
-
-                    city:
-                        document
-                            .getElementById(
-                                "address-city"
-                            )
-                            .value
-                            .trim(),
-
-                    postalCode:
-                        document
-                            .getElementById(
-                                "address-postal"
-                            )
-                            .value
-                            .trim(),
-
-                    province:
-                        document
-                            .getElementById(
-                                "address-province"
-                            )
-                            .value
-                            .trim()
-
-                };
-
-            }
-
-
-            const order = {
-
-                userId:
-                    currentUser.uid,
-
-                customerName:
-                    currentProfile?.firstName ||
-                    "",
-
-                surname:
-                    currentProfile?.surname ||
-                    "",
-
-                email:
-                    currentUser.email ||
-                    currentProfile?.email ||
-                    "",
-
-                phone:
-                    currentProfile?.phone ||
-                    "",
-
-                location:
-                    currentProfile?.location ||
-                    "",
-
-                city:
-                    currentProfile?.city ||
-                    "",
-
-                province:
-                    currentProfile?.province ||
-                    "",
-
-                deliveryMethod:
-                    method,
-
-                deliveryAddress:
-                    address,
-
-                notes:
-                    document
-                        .getElementById(
-                            "order-notes"
-                        )
-                        .value
-                        .trim(),
-
-                items:
-                    cart.map(item => ({
-                        product:
-                            item.title,
-                        price:
-                            item.price,
-                        quantity:
-                            item.qty,
-                        image:
-                            item.img
-                    })),
-
-                subtotal:
-                    subtotal,
-
-                deliveryFee:
-                    0,
-
-                total:
-                    subtotal,
-
-                paymentStatus:
-                    "Awaiting Payment",
-
-                status:
-                    "Pending",
-
-                timestamp:
-                    serverTimestamp()
-
-            };
-
-
-            button.disabled = true;
-
-            button.innerText =
-                "Saving Order...";
-
-
-            try {
-
-                const orderRef =
-                    await addDoc(
-                        collection(
-                            db,
-                            "orders"
-                        ),
-                        order
-                    );
-
-
-                cart = [];
-
-                saveCart();
-
-                updateCartUI();
-
-                closeCheckoutModal();
-
-
-                document.getElementById(
-                    "success-order-id"
-                ).innerText =
-                    "#" +
-                    orderRef.id
-                        .substring(0, 8)
-                        .toUpperCase();
-
-
-                document
-                    .getElementById(
-                        "success-modal"
-                    )
-                    .classList.remove(
-                        "hidden"
-                    );
-
-                document
-                    .getElementById(
-                        "success-modal"
-                    )
-                    .classList.add(
-                        "flex"
-                    );
-
-
-                showToast(
-                    "Order Successful",
-                    "Your order has been received and is awaiting payment.",
-                    true
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    "ORDER ERROR:",
-                    error
-                );
-
-
-                errorBox.innerText =
-                    "Could not place the order: " +
-                    (
-                        error.message ||
-                        "Please try again."
-                    );
-
-
-                errorBox.classList.remove(
-                    "hidden"
-                );
-
-
-            } finally {
-
-                button.disabled = false;
-
-                button.innerHTML =
-                    '<i class="fa-solid fa-check mr-2"></i> Place Order';
-
-            }
-
-        }
-    );
-
-
-/* ============================================================
-   SUCCESS MODAL
-============================================================ */
-
-window.closeSuccessModal = () => {
-
-    const modal =
-        document.getElementById(
-            "success-modal"
-        );
-
-    modal.classList.add(
-        "hidden"
-    );
-
-    modal.classList.remove(
-        "flex"
-    );
-
-};
-
-
-/* ============================================================
-   INITIALISE
-============================================================ */
-
-renderProducts();
-
-updateCartUI();
-
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"; 
+ 
+ 
+/* ============================================================ 
+   FIREBASE CONFIGURATION 
+============================================================ */ 
+ 
+const firebaseConfig = { 
+    apiKey: "AIzaSyA3yTdx__mL8JxJZqETU7C-R2pK5mKDBKU", 
+    authDomain: "tegokgatso-leather-bags.firebaseapp.com", 
+    projectId: "tegokgatso-leather-bags", 
+    storageBucket: "tegokgatso-leather-bags.firebasestorage.app", 
+    messagingSenderId: "715889522973", 
+    appId: "1:715889522973:web:f49ae557ae469ff58449f4", 
+    measurementId: "G-4PPZNHMRR4" 
+}; 
+ 
+ 
+const app = initializeApp(firebaseConfig); 
+ 
+const auth = getAuth(app); 
+ 
+const db = getFirestore(app); 
+ 
+ 
+/* ============================================================ 
+   STATE 
+============================================================ */ 
+ 
+let currentUser = null; 
+ 
+let currentProfile = null; 
+ 
+let previousEmailVerified = false; 
+ 
+let verificationTimer = null; 
+ 
+let cart = JSON.parse( 
+    localStorage.getItem("tegokgatso_cart") || "[]" 
+); 
+ 
+ 
+/* ============================================================ 
+   PRODUCTS 
+============================================================ */ 
+ 
+const products = [ 
+ 
+    [ 
+        "Heritage Dual-Buckle Backpack", 
+        2450, 
+        "WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg", 
+        "backpack", 
+        "Cognac Tan • Full Grain", 
+        "Featuring reinforced front flap buckles, zipped utility compartment, and heavy-duty brass hardware.", 
+        "Bestseller" 
+    ], 
+ 
+    [ 
+        "Executive Distressed Backpack", 
+        2650, 
+        "WhatsApp Image 2026-09-09 at 16.46.50.jpeg", 
+        "backpack", 
+        "Dark Espresso • Distressed", 
+        "Deep brown rich textured leather built with quick-access dual zipped front compartments and padded straps.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Minimalist Urban Backpack", 
+        2200, 
+        "WhatsApp Image 2026-09-09 at 16.46.51 (1).jpeg", 
+        "backpack", 
+        "Honey Tan • Smooth Finish", 
+        "Sleek, modern silhouette featuring concealed vertical zipped side pockets and ultra-smooth finishing.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Classic Director Briefcase", 
+        2890, 
+        "WhatsApp Image 2026-09-09 at 16.46.51.jpeg", 
+        "briefcase", 
+        "Vintage Brown • Double Pocket", 
+        "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.", 
+        "Executive Pick" 
+    ], 
+ 
+    [ 
+        "Mocha Sovereign Backpack", 
+        2550, 
+        "WhatsApp Image 2026-09-09 at 16.46.52 (1).jpeg", 
+        "backpack", 
+        "Mocha Brown • Structured", 
+        "Clean curved silhouette crafted with high-grade brass hardware and padded laptop sleeve.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Voyager Flap Backpack", 
+        2750, 
+        "WhatsApp Image 2026-09-09 at 16.46.52 (2).jpeg", 
+        "backpack", 
+        "Chestnut Amber • Heavy Duty", 
+        "Spacious interior layout with top zipper flap and dual front straps secured by authentic brass buckles.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Artisan Single-Buckle Satchel", 
+        2350, 
+        "WhatsApp Image 2026-09-09 at 16.46.52 (3).jpeg", 
+        "backpack", 
+        "Caramel Tan • Single Buckle", 
+        "Elegant top-handle design with a center flap closure and quick-access back storage pocket.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Sovereign Flap Messenger", 
+        2950, 
+        "WhatsApp Image 2026-09-09 at 16.46.53 (1).jpeg", 
+        "briefcase", 
+        "Mahogany Brown • Messenger", 
+        "Professional horizontal laptop bag featuring dual buckle closure, leather carry handles, and shoulder strap.", 
+        "" 
+    ], 
+ 
+    [ 
+        "Executive Commuter Backpack", 
+        2400, 
+        "WhatsApp Image 2026-09-09 at 16.46.53 (2).jpeg", 
+        "backpack", 
+        "Warm Tan • Zipper Shield", 
+        "Ultra-slim laptop backpack built with smooth double zippers and padded leather top grab handle.", 
+        "" 
+    ] 
+ 
+]; 
+ 
+ 
+/* ============================================================ 
+   HELPERS 
+============================================================ */ 
+ 
+function money(n) { 
+ 
+    return "R" + Number(n || 0).toLocaleString( 
+        "en-ZA", 
+        { 
+            minimumFractionDigits: 2, 
+            maximumFractionDigits: 2 
+        } 
+    ); 
+ 
+} 
+ 
+ 
+function esc(s) { 
+ 
+    return String(s ?? "").replace( 
+        /[&<>"']/g, 
+        m => ({ 
+            "&": "&amp;", 
+            "<": "&lt;", 
+            ">": "&gt;", 
+            '"': "&quot;", 
+            "'": "&#039;" 
+        }[m]) 
+    ); 
+ 
+} 
+ 
+ 
+function showToast(title, message, success = true) { 
+ 
+    const toast = document.getElementById("toast"); 
+ 
+    document.getElementById("toast-title").innerText = title; 
+ 
+    document.getElementById("toast-message").innerText = message; 
+ 
+    document.getElementById("toast-icon").className = 
+        success 
+        ? "fa-solid fa-check text-amber-gold mt-1" 
+        : "fa-solid fa-circle-exclamation text-red-400 mt-1"; 
+ 
+    toast.classList.remove("hidden"); 
+ 
+    clearTimeout(window.toastTimer); 
+ 
+    window.toastTimer = setTimeout(() => { 
+        toast.classList.add("hidden"); 
+    }, 6000); 
+ 
+} 
+ 
+ 
+/* ============================================================ 
+   PRODUCT FILTER 
+============================================================ */ 
+ 
+window.filterProducts = category => { 
+ 
+    document.querySelectorAll(".product-card").forEach(card => { 
+ 
+        card.style.display = 
+            category === "all" || 
+            card.dataset.category === category 
+                ? "flex" 
+                : "none"; 
+ 
+    }); 
+ 
+    document.querySelectorAll(".filter-btn").forEach(button => { 
+ 
+        button.classList.remove( 
+            "bg-leather-900", 
+            "text-leather-50" 
+        ); 
+ 
+    }); 
+ 
+    if (window.event?.currentTarget) { 
+ 
+        window.event.currentTarget.classList.add( 
+            "bg-leather-900", 
+            "text-leather-50" 
+        ); 
+ 
+    } 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   RENDER PRODUCTS 
+============================================================ */ 
+ 
+function renderProducts() { 
+ 
+    document.getElementById("product-grid").innerHTML = 
+        products.map((p, i) => ` 
+ 
+        <div 
+            class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col" 
+            data-category="${p[3]}" 
+        > 
+ 
+            <div class="relative overflow-hidden aspect-[4/5] bg-leather-100"> 
+ 
+                <img 
+                    src="${p[2]}" 
+                    alt="${esc(p[0])}" 
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-700" 
+                > 
+ 
+                ${ 
+                    p[6] 
+                    ? ` 
+                    <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm"> 
+                        ${p[6]} 
+                    </div> 
+                    ` 
+                    : "" 
+                } 
+ 
+            </div> 
+ 
+            <div class="p-4 sm:p-6 flex flex-col flex-grow"> 
+ 
+                <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold"> 
+                    ${esc(p[4])} 
+                </span> 
+ 
+                <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2"> 
+                    ${esc(p[0])} 
+                </h3> 
+ 
+                <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow"> 
+                    ${esc(p[5])} 
+                </p> 
+ 
+                <div class="flex items-center justify-between pt-3 border-t border-leather-100 mt-auto"> 
+ 
+                    <div> 
+ 
+                        <span class="text-[10px] text-leather-500 block"> 
+                            Price 
+                        </span> 
+ 
+                        <span class="font-serif text-lg font-bold"> 
+                            ${money(p[1])} 
+                        </span> 
+ 
+                    </div> 
+ 
+                    <button 
+                        onclick="addToCart(${i})" 
+                        class="bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-3 py-2 rounded-sm text-[10px] font-semibold uppercase tracking-wider transition" 
+                    > 
+                        Add To Cart 
+                    </button> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        </div> 
+ 
+    `).join(""); 
+ 
+} 
+ 
+ 
+/* ============================================================ 
+   CART 
+============================================================ */ 
+ 
+window.addToCart = i => { 
+ 
+    const p = products[i]; 
+ 
+    const existing = cart.find( 
+        item => item.title === p[0] 
+    ); 
+ 
+    if (existing) { 
+ 
+        existing.qty++; 
+ 
+    } else { 
+ 
+        cart.push({ 
+            title: p[0], 
+            price: p[1], 
+            img: p[2], 
+            qty: 1 
+        }); 
+ 
+    } 
+ 
+    saveCart(); 
+ 
+    updateCartUI(); 
+ 
+    toggleCart(true); 
+ 
+}; 
+ 
+ 
+function saveCart() { 
+ 
+    localStorage.setItem( 
+        "tegokgatso_cart", 
+        JSON.stringify(cart) 
+    ); 
+ 
+} 
+ 
+ 
+function updateCartUI() { 
+ 
+    const count = cart.reduce( 
+        (total, item) => total + item.qty, 
+        0 
+    ); 
+ 
+    const subtotal = cart.reduce( 
+        (total, item) => total + item.price * item.qty, 
+        0 
+    ); 
+ 
+    document.getElementById("cart-count").innerText = count; 
+ 
+    document.getElementById("cart-subtotal").innerText = 
+        money(subtotal); 
+ 
+    document.getElementById("cart-items").innerHTML = 
+        cart.length 
+        ? cart.map((item, index) => ` 
+ 
+            <div class="flex gap-3 border-b border-leather-100 pb-3"> 
+ 
+                <img 
+                    src="${item.img}" 
+                    class="w-16 h-20 object-cover rounded" 
+                > 
+ 
+                <div class="flex-grow"> 
+ 
+                    <h4 class="font-serif text-xs font-bold"> 
+                        ${esc(item.title)} 
+                    </h4> 
+ 
+                    <p class="text-xs text-leather-500"> 
+                        ${money(item.price)} × ${item.qty} 
+                    </p> 
+ 
+                    <div class="flex gap-2 mt-2"> 
+ 
+                        <button 
+                            onclick="changeQty(${index},-1)" 
+                            class="px-2 border rounded" 
+                        > 
+                            − 
+                        </button> 
+ 
+                        <button 
+                            onclick="changeQty(${index},1)" 
+                            class="px-2 border rounded" 
+                        > 
+                            + 
+                        </button> 
+ 
+                        <button 
+                            onclick="removeFromCart(${index})" 
+                            class="ml-auto text-red-700 text-xs" 
+                        > 
+                            Remove 
+                        </button> 
+ 
+                    </div> 
+ 
+                </div> 
+ 
+            </div> 
+ 
+        `).join("") 
+        : ` 
+            <p class="text-center text-sm text-leather-500 py-12"> 
+                Your shopping bag is currently empty. 
+            </p> 
+        `; 
+ 
+} 
+ 
+ 
+window.changeQty = (index, delta) => { 
+ 
+    cart[index].qty += delta; 
+ 
+    if (cart[index].qty <= 0) { 
+ 
+        cart.splice(index, 1); 
+ 
+    } 
+ 
+    saveCart(); 
+ 
+    updateCartUI(); 
+ 
+}; 
+ 
+ 
+window.removeFromCart = index => { 
+ 
+    cart.splice(index, 1); 
+ 
+    saveCart(); 
+ 
+    updateCartUI(); 
+ 
+}; 
+ 
+ 
+window.toggleCart = forceOpen => { 
+ 
+    const modal = document.getElementById("cart-modal"); 
+ 
+    const panel = document.getElementById("cart-panel"); 
+ 
+    const open = 
+        forceOpen ?? 
+        modal.classList.contains("invisible"); 
+ 
+    if (open) { 
+ 
+        modal.classList.remove( 
+            "invisible", 
+            "opacity-0", 
+            "pointer-events-none" 
+        ); 
+ 
+        panel.classList.remove( 
+            "translate-x-full" 
+        ); 
+ 
+    } else { 
+ 
+        modal.classList.add( 
+            "invisible", 
+            "opacity-0", 
+            "pointer-events-none" 
+        ); 
+ 
+        panel.classList.add( 
+            "translate-x-full" 
+        ); 
+ 
+    } 
+ 
+}; 
+ 
+ 
+window.toggleMobileMenu = () => { 
+ 
+    document 
+        .getElementById("mobile-menu") 
+        .classList.toggle("hidden"); 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   PASSWORD VISIBILITY 
+============================================================ */ 
+ 
+window.togglePasswordVisibility = (inputId, iconId) => { 
+ 
+    const input = document.getElementById(inputId); 
+ 
+    const icon = document.getElementById(iconId); 
+ 
+    if (input.type === "password") { 
+ 
+        input.type = "text"; 
+ 
+        icon.className = "fa-solid fa-eye-slash"; 
+ 
+    } else { 
+ 
+        input.type = "password"; 
+ 
+        icon.className = "fa-solid fa-eye"; 
+ 
+    } 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   ACCOUNT MODAL 
+============================================================ */ 
+ 
+window.openAccountModal = () => { 
+ 
+    const modal = document.getElementById("account-modal"); 
+ 
+    modal.classList.remove("hidden"); 
+ 
+    modal.classList.add("flex"); 
+ 
+    if (currentUser) { 
+ 
+        showLoggedInAccount(); 
+ 
+    } else { 
+ 
+        showCustomerSignIn(); 
+ 
+    } 
+ 
+}; 
+ 
+ 
+window.closeAccountModal = () => { 
+ 
+    const modal = 
+        document.getElementById("account-modal"); 
+ 
+    modal.classList.add("hidden"); 
+ 
+    modal.classList.remove("flex"); 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   CUSTOMER AUTH TABS 
+============================================================ */ 
+ 
+window.showAuthTab = tab => { 
+ 
+    document 
+        .getElementById("admin-login-panel") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-link") 
+        .classList.remove("hidden"); 
+ 
+    document 
+        .getElementById("reset-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("account-logged-in") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("auth-tabs") 
+        .classList.remove("hidden"); 
+ 
+    document 
+        .getElementById("signin-form") 
+        .classList.toggle( 
+            "hidden", 
+            tab !== "signin" 
+        ); 
+ 
+    document 
+        .getElementById("signup-form") 
+        .classList.toggle( 
+            "hidden", 
+            tab !== "signup" 
+        ); 
+ 
+    document.getElementById("signin-tab").className = 
+        tab === "signin" 
+        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
+        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
+ 
+    document.getElementById("signup-tab").className = 
+        tab === "signup" 
+        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
+        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   ADMIN LOGIN SCREEN 
+============================================================ */ 
+ 
+window.openAdminLogin = () => { 
+ 
+    if (currentUser) { 
+ 
+        showToast( 
+            "Customer Account Active", 
+            "Please sign out of the customer account before using Admin Sign In.", 
+            false 
+        ); 
+ 
+        return; 
+ 
+    } 
+ 
+    document 
+        .getElementById("auth-tabs") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signin-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signup-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("reset-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("account-logged-in") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-link") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-panel") 
+        .classList.remove("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-error") 
+        .classList.add("hidden"); 
+ 
+}; 
+ 
+ 
+window.showCustomerSignIn = () => { 
+ 
+    document 
+        .getElementById("admin-login-panel") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("auth-tabs") 
+        .classList.remove("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-link") 
+        .classList.remove("hidden"); 
+ 
+    showAuthTab("signin"); 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   CUSTOMER LOGGED-IN UI 
+============================================================ */ 
+ 
+function showLoggedInAccount() { 
+ 
+    document 
+        .getElementById("auth-tabs") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signin-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signup-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("reset-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-panel") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-link") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("account-logged-in") 
+        .classList.remove("hidden"); 
+ 
+    updateAccountUI(); 
+ 
+} 
+ 
+ 
+function updateAccountUI() { 
+ 
+    if (!currentUser) return; 
+ 
+    const firstName = 
+        currentProfile?.firstName || 
+        currentUser.displayName?.split(" ")[0] || 
+        "Customer"; 
+ 
+    const surname = 
+        currentProfile?.surname || 
+        ""; 
+ 
+    document.getElementById("account-name").innerText = 
+        `${firstName} ${surname}`.trim(); 
+ 
+    document.getElementById("account-email").innerText = 
+        currentUser.email || ""; 
+ 
+    document.getElementById("account-label").innerText = 
+        firstName || "Account"; 
+ 
+    document.getElementById("profile-first").innerText = 
+        currentProfile?.firstName || "Not provided"; 
+ 
+    document.getElementById("profile-surname").innerText = 
+        currentProfile?.surname || "Not provided"; 
+ 
+    document.getElementById("profile-phone").innerText = 
+        currentProfile?.phone || "Not provided"; 
+ 
+    document.getElementById("profile-location").innerText = 
+        currentProfile?.location || "Not provided"; 
+ 
+    document.getElementById("profile-city").innerText = 
+        currentProfile?.city || "Not provided"; 
+ 
+    document.getElementById("profile-province").innerText = 
+        currentProfile?.province || "Not provided"; 
+ 
+    updateVerificationUI(); 
+ 
+} 
+ 
+ 
+/* ============================================================ 
+   FORGOT PASSWORD 
+============================================================ */ 
+ 
+window.showPasswordReset = () => { 
+ 
+    document 
+        .getElementById("auth-tabs") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signin-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("signup-form") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-panel") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("admin-login-link") 
+        .classList.add("hidden"); 
+ 
+    document 
+        .getElementById("reset-form") 
+        .classList.remove("hidden"); 
+ 
+    const email = 
+        document.getElementById("signin-email").value.trim(); 
+ 
+    if (email) { 
+ 
+        document.getElementById("reset-email").value = 
+            email; 
+ 
+    } 
+ 
+}; 
+ 
+ 
+document 
+    .getElementById("reset-form") 
+    .addEventListener("submit", async e => { 
+ 
+        e.preventDefault(); 
+ 
+        const email = 
+            document 
+                .getElementById("reset-email") 
+                .value 
+                .trim(); 
+ 
+        const box = 
+            document.getElementById("reset-message"); 
+ 
+        box.classList.add("hidden"); 
+ 
+        try { 
+ 
+            await sendPasswordResetEmail( 
+                auth, 
+                email 
+            ); 
+ 
+            box.className = 
+                "text-xs p-3 rounded bg-green-50 text-green-700 border border-green-200"; 
+ 
+            box.innerText = 
+                "If an account exists for that email, a password reset link has been sent. Please check your inbox and spam folder."; 
+ 
+            box.classList.remove("hidden"); 
+ 
+        } catch (error) { 
+ 
+            box.className = 
+                "text-xs p-3 rounded bg-red-50 text-red-700 border border-red-200"; 
+ 
+            box.innerText = 
+                "We could not send the reset email. Please check the email address and try again."; 
+ 
+            box.classList.remove("hidden"); 
+ 
+        } 
+ 
+    }); 
+ 
+ 
+/* ============================================================ 
+   SIGN UP 
+============================================================ */ 
+ 
+document 
+    .getElementById("signup-form") 
+    .addEventListener("submit", async e => { 
+ 
+        e.preventDefault(); 
+ 
+        const errorBox = 
+            document.getElementById("signup-error"); 
+ 
+        const button = 
+            document.getElementById("signup-btn"); 
+ 
+        errorBox.classList.add("hidden"); 
+ 
+        button.disabled = true; 
+ 
+        button.innerText = "Creating Account..."; 
+ 
+ 
+        const profile = { 
+ 
+            firstName: 
+                document.getElementById("signup-first") 
+                .value.trim(), 
+ 
+            surname: 
+                document.getElementById("signup-surname") 
+                .value.trim(), 
+ 
+            email: 
+                document.getElementById("signup-email") 
+                .value.trim() 
+                .toLowerCase(), 
+ 
+            phone: 
+                document.getElementById("signup-phone") 
+                .value.trim(), 
+ 
+            location: 
+                document.getElementById("signup-location") 
+                .value.trim(), 
+ 
+            city: 
+                document.getElementById("signup-city") 
+                .value.trim(), 
+ 
+            province: 
+                document.getElementById("signup-province") 
+                .value.trim(), 
+ 
+            createdAt: 
+                serverTimestamp(), 
+ 
+            emailVerified: 
+                false 
+ 
+        }; 
+ 
+ 
+        try { 
+ 
+            /* --------------------------------------------- 
+               1. CREATE FIREBASE AUTH ACCOUNT 
+            --------------------------------------------- */ 
+ 
+            const credential = 
+                await createUserWithEmailAndPassword( 
+                    auth, 
+                    profile.email, 
+                    document 
+                        .getElementById("signup-password") 
+                        .value 
+                ); 
+ 
+ 
+            currentUser = credential.user; 
+ 
+ 
+            /* --------------------------------------------- 
+               2. SAVE CUSTOMER PROFILE 
+            --------------------------------------------- */ 
+ 
+            try { 
+ 
+                await setDoc( 
+                    doc(db, "users", credential.user.uid), 
+                    profile 
+                ); 
+ 
+                currentProfile = profile; 
+ 
+            } catch (profileError) { 
+ 
+                console.error( 
+                    "Customer profile save error:", 
+                    profileError 
+                ); 
+ 
+                currentProfile = profile; 
+ 
+                showToast( 
+                    "Account Created", 
+                    "Your login account was created, but some profile information could not be saved. Please contact TegoKgatso if needed.", 
+                    false 
+                ); 
+ 
+            } 
+ 
+ 
+            /* --------------------------------------------- 
+               3. UPDATE FIREBASE DISPLAY NAME 
+            --------------------------------------------- */ 
+ 
+            try { 
+ 
+                await updateProfile( 
+                    credential.user, 
+                    { 
+                        displayName: 
+                            `${profile.firstName} ${profile.surname}` 
+                    } 
+                ); 
+ 
+            } catch (profileUpdateError) { 
+ 
+                console.error( 
+                    "Display name update error:", 
+                    profileUpdateError 
+                ); 
+ 
+            } 
+ 
+ 
+            /* --------------------------------------------- 
+               4. SEND VERIFICATION EMAIL IMMEDIATELY 
+            --------------------------------------------- */ 
+ 
+            try { 
+ 
+                await sendEmailVerification( 
+                    credential.user 
+                ); 
+ 
+                showToast( 
+                    "Welcome to TegoKgatso", 
+                    `A verification email has been sent to ${profile.email}.`, 
+                    true 
+                ); 
+ 
+            } catch (verificationError) { 
+ 
+                console.error( 
+                    "Verification email error:", 
+                    verificationError 
+                ); 
+ 
+                showToast( 
+                    "Account Created", 
+                    "Your account was created, but we could not send the verification email. You can resend it from your profile.", 
+                    false 
+                ); 
+ 
+            } 
+ 
+ 
+            /* --------------------------------------------- 
+               5. SHOW CUSTOMER ACCOUNT 
+            --------------------------------------------- */ 
+ 
+            showLoggedInAccount(); 
+ 
+            updateAccountUI(); 
+ 
+        } catch (error) { 
+ 
+            console.error( 
+                "Registration error:", 
+                error 
+            ); 
+ 
+ 
+            if ( 
+                error.code === 
+                "auth/email-already-in-use" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "An account with this email already exists. Please sign in instead."; 
+ 
+            } else { 
+ 
+                errorBox.innerText = 
+                    error.message || 
+                    "We could not create your account. Please try again."; 
+ 
+            } 
+ 
+            errorBox.classList.remove("hidden"); 
+ 
+        } finally { 
+ 
+            button.disabled = false; 
+ 
+            button.innerText = 
+                "Create Account"; 
+ 
+        } 
+ 
+    }); 
+ 
+ 
+/* ============================================================ 
+   CUSTOMER SIGN IN 
+============================================================ */ 
+ 
+document 
+    .getElementById("signin-form") 
+    .addEventListener("submit", async e => { 
+ 
+        e.preventDefault(); 
+ 
+        const errorBox = 
+            document.getElementById("signin-error"); 
+ 
+        const button = 
+            document.getElementById("signin-btn"); 
+ 
+        errorBox.classList.add("hidden"); 
+ 
+        button.disabled = true; 
+ 
+        button.innerText = "Signing In..."; 
+ 
+ 
+        try { 
+ 
+            await signInWithEmailAndPassword( 
+                auth, 
+                document.getElementById("signin-email").value.trim(), 
+                document.getElementById("signin-password").value 
+            ); 
+ 
+            closeAccountModal(); 
+ 
+        } catch (error) { 
+ 
+            console.error(error); 
+ 
+            errorBox.innerText = 
+                "Sign in failed. Please check your email and password."; 
+ 
+            errorBox.classList.remove("hidden"); 
+ 
+        } finally { 
+ 
+            button.disabled = false; 
+ 
+            button.innerText = "Sign In"; 
+ 
+        } 
+ 
+    }); 
+ 
+ 
+/* ============================================================ 
+   ADMIN SIGN IN 
+============================================================ */ 
+ 
+document 
+    .getElementById("admin-login-form") 
+    .addEventListener("submit", async e => { 
+ 
+        e.preventDefault(); 
+ 
+        const errorBox = 
+            document.getElementById("admin-login-error"); 
+ 
+        const button = 
+            document.getElementById("admin-login-btn"); 
+ 
+        errorBox.classList.add("hidden"); 
+ 
+        button.disabled = true; 
+ 
+        button.innerHTML = 
+            '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Checking Access...'; 
+ 
+ 
+        const email = 
+            document 
+                .getElementById("admin-email") 
+                .value 
+                .trim(); 
+ 
+        const password = 
+            document 
+                .getElementById("admin-password") 
+                .value; 
+ 
+ 
+        try { 
+ 
+            const credential = 
+                await signInWithEmailAndPassword( 
+                    auth, 
+                    email, 
+                    password 
+                ); 
+ 
+            const adminSnapshot = 
+                await getDoc( 
+                    doc( 
+                        db, 
+                        "admins", 
+                        credential.user.uid 
+                    ) 
+                ); 
+ 
+ 
+            if ( 
+                !adminSnapshot.exists() || 
+                adminSnapshot.data().role !== "admin" 
+            ) { 
+ 
+                await signOut(auth); 
+ 
+                throw new Error( 
+                    "ADMIN_NOT_AUTHORIZED" 
+                ); 
+ 
+            } 
+ 
+            showToast( 
+                "Admin Access Granted", 
+                "Opening the TegoKgatso administration portal...", 
+                true 
+            ); 
+ 
+            setTimeout(() => { 
+ 
+                window.location.href = 
+                    "admin-updated.html"; 
+ 
+            }, 500); 
+ 
+        } catch (error) { 
+ 
+            console.error( 
+                "Admin login error:", 
+                error 
+            ); 
+ 
+            if ( 
+                error.message === 
+                "ADMIN_NOT_AUTHORIZED" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "Access denied. This account is not authorised as a TegoKgatso administrator."; 
+ 
+            } else if ( 
+                error.code === 
+                "auth/invalid-credential" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "Invalid admin email or password."; 
+ 
+            } else if ( 
+                error.code === 
+                "auth/user-not-found" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "No account was found with this email address."; 
+ 
+            } else if ( 
+                error.code === 
+                "auth/wrong-password" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "Incorrect admin password."; 
+ 
+            } else if ( 
+                error.code === 
+                "permission-denied" 
+            ) { 
+ 
+                errorBox.innerText = 
+                    "Admin access could not be verified because Firestore permissions are blocking the admin check."; 
+ 
+            } else { 
+ 
+                errorBox.innerText = 
+                    "Admin sign in failed. Please check your credentials and try again."; 
+ 
+            } 
+ 
+            errorBox.classList.remove("hidden"); 
+ 
+        } finally { 
+ 
+            button.disabled = false; 
+ 
+            button.innerHTML = 
+                '<i class="fa-solid fa-lock mr-2"></i> Admin Sign In'; 
+ 
+        } 
+ 
+    }); 
+ 
+ 
+/* ============================================================ 
+   SIGN OUT 
+============================================================ */ 
+ 
+window.signOutCustomer = async () => { 
+ 
+    if (verificationTimer) { 
+ 
+        clearInterval( 
+            verificationTimer 
+        ); 
+ 
+        verificationTimer = null; 
+ 
+    } 
+ 
+    await signOut(auth); 
+ 
+    closeAccountModal(); 
+ 
+    showToast( 
+        "Signed Out", 
+        "You have been safely signed out.", 
+        true 
+    ); 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   VERIFICATION UI 
+============================================================ */ 
+ 
+function updateVerificationUI() { 
+ 
+    if (!currentUser) return; 
+ 
+    const box = 
+        document.getElementById("verification-box"); 
+ 
+    const icon = 
+        document.getElementById("verification-icon"); 
+ 
+    const title = 
+        document.getElementById("verification-title"); 
+ 
+    const text = 
+        document.getElementById("verification-text"); 
+ 
+    if (currentUser.emailVerified) { 
+ 
+        box.className = 
+            "mt-5 p-4 rounded-lg bg-green-50 border border-green-200"; 
+ 
+        icon.className = 
+            "fa-solid fa-circle-check text-green-700 mt-1"; 
+ 
+        title.innerText = 
+            "Email Verified ✓"; 
+ 
+        title.className = 
+            "font-bold text-xs text-green-800"; 
+ 
+        text.innerText = 
+            "Your email address has been successfully verified. Your TegoKgatso customer account is fully active."; 
+ 
+        document 
+            .querySelectorAll("#verification-box button") 
+            .forEach(button => button.classList.add("hidden")); 
+ 
+    } else { 
+ 
+        box.className = 
+            "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200"; 
+ 
+        icon.className = 
+            "fa-solid fa-envelope text-amber-700 mt-1"; 
+ 
+        title.innerText = 
+            "Verify your email"; 
+ 
+        title.className = 
+            "font-bold text-xs text-leather-900"; 
+ 
+        text.innerText = 
+            `We sent a verification email to ${currentUser.email}. You can continue shopping without verifying first.`; 
+ 
+        document 
+            .querySelectorAll("#verification-box button") 
+            .forEach(button => button.classList.remove("hidden")); 
+ 
+    } 
+ 
+} 
+ 
+ 
+/* ============================================================ 
+   RESEND VERIFICATION 
+============================================================ */ 
+ 
+window.resendVerificationEmail = async () => { 
+ 
+    if (!currentUser) return; 
+ 
+    try { 
+ 
+        await sendEmailVerification( 
+            currentUser 
+        ); 
+ 
+        showToast( 
+            "Verification Email Sent", 
+            "Please check your inbox and spam folder.", 
+            true 
+        ); 
+ 
+    } catch (error) { 
+ 
+        console.error(error); 
+ 
+        showToast( 
+            "Error", 
+            "Could not send verification email. Try again later.", 
+            false 
+        ); 
+ 
+    } 
+ 
+}; 
+ 
+ 
+/* ============================================================ 
+   AUTH OBSERVER & INITIALIZATION 
+============================================================ */ 
+ 
+onAuthStateChanged(auth, async user => { 
+ 
+    currentUser = user; 
+ 
+    if (user) { 
+ 
+        try { 
+ 
+            const userDoc = await getDoc(doc(db, "users", user.uid)); 
+ 
+            if (userDoc.exists()) { 
+ 
+                currentProfile = userDoc.data(); 
+ 
+            } 
+ 
+        } catch (e) { 
+ 
+            console.error("Error fetching user profile:", e); 
+ 
+        } 
+ 
+    } else { 
+ 
+        currentProfile = null; 
+ 
+    } 
+ 
+    updateAccountUI(); 
+ 
+}); 
+ 
+renderProducts(); 
+updateCartUI(); 
 </script>
-
 </body>
 </html>
