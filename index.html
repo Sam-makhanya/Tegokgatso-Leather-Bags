@@ -541,18 +541,28 @@
         </div>
         <div class="p-6">
             <!-- CUSTOMER AUTH TABS -->
-            <div id="auth-tabs"
-                 class="grid grid-cols-2 gap-2 mb-5">
-                <button id="signin-tab"
-                        onclick="showAuthTab('signin')"
-                        class="py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold">
-                    Sign In
-                </button>
-                <button id="signup-tab"
-                        onclick="showAuthTab('signup')"
-                        class="py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold">
-                    Sign Up
-                </button>
+            <!-- This whole section is hidden automatically after a customer signs in. -->
+            <div id="auth-tabs" class="mb-5">
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="signin-tab"
+                            onclick="showAuthTab('signin')"
+                            class="py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold">
+                        Sign In
+                    </button>
+                    <button id="signup-tab"
+                            onclick="showAuthTab('signup')"
+                            class="py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold">
+                        Sign Up
+                    </button>
+                </div>
+
+                <!-- ADMIN PORTAL: visible only while the customer is signed out -->
+                <a id="admin-portal-link"
+                   href="admin-Updated.html"
+                   class="mt-3 w-full border border-leather-300 text-leather-800 hover:bg-leather-50 py-2.5 rounded-lg text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Admin Portal
+                </a>
             </div>
             <!-- SIGN IN -->
             <form id="signin-form"
@@ -702,68 +712,6 @@
                     Create Account
                 </button>
             </form>
-            <!-- ADMIN SIGN IN -->
-            <div id="admin-login-panel"
-                 class="hidden space-y-4">
-                <div class="text-center mb-5">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-leather-900 text-amber-gold flex items-center justify-center text-2xl mb-3">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h4 class="font-serif font-bold text-lg text-leather-900">
-                        Admin Sign In
-                    </h4>
-                    <p class="text-xs text-leather-500 mt-1">
-                        Authorised TegoKgatso administrators only.
-                    </p>
-                </div>
-                <form id="admin-login-form"
-                      class="space-y-3">
-                    <input id="admin-email"
-                           type="email"
-                           required
-                           placeholder="Admin email address"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                    <div class="relative">
-                        <input id="admin-password"
-                               type="password"
-                               required
-                               placeholder="Admin password"
-                               class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-                        <button type="button"
-                                onclick="togglePasswordVisibility('admin-password','admin-eye')"
-                                class="password-toggle">
-                            <i id="admin-eye"
-                               class="fa-solid fa-eye">
-                            </i>
-                        </button>
-                    </div>
-                    <div id="admin-login-error"
-                         class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
-                    </div>
-                    <button id="admin-login-btn"
-                            type="submit"
-                            class="w-full bg-leather-900 hover:bg-leather-800 text-white py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition">
-                        <i class="fa-solid fa-lock mr-2"></i>
-                        Admin Sign In
-                    </button>
-                </form>
-                <button type="button"
-                        onclick="showCustomerSignIn()"
-                        class="w-full border border-leather-200 text-leather-800 py-3 rounded-lg text-xs font-bold uppercase hover:bg-leather-50 transition">
-                    <i class="fa-solid fa-arrow-left mr-2"></i>
-                    Back To Customer Sign In
-                </button>
-            </div>
-            <!-- ADMIN SIGN IN LINK -->
-            <div id="admin-login-link"
-                 class="mt-6 pt-5 border-t border-leather-100">
-                <button type="button"
-                        onclick="openAdminLogin()"
-                        class="w-full flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-leather-600 hover:text-leather-900 transition">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    Admin Sign In
-                </button>
-            </div>
             <!-- LOGGED IN CUSTOMER ACCOUNT -->
             <div id="account-logged-in"
                  class="hidden space-y-4">
@@ -848,38 +796,6 @@
                 </button>
             </div>
         </div>
-    </div>
-</div>
-<!-- ADMIN DASHBOARD -->
-<div id="admin-dashboard"
-     class="fixed inset-0 z-[90] hidden bg-leather-50 overflow-y-auto">
-    <div class="bg-leather-900 text-white p-4 sm:p-6 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-10">
-        <div class="flex items-center gap-3">
-            <i class="fa-solid fa-shield-halved text-amber-gold text-xl"></i>
-            <div>
-                <h2 class="font-serif text-lg sm:text-xl font-bold text-amber-gold">
-                    Admin Dashboard
-                </h2>
-                <p class="text-xs text-leather-300">
-                    TegoKgatso Leather Bags — Orders
-                </p>
-            </div>
-        </div>
-        <div class="flex items-center gap-3">
-            <button onclick="loadAdminOrders()"
-                    class="border border-leather-600 text-leather-100 px-3 py-2 rounded text-xs font-bold uppercase hover:bg-leather-800 transition">
-                <i class="fa-solid fa-rotate mr-1"></i>
-                Refresh
-            </button>
-            <button onclick="signOutAdmin()"
-                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-xs font-bold uppercase transition">
-                <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i>
-                Sign Out
-            </button>
-        </div>
-    </div>
-    <div class="max-w-5xl mx-auto p-4 sm:p-6">
-        <div id="admin-orders-list" class="space-y-4"></div>
     </div>
 </div>
 <!-- CHECKOUT MODAL -->
@@ -1132,7 +1048,6 @@ const TEGOKGATSO_PHONE = "27834752478";
 
 let currentUser = null; 
 let currentProfile = null; 
-let isAdminUser = false;
 let previousEmailVerified = false; 
 let verificationTimer = null; 
 let cart = JSON.parse( 
@@ -1756,75 +1671,52 @@ window.togglePasswordVisibility = (inputId, iconId) => {
    ACCOUNT MODAL & AUTH HANDLING
 ============================================================ */ 
  
-window.openAccountModal = () => { 
-    if (isAdminUser) {
-        openAdminDashboard();
-        return;
+window.openAccountModal = () => {
+    const modal = document.getElementById("account-modal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    if (currentUser) {
+        showLoggedInAccount();
+    } else {
+        showCustomerSignIn();
     }
-    const modal = document.getElementById("account-modal"); 
-    modal.classList.remove("hidden"); 
-    modal.classList.add("flex"); 
-    if (currentUser) { 
-        showLoggedInAccount(); 
-    } else { 
-        showCustomerSignIn(); 
-    } 
-}; 
- 
-window.closeAccountModal = () => { 
-    const modal = document.getElementById("account-modal"); 
-    modal.classList.add("hidden"); 
-    modal.classList.remove("flex"); 
-}; 
- 
-window.showAuthTab = tab => { 
-    document.getElementById("admin-login-panel").classList.add("hidden"); 
-    document.getElementById("admin-login-link").classList.remove("hidden"); 
-    document.getElementById("reset-form").classList.add("hidden"); 
-    document.getElementById("account-logged-in").classList.add("hidden"); 
-    document.getElementById("auth-tabs").classList.remove("hidden"); 
-    document.getElementById("signin-form").classList.toggle("hidden", tab !== "signin"); 
-    document.getElementById("signup-form").classList.toggle("hidden", tab !== "signup"); 
+};
 
-    document.getElementById("signin-tab").className = 
-        tab === "signin" 
-        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
-        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
-    document.getElementById("signup-tab").className = 
-        tab === "signup" 
-        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
-        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
-}; 
+window.closeAccountModal = () => {
+    const modal = document.getElementById("account-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+};
 
-window.openAdminLogin = () => { 
-    if (currentUser) { 
-        showToast("Customer Account Active", "Please sign out of the customer account before using Admin Sign In.", false); 
-        return; 
-    } 
-    document.getElementById("auth-tabs").classList.add("hidden"); 
-    document.getElementById("signin-form").classList.add("hidden"); 
-    document.getElementById("signup-form").classList.add("hidden"); 
-    document.getElementById("reset-form").classList.add("hidden"); 
-    document.getElementById("account-logged-in").classList.add("hidden"); 
-    document.getElementById("admin-login-link").classList.add("hidden"); 
-    document.getElementById("admin-login-panel").classList.remove("hidden"); 
-    document.getElementById("admin-login-error").classList.add("hidden"); 
-}; 
+window.showAuthTab = tab => {
+    document.getElementById("reset-form").classList.add("hidden");
+    document.getElementById("account-logged-in").classList.add("hidden");
+    document.getElementById("auth-tabs").classList.remove("hidden");
+    document.getElementById("signin-form").classList.toggle("hidden", tab !== "signin");
+    document.getElementById("signup-form").classList.toggle("hidden", tab !== "signup");
 
-window.showCustomerSignIn = () => { 
-    document.getElementById("admin-login-panel").classList.add("hidden"); 
-    document.getElementById("auth-tabs").classList.remove("hidden"); 
-    document.getElementById("admin-login-link").classList.remove("hidden"); 
-    showAuthTab("signin"); 
-}; 
+    document.getElementById("signin-tab").className =
+        tab === "signin"
+        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
+        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
+
+    document.getElementById("signup-tab").className =
+        tab === "signup"
+        ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
+        : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
+};
+
+window.showCustomerSignIn = () => {
+    document.getElementById("auth-tabs").classList.remove("hidden");
+    showAuthTab("signin");
+};
 
 function showLoggedInAccount() { 
     document.getElementById("auth-tabs").classList.add("hidden"); 
     document.getElementById("signin-form").classList.add("hidden"); 
     document.getElementById("signup-form").classList.add("hidden"); 
     document.getElementById("reset-form").classList.add("hidden"); 
-    document.getElementById("admin-login-panel").classList.add("hidden"); 
-    document.getElementById("admin-login-link").classList.add("hidden"); 
     document.getElementById("account-logged-in").classList.remove("hidden"); 
     updateAccountUI(); 
 } 
@@ -1905,97 +1797,6 @@ window.signOutCustomer = async () => {
 };
 
 /* ============================================================ 
-   ADMIN DASHBOARD 
-============================================================ */ 
-
-window.openAdminDashboard = async () => {
-    closeAccountModal();
-    const dash = document.getElementById("admin-dashboard");
-    dash.classList.remove("hidden");
-    dash.classList.add("flex");
-    document.body.classList.add("overflow-hidden");
-    await loadAdminOrders();
-};
-
-window.closeAdminDashboard = () => {
-    const dash = document.getElementById("admin-dashboard");
-    dash.classList.add("hidden");
-    dash.classList.remove("flex");
-    document.body.classList.remove("overflow-hidden");
-};
-
-window.signOutAdmin = async () => {
-    try {
-        await signOut(auth);
-        isAdminUser = false;
-        closeAdminDashboard();
-        showToast("Signed Out", "Admin session ended.");
-    } catch (err) {
-        showToast("Sign Out Failed", err.message, false);
-    }
-};
-
-window.loadAdminOrders = async () => {
-    const list = document.getElementById("admin-orders-list");
-    list.innerHTML = `<p class="text-center text-sm text-leather-500 py-8">Loading orders...</p>`;
-
-    try {
-        const q = query(collection(db, "orders"), orderBy("createdAt", "desc"));
-        const snap = await getDocs(q);
-
-        if (snap.empty) {
-            list.innerHTML = `<p class="text-center text-sm text-leather-500 py-8">No orders yet.</p>`;
-            return;
-        }
-
-        list.innerHTML = snap.docs.map(d => {
-            const o = d.data();
-            const items = (o.items || []).map(it => `${esc(it.title)} (x${it.qty})`).join(", ");
-            const addr = o.address
-                ? `${esc(o.address.line1 || "")}, ${esc(o.address.suburb || "")}, ${esc(o.address.city || "")}, ${esc(o.address.province || "")} ${esc(o.address.postal || "")}`
-                : "";
-
-            return `
-                <div class="border border-leather-200 rounded-lg p-4 bg-white shadow-sm">
-                    <div class="flex justify-between items-start flex-wrap gap-3">
-                        <div>
-                            <p class="font-mono text-[10px] text-leather-400">Order #${esc(d.id)}</p>
-                            <p class="font-bold text-sm text-leather-900">${esc(o.customerName || "Unknown")}</p>
-                            <p class="text-xs text-leather-500">${esc(o.customerEmail || "")} | ${esc(o.customerPhone || "")}</p>
-                        </div>
-                        <select onchange="updateOrderStatus('${esc(d.id)}', this.value)"
-                                class="border border-leather-200 rounded px-2 py-1 text-xs font-semibold">
-                            <option value="Awaiting Payment" ${o.status === "Awaiting Payment" ? "selected" : ""}>Awaiting Payment</option>
-                            <option value="Paid" ${o.status === "Paid" ? "selected" : ""}>Paid</option>
-                            <option value="Shipped" ${o.status === "Shipped" ? "selected" : ""}>Shipped</option>
-                            <option value="Completed" ${o.status === "Completed" ? "selected" : ""}>Completed</option>
-                            <option value="Cancelled" ${o.status === "Cancelled" ? "selected" : ""}>Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="mt-3 text-xs text-leather-700 space-y-1">
-                        <p><strong>Items:</strong> ${items || "N/A"}</p>
-                        <p><strong>Delivery:</strong> ${esc(o.deliveryMethod || "N/A")}</p>
-                        ${o.deliveryMethod === "Courier Delivery" && addr ? `<p><strong>Address:</strong> ${addr}</p>` : ""}
-                        ${o.notes ? `<p><strong>Notes:</strong> ${esc(o.notes)}</p>` : ""}
-                    </div>
-                </div>
-            `;
-        }).join("");
-    } catch (err) {
-        list.innerHTML = `<p class="text-center text-sm text-red-700 py-8">Failed to load orders: ${esc(err.message)}</p>`;
-    }
-};
-
-window.updateOrderStatus = async (orderId, newStatus) => {
-    try {
-        await updateDoc(doc(db, "orders", orderId), { status: newStatus });
-        showToast("Order Updated", `Status changed to ${newStatus}.`);
-    } catch (err) {
-        showToast("Update Failed", err.message, false);
-    }
-};
-
-/* ============================================================ 
    AUTHENTICATION FORMS 
 ============================================================ */ 
 
@@ -2008,9 +1809,14 @@ document.getElementById("signin-form").addEventListener("submit", async (e) => {
     errBox.classList.add("hidden");
 
     try {
-        await signInWithEmailAndPassword(auth, email, password);
-        closeAccountModal();
-        showToast("Welcome Back!", "Successfully signed into your account.");
+        const credential = await signInWithEmailAndPassword(auth, email, password);
+        currentUser = credential.user;
+
+        const userDoc = await getDoc(doc(db, "users", credential.user.uid));
+        currentProfile = userDoc.exists() ? userDoc.data() : null;
+
+        showLoggedInAccount();
+        showToast("Welcome Back!", "Your customer profile has been loaded.");
     } catch (err) {
         errBox.innerText = "Invalid credentials or login error: " + err.message;
         errBox.classList.remove("hidden");
@@ -2022,8 +1828,6 @@ window.showPasswordReset = () => {
     document.getElementById("auth-tabs").classList.add("hidden"); 
     document.getElementById("signin-form").classList.add("hidden"); 
     document.getElementById("signup-form").classList.add("hidden"); 
-    document.getElementById("admin-login-panel").classList.add("hidden"); 
-    document.getElementById("admin-login-link").classList.add("hidden"); 
     document.getElementById("reset-form").classList.remove("hidden"); 
  
     const email = document.getElementById("signin-email").value.trim(); 
@@ -2093,34 +1897,6 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     }
 });
 
-// Admin Sign In
-document.getElementById("admin-login-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("admin-email").value.trim();
-    const password = document.getElementById("admin-password").value;
-    const errBox = document.getElementById("admin-login-error");
-    errBox.classList.add("hidden");
-
-    try {
-        const cred = await signInWithEmailAndPassword(auth, email, password);
-        const adminDoc = await getDoc(doc(db, "admins", cred.user.uid));
-
-        if (!adminDoc.exists()) {
-            await signOut(auth);
-            errBox.innerText = "This account is not authorised as an admin.";
-            errBox.classList.remove("hidden");
-            return;
-        }
-
-        isAdminUser = true;
-        showToast("Admin Authenticated", "Signed in as admin.");
-        openAdminDashboard();
-    } catch (err) {
-        errBox.innerText = "Admin sign-in failed: " + err.message;
-        errBox.classList.remove("hidden");
-    }
-});
-
 /* ============================================================ 
    AUTH STATE OBSERVER 
 ============================================================ */ 
@@ -2130,42 +1906,22 @@ onAuthStateChanged(auth, async (user) => {
 
     if (user) {
         try {
-            const adminDoc = await getDoc(doc(db, "admins", user.uid));
-            isAdminUser = adminDoc.exists();
-        } catch (err) {
-            console.error("Error checking admin status", err);
-            isAdminUser = false;
-        }
-
-        if (isAdminUser) {
-            // This is an admin account - never fall back to the customer view.
-            currentProfile = null;
-            document.getElementById("account-label").innerText = "Admin";
-            openAdminDashboard();
-            updateCartUI();
-            return;
-        }
-
-        try {
             const userDoc = await getDoc(doc(db, "users", user.uid));
-            if (userDoc.exists()) {
-                currentProfile = userDoc.data();
-            }
+            currentProfile = userDoc.exists() ? userDoc.data() : null;
+            document.getElementById("account-label").innerText =
+                currentProfile?.firstName || user.displayName?.split(" ")[0] || "Account";
         } catch (err) {
             console.error("Error fetching profile", err);
         }
-        document.getElementById("account-label").innerText = 
-            currentProfile?.firstName || user.displayName?.split(" ")[0] || "Account";
     } else {
         currentProfile = null;
-        isAdminUser = false;
-        closeAdminDashboard();
         document.getElementById("account-label").innerText = "Account";
     }
+
     updateCartUI();
 });
 
-/* ============================================================ 
+/* ============================================================
    INITIALIZATION 
 ============================================================ */ 
 
