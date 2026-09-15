@@ -448,28 +448,65 @@ window.handleLogout = async () => {
 function subscribeToOrders() {
     if (unsubscribeOrders) unsubscribeOrders();
 
-    const ordersQuery = query(collection(db, "orders"), orderBy("createdAt", "desc"));
-
-    unsubscribeOrders = onSnapshot(ordersQuery, snapshot => {
+    // Read the whole orders collection and sort in the browser.
+    // This also includes older orders that may not have createdAt.
+    unsubscribeOrders = onSnapshot(collection(db, "orders"), snapshot => {
         allOrdersCache = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        renderOrdersTable(allOrdersCache);
-    }, error => {
-        console.warn("Ordered snapshot failed, running fallback without index:", error);
-        unsubscribeOrders = onSnapshot(collection(db, "orders"), snapshot => {
-            allOrdersCache = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            allOrdersCache.sort((a, b) => (b.createdAt?.seconds || b.timestamp?.seconds || 0) - (a.createdAt?.seconds || a.timestamp?.seconds || 0));
-            renderOrdersTable(allOrdersCache);
-            }, fallbackError => {
-            console.error("Firestore read failed:", fallbackError);
-            document.getElementById("orders-tbody").innerHTML = `
-                <tr>
-                    <td colspan="6" class="text-center py-12 text-red-400">
-                        <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
-                        <p class="mt-2">Unable to load orders.</p>
-                    </td>
-                </tr>`;
+
+        allOrdersCache.sort((a, b) => {
+            const getSeconds = order =>
+                order.createdAt?.seconds ||
+                order.timestamp?.seconds ||
+                0;
+            return getSeconds(b) - getSeconds(a);
         });
+
+        renderOrdersTable(allOrdersCache);
+        calculateAnalytics(allOrdersCache);
+    }, error => {
+        console.error("Firestore orders read failed:", error);
+        document.getElementById("orders-tbody").innerHTML = `
+            <tr>
+                <td colspan="6" class="text-center py-12 text-red-400">
+                    <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                    <p class="mt-2">Unable to load orders.</p>
+                    <p class="text-[10px] mt-1">${esc(error.message || "Firestore read failed")}</p>
+                </td>
+            </tr>`;
+
+        // Reset KPIs if the database cannot be read.
+        calculateAnalytics([]);
     });
+}
+
+/* CALCULATE KPI METRICS */
+function calculateAnalytics(orders) {
+    const totalOrders = orders.length;
+
+    // Customer checkout currently saves the initial order status as
+    // "Awaiting Payment". Older/manual orders may use "Pending".
+    const pendingOrders = orders.filter(order => {
+        const status = String(order.status || "Pending").trim();
+        return ["Pending", "In Production", "Awaiting Payment"].includes(status);
+    }).length;
+
+    const completedOrders = orders.filter(order => {
+        const status = String(order.status || "").trim();
+        return ["Dispatched", "Delivered", "Completed"].includes(status);
+    }).length;
+
+    // Customer checkout does not currently save paymentStatus, so an
+    // order whose status is "Awaiting Payment" is also counted here.
+    const awaitingPayment = orders.filter(order => {
+        const paymentStatus = String(order.paymentStatus || "").trim();
+        const status = String(order.status || "").trim();
+        return paymentStatus === "Awaiting Payment" || status === "Awaiting Payment";
+    }).length;
+
+    document.getElementById("stat-count").innerText = totalOrders;
+    document.getElementById("stat-pending").innerText = pendingOrders;
+    document.getElementById("stat-completed").innerText = completedOrders;
+    document.getElementById("stat-payment").innerText = awaitingPayment;
 }
 
 function statusClass(status) {
@@ -533,6 +570,7 @@ function renderOrdersTable(orders) {
             </td>
             <td class="py-4 px-6">
                 <select onchange="updateOrderStatus('${esc(order.id)}', this.value)" class="bg-obsidian border border-leather-800 rounded px-2 py-1 text-[10px]">
+                    <option value="Awaiting Payment" ${order.status === "Awaiting Payment" ? "selected" : ""}>Awaiting Payment</option>
                     <option value="Pending" ${order.status === "Pending" ? "selected" : ""}>Pending</option>
                     <option value="In Production" ${order.status === "In Production" ? "selected" : ""}>In Production</option>
                     <option value="Dispatched" ${order.status === "Dispatched" ? "selected" : ""}>Dispatched</option>
