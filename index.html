@@ -80,7 +80,7 @@
 <body class="bg-leather-50 font-sans text-leather-900 selection:bg-leather-300 selection:text-leather-900 antialiased overflow-x-hidden">
 <!-- TOP BAR -->
 <div class="bg-leather-900 text-leather-200 text-[10px] sm:text-xs py-2 px-3 text-center tracking-wider sm:tracking-widest uppercase font-medium border-b border-leather-800">
-    ✨ Free Nationwide Express Delivery On Orders Over R2,500
+    ✨ Free Nationwide Express Delivery On Qualifying Orders
 </div>
 <!-- NAVIGATION -->
 <nav class="sticky top-0 z-40 glass-nav border-b border-leather-800 text-leather-100">
@@ -120,7 +120,7 @@
                     0
                 </span>
             </button>
-            <a href="https://wa.me/?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20would%20like%20to%20inquire%20about%20your%20collection."
+            <a href="https://wa.me/27834752478?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20would%20like%20to%20inquire%20about%20your%20collection."
                target="_blank"
                class="hidden lg:inline-flex items-center space-x-2 bg-amber-gold hover:bg-yellow-500 text-leather-900 px-4 py-2.5 rounded-sm font-semibold text-xs tracking-wider uppercase transition">
                 <i class="fa-brands fa-whatsapp"></i>
@@ -448,7 +448,7 @@
             <p class="text-xs text-leather-300 mb-4">
                 Need help with an order? Contact TegoKgatso directly.
             </p>
-            <a href="https://wa.me/?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20have%20an%20inquiry."
+            <a href="https://wa.me/27834752478?text=Hello%20TegoKgatso%20Leather%20Bags,%20I%20have%20an%20inquiry."
                target="_blank"
                class="inline-flex items-center gap-2 bg-amber-gold text-leather-900 px-4 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-yellow-500 transition w-full justify-center">
                 <i class="fa-brands fa-whatsapp"></i>
@@ -462,6 +462,35 @@
         </p>
     </div>
 </footer>
+<!-- PRODUCT IMAGE POPUP -->
+<div id="product-modal"
+     class="fixed inset-0 z-[70] invisible opacity-0 pointer-events-none transition-all duration-300">
+    <div onclick="closeProductModal()"
+         class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+        <div id="product-modal-content"
+             class="relative bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden pointer-events-auto transform scale-95 transition-transform duration-300">
+            <button onclick="closeProductModal()"
+                    class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-leather-900 text-white flex items-center justify-center hover:bg-amber-gold hover:text-leather-900 transition"
+                    aria-label="Close product preview">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="bg-leather-100">
+                <img id="product-modal-image" src="" alt="" class="w-full max-h-[65vh] object-contain">
+            </div>
+            <div class="p-5 sm:p-6">
+                <span id="product-modal-category" class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold"></span>
+                <h3 id="product-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-leather-900 mt-1 mb-2"></h3>
+                <p id="product-modal-description" class="text-sm text-leather-700 leading-relaxed mb-5"></p>
+                <button id="product-modal-cart-button" type="button"
+                        class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
+                    <i class="fa-solid fa-bag-shopping mr-2"></i>
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- CART -->
 <div id="cart-modal"
      class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
@@ -482,15 +511,6 @@
              class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-4">
         </div>
         <div class="p-4 sm:p-6 bg-leather-50 border-t border-leather-200">
-            <div class="flex justify-between items-center mb-4">
-                <span class="font-serif text-sm uppercase text-leather-700">
-                    Subtotal
-                </span>
-                <span id="cart-subtotal"
-                      class="font-serif text-xl font-bold">
-                    R0.00
-                </span>
-            </div>
             <button onclick="beginCheckout()"
                     class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 font-bold py-3.5 rounded-sm text-xs uppercase tracking-widest transition flex items-center justify-center gap-2">
                 <i class="fa-solid fa-lock"></i>
@@ -682,9 +702,7 @@
                     Create Account
                 </button>
             </form>
-            <!-- ====================================================
-                 ADMIN SIGN IN
-            ===================================================== -->
+            <!-- ADMIN SIGN IN -->
             <div id="admin-login-panel"
                  class="hidden space-y-4">
                 <div class="text-center mb-5">
@@ -736,10 +754,7 @@
                     Back To Customer Sign In
                 </button>
             </div>
-            <!-- ====================================================
-                 ADMIN SIGN IN LINK
-                 ONLY VISIBLE BEFORE CUSTOMER LOGIN
-            ===================================================== -->
+            <!-- ADMIN SIGN IN LINK -->
             <div id="admin-login-link"
                  class="mt-6 pt-5 border-t border-leather-100">
                 <button type="button"
@@ -827,11 +842,6 @@
                         </div>
                     </div>
                 </div>
-                <!--
-                    IMPORTANT:
-                    There is intentionally NO ADMIN PORTAL button here.
-                    Customers should never see the admin portal after signing in.
-                -->
                 <button onclick="signOutCustomer()"
                         class="w-full border border-red-200 text-red-700 py-3 rounded-lg text-xs font-bold uppercase">
                     Sign Out
@@ -961,12 +971,6 @@
                 <div id="checkout-summary"
                      class="space-y-2 text-xs">
                 </div>
-                <div class="border-t border-leather-700 mt-3 pt-3 flex justify-between font-bold">
-                    <span>Total</span>
-                    <span id="checkout-total"
-                          class="text-amber-gold text-lg">
-                    </span>
-                </div>
             </div>
             <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-leather-700">
                 <i class="fa-solid fa-circle-info text-amber-gold mr-1"></i>
@@ -980,9 +984,9 @@
             </div>
             <button id="place-order-btn"
                     type="submit"
-                    class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 py-3.5 rounded-lg font-bold text-xs uppercase tracking-widest">
-                <i class="fa-solid fa-check mr-2"></i>
-                Place Order
+                    class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 py-3.5 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Place Order via WhatsApp</span>
             </button>
         </form>
     </div>
@@ -1008,10 +1012,15 @@
            class="font-mono font-bold text-leather-900 mt-1">
         </p>
         <p class="text-xs text-leather-500 mt-4">
-            An email confirmation will be sent to your email address.
+            Your order details have been saved to the database.
         </p>
+        <button id="success-whatsapp-btn" type="button"
+                class="mt-5 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg text-xs font-bold uppercase flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            Send Order On WhatsApp
+        </button>
         <button onclick="closeSuccessModal()"
-                class="mt-6 w-full bg-leather-900 text-white py-3 rounded-lg text-xs font-bold uppercase">
+                class="mt-3 w-full bg-leather-900 text-white py-3 rounded-lg text-xs font-bold uppercase">
             Continue Shopping
         </button>
     </div>
@@ -1036,6 +1045,7 @@
         </div>
     </div>
 </div>
+
 <script type="module">
 import {
     initializeApp
@@ -1060,8 +1070,7 @@ import {
     collection,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"; 
- 
- 
+
 /* ============================================================ 
    FIREBASE CONFIGURATION 
 ============================================================ */ 
@@ -1076,149 +1085,179 @@ const firebaseConfig = {
     measurementId: "G-4PPZNHMRR4" 
 }; 
  
- 
 const app = initializeApp(firebaseConfig); 
- 
 const auth = getAuth(app); 
- 
 const db = getFirestore(app); 
- 
- 
+
 /* ============================================================ 
-   STATE 
+   STATE & CONSTANTS
 ============================================================ */ 
- 
+const TEGOKGATSO_PHONE = "27834752478";
+
 let currentUser = null; 
- 
 let currentProfile = null; 
- 
 let previousEmailVerified = false; 
- 
 let verificationTimer = null; 
- 
 let cart = JSON.parse( 
     localStorage.getItem("tegokgatso_cart") || "[]" 
 ); 
- 
  
 /* ============================================================ 
    PRODUCTS 
 ============================================================ */ 
  
 const products = [ 
- 
     [ 
         "Heritage Dual-Buckle Backpack", 
-        2450, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg", 
         "backpack", 
         "Cognac Tan • Full Grain", 
         "Featuring reinforced front flap buckles, zipped utility compartment, and heavy-duty brass hardware.", 
         "Bestseller" 
     ], 
- 
     [ 
         "Executive Distressed Backpack", 
-        2650, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.50.jpeg", 
         "backpack", 
         "Dark Espresso • Distressed", 
         "Deep brown rich textured leather built with quick-access dual zipped front compartments and padded straps.", 
         "" 
     ], 
- 
     [ 
         "Minimalist Urban Backpack", 
-        2200, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.51 (1).jpeg", 
         "backpack", 
         "Honey Tan • Smooth Finish", 
         "Sleek, modern silhouette featuring concealed vertical zipped side pockets and ultra-smooth finishing.", 
         "" 
     ], 
- 
     [ 
         "Classic Director Briefcase", 
-        2890, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.51.jpeg", 
         "briefcase", 
         "Vintage Brown • Double Pocket", 
         "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.", 
         "Executive Pick" 
     ], 
- 
     [ 
         "Mocha Sovereign Backpack", 
-        2550, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.52 (1).jpeg", 
         "backpack", 
         "Mocha Brown • Structured", 
         "Clean curved silhouette crafted with high-grade brass hardware and padded laptop sleeve.", 
         "" 
     ], 
- 
     [ 
         "Voyager Flap Backpack", 
-        2750, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.52 (2).jpeg", 
         "backpack", 
         "Chestnut Amber • Heavy Duty", 
         "Spacious interior layout with top zipper flap and dual front straps secured by authentic brass buckles.", 
         "" 
     ], 
- 
     [ 
         "Artisan Single-Buckle Satchel", 
-        2350, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.52 (3).jpeg", 
         "backpack", 
         "Caramel Tan • Single Buckle", 
         "Elegant top-handle design with a center flap closure and quick-access back storage pocket.", 
         "" 
     ], 
- 
     [ 
         "Sovereign Flap Messenger", 
-        2950, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.53 (1).jpeg", 
         "briefcase", 
         "Mahogany Brown • Messenger", 
         "Professional horizontal laptop bag featuring dual buckle closure, leather carry handles, and shoulder strap.", 
         "" 
     ], 
- 
     [ 
         "Executive Commuter Backpack", 
-        2400, 
+        null, 
         "WhatsApp Image 2026-09-09 at 16.46.53 (2).jpeg", 
         "backpack", 
         "Warm Tan • Zipper Shield", 
         "Ultra-slim laptop backpack built with smooth double zippers and padded leather top grab handle.", 
         "" 
-    ] 
- 
+    ],
+    [ 
+        "Heritage Classic Briefcase", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.04.jpeg", 
+        "briefcase", 
+        "Rich Tan • Full Grain", 
+        "Handcrafted classic messenger briefcase with dual buckle closures and front utility pockets.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Executive Flap Satchel", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.04 (1).jpeg", 
+        "briefcase", 
+        "Vintage Saddle • Genuine Leather", 
+        "Elegant satchel bag featuring an ornate flap-over closure and adjustable shoulder strap.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Classic Leather Carryall", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.05.jpeg", 
+        "briefcase", 
+        "Chestnut Brown • Handcrafted", 
+        "Structured full-grain leather briefcase built for professional organization and timeless durability.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Sovereign Satchel Briefcase", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.05 (1).jpeg", 
+        "backpack", 
+        "Tan Amber • Brass Hardware", 
+        "Spacious interior compartments paired with reinforced brass hardware and top carry handle.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Signature Executive Satchel", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.05 (2).jpeg", 
+        "backpack", 
+        "Deep Mocha • Double Strap", 
+        "Heavy-duty leather messenger bag crafted with dual strap closures and padded compartment.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Artisan Portfolio Briefcase", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.06.jpeg", 
+        "briefcase", 
+        "Cognac Brown • Modern Cut", 
+        "Clean, professional silhouette designed to securely carry laptops, tablets, and essential documents.", 
+        "New Arrival" 
+    ],
+    [ 
+        "Vanguard Leather Messenger", 
+        null, 
+        "WhatsApp Image 2026-09-14 at 13.06.06 (1).jpeg", 
+        "briefcase", 
+        "Rustic Brown • Reinforced", 
+        "Heavy-grain leather satchel engineered with multiple fast-access zip and buckle pockets.", 
+        "New Arrival" 
+    ]
 ]; 
- 
  
 /* ============================================================ 
    HELPERS 
 ============================================================ */ 
  
-function money(n) { 
- 
-    return "R" + Number(n || 0).toLocaleString( 
-        "en-ZA", 
-        { 
-            minimumFractionDigits: 2, 
-            maximumFractionDigits: 2 
-        } 
-    ); 
- 
-} 
- 
- 
 function esc(s) { 
- 
     return String(s ?? "").replace( 
         /[&<>"']/g, 
         m => ({ 
@@ -1229,93 +1268,69 @@ function esc(s) {
             "'": "&#039;" 
         }[m]) 
     ); 
- 
 } 
  
- 
 function showToast(title, message, success = true) { 
- 
     const toast = document.getElementById("toast"); 
- 
     document.getElementById("toast-title").innerText = title; 
- 
     document.getElementById("toast-message").innerText = message; 
- 
     document.getElementById("toast-icon").className = 
         success 
         ? "fa-solid fa-check text-amber-gold mt-1" 
         : "fa-solid fa-circle-exclamation text-red-400 mt-1"; 
- 
     toast.classList.remove("hidden"); 
- 
     clearTimeout(window.toastTimer); 
- 
     window.toastTimer = setTimeout(() => { 
         toast.classList.add("hidden"); 
     }, 6000); 
- 
 } 
- 
- 
+
 /* ============================================================ 
    PRODUCT FILTER 
 ============================================================ */ 
  
 window.filterProducts = category => { 
- 
     document.querySelectorAll(".product-card").forEach(card => { 
- 
         card.style.display = 
             category === "all" || 
             card.dataset.category === category 
                 ? "flex" 
                 : "none"; 
- 
     }); 
  
     document.querySelectorAll(".filter-btn").forEach(button => { 
- 
         button.classList.remove( 
             "bg-leather-900", 
             "text-leather-50" 
         ); 
- 
     }); 
  
     if (window.event?.currentTarget) { 
- 
         window.event.currentTarget.classList.add( 
             "bg-leather-900", 
             "text-leather-50" 
         ); 
- 
     } 
- 
 }; 
  
- 
 /* ============================================================ 
-   RENDER PRODUCTS 
+   RENDER PRODUCTS
 ============================================================ */ 
  
 function renderProducts() { 
- 
     document.getElementById("product-grid").innerHTML = 
         products.map((p, i) => ` 
- 
         <div 
             class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col" 
             data-category="${p[3]}" 
         > 
- 
             <div class="relative overflow-hidden aspect-[4/5] bg-leather-100"> 
- 
                 <img 
                     src="${p[2]}" 
                     alt="${esc(p[0])}" 
-                    class="w-full h-full object-cover group-hover:scale-105 transition duration-700" 
+                    onclick="openProductModal(${i})"
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-700 cursor-pointer" 
                 > 
- 
                 ${ 
                     p[6] 
                     ? ` 
@@ -1325,1203 +1340,675 @@ function renderProducts() {
                     ` 
                     : "" 
                 } 
- 
             </div> 
- 
             <div class="p-4 sm:p-6 flex flex-col flex-grow"> 
- 
                 <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold"> 
                     ${esc(p[4])} 
                 </span> 
- 
                 <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2"> 
                     ${esc(p[0])} 
                 </h3> 
- 
                 <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow"> 
                     ${esc(p[5])} 
                 </p> 
- 
-                <div class="flex items-center justify-between pt-3 border-t border-leather-100 mt-auto"> 
- 
-                    <div> 
- 
-                        <span class="text-[10px] text-leather-500 block"> 
-                            Price 
-                        </span> 
- 
-                        <span class="font-serif text-lg font-bold"> 
-                            ${money(p[1])} 
-                        </span> 
- 
-                    </div> 
- 
+                <div class="flex items-center justify-end pt-3 border-t border-leather-100 mt-auto"> 
                     <button 
                         onclick="addToCart(${i})" 
-                        class="bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-3 py-2 rounded-sm text-[10px] font-semibold uppercase tracking-wider transition" 
+                        class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center" 
                     > 
                         Add To Cart 
                     </button> 
- 
                 </div> 
- 
             </div> 
- 
         </div> 
- 
     `).join(""); 
- 
 } 
  
- 
 /* ============================================================ 
-   CART 
+   CART & MODALS 
 ============================================================ */ 
  
+window.openProductModal = i => {
+    const p = products[i];
+    if (!p) return;
+    document.getElementById("product-modal-image").src = p[2];
+    document.getElementById("product-modal-image").alt = p[0];
+    document.getElementById("product-modal-title").innerText = p[0];
+    document.getElementById("product-modal-category").innerText = p[4] || "";
+    document.getElementById("product-modal-description").innerText = p[5] || "";
+    document.getElementById("product-modal-cart-button").onclick = () => {
+        addToCart(i);
+        closeProductModal();
+    };
+    const modal = document.getElementById("product-modal");
+    const panel = document.getElementById("product-modal-content");
+    modal.classList.remove("invisible", "opacity-0", "pointer-events-none");
+    panel.classList.remove("scale-95");
+    panel.classList.add("scale-100");
+    document.body.classList.add("overflow-hidden");
+};
+
+window.closeProductModal = () => {
+    const modal = document.getElementById("product-modal");
+    const panel = document.getElementById("product-modal-content");
+    modal.classList.add("invisible", "opacity-0", "pointer-events-none");
+    panel.classList.remove("scale-100");
+    panel.classList.add("scale-95");
+    document.body.classList.remove("overflow-hidden");
+};
+
 window.addToCart = i => { 
- 
     const p = products[i]; 
- 
     const existing = cart.find( 
         item => item.title === p[0] 
     ); 
  
     if (existing) { 
- 
         existing.qty++; 
- 
     } else { 
- 
         cart.push({ 
             title: p[0], 
-            price: p[1], 
             img: p[2], 
             qty: 1 
         }); 
- 
     } 
  
     saveCart(); 
- 
     updateCartUI(); 
- 
     toggleCart(true); 
- 
 }; 
  
- 
 function saveCart() { 
- 
     localStorage.setItem( 
         "tegokgatso_cart", 
         JSON.stringify(cart) 
     ); 
- 
 } 
  
- 
 function updateCartUI() { 
- 
     const count = cart.reduce( 
         (total, item) => total + item.qty, 
         0 
-    ); 
- 
-    const subtotal = cart.reduce( 
-        (total, item) => total + item.price * item.qty, 
-        0 
-    ); 
- 
+    );
     document.getElementById("cart-count").innerText = count; 
- 
-    document.getElementById("cart-subtotal").innerText = 
-        money(subtotal); 
  
     document.getElementById("cart-items").innerHTML = 
         cart.length 
         ? cart.map((item, index) => ` 
- 
             <div class="flex gap-3 border-b border-leather-100 pb-3"> 
- 
                 <img 
                     src="${item.img}" 
                     class="w-16 h-20 object-cover rounded" 
                 > 
- 
                 <div class="flex-grow"> 
- 
                     <h4 class="font-serif text-xs font-bold"> 
                         ${esc(item.title)} 
                     </h4> 
- 
                     <p class="text-xs text-leather-500"> 
-                        ${money(item.price)} × ${item.qty} 
+                        Qty: ${item.qty} 
                     </p> 
- 
                     <div class="flex gap-2 mt-2"> 
- 
                         <button 
                             onclick="changeQty(${index},-1)" 
                             class="px-2 border rounded" 
                         > 
                             − 
                         </button> 
- 
                         <button 
                             onclick="changeQty(${index},1)" 
                             class="px-2 border rounded" 
                         > 
                             + 
                         </button> 
- 
                         <button 
                             onclick="removeFromCart(${index})" 
                             class="ml-auto text-red-700 text-xs" 
                         > 
                             Remove 
                         </button> 
- 
                     </div> 
- 
                 </div> 
- 
             </div> 
- 
         `).join("") 
         : ` 
             <p class="text-center text-sm text-leather-500 py-12"> 
                 Your shopping bag is currently empty. 
             </p> 
         `; 
- 
 } 
  
- 
 window.changeQty = (index, delta) => { 
- 
     cart[index].qty += delta; 
- 
     if (cart[index].qty <= 0) { 
- 
         cart.splice(index, 1); 
- 
     } 
- 
     saveCart(); 
- 
     updateCartUI(); 
- 
 }; 
- 
  
 window.removeFromCart = index => { 
- 
     cart.splice(index, 1); 
- 
     saveCart(); 
- 
     updateCartUI(); 
- 
 }; 
  
- 
 window.toggleCart = forceOpen => { 
- 
     const modal = document.getElementById("cart-modal"); 
- 
     const panel = document.getElementById("cart-panel"); 
- 
     const open = 
         forceOpen ?? 
         modal.classList.contains("invisible"); 
  
     if (open) { 
- 
         modal.classList.remove( 
             "invisible", 
             "opacity-0", 
             "pointer-events-none" 
         ); 
- 
         panel.classList.remove( 
             "translate-x-full" 
         ); 
- 
     } else { 
- 
         modal.classList.add( 
             "invisible", 
             "opacity-0", 
             "pointer-events-none" 
         ); 
- 
         panel.classList.add( 
             "translate-x-full" 
         ); 
- 
     } 
- 
 }; 
  
- 
 window.toggleMobileMenu = () => { 
- 
     document 
         .getElementById("mobile-menu") 
         .classList.toggle("hidden"); 
- 
 }; 
  
- 
+/* ============================================================ 
+   CHECKOUT & WHATSAPP INTEGRATION 
+============================================================ */ 
+
+window.beginCheckout = () => {
+    if (!cart.length) {
+        showToast("Bag is Empty", "Please add products to your bag before checking out.", false);
+        return;
+    }
+    
+    if (!currentUser) {
+        toggleCart(false);
+        openAccountModal();
+        showToast("Account Required", "Please sign in or create an account to proceed to checkout.", false);
+        return;
+    }
+
+    // Populate checkout customer info
+    const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
+    const surname = currentProfile?.surname || "";
+    document.getElementById("checkout-customer").innerText = `${firstName} ${surname}`.trim();
+    document.getElementById("checkout-customer-contact").innerText = `${currentUser.email} | ${currentProfile?.phone || "No phone"}`;
+
+    // Autofill address fields from profile if available
+    if (currentProfile) {
+        if (currentProfile.location) document.getElementById("address-suburb").value = currentProfile.location;
+        if (currentProfile.city) document.getElementById("address-city").value = currentProfile.city;
+        if (currentProfile.province) document.getElementById("address-province").value = currentProfile.province;
+    }
+
+    // Render cart items summary
+    document.getElementById("checkout-summary").innerHTML = `
+        <p class="font-bold border-b border-leather-800 pb-2 mb-2 text-amber-gold">ITEMS IN ORDER:</p>
+        ${cart.map(item => `
+            <div class="flex justify-between">
+                <span>${esc(item.title)} (x${item.qty})</span>
+            </div>
+        `).join('')}
+    `;
+
+    toggleCart(false);
+    const modal = document.getElementById("checkout-modal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+};
+
+window.closeCheckoutModal = () => {
+    const modal = document.getElementById("checkout-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+};
+
+window.toggleDeliveryFields = () => {
+    const selectedMethod = document.querySelector('input[name="deliveryMethod"]:checked')?.value;
+    const deliveryFields = document.getElementById("delivery-fields");
+    const requiredInputs = deliveryFields.querySelectorAll("input");
+
+    if (selectedMethod === "Courier Delivery") {
+        deliveryFields.classList.remove("hidden");
+        requiredInputs.forEach(i => i.setAttribute("required", "true"));
+    } else {
+        deliveryFields.classList.add("hidden");
+        requiredInputs.forEach(i => i.removeAttribute("required"));
+    }
+};
+
+document.getElementById("checkout-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("place-order-btn");
+    const errBox = document.getElementById("checkout-error");
+    errBox.classList.add("hidden");
+
+    btn.disabled = true;
+    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Placing Order...`;
+
+    try {
+        const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+        const notes = document.getElementById("order-notes").value.trim();
+        
+        let addressData = null;
+        if (deliveryMethod === "Courier Delivery") {
+            addressData = {
+                line1: document.getElementById("address-line1").value.trim(),
+                suburb: document.getElementById("address-suburb").value.trim(),
+                city: document.getElementById("address-city").value.trim(),
+                postal: document.getElementById("address-postal").value.trim(),
+                province: document.getElementById("address-province").value.trim()
+            };
+        }
+
+        const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
+        const surname = currentProfile?.surname || "";
+        const fullName = `${firstName} ${surname}`.trim();
+        const phone = currentProfile?.phone || "N/A";
+
+        const orderData = {
+            userId: currentUser.uid,
+            customerName: fullName,
+            customerEmail: currentUser.email,
+            customerPhone: phone,
+            items: cart,
+            deliveryMethod: deliveryMethod,
+            address: addressData,
+            notes: notes,
+            status: "Awaiting Payment",
+            createdAt: serverTimestamp()
+        };
+
+        const docRef = await addDoc(collection(db, "orders"), orderData);
+        const orderId = docRef.id;
+
+        // Construct WhatsApp Message
+        let message = `*NEW ORDER - TEGOKGATSO LEATHER BAGS*\n`;
+        message += `*Order ID:* ${orderId}\n\n`;
+        message += `*Customer Details:*\n`;
+        message += `• Name: ${fullName}\n`;
+        message += `• Email: ${currentUser.email}\n`;
+        message += `• Phone: ${phone}\n\n`;
+        message += `*Order Items:*\n`;
+        cart.forEach((item, index) => {
+            message += `${index + 1}. ${item.title} (Qty: ${item.qty})\n`;
+        });
+        message += `\n*Receiving Method:* ${deliveryMethod}\n`;
+
+        if (deliveryMethod === "Courier Delivery" && addressData) {
+            message += `*Delivery Address:*\n`;
+            message += `${addressData.line1}, ${addressData.suburb}, ${addressData.city}, ${addressData.province}, ${addressData.postal}\n`;
+        }
+
+        if (notes) {
+            message += `\n*Order Notes:* ${notes}\n`;
+        }
+
+        message += `\nThank you! Please provide payment instructions to finalize the order.`;
+
+        const waUrl = `https://wa.me/${TEGOKGATSO_PHONE}?text=${encodeURIComponent(message)}`;
+
+        // Show Success Modal
+        document.getElementById("success-order-id").innerText = orderId;
+        const waBtn = document.getElementById("success-whatsapp-btn");
+        waBtn.onclick = () => {
+            window.open(waUrl, "_blank");
+        };
+
+        closeCheckoutModal();
+        
+        // Clear Cart
+        cart = [];
+        saveCart();
+        updateCartUI();
+
+        const successModal = document.getElementById("success-modal");
+        successModal.classList.remove("hidden");
+        successModal.classList.add("flex");
+
+        // Automatically launch WhatsApp tab
+        window.open(waUrl, "_blank");
+
+    } catch (err) {
+        errBox.innerText = "Error placing order: " + err.message;
+        errBox.classList.remove("hidden");
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-brands fa-whatsapp text-lg"></i> <span>Place Order via WhatsApp</span>`;
+    }
+});
+
+window.closeSuccessModal = () => {
+    const modal = document.getElementById("success-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+};
+
 /* ============================================================ 
    PASSWORD VISIBILITY 
 ============================================================ */ 
  
 window.togglePasswordVisibility = (inputId, iconId) => { 
- 
     const input = document.getElementById(inputId); 
- 
     const icon = document.getElementById(iconId); 
- 
     if (input.type === "password") { 
- 
         input.type = "text"; 
- 
         icon.className = "fa-solid fa-eye-slash"; 
- 
     } else { 
- 
         input.type = "password"; 
- 
         icon.className = "fa-solid fa-eye"; 
- 
     } 
- 
 }; 
  
- 
 /* ============================================================ 
-   ACCOUNT MODAL 
+   ACCOUNT MODAL & AUTH HANDLING
 ============================================================ */ 
  
 window.openAccountModal = () => { 
- 
     const modal = document.getElementById("account-modal"); 
- 
     modal.classList.remove("hidden"); 
- 
     modal.classList.add("flex"); 
- 
     if (currentUser) { 
- 
         showLoggedInAccount(); 
- 
     } else { 
- 
         showCustomerSignIn(); 
- 
     } 
- 
 }; 
- 
  
 window.closeAccountModal = () => { 
- 
-    const modal = 
-        document.getElementById("account-modal"); 
- 
+    const modal = document.getElementById("account-modal"); 
     modal.classList.add("hidden"); 
- 
     modal.classList.remove("flex"); 
- 
 }; 
  
- 
-/* ============================================================ 
-   CUSTOMER AUTH TABS 
-============================================================ */ 
- 
 window.showAuthTab = tab => { 
- 
-    document 
-        .getElementById("admin-login-panel") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-link") 
-        .classList.remove("hidden"); 
- 
-    document 
-        .getElementById("reset-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("account-logged-in") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("auth-tabs") 
-        .classList.remove("hidden"); 
- 
-    document 
-        .getElementById("signin-form") 
-        .classList.toggle( 
-            "hidden", 
-            tab !== "signin" 
-        ); 
- 
-    document 
-        .getElementById("signup-form") 
-        .classList.toggle( 
-            "hidden", 
-            tab !== "signup" 
-        ); 
- 
+    document.getElementById("admin-login-panel").classList.add("hidden"); 
+    document.getElementById("admin-login-link").classList.remove("hidden"); 
+    document.getElementById("reset-form").classList.add("hidden"); 
+    document.getElementById("account-logged-in").classList.add("hidden"); 
+    document.getElementById("auth-tabs").classList.remove("hidden"); 
+    document.getElementById("signin-form").classList.toggle("hidden", tab !== "signin"); 
+    document.getElementById("signup-form").classList.toggle("hidden", tab !== "signup"); 
+
     document.getElementById("signin-tab").className = 
         tab === "signin" 
         ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
         : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
- 
     document.getElementById("signup-tab").className = 
         tab === "signup" 
         ? "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold" 
         : "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold"; 
- 
 }; 
- 
- 
-/* ============================================================ 
-   ADMIN LOGIN SCREEN 
-============================================================ */ 
- 
+
 window.openAdminLogin = () => { 
- 
     if (currentUser) { 
- 
-        showToast( 
-            "Customer Account Active", 
-            "Please sign out of the customer account before using Admin Sign In.", 
-            false 
-        ); 
- 
+        showToast("Customer Account Active", "Please sign out of the customer account before using Admin Sign In.", false); 
         return; 
- 
     } 
- 
-    document 
-        .getElementById("auth-tabs") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signin-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signup-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("reset-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("account-logged-in") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-link") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-panel") 
-        .classList.remove("hidden"); 
- 
-    document 
-        .getElementById("admin-login-error") 
-        .classList.add("hidden"); 
- 
+    document.getElementById("auth-tabs").classList.add("hidden"); 
+    document.getElementById("signin-form").classList.add("hidden"); 
+    document.getElementById("signup-form").classList.add("hidden"); 
+    document.getElementById("reset-form").classList.add("hidden"); 
+    document.getElementById("account-logged-in").classList.add("hidden"); 
+    document.getElementById("admin-login-link").classList.add("hidden"); 
+    document.getElementById("admin-login-panel").classList.remove("hidden"); 
+    document.getElementById("admin-login-error").classList.add("hidden"); 
 }; 
- 
- 
+
 window.showCustomerSignIn = () => { 
- 
-    document 
-        .getElementById("admin-login-panel") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("auth-tabs") 
-        .classList.remove("hidden"); 
- 
-    document 
-        .getElementById("admin-login-link") 
-        .classList.remove("hidden"); 
- 
+    document.getElementById("admin-login-panel").classList.add("hidden"); 
+    document.getElementById("auth-tabs").classList.remove("hidden"); 
+    document.getElementById("admin-login-link").classList.remove("hidden"); 
     showAuthTab("signin"); 
- 
 }; 
- 
- 
-/* ============================================================ 
-   CUSTOMER LOGGED-IN UI 
-============================================================ */ 
- 
+
 function showLoggedInAccount() { 
- 
-    document 
-        .getElementById("auth-tabs") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signin-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signup-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("reset-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-panel") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-link") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("account-logged-in") 
-        .classList.remove("hidden"); 
- 
+    document.getElementById("auth-tabs").classList.add("hidden"); 
+    document.getElementById("signin-form").classList.add("hidden"); 
+    document.getElementById("signup-form").classList.add("hidden"); 
+    document.getElementById("reset-form").classList.add("hidden"); 
+    document.getElementById("admin-login-panel").classList.add("hidden"); 
+    document.getElementById("admin-login-link").classList.add("hidden"); 
+    document.getElementById("account-logged-in").classList.remove("hidden"); 
     updateAccountUI(); 
- 
 } 
- 
- 
+
 function updateAccountUI() { 
- 
     if (!currentUser) return; 
+    const firstName = currentProfile?.firstName || currentUser.displayName?.split(" ")[0] || "Customer"; 
+    const surname = currentProfile?.surname || ""; 
  
-    const firstName = 
-        currentProfile?.firstName || 
-        currentUser.displayName?.split(" ")[0] || 
-        "Customer"; 
- 
-    const surname = 
-        currentProfile?.surname || 
-        ""; 
- 
-    document.getElementById("account-name").innerText = 
-        `${firstName} ${surname}`.trim(); 
- 
-    document.getElementById("account-email").innerText = 
-        currentUser.email || ""; 
- 
-    document.getElementById("account-label").innerText = 
-        firstName || "Account"; 
- 
-    document.getElementById("profile-first").innerText = 
-        currentProfile?.firstName || "Not provided"; 
- 
-    document.getElementById("profile-surname").innerText = 
-        currentProfile?.surname || "Not provided"; 
- 
-    document.getElementById("profile-phone").innerText = 
-        currentProfile?.phone || "Not provided"; 
- 
-    document.getElementById("profile-location").innerText = 
-        currentProfile?.location || "Not provided"; 
- 
-    document.getElementById("profile-city").innerText = 
-        currentProfile?.city || "Not provided"; 
- 
-    document.getElementById("profile-province").innerText = 
-        currentProfile?.province || "Not provided"; 
+    document.getElementById("account-name").innerText = `${firstName} ${surname}`.trim(); 
+    document.getElementById("account-email").innerText = currentUser.email || ""; 
+    document.getElementById("account-label").innerText = firstName || "Account"; 
+    document.getElementById("profile-first").innerText = currentProfile?.firstName || "Not provided"; 
+    document.getElementById("profile-surname").innerText = currentProfile?.surname || "Not provided"; 
+    document.getElementById("profile-phone").innerText = currentProfile?.phone || "Not provided"; 
+    document.getElementById("profile-location").innerText = currentProfile?.location || "Not provided"; 
+    document.getElementById("profile-city").innerText = currentProfile?.city || "Not provided"; 
+    document.getElementById("profile-province").innerText = currentProfile?.province || "Not provided"; 
  
     updateVerificationUI(); 
- 
 } 
- 
- 
+
+function updateVerificationUI() {
+    const box = document.getElementById("verification-box");
+    if (!currentUser) return;
+    if (currentUser.emailVerified) {
+        box.className = "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
+        document.getElementById("verification-icon").className = "fa-solid fa-circle-check text-green-700 mt-1";
+        document.getElementById("verification-title").innerText = "Email Verified";
+        document.getElementById("verification-text").innerText = "Your email address has been verified successfully.";
+    } else {
+        box.className = "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
+        document.getElementById("verification-icon").className = "fa-solid fa-envelope text-amber-700 mt-1";
+        document.getElementById("verification-title").innerText = "Verify your email";
+        document.getElementById("verification-text").innerText = "We have sent a verification email to your email address.";
+    }
+}
+
+window.resendVerificationEmail = async () => {
+    if (!currentUser) return;
+    try {
+        await sendEmailVerification(currentUser);
+        showToast("Verification Email Sent", "A new verification email has been sent to your address.");
+    } catch (err) {
+        showToast("Failed to Send", err.message, false);
+    }
+};
+
+window.checkEmailVerification = async (manual = false) => {
+    if (!currentUser) return;
+    try {
+        await reload(currentUser);
+        currentUser = auth.currentUser;
+        updateAccountUI();
+        if (manual) {
+            if (currentUser.emailVerified) {
+                showToast("Verified", "Your email address is verified!");
+            } else {
+                showToast("Not Verified", "Email is not verified yet. Please check your inbox.", false);
+            }
+        }
+    } catch (err) {
+        console.error("Error reloading user", err);
+    }
+};
+
+window.signOutCustomer = async () => {
+    try {
+        await signOut(auth);
+        currentUser = null;
+        currentProfile = null;
+        document.getElementById("account-label").innerText = "Account";
+        closeAccountModal();
+        showToast("Signed Out", "You have been signed out successfully.");
+    } catch (err) {
+        showToast("Sign Out Failed", err.message, false);
+    }
+};
+
 /* ============================================================ 
-   FORGOT PASSWORD 
+   AUTHENTICATION FORMS 
 ============================================================ */ 
- 
+
+// Sign In Form
+document.getElementById("signin-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("signin-email").value.trim();
+    const password = document.getElementById("signin-password").value;
+    const errBox = document.getElementById("signin-error");
+    errBox.classList.add("hidden");
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        closeAccountModal();
+        showToast("Welcome Back!", "Successfully signed into your account.");
+    } catch (err) {
+        errBox.innerText = "Invalid credentials or login error: " + err.message;
+        errBox.classList.remove("hidden");
+    }
+});
+
+// Password Reset
 window.showPasswordReset = () => { 
+    document.getElementById("auth-tabs").classList.add("hidden"); 
+    document.getElementById("signin-form").classList.add("hidden"); 
+    document.getElementById("signup-form").classList.add("hidden"); 
+    document.getElementById("admin-login-panel").classList.add("hidden"); 
+    document.getElementById("admin-login-link").classList.add("hidden"); 
+    document.getElementById("reset-form").classList.remove("hidden"); 
  
-    document 
-        .getElementById("auth-tabs") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signin-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("signup-form") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-panel") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("admin-login-link") 
-        .classList.add("hidden"); 
- 
-    document 
-        .getElementById("reset-form") 
-        .classList.remove("hidden"); 
- 
-    const email = 
-        document.getElementById("signin-email").value.trim(); 
- 
+    const email = document.getElementById("signin-email").value.trim(); 
     if (email) { 
- 
-        document.getElementById("reset-email").value = 
-            email; 
- 
+        document.getElementById("reset-email").value = email; 
     } 
- 
 }; 
- 
- 
-document 
-    .getElementById("reset-form") 
-    .addEventListener("submit", async e => { 
- 
-        e.preventDefault(); 
- 
-        const email = 
-            document 
-                .getElementById("reset-email") 
-                .value 
-                .trim(); 
- 
-        const box = 
-            document.getElementById("reset-message"); 
- 
-        box.classList.add("hidden"); 
- 
-        try { 
- 
-            await sendPasswordResetEmail( 
-                auth, 
-                email 
-            ); 
- 
-            box.className = 
-                "text-xs p-3 rounded bg-green-50 text-green-700 border border-green-200"; 
- 
-            box.innerText = 
-                "If an account exists for that email, a password reset link has been sent. Please check your inbox and spam folder."; 
- 
-            box.classList.remove("hidden"); 
- 
-        } catch (error) { 
- 
-            box.className = 
-                "text-xs p-3 rounded bg-red-50 text-red-700 border border-red-200"; 
- 
-            box.innerText = 
-                "We could not send the reset email. Please check the email address and try again."; 
- 
-            box.classList.remove("hidden"); 
- 
-        } 
- 
-    }); 
- 
- 
-/* ============================================================ 
-   SIGN UP 
-============================================================ */ 
- 
-document 
-    .getElementById("signup-form") 
-    .addEventListener("submit", async e => { 
- 
-        e.preventDefault(); 
- 
-        const errorBox = 
-            document.getElementById("signup-error"); 
- 
-        const button = 
-            document.getElementById("signup-btn"); 
- 
-        errorBox.classList.add("hidden"); 
- 
-        button.disabled = true; 
- 
-        button.innerText = "Creating Account..."; 
- 
- 
-        const profile = { 
- 
-            firstName: 
-                document.getElementById("signup-first") 
-                .value.trim(), 
- 
-            surname: 
-                document.getElementById("signup-surname") 
-                .value.trim(), 
- 
-            email: 
-                document.getElementById("signup-email") 
-                .value.trim() 
-                .toLowerCase(), 
- 
-            phone: 
-                document.getElementById("signup-phone") 
-                .value.trim(), 
- 
-            location: 
-                document.getElementById("signup-location") 
-                .value.trim(), 
- 
-            city: 
-                document.getElementById("signup-city") 
-                .value.trim(), 
- 
-            province: 
-                document.getElementById("signup-province") 
-                .value.trim(), 
- 
-            createdAt: 
-                serverTimestamp(), 
- 
-            emailVerified: 
-                false 
- 
-        }; 
- 
- 
-        try { 
- 
-            /* --------------------------------------------- 
-               1. CREATE FIREBASE AUTH ACCOUNT 
-            --------------------------------------------- */ 
- 
-            const credential = 
-                await createUserWithEmailAndPassword( 
-                    auth, 
-                    profile.email, 
-                    document 
-                        .getElementById("signup-password") 
-                        .value 
-                ); 
- 
- 
-            currentUser = credential.user; 
- 
- 
-            /* --------------------------------------------- 
-               2. SAVE CUSTOMER PROFILE 
-            --------------------------------------------- */ 
- 
-            try { 
- 
-                await setDoc( 
-                    doc(db, "users", credential.user.uid), 
-                    profile 
-                ); 
- 
-                currentProfile = profile; 
- 
-            } catch (profileError) { 
- 
-                console.error( 
-                    "Customer profile save error:", 
-                    profileError 
-                ); 
- 
-                currentProfile = profile; 
- 
-                showToast( 
-                    "Account Created", 
-                    "Your login account was created, but some profile information could not be saved. Please contact TegoKgatso if needed.", 
-                    false 
-                ); 
- 
-            } 
- 
- 
-            /* --------------------------------------------- 
-               3. UPDATE FIREBASE DISPLAY NAME 
-            --------------------------------------------- */ 
- 
-            try { 
- 
-                await updateProfile( 
-                    credential.user, 
-                    { 
-                        displayName: 
-                            `${profile.firstName} ${profile.surname}` 
-                    } 
-                ); 
- 
-            } catch (profileUpdateError) { 
- 
-                console.error( 
-                    "Display name update error:", 
-                    profileUpdateError 
-                ); 
- 
-            } 
- 
- 
-            /* --------------------------------------------- 
-               4. SEND VERIFICATION EMAIL IMMEDIATELY 
-            --------------------------------------------- */ 
- 
-            try { 
- 
-                await sendEmailVerification( 
-                    credential.user 
-                ); 
- 
-                showToast( 
-                    "Welcome to TegoKgatso", 
-                    `A verification email has been sent to ${profile.email}.`, 
-                    true 
-                ); 
- 
-            } catch (verificationError) { 
- 
-                console.error( 
-                    "Verification email error:", 
-                    verificationError 
-                ); 
- 
-                showToast( 
-                    "Account Created", 
-                    "Your account was created, but we could not send the verification email. You can resend it from your profile.", 
-                    false 
-                ); 
- 
-            } 
- 
- 
-            /* --------------------------------------------- 
-               5. SHOW CUSTOMER ACCOUNT 
-            --------------------------------------------- */ 
- 
-            showLoggedInAccount(); 
- 
-            updateAccountUI(); 
- 
-        } catch (error) { 
- 
-            console.error( 
-                "Registration error:", 
-                error 
-            ); 
- 
- 
-            if ( 
-                error.code === 
-                "auth/email-already-in-use" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "An account with this email already exists. Please sign in instead."; 
- 
-            } else { 
- 
-                errorBox.innerText = 
-                    error.message || 
-                    "We could not create your account. Please try again."; 
- 
-            } 
- 
-            errorBox.classList.remove("hidden"); 
- 
-        } finally { 
- 
-            button.disabled = false; 
- 
-            button.innerText = 
-                "Create Account"; 
- 
-        } 
- 
-    }); 
- 
- 
-/* ============================================================ 
-   CUSTOMER SIGN IN 
-============================================================ */ 
- 
-document 
-    .getElementById("signin-form") 
-    .addEventListener("submit", async e => { 
- 
-        e.preventDefault(); 
- 
-        const errorBox = 
-            document.getElementById("signin-error"); 
- 
-        const button = 
-            document.getElementById("signin-btn"); 
- 
-        errorBox.classList.add("hidden"); 
- 
-        button.disabled = true; 
- 
-        button.innerText = "Signing In..."; 
- 
- 
-        try { 
- 
-            await signInWithEmailAndPassword( 
-                auth, 
-                document.getElementById("signin-email").value.trim(), 
-                document.getElementById("signin-password").value 
-            ); 
- 
-            closeAccountModal(); 
- 
-        } catch (error) { 
- 
-            console.error(error); 
- 
-            errorBox.innerText = 
-                "Sign in failed. Please check your email and password."; 
- 
-            errorBox.classList.remove("hidden"); 
- 
-        } finally { 
- 
-            button.disabled = false; 
- 
-            button.innerText = "Sign In"; 
- 
-        } 
- 
-    }); 
- 
- 
-/* ============================================================ 
-   ADMIN SIGN IN 
-============================================================ */ 
- 
-document 
-    .getElementById("admin-login-form") 
-    .addEventListener("submit", async e => { 
- 
-        e.preventDefault(); 
- 
-        const errorBox = 
-            document.getElementById("admin-login-error"); 
- 
-        const button = 
-            document.getElementById("admin-login-btn"); 
- 
-        errorBox.classList.add("hidden"); 
- 
-        button.disabled = true; 
- 
-        button.innerHTML = 
-            '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Checking Access...'; 
- 
- 
-        const email = 
-            document 
-                .getElementById("admin-email") 
-                .value 
-                .trim(); 
- 
-        const password = 
-            document 
-                .getElementById("admin-password") 
-                .value; 
- 
- 
-        try { 
- 
-            const credential = 
-                await signInWithEmailAndPassword( 
-                    auth, 
-                    email, 
-                    password 
-                ); 
- 
-            const adminSnapshot = 
-                await getDoc( 
-                    doc( 
-                        db, 
-                        "admins", 
-                        credential.user.uid 
-                    ) 
-                ); 
- 
- 
-            if ( 
-                !adminSnapshot.exists() || 
-                adminSnapshot.data().role !== "admin" 
-            ) { 
- 
-                await signOut(auth); 
- 
-                throw new Error( 
-                    "ADMIN_NOT_AUTHORIZED" 
-                ); 
- 
-            } 
- 
-            showToast( 
-                "Admin Access Granted", 
-                "Opening the TegoKgatso administration portal...", 
-                true 
-            ); 
- 
-            setTimeout(() => { 
- 
-                window.location.href = 
-                    "admin-updated.html"; 
- 
-            }, 500); 
- 
-        } catch (error) { 
- 
-            console.error( 
-                "Admin login error:", 
-                error 
-            ); 
- 
-            if ( 
-                error.message === 
-                "ADMIN_NOT_AUTHORIZED" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "Access denied. This account is not authorised as a TegoKgatso administrator."; 
- 
-            } else if ( 
-                error.code === 
-                "auth/invalid-credential" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "Invalid admin email or password."; 
- 
-            } else if ( 
-                error.code === 
-                "auth/user-not-found" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "No account was found with this email address."; 
- 
-            } else if ( 
-                error.code === 
-                "auth/wrong-password" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "Incorrect admin password."; 
- 
-            } else if ( 
-                error.code === 
-                "permission-denied" 
-            ) { 
- 
-                errorBox.innerText = 
-                    "Admin access could not be verified because Firestore permissions are blocking the admin check."; 
- 
-            } else { 
- 
-                errorBox.innerText = 
-                    "Admin sign in failed. Please check your credentials and try again."; 
- 
-            } 
- 
-            errorBox.classList.remove("hidden"); 
- 
-        } finally { 
- 
-            button.disabled = false; 
- 
-            button.innerHTML = 
-                '<i class="fa-solid fa-lock mr-2"></i> Admin Sign In'; 
- 
-        } 
- 
-    }); 
- 
- 
-/* ============================================================ 
-   SIGN OUT 
-============================================================ */ 
- 
-window.signOutCustomer = async () => { 
- 
-    if (verificationTimer) { 
- 
-        clearInterval( 
-            verificationTimer 
-        ); 
- 
-        verificationTimer = null; 
- 
-    } 
- 
-    await signOut(auth); 
- 
-    closeAccountModal(); 
- 
-    showToast( 
-        "Signed Out", 
-        "You have been safely signed out.", 
-        true 
-    ); 
- 
-}; 
- 
- 
-/* ============================================================ 
-   VERIFICATION UI 
-============================================================ */ 
- 
-function updateVerificationUI() { 
- 
-    if (!currentUser) return; 
- 
-    const box = 
-        document.getElementById("verification-box"); 
- 
-    const icon = 
-        document.getElementById("verification-icon"); 
- 
-    const title = 
-        document.getElementById("verification-title"); 
- 
-    const text = 
-        document.getElementById("verification-text"); 
- 
-    if (currentUser.emailVerified) { 
- 
-        box.className = 
-            "mt-5 p-4 rounded-lg bg-green-50 border border-green-200"; 
- 
-        icon.className = 
-            "fa-solid fa-circle-check text-green-700 mt-1"; 
- 
-        title.innerText = 
-            "Email Verified ✓"; 
- 
-        title.className = 
-            "font-bold text-xs text-green-800"; 
- 
-        text.innerText = 
-            "Your email address has been successfully verified. Your TegoKgatso customer account is fully active."; 
- 
-        document 
-            .querySelectorAll("#verification-box button") 
-            .forEach(button => button.classList.add("hidden")); 
- 
-    } else { 
- 
-        box.className = 
-            "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200"; 
- 
-        icon.className = 
-            "fa-solid fa-envelope text-amber-700 mt-1"; 
- 
-        title.innerText = 
-            "Verify your email"; 
- 
-        title.className = 
-            "font-bold text-xs text-leather-900"; 
- 
-        text.innerText = 
-            `We sent a verification email to ${currentUser.email}. You can continue shopping without verifying first.`; 
- 
-        document 
-            .querySelectorAll("#verification-box button") 
-            .forEach(button => button.classList.remove("hidden")); 
- 
-    } 
- 
-} 
- 
- 
-/* ============================================================ 
-   RESEND VERIFICATION 
-============================================================ */ 
- 
-window.resendVerificationEmail = async () => { 
- 
-    if (!currentUser) return; 
- 
+
+document.getElementById("reset-form").addEventListener("submit", async e => { 
+    e.preventDefault(); 
+    const email = document.getElementById("reset-email").value.trim(); 
+    const box = document.getElementById("reset-message"); 
+    box.classList.add("hidden"); 
+
     try { 
- 
-        await sendEmailVerification( 
-            currentUser 
-        ); 
- 
-        showToast( 
-            "Verification Email Sent", 
-            "Please check your inbox and spam folder.", 
-            true 
-        ); 
- 
+        await sendPasswordResetEmail(auth, email); 
+        box.className = "text-xs p-3 rounded bg-green-50 text-green-700 border border-green-200"; 
+        box.innerText = "If an account exists for that email, a password reset link has been sent."; 
+        box.classList.remove("hidden"); 
     } catch (error) { 
- 
-        console.error(error); 
- 
-        showToast( 
-            "Error", 
-            "Could not send verification email. Try again later.", 
-            false 
-        ); 
- 
+        box.className = "text-xs p-3 rounded bg-red-50 text-red-700 border border-red-200"; 
+        box.innerText = "We could not send the reset email. Please try again."; 
+        box.classList.remove("hidden"); 
     } 
- 
-}; 
- 
- 
+});
+
+// Sign Up Form
+document.getElementById("signup-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById("signup-first").value.trim();
+    const surname = document.getElementById("signup-surname").value.trim();
+    const email = document.getElementById("signup-email").value.trim();
+    const phone = document.getElementById("signup-phone").value.trim();
+    const location = document.getElementById("signup-location").value.trim();
+    const city = document.getElementById("signup-city").value.trim();
+    const province = document.getElementById("signup-province").value.trim();
+    const password = document.getElementById("signup-password").value;
+    const errBox = document.getElementById("signup-error");
+    errBox.classList.add("hidden");
+
+    try {
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+
+        await updateProfile(user, { displayName: `${firstName} ${surname}` });
+        await sendEmailVerification(user);
+
+        const profileData = {
+            firstName,
+            surname,
+            email,
+            phone,
+            location,
+            city,
+            province,
+            createdAt: serverTimestamp()
+        };
+
+        await setDoc(doc(db, "users", user.uid), profileData);
+        currentProfile = profileData;
+
+        closeAccountModal();
+        showToast("Account Created", "Verification email sent. Please check your inbox.");
+    } catch (err) {
+        errBox.innerText = "Failed to create account: " + err.message;
+        errBox.classList.remove("hidden");
+    }
+});
+
+// Admin Sign In
+document.getElementById("admin-login-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("admin-email").value.trim();
+    const password = document.getElementById("admin-password").value;
+    const errBox = document.getElementById("admin-login-error");
+    errBox.classList.add("hidden");
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        closeAccountModal();
+        showToast("Admin Authenticated", "Signed in as admin.");
+    } catch (err) {
+        errBox.innerText = "Admin sign-in failed: " + err.message;
+        errBox.classList.remove("hidden");
+    }
+});
+
 /* ============================================================ 
-   AUTH OBSERVER & INITIALIZATION 
+   AUTH STATE OBSERVER 
 ============================================================ */ 
- 
-onAuthStateChanged(auth, async user => { 
- 
-    currentUser = user; 
- 
-    if (user) { 
- 
-        try { 
- 
-            const userDoc = await getDoc(doc(db, "users", user.uid)); 
- 
-            if (userDoc.exists()) { 
- 
-                currentProfile = userDoc.data(); 
- 
-            } 
- 
-        } catch (e) { 
- 
-            console.error("Error fetching user profile:", e); 
- 
-        } 
- 
-    } else { 
- 
-        currentProfile = null; 
- 
-    } 
- 
-    updateAccountUI(); 
- 
-}); 
- 
-renderProducts(); 
-updateCartUI(); 
+
+onAuthStateChanged(auth, async (user) => {
+    currentUser = user;
+    if (user) {
+        try {
+            const userDoc = await getDoc(doc(db, "users", user.uid));
+            if (userDoc.exists()) {
+                currentProfile = userDoc.data();
+            }
+        } catch (err) {
+            console.error("Error fetching profile", err);
+        }
+        document.getElementById("account-label").innerText = 
+            currentProfile?.firstName || user.displayName?.split(" ")[0] || "Account";
+    } else {
+        currentProfile = null;
+        document.getElementById("account-label").innerText = "Account";
+    }
+    updateCartUI();
+});
+
+/* ============================================================ 
+   INITIALIZATION 
+============================================================ */ 
+
+renderProducts();
+updateCartUI();
 </script>
 </body>
 </html>
