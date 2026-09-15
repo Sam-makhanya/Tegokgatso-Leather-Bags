@@ -850,6 +850,38 @@
         </div>
     </div>
 </div>
+<!-- ADMIN DASHBOARD -->
+<div id="admin-dashboard"
+     class="fixed inset-0 z-[90] hidden bg-leather-50 overflow-y-auto">
+    <div class="bg-leather-900 text-white p-4 sm:p-6 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-10">
+        <div class="flex items-center gap-3">
+            <i class="fa-solid fa-shield-halved text-amber-gold text-xl"></i>
+            <div>
+                <h2 class="font-serif text-lg sm:text-xl font-bold text-amber-gold">
+                    Admin Dashboard
+                </h2>
+                <p class="text-xs text-leather-300">
+                    TegoKgatso Leather Bags — Orders
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="loadAdminOrders()"
+                    class="border border-leather-600 text-leather-100 px-3 py-2 rounded text-xs font-bold uppercase hover:bg-leather-800 transition">
+                <i class="fa-solid fa-rotate mr-1"></i>
+                Refresh
+            </button>
+            <button onclick="signOutAdmin()"
+                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-xs font-bold uppercase transition">
+                <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i>
+                Sign Out
+            </button>
+        </div>
+    </div>
+    <div class="max-w-5xl mx-auto p-4 sm:p-6">
+        <div id="admin-orders-list" class="space-y-4"></div>
+    </div>
+</div>
 <!-- CHECKOUT MODAL -->
 <div id="checkout-modal"
      class="fixed inset-0 z-[70] hidden items-center justify-center p-4">
@@ -1068,7 +1100,11 @@ import {
     getDoc,
     addDoc,
     collection,
-    serverTimestamp
+    serverTimestamp,
+    query,
+    orderBy,
+    getDocs,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"; 
 
 /* ============================================================ 
@@ -1096,6 +1132,7 @@ const TEGOKGATSO_PHONE = "27834752478";
 
 let currentUser = null; 
 let currentProfile = null; 
+let isAdminUser = false;
 let previousEmailVerified = false; 
 let verificationTimer = null; 
 let cart = JSON.parse( 
@@ -1720,6 +1757,10 @@ window.togglePasswordVisibility = (inputId, iconId) => {
 ============================================================ */ 
  
 window.openAccountModal = () => { 
+    if (isAdminUser) {
+        openAdminDashboard();
+        return;
+    }
     const modal = document.getElementById("account-modal"); 
     modal.classList.remove("hidden"); 
     modal.classList.add("flex"); 
@@ -1864,6 +1905,97 @@ window.signOutCustomer = async () => {
 };
 
 /* ============================================================ 
+   ADMIN DASHBOARD 
+============================================================ */ 
+
+window.openAdminDashboard = async () => {
+    closeAccountModal();
+    const dash = document.getElementById("admin-dashboard");
+    dash.classList.remove("hidden");
+    dash.classList.add("flex");
+    document.body.classList.add("overflow-hidden");
+    await loadAdminOrders();
+};
+
+window.closeAdminDashboard = () => {
+    const dash = document.getElementById("admin-dashboard");
+    dash.classList.add("hidden");
+    dash.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+};
+
+window.signOutAdmin = async () => {
+    try {
+        await signOut(auth);
+        isAdminUser = false;
+        closeAdminDashboard();
+        showToast("Signed Out", "Admin session ended.");
+    } catch (err) {
+        showToast("Sign Out Failed", err.message, false);
+    }
+};
+
+window.loadAdminOrders = async () => {
+    const list = document.getElementById("admin-orders-list");
+    list.innerHTML = `<p class="text-center text-sm text-leather-500 py-8">Loading orders...</p>`;
+
+    try {
+        const q = query(collection(db, "orders"), orderBy("createdAt", "desc"));
+        const snap = await getDocs(q);
+
+        if (snap.empty) {
+            list.innerHTML = `<p class="text-center text-sm text-leather-500 py-8">No orders yet.</p>`;
+            return;
+        }
+
+        list.innerHTML = snap.docs.map(d => {
+            const o = d.data();
+            const items = (o.items || []).map(it => `${esc(it.title)} (x${it.qty})`).join(", ");
+            const addr = o.address
+                ? `${esc(o.address.line1 || "")}, ${esc(o.address.suburb || "")}, ${esc(o.address.city || "")}, ${esc(o.address.province || "")} ${esc(o.address.postal || "")}`
+                : "";
+
+            return `
+                <div class="border border-leather-200 rounded-lg p-4 bg-white shadow-sm">
+                    <div class="flex justify-between items-start flex-wrap gap-3">
+                        <div>
+                            <p class="font-mono text-[10px] text-leather-400">Order #${esc(d.id)}</p>
+                            <p class="font-bold text-sm text-leather-900">${esc(o.customerName || "Unknown")}</p>
+                            <p class="text-xs text-leather-500">${esc(o.customerEmail || "")} | ${esc(o.customerPhone || "")}</p>
+                        </div>
+                        <select onchange="updateOrderStatus('${esc(d.id)}', this.value)"
+                                class="border border-leather-200 rounded px-2 py-1 text-xs font-semibold">
+                            <option value="Awaiting Payment" ${o.status === "Awaiting Payment" ? "selected" : ""}>Awaiting Payment</option>
+                            <option value="Paid" ${o.status === "Paid" ? "selected" : ""}>Paid</option>
+                            <option value="Shipped" ${o.status === "Shipped" ? "selected" : ""}>Shipped</option>
+                            <option value="Completed" ${o.status === "Completed" ? "selected" : ""}>Completed</option>
+                            <option value="Cancelled" ${o.status === "Cancelled" ? "selected" : ""}>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="mt-3 text-xs text-leather-700 space-y-1">
+                        <p><strong>Items:</strong> ${items || "N/A"}</p>
+                        <p><strong>Delivery:</strong> ${esc(o.deliveryMethod || "N/A")}</p>
+                        ${o.deliveryMethod === "Courier Delivery" && addr ? `<p><strong>Address:</strong> ${addr}</p>` : ""}
+                        ${o.notes ? `<p><strong>Notes:</strong> ${esc(o.notes)}</p>` : ""}
+                    </div>
+                </div>
+            `;
+        }).join("");
+    } catch (err) {
+        list.innerHTML = `<p class="text-center text-sm text-red-700 py-8">Failed to load orders: ${esc(err.message)}</p>`;
+    }
+};
+
+window.updateOrderStatus = async (orderId, newStatus) => {
+    try {
+        await updateDoc(doc(db, "orders", orderId), { status: newStatus });
+        showToast("Order Updated", `Status changed to ${newStatus}.`);
+    } catch (err) {
+        showToast("Update Failed", err.message, false);
+    }
+};
+
+/* ============================================================ 
    AUTHENTICATION FORMS 
 ============================================================ */ 
 
@@ -1970,9 +2102,19 @@ document.getElementById("admin-login-form").addEventListener("submit", async (e)
     errBox.classList.add("hidden");
 
     try {
-        await signInWithEmailAndPassword(auth, email, password);
-        closeAccountModal();
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        const adminDoc = await getDoc(doc(db, "admins", cred.user.uid));
+
+        if (!adminDoc.exists()) {
+            await signOut(auth);
+            errBox.innerText = "This account is not authorised as an admin.";
+            errBox.classList.remove("hidden");
+            return;
+        }
+
+        isAdminUser = true;
         showToast("Admin Authenticated", "Signed in as admin.");
+        openAdminDashboard();
     } catch (err) {
         errBox.innerText = "Admin sign-in failed: " + err.message;
         errBox.classList.remove("hidden");
@@ -1985,7 +2127,25 @@ document.getElementById("admin-login-form").addEventListener("submit", async (e)
 
 onAuthStateChanged(auth, async (user) => {
     currentUser = user;
+
     if (user) {
+        try {
+            const adminDoc = await getDoc(doc(db, "admins", user.uid));
+            isAdminUser = adminDoc.exists();
+        } catch (err) {
+            console.error("Error checking admin status", err);
+            isAdminUser = false;
+        }
+
+        if (isAdminUser) {
+            // This is an admin account - never fall back to the customer view.
+            currentProfile = null;
+            document.getElementById("account-label").innerText = "Admin";
+            openAdminDashboard();
+            updateCartUI();
+            return;
+        }
+
         try {
             const userDoc = await getDoc(doc(db, "users", user.uid));
             if (userDoc.exists()) {
@@ -1998,6 +2158,8 @@ onAuthStateChanged(auth, async (user) => {
             currentProfile?.firstName || user.displayName?.split(" ")[0] || "Account";
     } else {
         currentProfile = null;
+        isAdminUser = false;
+        closeAdminDashboard();
         document.getElementById("account-label").innerText = "Account";
     }
     updateCartUI();
