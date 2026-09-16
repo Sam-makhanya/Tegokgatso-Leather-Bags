@@ -87,10 +87,41 @@
                     #F4ECE1
                 );
         }
+
+        /*
+         * PRODUCT IMAGE FIX
+         *
+         * object-contain keeps the complete leather bag visible
+         * inside the product card without cropping the top,
+         * bottom, sides, handles or straps.
+         */
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            padding: 12px;
+            transition: transform 700ms ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        /*
+         * Keep the product image area clean and consistent.
+         */
+        .product-image-container {
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background: #F4ECE1;
+        }
     </style>
 </head>
 
 <body class="bg-leather-50 font-sans text-leather-900 selection:bg-leather-300 selection:text-leather-900 antialiased overflow-x-hidden">
+
 
 <!-- ============================================================
      NAVIGATION
@@ -166,8 +197,6 @@
 
             </button>
 
-            <!-- WHATSAPP BUTTON -->
-
             <button onclick="openWhatsAppModal()"
                     class="hidden lg:inline-flex items-center space-x-2 bg-amber-gold hover:bg-yellow-500 text-leather-900 px-4 py-2.5 rounded-sm font-semibold text-xs tracking-wider uppercase transition">
 
@@ -181,8 +210,7 @@
                     class="md:hidden text-leather-100 p-2 hover:text-amber-gold">
 
                 <i class="fa-solid fa-bars text-xl"
-                   id="menu-icon">
-                </i>
+                   id="menu-icon"></i>
 
             </button>
 
@@ -379,21 +407,21 @@
 
     <div class="flex justify-center flex-wrap gap-2 mb-8 sm:mb-12">
 
-        <button onclick="filterProducts('all')"
+        <button onclick="filterProducts('all', this)"
                 class="filter-btn bg-leather-900 text-leather-50 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
 
             All Models
 
         </button>
 
-        <button onclick="filterProducts('backpack')"
+        <button onclick="filterProducts('backpack', this)"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
 
             Backpacks
 
         </button>
 
-        <button onclick="filterProducts('briefcase')"
+        <button onclick="filterProducts('briefcase', this)"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
 
             Briefcases & Satchels
@@ -762,12 +790,12 @@
 
             </button>
 
-            <div class="bg-leather-100">
+            <div class="bg-leather-100 flex items-center justify-center">
 
                 <img id="product-modal-image"
                      src=""
                      alt=""
-                     class="w-full max-h-[65vh] object-contain">
+                     class="w-full max-h-[65vh] object-contain p-3">
 
             </div>
 
@@ -970,8 +998,7 @@
                             class="password-toggle">
 
                         <i id="signin-eye"
-                           class="fa-solid fa-eye">
-                        </i>
+                           class="fa-solid fa-eye"></i>
 
                     </button>
 
@@ -990,6 +1017,7 @@
                 </div>
 
                 <button id="signin-btn"
+                        type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
 
                     Sign In
@@ -1131,8 +1159,7 @@
                             class="password-toggle">
 
                         <i id="signup-eye"
-                           class="fa-solid fa-eye">
-                        </i>
+                           class="fa-solid fa-eye"></i>
 
                     </button>
 
@@ -1143,6 +1170,7 @@
                 </div>
 
                 <button id="signup-btn"
+                        type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
 
                     Create Account
@@ -1177,31 +1205,25 @@
 
                     </div>
 
-
                     <div id="verification-box"
                          class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200">
 
                         <div class="flex gap-3">
 
                             <i id="verification-icon"
-                               class="fa-solid fa-envelope text-amber-700 mt-1">
-                            </i>
+                               class="fa-solid fa-envelope text-amber-700 mt-1"></i>
 
                             <div class="flex-grow">
 
                                 <p id="verification-title"
                                    class="font-bold text-xs text-leather-900">
-
                                     Verify your email
-
                                 </p>
 
                                 <p id="verification-text"
                                    class="text-[11px] text-leather-700 mt-1">
-
                                     We have sent a verification email to your email address.
                                     You can continue shopping while waiting.
-
                                 </p>
 
                             </div>
@@ -1212,16 +1234,12 @@
 
                             <button onclick="resendVerificationEmail()"
                                     class="bg-leather-900 text-white py-2 rounded text-[10px] uppercase font-bold">
-
                                 Resend
-
                             </button>
 
                             <button onclick="checkEmailVerification(true)"
                                     class="border border-leather-300 text-leather-800 py-2 rounded text-[10px] uppercase font-bold">
-
                                 Check Now
-
                             </button>
 
                         </div>
@@ -1619,8 +1637,7 @@
         <div class="flex gap-3">
 
             <i id="toast-icon"
-               class="fa-solid fa-check text-amber-gold mt-1">
-            </i>
+               class="fa-solid fa-check text-amber-gold mt-1"></i>
 
             <div>
 
@@ -1933,7 +1950,7 @@ function showToast(title, message, success = true) {
 
 
 /* ============================================================
-   WHATSAPP INTEGRATION
+   WHATSAPP
    NO FIXED OWNER NUMBER
 ============================================================ */
 
@@ -1969,7 +1986,8 @@ function isValidWhatsAppNumber(number) {
 
 window.openWhatsAppModal = () => {
 
-    const modal = document.getElementById("whatsapp-modal");
+    const modal =
+        document.getElementById("whatsapp-modal");
 
     modal.classList.remove("hidden");
 
@@ -1989,7 +2007,8 @@ window.openWhatsAppModal = () => {
 
 window.closeWhatsAppModal = () => {
 
-    const modal = document.getElementById("whatsapp-modal");
+    const modal =
+        document.getElementById("whatsapp-modal");
 
     modal.classList.add("hidden");
 
@@ -2036,7 +2055,7 @@ window.connectToWhatsApp = () => {
    PRODUCT FILTER
 ============================================================ */
 
-window.filterProducts = category => {
+window.filterProducts = (category, clickedButton) => {
 
     document.querySelectorAll(".product-card").forEach(card => {
 
@@ -2056,12 +2075,22 @@ window.filterProducts = category => {
             "text-leather-50"
         );
 
+        button.classList.add(
+            "bg-white",
+            "text-leather-800"
+        );
+
     });
 
 
-    if (window.event?.currentTarget) {
+    if (clickedButton) {
 
-        window.event.currentTarget.classList.add(
+        clickedButton.classList.remove(
+            "bg-white",
+            "text-leather-800"
+        );
+
+        clickedButton.classList.add(
             "bg-leather-900",
             "text-leather-50"
         );
@@ -2077,100 +2106,93 @@ window.filterProducts = category => {
 
 function renderProducts() {
 
-    document.getElementById("product-grid").innerHTML =
-
-        products.map((p, i) => {
-
-            /*
-                The two requested products use object-contain
-                so the complete bag is visible inside the card.
-            */
-
-            const showWholeBag =
-                p[0] === "Artisan Portfolio Briefcase" ||
-                p[0] === "Vanguard Leather Messenger";
-
-            const imageClass =
-                showWholeBag
-                ? "w-full h-full object-contain p-3 group-hover:scale-105 transition duration-700 cursor-pointer"
-                : "w-full h-full object-cover group-hover:scale-105 transition duration-700 cursor-pointer";
+    const grid =
+        document.getElementById("product-grid");
 
 
-            return `
+    grid.innerHTML = products.map((p, i) => {
 
-        <div
-            class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
-            data-category="${p[3]}"
-        >
+        return `
 
-            <div class="relative overflow-hidden aspect-[4/5] bg-leather-100">
+            <div
+                class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
+                data-category="${esc(p[3])}"
+            >
 
-                <img
-                    src="${p[2]}"
-                    alt="${esc(p[0])}"
-                    onclick="openProductModal(${i})"
-                    class="${imageClass}"
-                >
+                <!--
+                    IMPORTANT:
+                    object-contain is used for EVERY product.
+                    This prevents the complete bag from being cropped.
+                -->
 
-                ${
-                    p[6]
-                    ?
-                    `
-                    <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
+                <div class="product-image-container relative">
 
-                        ${p[6]}
-
-                    </div>
-                    `
-                    : ""
-                }
-
-            </div>
-
-
-            <div class="p-4 sm:p-6 flex flex-col flex-grow">
-
-                <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
-
-                    ${esc(p[4])}
-
-                </span>
-
-
-                <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
-
-                    ${esc(p[0])}
-
-                </h3>
-
-
-                <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
-
-                    ${esc(p[5])}
-
-                </p>
-
-
-                <div class="flex items-center justify-end pt-3 border-t border-leather-100 mt-auto">
-
-                    <button
-                        onclick="addToCart(${i})"
-                        class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center"
+                    <img
+                        src="${esc(p[2])}"
+                        alt="${esc(p[0])}"
+                        onclick="openProductModal(${i})"
+                        class="product-image"
                     >
 
-                        Add To Cart
+                    ${
+                        p[6]
+                        ?
+                        `
+                        <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
 
-                    </button>
+                            ${esc(p[6])}
+
+                        </div>
+                        `
+                        : ""
+                    }
+
+                </div>
+
+
+                <div class="p-4 sm:p-6 flex flex-col flex-grow">
+
+                    <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
+
+                        ${esc(p[4])}
+
+                    </span>
+
+
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
+
+                        ${esc(p[0])}
+
+                    </h3>
+
+
+                    <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
+
+                        ${esc(p[5])}
+
+                    </p>
+
+
+                    <div class="flex items-center justify-end pt-3 border-t border-leather-100 mt-auto">
+
+                        <button
+                            onclick="addToCart(${i})"
+                            class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center"
+                        >
+
+                            Add To Cart
+
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        `;
 
-    `;
-
-        }).join("");
+    }).join("");
 
 }
 
@@ -2185,25 +2207,35 @@ window.openProductModal = i => {
 
     if (!p) return;
 
-    document.getElementById("product-modal-image").src = p[2];
 
-    document.getElementById("product-modal-image").alt = p[0];
+    document.getElementById("product-modal-image").src =
+        p[2];
 
-    document.getElementById("product-modal-title").innerText = p[0];
+    document.getElementById("product-modal-image").alt =
+        p[0];
+
+
+    document.getElementById("product-modal-title").innerText =
+        p[0];
+
 
     document.getElementById("product-modal-category").innerText =
         p[4] || "";
 
+
     document.getElementById("product-modal-description").innerText =
         p[5] || "";
 
-    document.getElementById("product-modal-cart-button").onclick = () => {
 
-        addToCart(i);
+    document.getElementById("product-modal-cart-button").onclick =
+        () => {
 
-        closeProductModal();
+            addToCart(i);
 
-    };
+            closeProductModal();
+
+        };
+
 
     const modal =
         document.getElementById("product-modal");
@@ -2211,15 +2243,18 @@ window.openProductModal = i => {
     const panel =
         document.getElementById("product-modal-content");
 
+
     modal.classList.remove(
         "invisible",
         "opacity-0",
         "pointer-events-none"
     );
 
+
     panel.classList.remove("scale-95");
 
     panel.classList.add("scale-100");
+
 
     document.body.classList.add("overflow-hidden");
 
@@ -2234,15 +2269,18 @@ window.closeProductModal = () => {
     const panel =
         document.getElementById("product-modal-content");
 
+
     modal.classList.add(
         "invisible",
         "opacity-0",
         "pointer-events-none"
     );
 
+
     panel.classList.remove("scale-100");
 
     panel.classList.add("scale-95");
+
 
     document.body.classList.remove("overflow-hidden");
 
@@ -2257,8 +2295,12 @@ window.addToCart = i => {
 
     const p = products[i];
 
+    if (!p) return;
+
+
     const existing =
         cart.find(item => item.title === p[0]);
+
 
     if (existing) {
 
@@ -2278,11 +2320,18 @@ window.addToCart = i => {
 
     }
 
+
     saveCart();
 
     updateCartUI();
 
     toggleCart(true);
+
+
+    showToast(
+        "Added To Bag",
+        `${p[0]} has been added to your shopping bag.`
+    );
 
 };
 
@@ -2305,6 +2354,7 @@ function updateCartUI() {
             0
         );
 
+
     document.getElementById("cart-count").innerText =
         count;
 
@@ -2319,10 +2369,15 @@ function updateCartUI() {
 
             <div class="flex gap-3 border-b border-leather-100 pb-3">
 
-                <img
-                    src="${item.img}"
-                    class="w-16 h-20 object-cover rounded"
-                >
+                <div class="w-16 h-20 bg-leather-100 rounded overflow-hidden flex-shrink-0">
+
+                    <img
+                        src="${esc(item.img)}"
+                        alt="${esc(item.title)}"
+                        class="w-full h-full object-contain p-1"
+                    >
+
+                </div>
 
                 <div class="flex-grow">
 
@@ -2386,13 +2441,18 @@ function updateCartUI() {
 
 window.changeQty = (index, delta) => {
 
+    if (!cart[index]) return;
+
+
     cart[index].qty += delta;
+
 
     if (cart[index].qty <= 0) {
 
         cart.splice(index, 1);
 
     }
+
 
     saveCart();
 
@@ -2402,6 +2462,9 @@ window.changeQty = (index, delta) => {
 
 
 window.removeFromCart = index => {
+
+    if (!cart[index]) return;
+
 
     cart.splice(index, 1);
 
@@ -2420,9 +2483,11 @@ window.toggleCart = forceOpen => {
     const panel =
         document.getElementById("cart-panel");
 
+
     const open =
         forceOpen ??
         modal.classList.contains("invisible");
+
 
     if (open) {
 
@@ -2503,12 +2568,15 @@ window.beginCheckout = () => {
         currentUser.displayName ||
         "Customer";
 
+
     const surname =
         currentProfile?.surname ||
         "";
 
+
     document.getElementById("checkout-customer").innerText =
         `${firstName} ${surname}`.trim();
+
 
     document.getElementById("checkout-customer-contact").innerText =
         `${currentUser.email} | ${currentProfile?.phone || "No phone"}`;
@@ -2567,12 +2635,17 @@ window.beginCheckout = () => {
 
     toggleCart(false);
 
+
     const modal =
         document.getElementById("checkout-modal");
+
 
     modal.classList.remove("hidden");
 
     modal.classList.add("flex");
+
+
+    toggleDeliveryFields();
 
 };
 
@@ -2581,6 +2654,7 @@ window.closeCheckoutModal = () => {
 
     const modal =
         document.getElementById("checkout-modal");
+
 
     modal.classList.add("hidden");
 
@@ -2596,11 +2670,14 @@ window.toggleDeliveryFields = () => {
             'input[name="deliveryMethod"]:checked'
         )?.value;
 
+
     const deliveryFields =
         document.getElementById("delivery-fields");
 
+
     const requiredInputs =
         deliveryFields.querySelectorAll("input");
+
 
     if (selectedMethod === "Courier Delivery") {
 
@@ -2634,11 +2711,26 @@ document
     e.preventDefault();
 
 
+    if (!currentUser) {
+
+        showToast(
+            "Account Required",
+            "Please sign in before placing an order.",
+            false
+        );
+
+        return;
+
+    }
+
+
     const btn =
         document.getElementById("place-order-btn");
 
+
     const errBox =
         document.getElementById("checkout-error");
+
 
     const whatsappError =
         document.getElementById("checkout-whatsapp-error");
@@ -2673,6 +2765,7 @@ document
 
 
     btn.disabled = true;
+
 
     btn.innerHTML = `
 
@@ -2804,7 +2897,7 @@ document
 
 
         /* ====================================================
-           BUILD WHATSAPP MESSAGE
+           WHATSAPP MESSAGE
         ==================================================== */
 
         let message =
@@ -2869,13 +2962,6 @@ document
             `\nThank you! Please provide payment instructions to finalize the order.`;
 
 
-        /*
-            NO FIXED OWNER NUMBER.
-
-            The WhatsApp destination is the number
-            entered by the customer.
-        */
-
         const waUrl =
             `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -2907,6 +2993,7 @@ document
 
         cart = [];
 
+
         saveCart();
 
         updateCartUI();
@@ -2927,6 +3014,11 @@ document
             "flex"
         );
 
+
+        /*
+         * Open WhatsApp immediately after the order
+         * has successfully been saved.
+         */
 
         window.open(
             waUrl,
@@ -2981,9 +3073,11 @@ window.closeSuccessModal = () => {
             "success-modal"
         );
 
+
     modal.classList.add(
         "hidden"
     );
+
 
     modal.classList.remove(
         "flex"
@@ -3005,6 +3099,7 @@ window.togglePasswordVisibility = (
         document.getElementById(
             inputId
         );
+
 
     const icon =
         document.getElementById(
@@ -3042,9 +3137,11 @@ window.openAccountModal = () => {
             "account-modal"
         );
 
+
     modal.classList.remove(
         "hidden"
     );
+
 
     modal.classList.add(
         "flex"
@@ -3071,9 +3168,11 @@ window.closeAccountModal = () => {
             "account-modal"
         );
 
+
     modal.classList.add(
         "hidden"
     );
+
 
     modal.classList.remove(
         "flex"
@@ -3150,6 +3249,7 @@ window.showCustomerSignIn = () => {
     document.getElementById(
         "auth-tabs"
     ).classList.remove("hidden");
+
 
     showAuthTab("signin");
 
@@ -3902,7 +4002,7 @@ updateCartUI();
 
 
 /* ============================================================
-   CLOSE WHATSAPP MODAL WITH ESCAPE
+   CLOSE MODALS WITH ESCAPE
 ============================================================ */
 
 document.addEventListener(
@@ -3913,6 +4013,14 @@ document.addEventListener(
 
             closeWhatsAppModal();
 
+            closeProductModal();
+
+            closeCheckoutModal();
+
+            closeSuccessModal();
+
+            closeAccountModal();
+
         }
 
     }
@@ -3920,7 +4028,7 @@ document.addEventListener(
 
 
 /* ============================================================
-   CLOSE WHATSAPP MODAL BY CLICKING OUTSIDE
+   CLICK OUTSIDE WHATSAPP MODAL
 ============================================================ */
 
 document
@@ -3937,6 +4045,31 @@ document
         ) {
 
             closeWhatsAppModal();
+
+        }
+
+    }
+);
+
+
+/* ============================================================
+   CLICK OUTSIDE PRODUCT MODAL
+============================================================ */
+
+document
+.getElementById("product-modal")
+.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            document.getElementById(
+                "product-modal"
+            )
+        ) {
+
+            closeProductModal();
 
         }
 
