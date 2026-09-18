@@ -2935,6 +2935,488 @@ window.togglePasswordVisibility = (
 };
 
 
+
+/* ============================================================
+   CUSTOMER AUTHENTICATION
+============================================================ */
+
+const customerProfileRef = (uid) => doc(db, "customers", uid);
+
+function clearAuthMessages() {
+    document.getElementById("signin-error")?.classList.add("hidden");
+    document.getElementById("signup-error")?.classList.add("hidden");
+    document.getElementById("reset-message")?.classList.add("hidden");
+}
+
+function setAuthMessage(id, message, success = false) {
+    const box = document.getElementById(id);
+    if (!box) return;
+
+    box.innerText = message;
+    box.classList.remove("hidden", "text-red-700", "bg-red-50", "text-green-700", "bg-green-50");
+    box.classList.add(success ? "text-green-700" : "text-red-700");
+    box.classList.add(success ? "bg-green-50" : "bg-red-50");
+}
+
+function setAuthButtonLoading(buttonId, loading, text) {
+    const button = document.getElementById(buttonId);
+    if (!button) return;
+
+    button.disabled = loading;
+    button.innerText = loading ? "Please wait..." : text;
+    button.classList.toggle("opacity-60", loading);
+    button.classList.toggle("cursor-not-allowed", loading);
+}
+
+window.showCustomerSignIn = () => {
+    clearAuthMessages();
+
+    document.getElementById("auth-tabs").classList.remove("hidden");
+    document.getElementById("signin-form").classList.remove("hidden");
+    document.getElementById("signup-form").classList.add("hidden");
+    document.getElementById("reset-form").classList.add("hidden");
+    document.getElementById("account-logged-in").classList.add("hidden");
+
+    document.getElementById("signin-tab").className =
+        "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold";
+
+    document.getElementById("signup-tab").className =
+        "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
+};
+
+window.showLoggedInAccount = () => {
+    if (!currentUser) {
+        showCustomerSignIn();
+        return;
+    }
+
+    clearAuthMessages();
+
+    document.getElementById("auth-tabs").classList.add("hidden");
+    document.getElementById("signin-form").classList.add("hidden");
+    document.getElementById("signup-form").classList.add("hidden");
+    document.getElementById("reset-form").classList.add("hidden");
+    document.getElementById("account-logged-in").classList.remove("hidden");
+
+    const firstName =
+        currentProfile?.firstName ||
+        currentUser.displayName ||
+        "Customer";
+
+    const surname = currentProfile?.surname || "";
+
+    document.getElementById("account-name").innerText =
+        `${firstName} ${surname}`.trim();
+
+    document.getElementById("account-email").innerText =
+        currentUser.email || "";
+
+    document.getElementById("profile-first").innerText =
+        currentProfile?.firstName || currentUser.displayName || "";
+
+    document.getElementById("profile-surname").innerText =
+        currentProfile?.surname || "";
+
+    document.getElementById("profile-phone").innerText =
+        currentProfile?.phone || "";
+
+    document.getElementById("profile-location").innerText =
+        currentProfile?.location || "";
+
+    document.getElementById("profile-city").innerText =
+        currentProfile?.city || "";
+
+    document.getElementById("profile-province").innerText =
+        currentProfile?.province || "";
+
+    const verificationBox = document.getElementById("verification-box");
+    const verificationTitle = document.getElementById("verification-title");
+    const verificationText = document.getElementById("verification-text");
+    const verificationIcon = document.getElementById("verification-icon");
+
+    if (currentUser.emailVerified) {
+        verificationBox.className =
+            "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
+
+        verificationIcon.className =
+            "fa-solid fa-circle-check text-green-700 mt-1";
+
+        verificationTitle.className =
+            "font-bold text-xs text-green-900";
+
+        verificationTitle.innerText = "Email verified";
+
+        verificationText.className =
+            "text-[11px] text-green-700 mt-1";
+
+        verificationText.innerText =
+            "Your email address has been successfully verified.";
+    } else {
+        verificationBox.className =
+            "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
+
+        verificationIcon.className =
+            "fa-solid fa-envelope text-amber-700 mt-1";
+
+        verificationTitle.className =
+            "font-bold text-xs text-leather-900";
+
+        verificationTitle.innerText =
+            "Verify your email";
+
+        verificationText.className =
+            "text-[11px] text-leather-700 mt-1";
+
+        verificationText.innerText =
+            "We have sent a verification email to your email address. You can continue shopping while waiting.";
+    }
+};
+
+window.showPasswordReset = () => {
+    clearAuthMessages();
+
+    document.getElementById("auth-tabs").classList.add("hidden");
+    document.getElementById("signin-form").classList.add("hidden");
+    document.getElementById("signup-form").classList.add("hidden");
+    document.getElementById("account-logged-in").classList.add("hidden");
+    document.getElementById("reset-form").classList.remove("hidden");
+
+    const signinEmail = document.getElementById("signin-email").value.trim();
+    if (signinEmail) {
+        document.getElementById("reset-email").value = signinEmail;
+    }
+};
+
+document.getElementById("signin-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("signin-email").value.trim();
+    const password = document.getElementById("signin-password").value;
+
+    if (!email || !password) return;
+
+    setAuthButtonLoading("signin-btn", true, "Sign In");
+
+    try {
+        const credential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        currentUser = credential.user;
+
+        try {
+            await reload(currentUser);
+        } catch (_) {
+            // The authentication itself succeeded; continue even if reload fails.
+        }
+
+        currentUser = auth.currentUser;
+
+        if (!currentUser) {
+            throw new Error("Login completed but the customer session could not be loaded.");
+        }
+
+        const profileSnap = await getDoc(
+            customerProfileRef(currentUser.uid)
+        );
+
+        currentProfile = profileSnap.exists()
+            ? profileSnap.data()
+            : null;
+
+        showLoggedInAccount();
+        updateAccountLabel();
+
+        showToast(
+            "Welcome Back",
+            `You are now signed in as ${currentUser.email}.`,
+            true
+        );
+
+        // Important: stay on index.html. Do not redirect the customer to the main page.
+        // The account modal remains open so the customer can see that login succeeded.
+
+    } catch (error) {
+        console.error("Customer sign-in error:", error);
+
+        let message = "Unable to sign in. Please check your email and password.";
+
+        if (error.code === "auth/invalid-credential" ||
+            error.code === "auth/wrong-password" ||
+            error.code === "auth/user-not-found") {
+            message = "Incorrect email or password.";
+        } else if (error.code === "auth/invalid-email") {
+            message = "Please enter a valid email address.";
+        } else if (error.code === "auth/too-many-requests") {
+            message = "Too many login attempts. Please wait a moment and try again.";
+        } else if (error.code === "auth/network-request-failed") {
+            message = "Network error. Please check your internet connection and try again.";
+        } else if (error.message) {
+            message = error.message;
+        }
+
+        setAuthMessage("signin-error", message, false);
+
+    } finally {
+        setAuthButtonLoading("signin-btn", false, "Sign In");
+    }
+});
+
+document.getElementById("signup-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById("signup-first").value.trim();
+    const surname = document.getElementById("signup-surname").value.trim();
+    const email = document.getElementById("signup-email").value.trim();
+    const phone = document.getElementById("signup-phone").value.trim();
+    const location = document.getElementById("signup-location").value.trim();
+    const city = document.getElementById("signup-city").value.trim();
+    const province = document.getElementById("signup-province").value.trim();
+    const password = document.getElementById("signup-password").value;
+
+    setAuthButtonLoading("signup-btn", true, "Create Account");
+
+    try {
+        const credential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        currentUser = credential.user;
+
+        await updateProfile(currentUser, {
+            displayName: firstName
+        });
+
+        currentProfile = {
+            uid: currentUser.uid,
+            firstName,
+            surname,
+            email,
+            phone,
+            location,
+            city,
+            province,
+            createdAt: serverTimestamp()
+        };
+
+        await setDoc(
+            customerProfileRef(currentUser.uid),
+            currentProfile,
+            { merge: true }
+        );
+
+        try {
+            await sendEmailVerification(currentUser);
+        } catch (verificationError) {
+            console.warn("Verification email could not be sent:", verificationError);
+        }
+
+        showLoggedInAccount();
+        updateAccountLabel();
+
+        showToast(
+            "Account Created",
+            "Your customer account has been created successfully.",
+            true
+        );
+
+    } catch (error) {
+        console.error("Customer signup error:", error);
+
+        let message = "Unable to create your account. Please try again.";
+
+        if (error.code === "auth/email-already-in-use") {
+            message = "An account with this email already exists. Please sign in instead.";
+        } else if (error.code === "auth/weak-password") {
+            message = "Password must be at least 6 characters.";
+        } else if (error.code === "auth/invalid-email") {
+            message = "Please enter a valid email address.";
+        } else if (error.code === "auth/network-request-failed") {
+            message = "Network error. Please check your internet connection and try again.";
+        } else if (error.message) {
+            message = error.message;
+        }
+
+        setAuthMessage("signup-error", message, false);
+
+    } finally {
+        setAuthButtonLoading("signup-btn", false, "Create Account");
+    }
+});
+
+document.getElementById("reset-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("reset-email").value.trim();
+    const messageBox = document.getElementById("reset-message");
+
+    if (!email) return;
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+
+        messageBox.innerText =
+            "Password reset email sent. Please check your inbox and spam folder.";
+
+        messageBox.className =
+            "text-xs p-3 rounded text-green-700 bg-green-50";
+
+    } catch (error) {
+        console.error("Password reset error:", error);
+
+        messageBox.innerText =
+            error.code === "auth/user-not-found"
+                ? "No customer account was found with this email address."
+                : "We could not send the reset email. Please check the email address and try again.";
+
+        messageBox.className =
+            "text-xs p-3 rounded text-red-700 bg-red-50";
+    }
+});
+
+window.checkEmailVerification = async (showMessage = false) => {
+    if (!auth.currentUser) return;
+
+    try {
+        await reload(auth.currentUser);
+        currentUser = auth.currentUser;
+
+        if (currentUser.emailVerified) {
+            showLoggedInAccount();
+
+            if (showMessage) {
+                showToast(
+                    "Email Verified",
+                    "Your email address is now verified.",
+                    true
+                );
+            }
+        } else if (showMessage) {
+            showToast(
+                "Not Verified Yet",
+                "Please check your email and click the verification link.",
+                false
+            );
+        }
+    } catch (error) {
+        console.error("Verification check error:", error);
+
+        if (showMessage) {
+            showToast(
+                "Verification Check Failed",
+                "Please try again.",
+                false
+            );
+        }
+    }
+};
+
+window.resendVerificationEmail = async () => {
+    if (!auth.currentUser) {
+        showCustomerSignIn();
+        return;
+    }
+
+    try {
+        await sendEmailVerification(auth.currentUser);
+
+        showToast(
+            "Verification Sent",
+            "A new verification email has been sent.",
+            true
+        );
+    } catch (error) {
+        console.error("Resend verification error:", error);
+
+        showToast(
+            "Could Not Send",
+            "Please wait a moment and try again.",
+            false
+        );
+    }
+};
+
+window.signOutCustomer = async () => {
+    try {
+        await signOut(auth);
+
+        currentUser = null;
+        currentProfile = null;
+
+        showCustomerSignIn();
+        updateAccountLabel();
+
+        showToast(
+            "Signed Out",
+            "You have been signed out of your customer account.",
+            true
+        );
+    } catch (error) {
+        console.error("Customer sign-out error:", error);
+
+        showToast(
+            "Sign Out Failed",
+            "Please try again.",
+            false
+        );
+    }
+};
+
+function updateAccountLabel() {
+    const label = document.getElementById("account-label");
+
+    if (!label) return;
+
+    if (currentUser) {
+        const firstName =
+            currentProfile?.firstName ||
+            currentUser.displayName ||
+            "Account";
+
+        label.innerText = firstName;
+    } else {
+        label.innerText = "Account";
+    }
+}
+
+/* Restore the customer session whenever the page loads.
+   Firebase Auth persists the session, so refreshing index.html
+   must NOT log the customer out or redirect them. */
+onAuthStateChanged(auth, async (user) => {
+    currentUser = user || null;
+    currentProfile = null;
+
+    if (user) {
+        try {
+            const profileSnap = await getDoc(
+                customerProfileRef(user.uid)
+            );
+
+            currentProfile = profileSnap.exists()
+                ? profileSnap.data()
+                : null;
+        } catch (error) {
+            console.error("Could not load customer profile:", error);
+        }
+    }
+
+    updateAccountLabel();
+
+    // If the account modal is already open, immediately show the correct state.
+    const modal = document.getElementById("account-modal");
+    if (modal && !modal.classList.contains("hidden")) {
+        if (currentUser) {
+            showLoggedInAccount();
+        } else {
+            showCustomerSignIn();
+        }
+    }
+});
+
 /* ============================================================
    ACCOUNT MODAL
 ============================================================ */
