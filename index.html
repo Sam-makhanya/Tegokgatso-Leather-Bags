@@ -57,12 +57,7 @@
         }
 
         .hero-gradient {
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(44,26,9,.75) 0%,
-                    rgba(44,26,9,.98) 100%
-                );
+            background: linear-gradient(180deg, rgba(44,26,9,.75) 0%, rgba(44,26,9,.98) 100%);
         }
 
         .modal-scroll {
@@ -80,38 +75,28 @@
         }
 
         .profile-card {
-            background:
-                linear-gradient(
-                    135deg,
-                    #FAF6F0,
-                    #F4ECE1
-                );
+            background: linear-gradient(135deg, #FAF6F0, #F4ECE1);
         }
 
-        /*
-         * PRODUCT IMAGE FIX
-         *
-         * object-contain keeps the complete leather bag visible
-         * inside the product card without cropping the top,
-         * bottom, sides, handles or straps.
-         */
+        /* object-contain keeps the complete bag visible without cropping */
         .product-image {
             width: 100%;
             height: 100%;
             object-fit: contain;
             object-position: center;
-            padding: 12px;
+            padding: 6px;
             transition: transform 700ms ease;
             cursor: pointer;
+        }
+
+        @media (min-width: 640px) {
+            .product-image { padding: 12px; }
         }
 
         .product-card:hover .product-image {
             transform: scale(1.05);
         }
 
-        /*
-         * Keep the product image area clean and consistent.
-         */
         .product-image-container {
             aspect-ratio: 4 / 5;
             overflow: hidden;
@@ -132,42 +117,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex items-center justify-between">
 
         <a href="#" class="flex items-center gap-3">
-
             <img src="logo.jpeg"
                  alt="TegoKgatso Logo"
                  class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border border-amber-gold">
-
             <div class="flex flex-col">
-
                 <span class="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-wider text-amber-gold uppercase leading-none">
                     TegoKgatso
                 </span>
-
                 <span class="text-[8px] sm:text-[10px] tracking-[0.25em] text-leather-200 font-light uppercase mt-1">
                     Leather Bags
                 </span>
-
             </div>
-
         </a>
 
         <div class="hidden md:flex items-center space-x-8 text-xs lg:text-sm uppercase tracking-widest font-medium">
-
-            <a href="#featured"
-               class="hover:text-amber-gold transition">
-                Collection
-            </a>
-
-            <a href="#about"
-               class="hover:text-amber-gold transition">
-                Our Craft
-            </a>
-
-            <a href="#contact"
-               class="hover:text-amber-gold transition">
-                Contact
-            </a>
-
+            <a href="#featured" class="hover:text-amber-gold transition">Collection</a>
+            <a href="#about" class="hover:text-amber-gold transition">Our Craft</a>
+            <a href="#contact" class="hover:text-amber-gold transition">Contact</a>
         </div>
 
         <div class="flex items-center space-x-2 sm:space-x-4">
@@ -175,43 +141,28 @@
             <button onclick="openAccountModal()"
                     class="hidden sm:flex items-center gap-2 p-2 text-leather-200 hover:text-amber-gold transition"
                     title="Account">
-
                 <i class="fa-solid fa-user"></i>
-
-                <span id="account-label"
-                      class="text-[10px] uppercase tracking-wider">
-                    Account
-                </span>
-
+                <span id="account-label" class="text-[10px] uppercase tracking-wider">Account</span>
             </button>
 
             <button onclick="toggleCart()"
                     class="relative p-2 text-leather-200 hover:text-amber-gold transition">
-
                 <i class="fa-solid fa-bag-shopping text-lg sm:text-xl"></i>
-
                 <span id="cart-count"
                       class="absolute top-0 right-0 bg-amber-gold text-leather-900 text-[9px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
                     0
                 </span>
-
             </button>
 
             <button onclick="connectToWhatsApp()"
                     class="hidden lg:inline-flex items-center space-x-2 bg-amber-gold hover:bg-yellow-500 text-leather-900 px-4 py-2.5 rounded-sm font-semibold text-xs tracking-wider uppercase transition">
-
                 <i class="fa-brands fa-whatsapp"></i>
-
                 <span>WhatsApp</span>
-
             </button>
 
             <button onclick="toggleMobileMenu()"
                     class="md:hidden text-leather-100 p-2 hover:text-amber-gold">
-
-                <i class="fa-solid fa-bars text-xl"
-                   id="menu-icon"></i>
-
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
             </button>
 
         </div>
@@ -224,29 +175,19 @@
     <div id="mobile-menu"
          class="hidden md:hidden bg-leather-900 border-b border-leather-800 px-6 py-4 space-y-3 text-center text-xs uppercase tracking-widest font-medium">
 
-        <a href="#featured"
-           onclick="toggleMobileMenu()"
-           class="block py-2 text-leather-200 hover:text-amber-gold">
-            Collection
-        </a>
+        <a href="#featured" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Collection</a>
 
-        <a href="#about"
-           onclick="toggleMobileMenu()"
-           class="block py-2 text-leather-200 hover:text-amber-gold">
-            Our Craft
-        </a>
+        <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Our Craft</a>
 
-        <button onclick="openAccountModal();toggleMobileMenu()"
-                class="block w-full text-leather-200 py-2">
+        <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Contact</a>
+
+        <button onclick="openAccountModal();toggleMobileMenu()" class="block w-full text-leather-200 py-2">
             My Account
         </button>
 
-        <button onclick="connectToWhatsApp();toggleMobileMenu()"
-                class="block w-full text-green-400 py-2">
-
+        <button onclick="connectToWhatsApp();toggleMobileMenu()" class="block w-full text-green-400 py-2">
             <i class="fa-brands fa-whatsapp mr-1"></i>
             WhatsApp
-
         </button>
 
     </div>
@@ -261,23 +202,18 @@
 <section class="relative min-h-[75vh] sm:min-h-[85vh] flex items-center justify-center bg-leather-900 overflow-hidden">
 
     <div class="absolute inset-0 z-0">
-
         <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
              alt="TegoKgatso Leather Bag"
              class="w-full h-full object-contain object-center opacity-30 scale-105">
-
         <div class="hero-gradient absolute inset-0"></div>
-
     </div>
 
     <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 py-12 sm:py-20">
 
         <div class="inline-block border border-amber-gold/40 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6">
-
             <p class="text-amber-gold text-[10px] sm:text-xs tracking-[0.2em] uppercase font-semibold">
                 Master Artisanship
             </p>
-
         </div>
 
         <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl text-leather-50 font-bold tracking-tight mb-4 sm:mb-6 leading-tight">
@@ -285,28 +221,19 @@
         </h1>
 
         <p class="text-leather-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed">
-
             Handcrafted premium full-grain leather bags engineered for executives,
             travelers, and style connoisseurs. Built to age gracefully and last a lifetime.
-
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-
             <a href="#featured"
                class="w-full sm:w-auto bg-amber-gold hover:bg-yellow-500 text-leather-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-bold text-xs tracking-[0.15em] uppercase transition shadow-lg">
-
                 Explore Collection
-
             </a>
-
             <a href="#about"
                class="w-full sm:w-auto border border-leather-200 text-leather-100 hover:bg-leather-100/10 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-semibold text-xs tracking-[0.15em] uppercase transition">
-
                 Discover Our Story
-
             </a>
-
         </div>
 
     </div>
@@ -323,59 +250,27 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
 
         <div class="p-2">
-
             <i class="fa-solid fa-shield-halved text-xl sm:text-2xl text-amber-gold mb-2"></i>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
-                100% Genuine Leather
-            </h4>
-
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">
-                Ethically sourced hide
-            </p>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">100% Genuine Leather</h4>
+            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Ethically sourced hide</p>
         </div>
 
         <div class="p-2">
-
             <i class="fa-solid fa-gem text-xl sm:text-2xl text-amber-gold mb-2"></i>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
-                Handcrafted Detail
-            </h4>
-
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">
-                Reinforced brass hardware
-            </p>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Handcrafted Detail</h4>
+            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Reinforced brass hardware</p>
         </div>
 
         <div class="p-2">
-
             <i class="fa-solid fa-clock-rotate-left text-xl sm:text-2xl text-amber-gold mb-2"></i>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
-                Timeless Patina
-            </h4>
-
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">
-                Grows richer over time
-            </p>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Timeless Patina</h4>
+            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Grows richer over time</p>
         </div>
 
         <div class="p-2">
-
             <i class="fa-solid fa-truck-fast text-xl sm:text-2xl text-amber-gold mb-2"></i>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">
-                Direct Courier
-            </h4>
-
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">
-                Safe nationwide delivery
-            </p>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Direct Courier</h4>
+            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Safe nationwide delivery</p>
         </div>
 
     </div>
@@ -387,60 +282,39 @@
      COLLECTION
 ============================================================ -->
 
-<section id="featured"
-         class="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+<section id="featured" class="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
     <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-
-        <p class="text-leather-500 font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">
-            Curated Handcrafts
-        </p>
-
-        <h2 class="font-serif text-2xl sm:text-4xl text-leather-900 font-bold uppercase tracking-wide">
-            The Signature Collection
-        </h2>
-
+        <p class="text-leather-500 font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">Curated Handcrafts</p>
+        <h2 class="font-serif text-2xl sm:text-4xl text-leather-900 font-bold uppercase tracking-wide">The Signature Collection</h2>
         <div class="w-12 sm:w-16 h-0.5 bg-amber-gold mx-auto mt-3 sm:mt-4"></div>
-
     </div>
-
 
     <div class="flex justify-center flex-wrap gap-2 mb-8 sm:mb-12">
 
         <button onclick="filterProducts('all', this)"
                 class="filter-btn bg-leather-900 text-leather-50 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-
             All Models
-
         </button>
 
         <button onclick="filterProducts('backpack', this)"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-
             Backpacks
-
         </button>
 
         <button onclick="filterProducts('briefcase', this)"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-
             Briefcases & Satchels
-
         </button>
 
         <button onclick="filterProducts('duffel', this)"
                 class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-
             Travel Duffels
-
         </button>
 
     </div>
 
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-         id="product-grid">
-    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8" id="product-grid"></div>
 
 </section>
 
@@ -449,108 +323,63 @@
      ABOUT
 ============================================================ -->
 
-<section id="about"
-         class="bg-leather-900 text-leather-100 py-16 sm:py-24 relative overflow-hidden">
+<section id="about" class="bg-leather-900 text-leather-100 py-16 sm:py-24 relative overflow-hidden">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
 
         <div class="relative">
 
             <div class="grid grid-cols-2 gap-3 sm:gap-4">
-
                 <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
                      alt="Leather Detail 1"
                      class="rounded-sm object-contain h-48 sm:h-64 w-full shadow-lg border border-leather-800 bg-leather-800">
-
                 <img src="WhatsApp Image 2026-09-09 at 16.46.51.jpeg"
                      alt="Leather Detail 2"
                      class="rounded-sm object-contain h-48 sm:h-64 w-full shadow-lg border border-leather-800 bg-leather-800 mt-4 sm:mt-8">
-
             </div>
 
             <div class="absolute -bottom-4 -left-2 bg-amber-gold text-leather-900 p-4 sm:p-6 rounded-sm font-serif shadow-xl">
-
-                <p class="text-2xl sm:text-3xl font-bold">
-                    100%
-                </p>
-
-                <p class="text-[9px] sm:text-xs font-semibold uppercase tracking-widest">
-                    Genuine Leather
-                </p>
-
+                <p class="text-2xl sm:text-3xl font-bold">100%</p>
+                <p class="text-[9px] sm:text-xs font-semibold uppercase tracking-widest">Genuine Leather</p>
             </div>
 
         </div>
 
-
         <div>
 
-            <p class="text-amber-gold font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">
-                Our Philosophy
-            </p>
+            <p class="text-amber-gold font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">Our Philosophy</p>
 
             <h2 class="font-serif text-2xl sm:text-4xl font-bold text-leather-50 mb-4 sm:mb-6 leading-tight">
-
                 Crafted For Generations,
                 <br>
                 Not Just Seasons.
-
             </h2>
 
             <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 font-light">
-
                 At <strong>TegoKgatso Leather Bags</strong>, we believe true luxury lies
                 in authenticity and longevity. Every piece in our collection is carefully
                 cut, stitched, and finished using premium full-grain hides that develop a
                 rich patina over time.
-
             </p>
 
             <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 font-light">
-
                 From heavy-duty brass buckles to reinforced stitching and padded laptop
                 compartments, our bags combine old-world artisanship with modern functionality.
-
             </p>
 
             <div class="grid grid-cols-3 gap-4 sm:gap-6 border-t border-leather-800 pt-4 sm:pt-6">
-
                 <div>
-
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
-                        100%
-                    </span>
-
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">
-                        Full Grain
-                    </span>
-
+                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">100%</span>
+                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Full Grain</span>
                 </div>
-
                 <div>
-
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
-                        Brass
-                    </span>
-
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">
-                        Hardware
-                    </span>
-
+                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">Brass</span>
+                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Hardware</span>
                 </div>
-
                 <div>
-
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">
-                        Lifetime
-                    </span>
-
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">
-                        Stitch Guarantee
-                    </span>
-
+                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">Lifetime</span>
+                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Stitch Guarantee</span>
                 </div>
-
             </div>
 
         </div>
@@ -564,129 +393,54 @@
      FOOTER
 ============================================================ -->
 
-<footer id="contact"
-        class="bg-leather-900 text-leather-200 pt-12 sm:pt-16 pb-10 border-t border-leather-800">
+<footer id="contact" class="bg-leather-900 text-leather-200 pt-12 sm:pt-16 pb-10 border-t border-leather-800">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
 
         <div>
-
             <a href="#" class="flex items-center gap-3 mb-4">
-
-                <img src="logo.jpeg"
-                     alt="TegoKgatso Logo"
-                     class="h-10 w-10 rounded-full object-cover border border-amber-gold">
-
+                <img src="logo.jpeg" alt="TegoKgatso Logo" class="h-10 w-10 rounded-full object-cover border border-amber-gold">
                 <div class="flex flex-col">
-
-                    <span class="font-serif text-2xl font-bold tracking-wider text-amber-gold uppercase leading-none">
-                        TegoKgatso
-                    </span>
-
-                    <span class="text-[9px] tracking-[0.3em] text-leather-300 font-light uppercase mt-1">
-                        Leather Bags
-                    </span>
-
+                    <span class="font-serif text-2xl font-bold tracking-wider text-amber-gold uppercase leading-none">TegoKgatso</span>
+                    <span class="text-[9px] tracking-[0.3em] text-leather-300 font-light uppercase mt-1">Leather Bags</span>
                 </div>
-
             </a>
-
             <p class="text-xs text-leather-300 leading-relaxed font-light mb-4">
-
                 Timeless & Genuine luxury handcrafted leather bags designed for enduring elegance.
-
             </p>
-
         </div>
 
-
         <div>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
-                Quick Links
-            </h4>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Quick Links</h4>
             <ul class="space-y-2 text-xs">
-
-                <li>
-                    <a href="#featured"
-                       class="hover:text-amber-gold">
-                        Shop All Collection
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about"
-                       class="hover:text-amber-gold">
-                        Our Artisanship
-                    </a>
-                </li>
-
+                <li><a href="#featured" class="hover:text-amber-gold">Shop All Collection</a></li>
+                <li><a href="#about" class="hover:text-amber-gold">Our Artisanship</a></li>
             </ul>
-
         </div>
 
-
         <div>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
-                Customer Care
-            </h4>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Customer Care</h4>
             <ul class="space-y-2 text-xs">
-
-                <li>
-                    <i class="fa-solid fa-truck text-amber-gold mr-2"></i>
-                    Nationwide Delivery
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-rotate-left text-amber-gold mr-2"></i>
-                    Hassle-Free Returns
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-shield text-amber-gold mr-2"></i>
-                    Craftsmanship Warranty
-                </li>
-
+                <li><i class="fa-solid fa-truck text-amber-gold mr-2"></i>Nationwide Delivery</li>
+                <li><i class="fa-solid fa-rotate-left text-amber-gold mr-2"></i>Hassle-Free Returns</li>
+                <li><i class="fa-solid fa-shield text-amber-gold mr-2"></i>Craftsmanship Warranty</li>
             </ul>
-
         </div>
 
-
         <div>
-
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">
-                Direct Support
-            </h4>
-
-            <p class="text-xs text-leather-300 mb-4">
-
-                Need help with an order? Connect with us on WhatsApp.
-
-            </p>
-
+            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Direct Support</h4>
+            <p class="text-xs text-leather-300 mb-4">Need help with an order? Connect with us on WhatsApp.</p>
             <button onclick="connectToWhatsApp()"
                     class="inline-flex items-center gap-2 bg-amber-gold text-leather-900 px-4 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-yellow-500 transition w-full justify-center">
-
                 <i class="fa-brands fa-whatsapp"></i>
-
                 Connect On WhatsApp
-
             </button>
-
         </div>
 
     </div>
 
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-8 border-t border-leather-800 text-center text-[10px] sm:text-xs text-leather-400">
-
-        <p>
-            &copy; 2026 TegoKgatso Leather Bags. Timeless & Genuine. All Rights Reserved.
-        </p>
-
+        <p>&copy; 2026 TegoKgatso Leather Bags. Timeless & Genuine. All Rights Reserved.</p>
     </div>
 
 </footer>
@@ -696,57 +450,40 @@
      PRODUCT IMAGE POPUP
 ============================================================ -->
 
-<div id="product-modal"
-     class="fixed inset-0 z-[70] invisible opacity-0 pointer-events-none transition-all duration-300">
+<div id="product-modal" class="fixed inset-0 z-[70] invisible opacity-0 pointer-events-none transition-all duration-300">
 
-    <div onclick="closeProductModal()"
-         class="absolute inset-0 bg-black/70 backdrop-blur-sm">
-    </div>
+    <div onclick="closeProductModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
     <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
 
         <div id="product-modal-content"
-             class="relative bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden pointer-events-auto transform scale-95 transition-transform duration-300">
+             class="relative bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden pointer-events-auto transform scale-95 transition-transform duration-300 modal-scroll">
 
             <button onclick="closeProductModal()"
                     class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-leather-900 text-white flex items-center justify-center hover:bg-amber-gold hover:text-leather-900 transition"
                     aria-label="Close product preview">
-
                 <i class="fa-solid fa-xmark text-lg"></i>
-
             </button>
 
             <div class="bg-leather-100 flex items-center justify-center">
-
-                <img id="product-modal-image"
-                     src=""
-                     alt=""
-                     class="w-full max-h-[65vh] object-contain p-3">
-
+                <img id="product-modal-image" src="" alt="" class="w-full max-h-[65vh] object-contain p-3">
             </div>
 
             <div class="p-5 sm:p-6">
 
-                <span id="product-modal-category"
-                      class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
-                </span>
+                <span id="product-modal-category" class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold"></span>
 
-                <h3 id="product-modal-title"
-                    class="font-serif text-xl sm:text-2xl font-bold text-leather-900 mt-1 mb-2">
-                </h3>
+                <h3 id="product-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-leather-900 mt-1 mb-2"></h3>
 
-                <p id="product-modal-description"
-                   class="text-sm text-leather-700 leading-relaxed mb-5">
-                </p>
+                <p id="product-modal-price" class="hidden font-serif text-lg font-bold text-leather-700 mb-2"></p>
+
+                <p id="product-modal-description" class="text-sm text-leather-700 leading-relaxed mb-5"></p>
 
                 <button id="product-modal-cart-button"
                         type="button"
                         class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
-
                     <i class="fa-solid fa-bag-shopping mr-2"></i>
-
                     Add To Cart
-
                 </button>
 
             </div>
@@ -762,44 +499,33 @@
      CART
 ============================================================ -->
 
-<div id="cart-modal"
-     class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
+<div id="cart-modal" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
 
-    <div onclick="toggleCart()"
-         class="absolute inset-0 bg-black/60 backdrop-blur-sm">
-    </div>
+    <div onclick="toggleCart()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
     <div id="cart-panel"
          class="absolute right-0 top-0 bottom-0 w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
 
         <div class="p-4 sm:p-6 bg-leather-900 text-leather-100 flex items-center justify-between">
-
-            <h3 class="font-serif text-base sm:text-lg font-bold uppercase tracking-wider">
-                Your Shopping Bag
-            </h3>
-
-            <button onclick="toggleCart()"
-                    class="p-2">
-
+            <h3 class="font-serif text-base sm:text-lg font-bold uppercase tracking-wider">Your Shopping Bag</h3>
+            <button onclick="toggleCart()" class="p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
-
             </button>
-
         </div>
 
-        <div id="cart-items"
-             class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-4">
-        </div>
+        <div id="cart-items" class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-4"></div>
 
         <div class="p-4 sm:p-6 bg-leather-50 border-t border-leather-200">
 
+            <div id="cart-total-row" class="hidden flex justify-between items-center mb-3 text-sm">
+                <span class="text-leather-500 uppercase text-xs tracking-wider font-semibold">Priced items total</span>
+                <strong id="cart-total" class="font-serif text-leather-900"></strong>
+            </div>
+
             <button onclick="beginCheckout()"
                     class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 font-bold py-3.5 rounded-sm text-xs uppercase tracking-widest transition flex items-center justify-center gap-2">
-
                 <i class="fa-solid fa-lock"></i>
-
                 <span>Secure Checkout</span>
-
             </button>
 
         </div>
@@ -813,70 +539,44 @@
      ACCOUNT MODAL
 ============================================================ -->
 
-<div id="account-modal"
-     class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
+<div id="account-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
 
-    <div onclick="closeAccountModal()"
-         class="absolute inset-0 bg-black/70 backdrop-blur-sm">
-    </div>
+    <div onclick="closeAccountModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
     <div class="relative z-10 bg-white w-full max-w-md rounded-xl shadow-2xl modal-scroll">
 
         <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-
             <div>
-
-                <h3 class="font-serif text-lg font-bold text-amber-gold">
-                    Customer Account
-                </h3>
-
-                <p class="text-xs text-leather-300">
-                    Sign in, create your profile and manage your orders
-                </p>
-
+                <h3 class="font-serif text-lg font-bold text-amber-gold">Customer Account</h3>
+                <p class="text-xs text-leather-300">Sign in, create your profile and manage your orders</p>
             </div>
-
             <button onclick="closeAccountModal()">
-
                 <i class="fa-solid fa-xmark text-xl"></i>
-
             </button>
-
         </div>
 
         <div class="p-6">
 
-            <div id="auth-tabs"
-                 class="mb-5">
+            <div id="auth-tabs" class="mb-5">
 
                 <div class="grid grid-cols-2 gap-2">
-
                     <button id="signin-tab"
                             onclick="showAuthTab('signin')"
                             class="py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold">
-
                         Sign In
-
                     </button>
-
                     <button id="signup-tab"
                             onclick="showAuthTab('signup')"
                             class="py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold">
-
                         Sign Up
-
                     </button>
-
                 </div>
 
                 <a id="admin-portal-link"
                    href="admin-updated.html"
                    class="mt-3 w-full border border-leather-300 text-leather-800 hover:bg-leather-50 py-2.5 rounded-lg text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition">
-
                     <i class="fa-solid fa-shield-halved"></i>
-
                     Admin Portal
-
                 </a>
 
             </div>
@@ -884,70 +584,38 @@
 
             <!-- SIGN IN -->
 
-            <form id="signin-form"
-                  class="space-y-3">
+            <form id="signin-form" class="space-y-3">
 
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-user text-xl text-leather-700"></i>
-
                     </div>
-
-                    <h4 class="font-serif font-bold text-lg">
-                        Customer Sign In
-                    </h4>
-
-                    <p class="text-xs text-leather-500 mt-1">
-                        Sign in to purchase products and manage your orders.
-                    </p>
-
+                    <h4 class="font-serif font-bold text-lg">Customer Sign In</h4>
+                    <p class="text-xs text-leather-500 mt-1">Sign in to purchase products and manage your orders.</p>
                 </div>
 
-                <input id="signin-email"
-                       type="email"
-                       required
-                       placeholder="Email address"
+                <input id="signin-email" type="email" required placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
                 <div class="relative">
-
-                    <input id="signin-password"
-                           type="password"
-                           required
-                           placeholder="Password"
+                    <input id="signin-password" type="password" required placeholder="Password"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-
                     <button type="button"
                             onclick="togglePasswordVisibility('signin-password','signin-eye')"
                             class="password-toggle">
-
-                        <i id="signin-eye"
-                           class="fa-solid fa-eye"></i>
-
+                        <i id="signin-eye" class="fa-solid fa-eye"></i>
                     </button>
-
                 </div>
 
-                <button type="button"
-                        onclick="showPasswordReset()"
-                        class="text-xs text-leather-700 hover:text-amber-700 underline">
-
+                <button type="button" onclick="showPasswordReset()" class="text-xs text-leather-700 hover:text-amber-700 underline">
                     Forgot Password?
-
                 </button>
 
-                <div id="signin-error"
-                     class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
-                </div>
+                <div id="signin-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
 
-                <button id="signin-btn"
-                        type="submit"
+                <button id="signin-btn" type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-
                     Sign In
-
                 </button>
 
             </form>
@@ -955,50 +623,29 @@
 
             <!-- PASSWORD RESET -->
 
-            <form id="reset-form"
-                  class="hidden space-y-3">
+            <form id="reset-form" class="hidden space-y-3">
 
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-key text-xl text-leather-700"></i>
-
                     </div>
-
-                    <h4 class="font-serif font-bold text-lg">
-                        Reset Your Password
-                    </h4>
-
-                    <p class="text-xs text-leather-500 mt-1">
-                        Enter your email and we will send you a password reset link.
-                    </p>
-
+                    <h4 class="font-serif font-bold text-lg">Reset Your Password</h4>
+                    <p class="text-xs text-leather-500 mt-1">Enter your email and we will send you a password reset link.</p>
                 </div>
 
-                <input id="reset-email"
-                       type="email"
-                       required
-                       placeholder="Email address"
+                <input id="reset-email" type="email" required placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
-                <div id="reset-message"
-                     class="hidden text-xs p-3 rounded">
-                </div>
+                <div id="reset-message" class="hidden text-xs p-3 rounded"></div>
 
                 <button type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-
                     Send Reset Link
-
                 </button>
 
-                <button type="button"
-                        onclick="showAuthTab('signin')"
+                <button type="button" onclick="showAuthTab('signin')"
                         class="w-full border border-leather-200 py-3 rounded-lg text-xs font-bold uppercase">
-
                     Back To Sign In
-
                 </button>
 
             </form>
@@ -1006,101 +653,54 @@
 
             <!-- SIGN UP -->
 
-            <form id="signup-form"
-                  class="hidden space-y-3">
+            <form id="signup-form" class="hidden space-y-3">
 
                 <div class="text-center mb-4">
-
                     <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-
                         <i class="fa-solid fa-user-plus text-xl text-leather-700"></i>
-
                     </div>
-
-                    <h4 class="font-serif font-bold text-lg">
-                        Create Your Account
-                    </h4>
-
-                    <p class="text-xs text-leather-500 mt-1">
-                        Your information will be securely saved to your customer profile.
-                    </p>
-
+                    <h4 class="font-serif font-bold text-lg">Create Your Account</h4>
+                    <p class="text-xs text-leather-500 mt-1">Your information will be securely saved to your customer profile.</p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-3">
-
-                    <input id="signup-first"
-                           required
-                           placeholder="First name"
+                    <input id="signup-first" required placeholder="First name"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                    <input id="signup-surname"
-                           required
-                           placeholder="Surname"
+                    <input id="signup-surname" required placeholder="Surname"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
 
-                <input id="signup-email"
-                       type="email"
-                       required
-                       placeholder="Email address"
+                <input id="signup-email" type="email" required placeholder="Email address"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
-                <input id="signup-phone"
-                       required
-                       placeholder="Contact number"
+                <input id="signup-phone" type="tel" required placeholder="Contact number"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
-                <input id="signup-location"
-                       required
-                       placeholder="Location / suburb"
+                <input id="signup-location" required placeholder="Location / suburb"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
                 <div class="grid grid-cols-2 gap-3">
-
-                    <input id="signup-city"
-                           required
-                           placeholder="City / Town"
+                    <input id="signup-city" required placeholder="City / Town"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                    <input id="signup-province"
-                           required
-                           placeholder="Province"
+                    <input id="signup-province" required placeholder="Province"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
 
                 <div class="relative">
-
-                    <input id="signup-password"
-                           type="password"
-                           minlength="6"
-                           required
-                           placeholder="Password (min 6 characters)"
+                    <input id="signup-password" type="password" minlength="6" required placeholder="Password (min 6 characters)"
                            class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-
                     <button type="button"
                             onclick="togglePasswordVisibility('signup-password','signup-eye')"
                             class="password-toggle">
-
-                        <i id="signup-eye"
-                           class="fa-solid fa-eye"></i>
-
+                        <i id="signup-eye" class="fa-solid fa-eye"></i>
                     </button>
-
                 </div>
 
-                <div id="signup-error"
-                     class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
-                </div>
+                <div id="signup-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
 
-                <button id="signup-btn"
-                        type="submit"
+                <button id="signup-btn" type="submit"
                         class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-
                     Create Account
-
                 </button>
 
             </form>
@@ -1108,109 +708,73 @@
 
             <!-- LOGGED IN CUSTOMER -->
 
-            <div id="account-logged-in"
-                 class="hidden space-y-4">
+            <div id="account-logged-in" class="hidden space-y-4">
 
                 <div class="profile-card border border-leather-200 rounded-xl p-5">
 
                     <div class="text-center">
-
                         <div class="w-16 h-16 mx-auto rounded-full bg-leather-900 text-amber-gold flex items-center justify-center text-2xl mb-3">
-
                             <i class="fa-solid fa-user"></i>
-
                         </div>
-
-                        <h4 id="account-name"
-                            class="font-serif font-bold text-lg">
-                        </h4>
-
-                        <p id="account-email"
-                           class="text-xs text-leather-500">
-                        </p>
-
+                        <h4 id="account-name" class="font-serif font-bold text-lg"></h4>
+                        <p id="account-email" class="text-xs text-leather-500"></p>
                     </div>
 
-                    <div id="verification-box"
-                         class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200">
+                    <div id="verification-box" class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200">
 
                         <div class="flex gap-3">
-
-                            <i id="verification-icon"
-                               class="fa-solid fa-envelope text-amber-700 mt-1"></i>
-
+                            <i id="verification-icon" class="fa-solid fa-envelope text-amber-700 mt-1"></i>
                             <div class="flex-grow">
-
-                                <p id="verification-title"
-                                   class="font-bold text-xs text-leather-900">
-                                    Verify your email
-                                </p>
-
-                                <p id="verification-text"
-                                   class="text-[11px] text-leather-700 mt-1">
+                                <p id="verification-title" class="font-bold text-xs text-leather-900">Verify your email</p>
+                                <p id="verification-text" class="text-[11px] text-leather-700 mt-1">
                                     We have sent a verification email to your email address.
                                     You can continue shopping while waiting.
                                 </p>
-
                             </div>
-
                         </div>
 
-                        <div class="grid grid-cols-2 gap-2 mt-3">
-
+                        <div id="verification-actions" class="grid grid-cols-2 gap-2 mt-3">
                             <button onclick="resendVerificationEmail()"
                                     class="bg-leather-900 text-white py-2 rounded text-[10px] uppercase font-bold">
                                 Resend
                             </button>
-
                             <button onclick="checkEmailVerification(true)"
                                     class="border border-leather-300 text-leather-800 py-2 rounded text-[10px] uppercase font-bold">
                                 Check Now
                             </button>
-
                         </div>
 
                     </div>
 
-
                     <div class="mt-5">
 
-                        <h5 class="font-serif font-bold text-sm mb-3">
-                            My Profile
-                        </h5>
+                        <h5 class="font-serif font-bold text-sm mb-3">My Profile</h5>
 
                         <div class="space-y-2 text-xs">
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">First Name</span>
                                 <strong id="profile-first"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Surname</span>
                                 <strong id="profile-surname"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Phone</span>
                                 <strong id="profile-phone"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">Location</span>
                                 <strong id="profile-location"></strong>
                             </div>
-
                             <div class="flex justify-between border-b border-leather-200 pb-2">
                                 <span class="text-leather-500">City</span>
                                 <strong id="profile-city"></strong>
                             </div>
-
                             <div class="flex justify-between">
                                 <span class="text-leather-500">Province</span>
                                 <strong id="profile-province"></strong>
                             </div>
-
                         </div>
 
                     </div>
@@ -1219,9 +783,7 @@
 
                 <button onclick="signOutCustomer()"
                         class="w-full border border-red-200 text-red-700 py-3 rounded-lg text-xs font-bold uppercase">
-
                     Sign Out
-
                 </button>
 
             </div>
@@ -1237,217 +799,106 @@
      CHECKOUT MODAL
 ============================================================ -->
 
-<div id="checkout-modal"
-     class="fixed inset-0 z-[70] hidden items-center justify-center p-4">
+<div id="checkout-modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4">
 
-    <div onclick="closeCheckoutModal()"
-         class="absolute inset-0 bg-black/70 backdrop-blur-sm">
-    </div>
+    <div onclick="closeCheckoutModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
 
     <div class="relative z-10 bg-white w-full max-w-2xl rounded-xl shadow-2xl modal-scroll">
 
         <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-
             <div>
-
-                <h3 class="font-serif text-lg font-bold text-amber-gold">
-                    Complete Your Order
-                </h3>
-
-                <p class="text-xs text-leather-300">
-                    Choose how you would like to receive your parcel
-                </p>
-
+                <h3 class="font-serif text-lg font-bold text-amber-gold">Complete Your Order</h3>
+                <p class="text-xs text-leather-300">Choose how you would like to receive your parcel</p>
             </div>
-
             <button onclick="closeCheckoutModal()">
-
                 <i class="fa-solid fa-xmark text-xl"></i>
-
             </button>
-
         </div>
 
-        <form id="checkout-form"
-              class="p-6 space-y-5">
+        <form id="checkout-form" class="p-6 space-y-5">
 
             <div class="bg-leather-50 border border-leather-200 rounded-lg p-4">
-
-                <p class="text-[10px] uppercase tracking-wider text-leather-500 font-bold mb-2">
-                    Customer
-                </p>
-
-                <div id="checkout-customer"
-                     class="text-sm font-semibold">
-                </div>
-
-                <div id="checkout-customer-contact"
-                     class="text-xs text-leather-500 mt-1">
-                </div>
-
+                <p class="text-[10px] uppercase tracking-wider text-leather-500 font-bold mb-2">Customer</p>
+                <div id="checkout-customer" class="text-sm font-semibold"></div>
+                <div id="checkout-customer-contact" class="text-xs text-leather-500 mt-1"></div>
             </div>
-
 
             <div>
 
-                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">
-                    Receiving Method
-                </label>
+                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">Receiving Method</label>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
 
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
-                        <input type="radio"
-                               name="deliveryMethod"
-                               value="Courier Delivery"
-                               checked
-                               onchange="toggleDeliveryFields()">
-
+                        <input type="radio" name="deliveryMethod" value="Courier Delivery" checked onchange="toggleDeliveryFields()">
                         <i class="fa-solid fa-truck text-amber-gold ml-1"></i>
-
-                        <span class="font-semibold text-xs">
-                            Courier Delivery
-                        </span>
-
-                        <p class="text-[10px] text-leather-500 mt-1">
-                            Delivered to your address
-                        </p>
-
+                        <span class="font-semibold text-xs">Courier Delivery</span>
+                        <p class="text-[10px] text-leather-500 mt-1">Delivered to your address</p>
                     </label>
 
-
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
-                        <input type="radio"
-                               name="deliveryMethod"
-                               value="Collection"
-                               onchange="toggleDeliveryFields()">
-
+                        <input type="radio" name="deliveryMethod" value="Collection" onchange="toggleDeliveryFields()">
                         <i class="fa-solid fa-store text-amber-gold ml-1"></i>
-
-                        <span class="font-semibold text-xs">
-                            Collection
-                        </span>
-
-                        <p class="text-[10px] text-leather-500 mt-1">
-                            Collect in person
-                        </p>
-
+                        <span class="font-semibold text-xs">Collection</span>
+                        <p class="text-[10px] text-leather-500 mt-1">Collect in person</p>
                     </label>
 
-
                     <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-
-                        <input type="radio"
-                               name="deliveryMethod"
-                               value="Other / Arrange"
-                               onchange="toggleDeliveryFields()">
-
+                        <input type="radio" name="deliveryMethod" value="Other / Arrange" onchange="toggleDeliveryFields()">
                         <i class="fa-solid fa-comments text-amber-gold ml-1"></i>
-
-                        <span class="font-semibold text-xs">
-                            Other
-                        </span>
-
-                        <p class="text-[10px] text-leather-500 mt-1">
-                            Arrange with TegoKgatso
-                        </p>
-
+                        <span class="font-semibold text-xs">Other</span>
+                        <p class="text-[10px] text-leather-500 mt-1">Arrange with TegoKgatso</p>
                     </label>
 
                 </div>
 
             </div>
 
+            <div id="delivery-fields" class="space-y-3">
 
-            <div id="delivery-fields"
-                 class="space-y-3">
+                <p class="text-xs font-bold uppercase tracking-wider text-leather-700">Delivery Address</p>
 
-                <p class="text-xs font-bold uppercase tracking-wider text-leather-700">
-                    Delivery Address
-                </p>
-
-                <input id="address-line1"
-                       required
-                       placeholder="Street address / house number"
+                <input id="address-line1" required placeholder="Street address / house number"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
-                <input id="address-suburb"
-                       required
-                       placeholder="Suburb"
+                <input id="address-suburb" required placeholder="Suburb"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
                 <div class="grid grid-cols-2 gap-3">
-
-                    <input id="address-city"
-                           required
-                           placeholder="City / Town"
+                    <input id="address-city" required placeholder="City / Town"
                            class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                    <input id="address-postal"
-                           required
-                           placeholder="Postal code"
+                    <input id="address-postal" required placeholder="Postal code"
                            class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
                 </div>
 
-                <input id="address-province"
-                       required
-                       placeholder="Province"
+                <input id="address-province" required placeholder="Province"
                        class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
 
             </div>
 
-
             <div>
-
-                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">
-                    Order Notes (optional)
-                </label>
-
-                <textarea id="order-notes"
-                          rows="3"
-                          placeholder="Anything we should know?"
+                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">Order Notes (optional)</label>
+                <textarea id="order-notes" rows="3" placeholder="Anything we should know?"
                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm"></textarea>
-
             </div>
-
 
             <div class="bg-leather-900 text-white rounded-lg p-5">
-
-                <div id="checkout-summary"
-                     class="space-y-2 text-xs">
-                </div>
-
+                <div id="checkout-summary" class="space-y-2 text-xs"></div>
             </div>
-
 
             <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-leather-700">
-
                 <i class="fa-solid fa-circle-info text-amber-gold mr-1"></i>
-
                 Your order will be securely recorded.
-                Payment status starts as
-                <strong>Awaiting Payment</strong>.
+                Payment status starts as <strong>Awaiting Payment</strong>.
                 TegoKgatso will contact you with payment instructions.
-
             </div>
 
+            <div id="checkout-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
 
-            <div id="checkout-error"
-                 class="hidden text-xs text-red-700 bg-red-50 p-3 rounded">
-            </div>
-
-
-            <button id="place-order-btn"
-                    type="submit"
+            <button id="place-order-btn" type="submit"
                     class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 py-3.5 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
-
                 <i class="fa-brands fa-whatsapp text-lg"></i>
-
                 <span>Place Order via WhatsApp</span>
-
             </button>
 
         </form>
@@ -1461,56 +912,37 @@
      ORDER SUCCESS
 ============================================================ -->
 
-<div id="success-modal"
-     class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+<div id="success-modal" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
 
     <div class="absolute inset-0 bg-black/70"></div>
 
     <div class="relative bg-white w-full max-w-md rounded-xl shadow-2xl p-8 text-center">
 
         <div class="w-16 h-16 mx-auto rounded-full bg-green-100 text-green-700 flex items-center justify-center text-2xl mb-4">
-
             <i class="fa-solid fa-check"></i>
-
         </div>
 
-        <h3 class="font-serif text-xl font-bold text-leather-900">
-            Order Received
-        </h3>
+        <h3 class="font-serif text-xl font-bold text-leather-900">Order Received</h3>
 
         <p class="text-sm text-leather-600 mt-2">
-
             Thank you. Your order has been successfully received by TegoKgatso Leather Bags.
-
         </p>
 
-        <p class="text-xs text-leather-500 mt-4">
-            Order reference
-        </p>
+        <p class="text-xs text-leather-500 mt-4">Order reference</p>
 
-        <p id="success-order-id"
-           class="font-mono font-bold text-leather-900 mt-1">
-        </p>
+        <p id="success-order-id" class="font-mono font-bold text-leather-900 mt-1"></p>
 
-        <p class="text-xs text-leather-500 mt-4">
-            Your order details have been saved to the database.
-        </p>
+        <p class="text-xs text-leather-500 mt-4">Your order details have been saved to the database.</p>
 
-        <button id="success-whatsapp-btn"
-                type="button"
+        <button id="success-whatsapp-btn" type="button"
                 class="mt-5 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg text-xs font-bold uppercase flex items-center justify-center gap-2">
-
             <i class="fa-brands fa-whatsapp text-base"></i>
-
             Send Order On WhatsApp
-
         </button>
 
         <button onclick="closeSuccessModal()"
                 class="mt-3 w-full bg-leather-900 text-white py-3 rounded-lg text-xs font-bold uppercase">
-
             Continue Shopping
-
         </button>
 
     </div>
@@ -1522,33 +954,16 @@
      TOAST
 ============================================================ -->
 
-<div id="toast"
-     class="fixed bottom-5 right-5 z-[100] hidden">
-
-    <div id="toast-inner"
-         class="bg-leather-900 text-white px-5 py-4 rounded-lg shadow-2xl max-w-sm">
-
+<div id="toast" class="fixed bottom-5 right-5 z-[100] hidden">
+    <div id="toast-inner" class="bg-leather-900 text-white px-5 py-4 rounded-lg shadow-2xl max-w-sm">
         <div class="flex gap-3">
-
-            <i id="toast-icon"
-               class="fa-solid fa-check text-amber-gold mt-1"></i>
-
+            <i id="toast-icon" class="fa-solid fa-check text-amber-gold mt-1"></i>
             <div>
-
-                <p id="toast-title"
-                   class="font-bold text-sm">
-                </p>
-
-                <p id="toast-message"
-                   class="text-xs text-leather-200 mt-1">
-                </p>
-
+                <p id="toast-title" class="font-bold text-sm"></p>
+                <p id="toast-message" class="text-xs text-leather-200 mt-1"></p>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 
@@ -1558,31 +973,27 @@
 
 <script type="module">
 
-import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+/* Firebase is loaded AFTER the collection is shown (see the bottom of
+   this script). If Firebase is slow or blocked, the bags still appear. */
+let initializeApp, getAuth, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, onAuthStateChanged, signOut,
+    updateProfile, sendEmailVerification, sendPasswordResetEmail, reload;
+let getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp;
 
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
-    updateProfile,
-    sendEmailVerification,
-    sendPasswordResetEmail,
-    reload
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+let app = null;
+let auth = null;
+let db = null;
 
-import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc,
-    addDoc,
-    collection,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+/* Shows a message and returns false if Firebase has not loaded yet */
+function firebaseReady() {
+    if (auth && db) return true;
+    showToast(
+        "Still Connecting",
+        "We are still connecting to our secure server. Please check your internet connection and try again in a moment.",
+        false
+    );
+    return false;
+}
 
 
 /* ============================================================
@@ -1590,29 +1001,15 @@ import {
 ============================================================ */
 
 const firebaseConfig = {
-
     apiKey: "AIzaSyA3yTdx__mL8JxJZqETU7C-R2pK5mKDBKU",
-
     authDomain: "tegokgatso-leather-bags.firebaseapp.com",
-
     projectId: "tegokgatso-leather-bags",
-
     storageBucket: "tegokgatso-leather-bags.firebasestorage.app",
-
     messagingSenderId: "715889522973",
-
     appId: "1:715889522973:web:f49ae557ae469ff58449f4",
-
     measurementId: "G-4PPZNHMRR4"
-
 };
 
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
 
 
 /* ============================================================
@@ -1620,83 +1017,119 @@ const db = getFirestore(app);
 ============================================================ */
 
 let currentUser = null;
-
 let currentProfile = null;
 
-let cart = JSON.parse(
-    localStorage.getItem("tegokgatso_cart") || "[]"
-);
+let cart = [];
+try {
+    cart = JSON.parse(localStorage.getItem("tegokgatso_cart") || "[]");
+    if (!Array.isArray(cart)) cart = [];
+} catch (_) {
+    cart = [];
+}
 
 
 /* ============================================================
    PRODUCTS
+
+   Each product is:
+   [ name, price, image, category, subtitle, description, badge ]
+
+   price  -> a NUMBER in Rand (e.g. 5000) or null if not priced yet
+   badge  -> text such as "New Arrival", or "" for no badge
+
+   SAME BAG, DIFFERENT COLOUR:
+   Give the bags EXACTLY the same name. They are then shown as one
+   card: the photos sit next to each other and the name and price
+   are shown once underneath. All colours share the first price set.
+   The colour shown under each photo is the first part of the
+   subtitle (before the "•"), e.g. "Dark Brown • Full Grain".
 ============================================================ */
 
-const products = [
+const rawProducts = [
 
     [
-        "Voyager Buckle Duffel",
-        null,
+        "Zuri Duffel",
+        5000,
         "WhatsApp Image 2026-10-01 at 13.11.32.jpeg",
         "duffel",
         "Cognac Brown • Distressed Finish",
         "Spacious travel duffel with a twin-buckle front pocket, zipped side compartments, brass hardware, rolled carry handles and a padded detachable shoulder strap.",
-        "New Arrival"
+        ""
     ],
 
     [
-        "Classic Weekender Duffel",
-        null,
+        "Kwame Duffel",
+        4000,
         "WhatsApp Image 2026-10-01 at 13.11.32_().jpeg",
         "duffel",
         "Saddle Tan • Smooth Barrel",
         "Clean barrel-shaped weekender with a strap-secured top flap, full-length brass zipper, sturdy top handles and a padded detachable shoulder strap.",
-        "New Arrival"
+        ""
     ],
 
     [
-        "Single-Buckle Structured Backpack",
-        null,
+        "Amari Classic Backpack",
+          1600,
         "WhatsApp Image 2026-09-17 at 19.22.56.jpeg",
         "backpack",
         "Honey Tan • Genuine Leather",
         "Clean, structured leather backpack with a central brass buckle closure and zipped utility compartments.",
-        "New Arrival"
+        ""
     ],
 
     [
         "Classic Director Briefcase",
-        null,
+        1800,
         "WhatsApp Image 2026-09-17 at 19.28.31.jpeg",
         "briefcase",
         "Vintage Brown • Double Pocket",
         "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.",
-        "New Arrival"
+        ""
     ],
 
     [
         "Executive Dual-Zipper Briefcase",
-        null,
+        2000,
         "WhatsApp Image 2026-09-17 at 19.22.56 (1).jpeg",
         "briefcase",
         "Amber Tan • Full Grain",
         "Handcrafted premium genuine leather briefcase featuring dual top zippers, smooth finish, and brass hardware.",
-        "New Arrival"
+        ""
     ],
 
     [
-        "Single-Buckle Structured Backpack",
-        null,
+        "Executive Dual-Zipper Briefcase",
+        2000,
+        "WhatsApp Image 2026-10-10 at 13.47.31.jpeg",
+        "briefcase",
+        "Dark Brown • Full Grain",
+        "Handcrafted premium genuine leather briefcase featuring dual top zippers, smooth finish, and brass hardware.",
+        ""
+    ],
+
+    [
+        "Thati Buckle Tote",
+        2000,
+        "WhatsApp Image 2026-10-10 at 13.54.20.jpeg",
+        "briefcase",
+        "Cognac Tan • Textured Leather",
+        "Structured shoulder tote with long twin handles secured by brass buckles, roomy open interior and a clean stitched finish.",
+        ""
+    ],
+
+    [
+        "Amari Classic Backpack",
+        1600,
         "WhatsApp Image 2026-09-17 at 19.22.56 (2).jpeg",
         "backpack",
         "Honey Tan • Genuine Leather",
         "Clean, structured leather backpack with a central brass buckle closure and zipped utility compartments.",
-        "New Arrival"
+        ""
     ],
 
     [
-        "Heritage Dual-Buckle Backpack",
-        null,
+        "Nalla Dual-Buckle Backpack",
+        2000,
         "WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg",
         "backpack",
         "Cognac Tan • Full Grain",
@@ -1705,8 +1138,8 @@ const products = [
     ],
 
     [
-        "Executive Distressed Backpack",
-        null,
+        "Nalla Dual-Buckle Backpack",
+        2000,
         "WhatsApp Image 2026-09-09 at 16.46.50.jpeg",
         "backpack",
         "Dark Espresso • Distressed",
@@ -1715,8 +1148,8 @@ const products = [
     ],
 
     [
-        "Minimalist Urban Backpack",
-        null,
+        "kwandza Urban Backpack",
+        2200,
         "WhatsApp Image 2026-09-09 at 16.46.51 (1).jpeg",
         "backpack",
         "Honey Tan • Smooth Finish",
@@ -1726,7 +1159,7 @@ const products = [
 
     [
         "Classic Director Briefcase",
-        null,
+        1800,
         "WhatsApp Image 2026-09-09 at 16.46.51.jpeg",
         "briefcase",
         "Vintage Brown • Double Pocket",
@@ -1735,8 +1168,8 @@ const products = [
     ],
 
     [
-        "Mocha Sovereign Backpack",
-        null,
+        "kwandza Urban Backpack",
+        2200,
         "WhatsApp Image 2026-09-09 at 16.46.52 (1).jpeg",
         "backpack",
         "Mocha Brown • Structured",
@@ -1745,8 +1178,28 @@ const products = [
     ],
 
     [
-        "Voyager Flap Backpack",
-        null,
+        "Lesedi Zip Backpack",
+        2000,
+        "WhatsApp Image 2026-09-09 at 16.46.530001.jpegsss",
+        "backpack",
+        "Curved Zip • Honey Tan",
+        "Structured full-grain leather backpack with a zipped front pocket, slip pocket, side pockets and brass hardware.",
+        ""
+    ],
+
+    [
+        "Lesedi Zip Backpack",
+        2000,
+        "WhatsApp Image 2026-09-09 at 16.46.520001.jpeg",
+        "backpack",
+        "Vertical Zip • Saddle Tan",
+        "Structured full-grain leather backpack with a zipped front pocket, slip pocket, side pockets and brass hardware.",
+        ""
+    ],
+
+    [
+        "Atlega Flap Backpack",
+        2000,
         "WhatsApp Image 2026-09-09 at 16.46.52 (2).jpeg",
         "backpack",
         "Chestnut Amber • Heavy Duty",
@@ -1755,8 +1208,8 @@ const products = [
     ],
 
     [
-        "Artisan Single-Buckle Satchel",
-        null,
+        "Tshemollo Single-Buckle Satchel",
+        1900,
         "WhatsApp Image 2026-09-09 at 16.46.52 (3).jpeg",
         "backpack",
         "Caramel Tan • Single Buckle",
@@ -1765,8 +1218,8 @@ const products = [
     ],
 
     [
-        "Sovereign Flap Messenger",
-        null,
+        "Mali Messenger",
+        2000,
         "WhatsApp Image 2026-09-09 at 16.46.53 (1).jpeg",
         "briefcase",
         "Mahogany Brown • Messenger",
@@ -1775,8 +1228,8 @@ const products = [
     ],
 
     [
-        "Executive Commuter Backpack",
-        null,
+        "Hlelo Backpack",
+        2000,
         "WhatsApp Image 2026-09-09 at 16.46.53 (2).jpeg",
         "backpack",
         "Warm Tan • Zipper Shield",
@@ -1784,77 +1237,100 @@ const products = [
         ""
     ],
 
+    
     [
-        "Heritage Classic Briefcase",
-        null,
-        "WhatsApp Image 2026-09-14 at 13.06.04.jpeg",
+        "Sovereign Satchel Briefcase",
+        1600,
+        "WhatsApp Image 2026-09-14 at 13.06.05 (1).jpeg",
         "briefcase",
-        "Rich Tan • Full Grain",
-        "Handcrafted classic messenger briefcase with dual buckle closures and front utility pockets.",
-        "New Arrival"
-    ],
-
-    [
-        "Executive Flap Satchel",
-        null,
-        "WhatsApp Image 2026-09-14 at 13.06.04 (1).jpeg",
-        "briefcase",
-        "Vintage Saddle • Genuine Leather",
-        "Elegant satchel bag featuring an ornate flap-over closure and adjustable shoulder strap.",
-        "New Arrival"
-    ],
-
-    [
-        "Classic Leather Carryall",
-        null,
-        "WhatsApp Image 2026-09-14 at 13.06.05.jpeg",
-        "briefcase",
-        "Chestnut Brown • Handcrafted",
-        "Structured full-grain leather briefcase built for professional organization and timeless durability.",
-        "New Arrival"
+        "Tan Amber • Brass Hardware",
+        "Spacious interior compartments paired with reinforced brass hardware and top carry handle.",
+        ""
     ],
 
     [
         "Sovereign Satchel Briefcase",
-        null,
-        "WhatsApp Image 2026-09-14 at 13.06.05 (1).jpeg",
-        "backpack",
-        "Tan Amber • Brass Hardware",
-        "Spacious interior compartments paired with reinforced brass hardware and top carry handle.",
-        "New Arrival"
-    ],
-
-    [
-        "Signature Executive Satchel",
-        null,
+        1600,
         "WhatsApp Image 2026-09-14 at 13.06.05 (2).jpeg",
-        "backpack",
+        "briefcase",
         "Deep Mocha • Double Strap",
         "Heavy-duty leather messenger bag crafted with dual strap closures and padded compartment.",
-        "New Arrival"
+        ""
     ],
 
     [
         "Artisan Portfolio Briefcase",
-        null,
+        1800,
         "WhatsApp Image 2026-09-14 at 13.06.06.jpeg",
         "briefcase",
         "Cognac Brown • Modern Cut",
         "Clean, professional silhouette designed to securely carry laptops, tablets, and essential documents.",
-        "New Arrival"
+        ""
     ],
 
     [
-        "Vanguard Leather Messenger",
-        null,
+        "Artisan Portfolio Briefcase",
+        1800,
         "WhatsApp Image 2026-09-14 at 13.06.06 (1).jpeg",
         "briefcase",
         "Rustic Brown • Reinforced",
         "Heavy-grain leather satchel engineered with multiple fast-access zip and buckle pockets.",
-        "New Arrival"
+        ""
     ]
 
 ];
+
+
+/* ------------------------------------------------------------
+   Group bags with the same name (same bag, different colour)
+   and order the collection: Duffels → Backpacks → Briefcases.
+------------------------------------------------------------ */
+
+const CATEGORY_ORDER = ["duffel", "backpack", "briefcase"];
+
+/* productGroups: one entry per bag model = the positions of its colours in `products` */
+const productGroups = [];
+
+const products = (() => {
+
+    const groups = new Map();
+
+    rawProducts.forEach(p => {
+        const key = String(p[0]).trim().toLowerCase();
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push([...p]);
+    });
+
+    const rank = cat => {
+        const i = CATEGORY_ORDER.indexOf(cat);
+        return i === -1 ? CATEGORY_ORDER.length : i;
+    };
+
+    const sorted = [...groups.values()].sort((a, b) => rank(a[0][3]) - rank(b[0][3]));
+
+    const result = [];
+
+    sorted.forEach(group => {
+
+        const name = group[0][0];
+        const priced = group.find(p => typeof p[1] === "number");
+        const price = priced ? priced[1] : null;
+
+        const indexes = [];
+
+        group.forEach(p => {
+            p[0] = name;      // same name for every colour
+            p[1] = price;     // same price for every colour
+            indexes.push(result.length);
+            result.push(p);
+        });
+
+        productGroups.push(indexes);
+    });
+
+    return result;
+
+})();
 
 
 /* ============================================================
@@ -1862,31 +1338,40 @@ const products = [
 ============================================================ */
 
 function esc(s) {
-
-    return String(s ?? "").replace(
-        /[&<>"']/g,
-        m => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#039;"
-        }[m])
-    );
-
+    return String(s ?? "").replace(/[&<>"']/g, m => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[m]));
 }
 
+/* Formats 5000 as "R5 000,00" (South African style) */
+function formatRand(amount) {
+    if (typeof amount !== "number" || isNaN(amount)) return "";
+    const fixed = amount.toFixed(2);
+    const [whole, cents] = fixed.split(".");
+    return "R" + whole.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "," + cents;
+}
+
+function cartTotal() {
+    return cart.reduce((sum, item) =>
+        typeof item.price === "number" ? sum + item.price * item.qty : sum, 0);
+}
+
+function cartHasUnpriced() {
+    return cart.some(item => typeof item.price !== "number");
+}
 
 function showToast(title, message, success = true) {
 
     const toast = document.getElementById("toast");
 
     document.getElementById("toast-title").innerText = title;
-
     document.getElementById("toast-message").innerText = message;
 
-    document.getElementById("toast-icon").className =
-        success
+    document.getElementById("toast-icon").className = success
         ? "fa-solid fa-check text-amber-gold mt-1"
         : "fa-solid fa-circle-exclamation text-red-400 mt-1";
 
@@ -1895,11 +1380,8 @@ function showToast(title, message, success = true) {
     clearTimeout(window.toastTimer);
 
     window.toastTimer = setTimeout(() => {
-
         toast.classList.add("hidden");
-
     }, 6000);
-
 }
 
 
@@ -1910,15 +1392,9 @@ function showToast(title, message, success = true) {
 const DEFAULT_WHATSAPP = "27658693811";
 
 window.connectToWhatsApp = () => {
-
-    const message =
-        "Hello TegoKgatso Leather Bags, I would like to make an enquiry.";
-
-    const waUrl =
-        `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
+    const message = "Hello TegoKgatso Leather Bags, I would like to make an enquiry.";
+    const waUrl = `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank");
-
 };
 
 
@@ -1929,45 +1405,19 @@ window.connectToWhatsApp = () => {
 window.filterProducts = (category, clickedButton) => {
 
     document.querySelectorAll(".product-card").forEach(card => {
-
         card.style.display =
-            category === "all" ||
-            card.dataset.category === category
-                ? "flex"
-                : "none";
-
+            category === "all" || card.dataset.category === category ? "flex" : "none";
     });
-
 
     document.querySelectorAll(".filter-btn").forEach(button => {
-
-        button.classList.remove(
-            "bg-leather-900",
-            "text-leather-50"
-        );
-
-        button.classList.add(
-            "bg-white",
-            "text-leather-800"
-        );
-
+        button.classList.remove("bg-leather-900", "text-leather-50");
+        button.classList.add("bg-white", "text-leather-800");
     });
 
-
     if (clickedButton) {
-
-        clickedButton.classList.remove(
-            "bg-white",
-            "text-leather-800"
-        );
-
-        clickedButton.classList.add(
-            "bg-leather-900",
-            "text-leather-50"
-        );
-
+        clickedButton.classList.remove("bg-white", "text-leather-800");
+        clickedButton.classList.add("bg-leather-900", "text-leather-50");
     }
-
 };
 
 
@@ -1975,95 +1425,231 @@ window.filterProducts = (category, clickedButton) => {
    RENDER PRODUCTS
 ============================================================ */
 
+/* Colour name = part of the subtitle before the "•" */
+function colourOf(i) {
+    return String(products[i][4] || "").split("•")[0].trim() || "Colour";
+}
+
+/* Colour labels for a group; identical names get numbered (Honey Tan 1, Honey Tan 2) */
+function colourLabels(indexes) {
+    const names = indexes.map(colourOf);
+    return names.map((n, k) =>
+        names.filter(x => x === n).length > 1
+            ? `${n} ${names.slice(0, k + 1).filter(x => x === n).length}`
+            : n
+    );
+}
+
+/* Colour of one product, only when its bag comes in more than one colour */
+function variantLabel(i) {
+    const group = productGroups.find(g => g.includes(i));
+    if (!group || group.length < 2 || !hasDistinctColours(group)) return "";
+    return colourLabels(group)[group.indexOf(i)];
+}
+
+/* True when every colour in the card has a different name.
+   If two colours share a name (e.g. both "Honey Tan"), no colour
+   names are shown; the customer picks by tapping the photo. */
+function hasDistinctColours(indexes) {
+    const names = indexes.map(colourOf);
+    return new Set(names).size === names.length;
+}
+
+function priceHtml(price) {
+    const t = formatRand(price);
+    return t
+        ? esc(t)
+        : '<span class="text-xs font-sans font-semibold text-leather-500 uppercase tracking-wider">Price on request</span>';
+}
+
+/* Selected colour per multi-colour card */
+const selectedVariant = {};
+
+window.selectVariant = (g, i) => {
+
+    selectedVariant[g] = i;
+
+    const card = document.querySelector(`[data-group="${g}"]`);
+    if (!card) return;
+
+    card.querySelectorAll("[data-photo]").forEach(el => {
+        const on = Number(el.dataset.photo) === i;
+        el.classList.toggle("ring-2", on);
+        el.classList.toggle("ring-amber-gold", on);
+    });
+
+    card.querySelectorAll("[data-chip]").forEach(el => {
+        const on = Number(el.dataset.chip) === i;
+        el.classList.toggle("bg-leather-900", on);
+        el.classList.toggle("text-white", on);
+        el.classList.toggle("border-leather-900", on);
+        el.classList.toggle("text-leather-800", !on);
+    });
+
+    const chosen = card.querySelector("[data-chosen]");
+    if (chosen) chosen.innerText = variantLabel(i) ? " · " + variantLabel(i) : "";
+};
+
+window.addSelectedToCart = g => {
+    addToCart(selectedVariant[g] ?? productGroups[g][0]);
+};
+
+/* ONE card for a bag that comes in several colours:
+   photos next to each other, ONE name + price underneath. */
+function renderGroupCard(indexes, g) {
+
+    const first = products[indexes[0]];
+    const labels = colourLabels(indexes);
+    const showNames = hasDistinctColours(indexes);
+    const badge = indexes.map(i => products[i][6]).find(Boolean);
+
+    selectedVariant[g] = indexes[0];
+
+    const cols = indexes.length >= 3 ? "grid-cols-3" : "grid-cols-2";
+
+    return `
+        <div class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col col-span-2"
+             data-category="${esc(first[3])}"
+             data-group="${g}">
+
+            <div class="relative grid ${cols} gap-1 bg-leather-100 p-1">
+
+                ${indexes.map((i, k) => `
+                    <div class="relative overflow-hidden rounded-sm bg-leather-100 ${k === 0 ? "ring-2 ring-amber-gold" : ""}"
+                         data-photo="${i}"
+                         style="aspect-ratio: 4 / 5;">
+
+                        <img src="${esc(products[i][2])}"
+                             alt="${esc(first[0])} - ${esc(labels[k])}"
+                             loading="lazy"
+                             onclick="selectVariant(${g}, ${i}); openProductModal(${i})"
+                             class="w-full h-full object-contain cursor-pointer transition duration-700 hover:scale-105">
+
+                        ${showNames ? `
+                        <span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white/90 text-leather-900 text-[9px] sm:text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full whitespace-nowrap">
+                            ${esc(labels[k])}
+                        </span>` : ""}
+
+                    </div>
+                `).join("")}
+
+                ${badge ? `
+                    <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
+                        ${esc(badge)}
+                    </div>` : ""}
+
+            </div>
+
+            <div class="p-4 sm:p-6 flex flex-col flex-grow">
+
+                <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
+                    Available in ${indexes.length} colours
+                </span>
+
+                <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
+                    ${esc(first[0])}
+                </h3>
+
+                <p class="text-xs text-leather-700 leading-relaxed mb-3 flex-grow">
+                    ${esc(first[5])}
+                </p>
+
+                <p class="font-serif text-base font-bold text-leather-700 mb-3">
+                    ${priceHtml(first[1])}
+                </p>
+
+                ${showNames ? `
+                <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold mr-1">Colour:</span>
+                    ${indexes.map((i, k) => `
+                        <button type="button"
+                                data-chip="${i}"
+                                onclick="selectVariant(${g}, ${i})"
+                                class="border px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold transition ${k === 0 ? "bg-leather-900 text-white border-leather-900" : "border-leather-300 text-leather-800"}">
+                            ${esc(labels[k])}
+                        </button>
+                    `).join("")}
+                </div>
+                ` : `
+                <p class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold mb-4">Tap a photo to choose your colour</p>`}
+
+                <div class="pt-3 border-t border-leather-100 mt-auto">
+                    <button onclick="addSelectedToCart(${g})"
+                            class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center">
+                        Add To Cart<span data-chosen>${showNames ? " · " + esc(labels[0]) : ""}</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
 function renderProducts() {
 
-    const grid =
-        document.getElementById("product-grid");
+    const grid = document.getElementById("product-grid");
 
+    grid.innerHTML = productGroups.map((indexes, g) => {
 
-    grid.innerHTML = products.map((p, i) => {
+        if (indexes.length > 1) {
+            return renderGroupCard(indexes, g);
+        }
+
+        const i = indexes[0];
+        const p = products[i];
+        const priceText = formatRand(p[1]);
 
         return `
-
-            <div
-                class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
-                data-category="${esc(p[3])}"
-            >
-
-                <!--
-                    object-contain is used for EVERY product.
-                    This prevents the complete bag from being cropped.
-                -->
+            <div class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
+                 data-category="${esc(p[3])}">
 
                 <div class="product-image-container relative">
 
-                    <img
-                        src="${esc(p[2])}"
-                        alt="${esc(p[0])}"
-                        onclick="openProductModal(${i})"
-                        class="product-image"
-                    >
+                    <img src="${esc(p[2])}"
+                         alt="${esc(p[0])}"
+                         loading="lazy"
+                         onclick="openProductModal(${i})"
+                         class="product-image">
 
-                    ${
-                        p[6]
-                        ?
-                        `
-                        <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
-
+                    ${p[6] ? `
+                        <div class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-amber-gold text-leather-900 font-bold text-[8px] sm:text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
                             ${esc(p[6])}
-
-                        </div>
-                        `
-                        : ""
-                    }
+                        </div>` : ""}
 
                 </div>
 
+                <div class="p-3 sm:p-6 flex flex-col flex-grow">
 
-                <div class="p-4 sm:p-6 flex flex-col flex-grow">
-
-                    <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
-
+                    <span class="text-[8px] sm:text-[10px] text-leather-500 uppercase tracking-wider sm:tracking-widest font-semibold leading-tight">
                         ${esc(p[4])}
-
                     </span>
 
-
-                    <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
-
+                    <h3 class="font-serif text-sm sm:text-lg font-bold text-leather-900 mt-1 mb-1 sm:mb-2 leading-snug">
                         ${esc(p[0])}
-
                     </h3>
 
-
-                    <p class="text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
-
+                    <p class="hidden sm:block text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
                         ${esc(p[5])}
-
                     </p>
 
+                    <p class="font-serif text-sm sm:text-base font-bold text-leather-700 mb-2 sm:mb-3 mt-auto sm:mt-0">
+                        ${priceText ? esc(priceText) : '<span class="text-xs font-sans font-semibold text-leather-500 uppercase tracking-wider">Price on request</span>'}
+                    </p>
 
-                    <div class="flex items-center justify-end pt-3 border-t border-leather-100 mt-auto">
-
-                        <button
-                            onclick="addToCart(${i})"
-                            class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center"
-                        >
-
+                    <div class="flex items-center justify-end pt-2 sm:pt-3 border-t border-leather-100 sm:mt-auto">
+                        <button onclick="addToCart(${i})"
+                                class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-sm text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition text-center">
                             Add To Cart
-
                         </button>
-
                     </div>
 
                 </div>
 
             </div>
-
         `;
 
     }).join("");
-
 }
 
 
@@ -2074,86 +1660,46 @@ function renderProducts() {
 window.openProductModal = i => {
 
     const p = products[i];
-
     if (!p) return;
 
+    const img = document.getElementById("product-modal-image");
+    img.src = p[2];
+    img.alt = p[0];
 
-    document.getElementById("product-modal-image").src =
-        p[2];
+    document.getElementById("product-modal-title").innerText = p[0];
+    document.getElementById("product-modal-category").innerText = p[4] || "";
+    document.getElementById("product-modal-description").innerText = p[5] || "";
 
-    document.getElementById("product-modal-image").alt =
-        p[0];
+    const priceEl = document.getElementById("product-modal-price");
+    const priceText = formatRand(p[1]);
+    priceEl.innerText = priceText || "Price on request";
+    priceEl.classList.remove("hidden");
 
+    document.getElementById("product-modal-cart-button").onclick = () => {
+        addToCart(i);
+        closeProductModal();
+    };
 
-    document.getElementById("product-modal-title").innerText =
-        p[0];
+    const modal = document.getElementById("product-modal");
+    const panel = document.getElementById("product-modal-content");
 
-
-    document.getElementById("product-modal-category").innerText =
-        p[4] || "";
-
-
-    document.getElementById("product-modal-description").innerText =
-        p[5] || "";
-
-
-    document.getElementById("product-modal-cart-button").onclick =
-        () => {
-
-            addToCart(i);
-
-            closeProductModal();
-
-        };
-
-
-    const modal =
-        document.getElementById("product-modal");
-
-    const panel =
-        document.getElementById("product-modal-content");
-
-
-    modal.classList.remove(
-        "invisible",
-        "opacity-0",
-        "pointer-events-none"
-    );
-
-
+    modal.classList.remove("invisible", "opacity-0", "pointer-events-none");
     panel.classList.remove("scale-95");
-
     panel.classList.add("scale-100");
 
-
     document.body.classList.add("overflow-hidden");
-
 };
-
 
 window.closeProductModal = () => {
 
-    const modal =
-        document.getElementById("product-modal");
+    const modal = document.getElementById("product-modal");
+    const panel = document.getElementById("product-modal-content");
 
-    const panel =
-        document.getElementById("product-modal-content");
-
-
-    modal.classList.add(
-        "invisible",
-        "opacity-0",
-        "pointer-events-none"
-    );
-
-
+    modal.classList.add("invisible", "opacity-0", "pointer-events-none");
     panel.classList.remove("scale-100");
-
     panel.classList.add("scale-95");
 
-
     document.body.classList.remove("overflow-hidden");
-
 };
 
 
@@ -2164,236 +1710,138 @@ window.closeProductModal = () => {
 window.addToCart = i => {
 
     const p = products[i];
-
     if (!p) return;
 
+    // Match by image, because some products share the same name
+    // but are different bags (different photos).
+    const existing = cart.find(item => item.img === p[2]);
 
-    const existing =
-        cart.find(item => item.title === p[0]);
-
+    const colour = variantLabel(i);
+    const title = colour ? `${p[0]} (${colour})` : p[0];
 
     if (existing) {
-
         existing.qty++;
-
+        existing.price = p[1];
+        existing.title = title;
     } else {
-
         cart.push({
-
-            title: p[0],
-
+            title: title,
+            colour: colour || null,
             img: p[2],
-
+            price: p[1],
             qty: 1
-
         });
-
     }
 
-
     saveCart();
-
     updateCartUI();
-
     toggleCart(true);
 
-
-    showToast(
-        "Added To Bag",
-        `${p[0]} has been added to your shopping bag.`
-    );
-
+    showToast("Added To Bag", `${title} has been added to your shopping bag.`);
 };
 
-
 function saveCart() {
-
-    localStorage.setItem(
-        "tegokgatso_cart",
-        JSON.stringify(cart)
-    );
-
+    try {
+        localStorage.setItem("tegokgatso_cart", JSON.stringify(cart));
+    } catch (_) {
+        // Storage may be unavailable (e.g. private browsing); cart still works for this visit.
+    }
 }
-
 
 function updateCartUI() {
 
-    const count =
-        cart.reduce(
-            (total, item) => total + item.qty,
-            0
-        );
+    const count = cart.reduce((total, item) => total + item.qty, 0);
 
+    document.getElementById("cart-count").innerText = count;
 
-    document.getElementById("cart-count").innerText =
-        count;
+    document.getElementById("cart-items").innerHTML = cart.length
 
-
-    document.getElementById("cart-items").innerHTML =
-
-        cart.length
-
-        ?
-
-        cart.map((item, index) => `
-
+        ? cart.map((item, index) => `
             <div class="flex gap-3 border-b border-leather-100 pb-3">
 
                 <div class="w-16 h-20 bg-leather-100 rounded overflow-hidden flex-shrink-0">
-
-                    <img
-                        src="${esc(item.img)}"
-                        alt="${esc(item.title)}"
-                        class="w-full h-full object-contain p-1"
-                    >
-
+                    <img src="${esc(item.img)}" alt="${esc(item.title)}" class="w-full h-full object-contain p-1">
                 </div>
 
                 <div class="flex-grow">
 
-                    <h4 class="font-serif text-xs font-bold">
-
-                        ${esc(item.title)}
-
-                    </h4>
+                    <h4 class="font-serif text-xs font-bold">${esc(item.title)}</h4>
 
                     <p class="text-xs text-leather-500">
-
                         Qty: ${item.qty}
-
+                        ${typeof item.price === "number"
+                            ? ` • ${esc(formatRand(item.price * item.qty))}`
+                            : " • Price on request"}
                     </p>
 
                     <div class="flex gap-2 mt-2">
-
-                        <button
-                            onclick="changeQty(${index},-1)"
-                            class="px-2 border rounded"
-                        >
-                            −
-                        </button>
-
-                        <button
-                            onclick="changeQty(${index},1)"
-                            class="px-2 border rounded"
-                        >
-                            +
-                        </button>
-
-                        <button
-                            onclick="removeFromCart(${index})"
-                            class="ml-auto text-red-700 text-xs"
-                        >
-                            Remove
-                        </button>
-
+                        <button onclick="changeQty(${index},-1)" class="px-2 border rounded">−</button>
+                        <button onclick="changeQty(${index},1)" class="px-2 border rounded">+</button>
+                        <button onclick="removeFromCart(${index})" class="ml-auto text-red-700 text-xs">Remove</button>
                     </div>
 
                 </div>
 
             </div>
-
         `).join("")
 
-        :
+        : `<p class="text-center text-sm text-leather-500 py-12">Your shopping bag is currently empty.</p>`;
 
-        `
+    const totalRow = document.getElementById("cart-total-row");
+    const total = cartTotal();
 
-            <p class="text-center text-sm text-leather-500 py-12">
-
-                Your shopping bag is currently empty.
-
-            </p>
-
-        `;
-
+    if (total > 0) {
+        document.getElementById("cart-total").innerText =
+            formatRand(total) + (cartHasUnpriced() ? " +" : "");
+        totalRow.classList.remove("hidden");
+        totalRow.classList.add("flex");
+    } else {
+        totalRow.classList.add("hidden");
+        totalRow.classList.remove("flex");
+    }
 }
-
 
 window.changeQty = (index, delta) => {
 
     if (!cart[index]) return;
 
-
     cart[index].qty += delta;
 
-
     if (cart[index].qty <= 0) {
-
         cart.splice(index, 1);
-
     }
 
-
     saveCart();
-
     updateCartUI();
-
 };
-
 
 window.removeFromCart = index => {
 
     if (!cart[index]) return;
 
-
     cart.splice(index, 1);
-
     saveCart();
-
     updateCartUI();
-
 };
-
 
 window.toggleCart = forceOpen => {
 
-    const modal =
-        document.getElementById("cart-modal");
+    const modal = document.getElementById("cart-modal");
+    const panel = document.getElementById("cart-panel");
 
-    const panel =
-        document.getElementById("cart-panel");
-
-
-    const open =
-        forceOpen ??
-        modal.classList.contains("invisible");
-
+    const open = forceOpen ?? modal.classList.contains("invisible");
 
     if (open) {
-
-        modal.classList.remove(
-            "invisible",
-            "opacity-0",
-            "pointer-events-none"
-        );
-
-        panel.classList.remove(
-            "translate-x-full"
-        );
-
+        modal.classList.remove("invisible", "opacity-0", "pointer-events-none");
+        panel.classList.remove("translate-x-full");
     } else {
-
-        modal.classList.add(
-            "invisible",
-            "opacity-0",
-            "pointer-events-none"
-        );
-
-        panel.classList.add(
-            "translate-x-full"
-        );
-
+        modal.classList.add("invisible", "opacity-0", "pointer-events-none");
+        panel.classList.add("translate-x-full");
     }
-
 };
 
-
 window.toggleMobileMenu = () => {
-
-    document
-        .getElementById("mobile-menu")
-        .classList.toggle("hidden");
-
+    document.getElementById("mobile-menu").classList.toggle("hidden");
 };
 
 
@@ -2404,169 +1852,83 @@ window.toggleMobileMenu = () => {
 window.beginCheckout = () => {
 
     if (!cart.length) {
-
-        showToast(
-            "Bag is Empty",
-            "Please add products to your bag before checking out.",
-            false
-        );
-
+        showToast("Bag is Empty", "Please add products to your bag before checking out.", false);
         return;
-
     }
-
 
     if (!currentUser) {
-
         toggleCart(false);
-
         openAccountModal();
-
-        showToast(
-            "Account Required",
-            "Please sign in or create an account to proceed to checkout.",
-            false
-        );
-
+        if (!firebaseReady()) return;
+        showToast("Account Required", "Please sign in or create an account to proceed to checkout.", false);
         return;
-
     }
 
+    const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
+    const surname = currentProfile?.surname || "";
 
-    const firstName =
-        currentProfile?.firstName ||
-        currentUser.displayName ||
-        "Customer";
-
-
-    const surname =
-        currentProfile?.surname ||
-        "";
-
-
-    document.getElementById("checkout-customer").innerText =
-        `${firstName} ${surname}`.trim();
-
+    document.getElementById("checkout-customer").innerText = `${firstName} ${surname}`.trim();
 
     document.getElementById("checkout-customer-contact").innerText =
         `${currentUser.email} | ${currentProfile?.phone || "No phone"}`;
 
-
     if (currentProfile) {
-
-        if (currentProfile.location) {
-
-            document.getElementById("address-suburb").value =
-                currentProfile.location;
-
-        }
-
-        if (currentProfile.city) {
-
-            document.getElementById("address-city").value =
-                currentProfile.city;
-
-        }
-
-        if (currentProfile.province) {
-
-            document.getElementById("address-province").value =
-                currentProfile.province;
-
-        }
-
+        if (currentProfile.location) document.getElementById("address-suburb").value = currentProfile.location;
+        if (currentProfile.city) document.getElementById("address-city").value = currentProfile.city;
+        if (currentProfile.province) document.getElementById("address-province").value = currentProfile.province;
     }
 
+    const total = cartTotal();
 
     document.getElementById("checkout-summary").innerHTML = `
-
-        <p class="font-bold border-b border-leather-800 pb-2 mb-2 text-amber-gold">
-
-            ITEMS IN ORDER:
-
-        </p>
+        <p class="font-bold border-b border-leather-800 pb-2 mb-2 text-amber-gold">ITEMS IN ORDER:</p>
 
         ${cart.map(item => `
-
-            <div class="flex justify-between">
-
-                <span>
-
-                    ${esc(item.title)} (x${item.qty})
-
-                </span>
-
+            <div class="flex justify-between gap-4">
+                <span>${esc(item.title)} (x${item.qty})</span>
+                <span>${typeof item.price === "number"
+                    ? esc(formatRand(item.price * item.qty))
+                    : "Price on request"}</span>
             </div>
-
         `).join("")}
 
+        ${total > 0 ? `
+            <div class="flex justify-between border-t border-leather-800 pt-2 mt-2 font-bold text-amber-gold">
+                <span>TOTAL${cartHasUnpriced() ? " (priced items)" : ""}</span>
+                <span>${esc(formatRand(total))}</span>
+            </div>` : ""}
     `;
-
 
     toggleCart(false);
 
-
-    const modal =
-        document.getElementById("checkout-modal");
-
-
+    const modal = document.getElementById("checkout-modal");
     modal.classList.remove("hidden");
-
     modal.classList.add("flex");
 
-
     toggleDeliveryFields();
-
 };
-
 
 window.closeCheckoutModal = () => {
-
-    const modal =
-        document.getElementById("checkout-modal");
-
-
+    const modal = document.getElementById("checkout-modal");
     modal.classList.add("hidden");
-
     modal.classList.remove("flex");
-
 };
-
 
 window.toggleDeliveryFields = () => {
 
     const selectedMethod =
-        document.querySelector(
-            'input[name="deliveryMethod"]:checked'
-        )?.value;
+        document.querySelector('input[name="deliveryMethod"]:checked')?.value;
 
-
-    const deliveryFields =
-        document.getElementById("delivery-fields");
-
-
-    const requiredInputs =
-        deliveryFields.querySelectorAll("input");
-
+    const deliveryFields = document.getElementById("delivery-fields");
+    const requiredInputs = deliveryFields.querySelectorAll("input");
 
     if (selectedMethod === "Courier Delivery") {
-
         deliveryFields.classList.remove("hidden");
-
-        requiredInputs.forEach(i =>
-            i.setAttribute("required", "true")
-        );
-
+        requiredInputs.forEach(i => i.setAttribute("required", "true"));
     } else {
-
         deliveryFields.classList.add("hidden");
-
-        requiredInputs.forEach(i =>
-            i.removeAttribute("required")
-        );
-
+        requiredInputs.forEach(i => i.removeAttribute("required"));
     }
-
 };
 
 
@@ -2574,327 +1936,156 @@ window.toggleDeliveryFields = () => {
    PLACE ORDER + WHATSAPP
 ============================================================ */
 
-document
-.getElementById("checkout-form")
-.addEventListener("submit", async (e) => {
+document.getElementById("checkout-form").addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-
     if (!currentUser) {
-
-        showToast(
-            "Account Required",
-            "Please sign in before placing an order.",
-            false
-        );
-
+        showToast("Account Required", "Please sign in before placing an order.", false);
         return;
-
     }
 
-
-    const btn =
-        document.getElementById("place-order-btn");
-
-
-    const errBox =
-        document.getElementById("checkout-error");
-
+    const btn = document.getElementById("place-order-btn");
+    const errBox = document.getElementById("checkout-error");
 
     errBox.classList.add("hidden");
 
-
     btn.disabled = true;
+    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Placing Order...`;
 
-
-    btn.innerHTML = `
-
-        <i class="fa-solid fa-spinner fa-spin mr-2"></i>
-
-        Placing Order...
-
-    `;
-
+    // Open the WhatsApp window now (directly from the click) so pop-up
+    // blockers don't stop it after the database save finishes.
+    const waWindow = window.open("", "_blank");
 
     try {
 
         const deliveryMethod =
-            document.querySelector(
-                'input[name="deliveryMethod"]:checked'
-            ).value;
+            document.querySelector('input[name="deliveryMethod"]:checked').value;
 
-
-        const notes =
-            document.getElementById(
-                "order-notes"
-            ).value.trim();
-
+        const notes = document.getElementById("order-notes").value.trim();
 
         let addressData = null;
 
-
         if (deliveryMethod === "Courier Delivery") {
-
             addressData = {
-
-                line1:
-                    document.getElementById(
-                        "address-line1"
-                    ).value.trim(),
-
-                suburb:
-                    document.getElementById(
-                        "address-suburb"
-                    ).value.trim(),
-
-                city:
-                    document.getElementById(
-                        "address-city"
-                    ).value.trim(),
-
-                postal:
-                    document.getElementById(
-                        "address-postal"
-                    ).value.trim(),
-
-                province:
-                    document.getElementById(
-                        "address-province"
-                    ).value.trim()
-
+                line1: document.getElementById("address-line1").value.trim(),
+                suburb: document.getElementById("address-suburb").value.trim(),
+                city: document.getElementById("address-city").value.trim(),
+                postal: document.getElementById("address-postal").value.trim(),
+                province: document.getElementById("address-province").value.trim()
             };
-
         }
 
+        const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
+        const surname = currentProfile?.surname || "";
+        const fullName = `${firstName} ${surname}`.trim();
+        const phone = currentProfile?.phone || "N/A";
 
-        const firstName =
-            currentProfile?.firstName ||
-            currentUser.displayName ||
-            "Customer";
-
-
-        const surname =
-            currentProfile?.surname ||
-            "";
-
-
-        const fullName =
-            `${firstName} ${surname}`.trim();
-
-
-        const phone =
-            currentProfile?.phone ||
-            "N/A";
-
+        const total = cartTotal();
 
         const orderData = {
-
-            userId:
-                currentUser.uid,
-
-            customerName:
-                fullName,
-
-            customerEmail:
-                currentUser.email,
-
-            customerPhone:
-                phone,
-
-            whatsappRecipient:
-                DEFAULT_WHATSAPP,
-
-            items:
-                cart,
-
-            deliveryMethod:
-                deliveryMethod,
-
-            address:
-                addressData,
-
-            notes:
-                notes,
-
-            status:
-                "Awaiting Payment",
-
-            createdAt:
-                serverTimestamp()
-
+            userId: currentUser.uid,
+            customerName: fullName,
+            customerEmail: currentUser.email,
+            customerPhone: phone,
+            whatsappRecipient: DEFAULT_WHATSAPP,
+            items: cart.map(item => ({
+                title: item.title,
+                img: item.img,
+                qty: item.qty,
+                price: typeof item.price === "number" ? item.price : null
+            })),
+            totalPricedAmount: total,
+            hasUnpricedItems: cartHasUnpriced(),
+            deliveryMethod: deliveryMethod,
+            address: addressData,
+            notes: notes,
+            status: "Awaiting Payment",
+            createdAt: serverTimestamp()
         };
 
+        const docRef = await addDoc(collection(db, "orders"), orderData);
+        const orderId = docRef.id;
 
-        const docRef =
-            await addDoc(
-                collection(db, "orders"),
-                orderData
-            );
+        /* ---------------- WHATSAPP MESSAGE ---------------- */
 
+        let message = `*NEW ORDER - TEGOKGATSO LEATHER BAGS*\n`;
+        message += `*Order ID:* ${orderId}\n\n`;
 
-        const orderId =
-            docRef.id;
+        message += `*Customer Details:*\n`;
+        message += `• Name: ${fullName}\n`;
+        message += `• Email: ${currentUser.email}\n`;
+        message += `• Phone: ${phone}\n\n`;
 
-
-        /* ====================================================
-           WHATSAPP MESSAGE
-        ==================================================== */
-
-        let message =
-            `*NEW ORDER - TEGOKGATSO LEATHER BAGS*\n`;
-
-        message +=
-            `*Order ID:* ${orderId}\n\n`;
-
-
-        message +=
-            `*Customer Details:*\n`;
-
-        message +=
-            `• Name: ${fullName}\n`;
-
-        message +=
-            `• Email: ${currentUser.email}\n`;
-
-        message +=
-            `• Phone: ${phone}\n\n`;
-
-
-        message +=
-            `*Order Items:*\n`;
-
+        message += `*Order Items:*\n`;
 
         cart.forEach((item, index) => {
-
-            message +=
-                `${index + 1}. ${item.title} (Qty: ${item.qty})\n`;
-
+            const priceText = typeof item.price === "number"
+                ? ` - ${formatRand(item.price * item.qty)}`
+                : " - Price on request";
+            message += `${index + 1}. ${item.title} (Qty: ${item.qty})${priceText}\n`;
         });
 
-
-        message +=
-            `\n*Receiving Method:* ${deliveryMethod}\n`;
-
-
-        if (
-            deliveryMethod === "Courier Delivery" &&
-            addressData
-        ) {
-
-            message +=
-                `*Delivery Address:*\n`;
-
-            message +=
-                `${addressData.line1}, ${addressData.suburb}, ${addressData.city}, ${addressData.province}, ${addressData.postal}\n`;
-
+        if (total > 0) {
+            message += `\n*Total${cartHasUnpriced() ? " (priced items)" : ""}:* ${formatRand(total)}\n`;
         }
 
+        message += `\n*Receiving Method:* ${deliveryMethod}\n`;
+
+        if (deliveryMethod === "Courier Delivery" && addressData) {
+            message += `*Delivery Address:*\n`;
+            message += `${addressData.line1}, ${addressData.suburb}, ${addressData.city}, ${addressData.province}, ${addressData.postal}\n`;
+        }
 
         if (notes) {
-
-            message +=
-                `\n*Order Notes:* ${notes}\n`;
-
+            message += `\n*Order Notes:* ${notes}\n`;
         }
 
+        message += `\nThank you! Please provide payment instructions to finalize the order.`;
 
-        message +=
-            `\nThank you! Please provide payment instructions to finalize the order.`;
+        const waUrl = `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
 
+        document.getElementById("success-order-id").innerText = orderId;
 
-        const waUrl =
-            `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
-
-        document.getElementById(
-            "success-order-id"
-        ).innerText =
-            orderId;
-
-
-        const waBtn =
-            document.getElementById(
-                "success-whatsapp-btn"
-            );
-
-
-        waBtn.onclick = () => {
-
-            window.open(
-                waUrl,
-                "_blank"
-            );
-
+        document.getElementById("success-whatsapp-btn").onclick = () => {
+            window.open(waUrl, "_blank");
         };
-
 
         closeCheckoutModal();
 
-
         cart = [];
-
-
         saveCart();
-
         updateCartUI();
 
+        document.getElementById("order-notes").value = "";
 
-        const successModal =
-            document.getElementById(
-                "success-modal"
-            );
+        const successModal = document.getElementById("success-modal");
+        successModal.classList.remove("hidden");
+        successModal.classList.add("flex");
 
-
-        successModal.classList.remove(
-            "hidden"
-        );
-
-
-        successModal.classList.add(
-            "flex"
-        );
-
-
-        window.open(
-            waUrl,
-            "_blank"
-        );
-
+        if (waWindow && !waWindow.closed) {
+            waWindow.location.href = waUrl;
+        } else {
+            window.open(waUrl, "_blank");
+        }
 
     } catch (err) {
 
-        console.error(
-            "Error placing order:",
-            err
-        );
+        console.error("Error placing order:", err);
 
+        if (waWindow && !waWindow.closed) waWindow.close();
 
-        errBox.innerText =
-            "Error placing order: " +
-            err.message;
-
-
-        errBox.classList.remove(
-            "hidden"
-        );
-
+        errBox.innerText = "Error placing order: " + err.message;
+        errBox.classList.remove("hidden");
 
     } finally {
 
         btn.disabled = false;
-
-
         btn.innerHTML = `
-
             <i class="fa-brands fa-whatsapp text-lg"></i>
-
             <span>Place Order via WhatsApp</span>
-
         `;
-
     }
-
 });
 
 
@@ -2903,22 +2094,9 @@ document
 ============================================================ */
 
 window.closeSuccessModal = () => {
-
-    const modal =
-        document.getElementById(
-            "success-modal"
-        );
-
-
-    modal.classList.add(
-        "hidden"
-    );
-
-
-    modal.classList.remove(
-        "flex"
-    );
-
+    const modal = document.getElementById("success-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
 };
 
 
@@ -2926,41 +2104,19 @@ window.closeSuccessModal = () => {
    PASSWORD VISIBILITY
 ============================================================ */
 
-window.togglePasswordVisibility = (
-    inputId,
-    iconId
-) => {
+window.togglePasswordVisibility = (inputId, iconId) => {
 
-    const input =
-        document.getElementById(
-            inputId
-        );
-
-
-    const icon =
-        document.getElementById(
-            iconId
-        );
-
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
 
     if (input.type === "password") {
-
         input.type = "text";
-
-        icon.className =
-            "fa-solid fa-eye-slash";
-
+        icon.className = "fa-solid fa-eye-slash";
     } else {
-
         input.type = "password";
-
-        icon.className =
-            "fa-solid fa-eye";
-
+        icon.className = "fa-solid fa-eye";
     }
-
 };
-
 
 
 /* ============================================================
@@ -3025,77 +2181,42 @@ window.showLoggedInAccount = () => {
     document.getElementById("reset-form").classList.add("hidden");
     document.getElementById("account-logged-in").classList.remove("hidden");
 
-    const firstName =
-        currentProfile?.firstName ||
-        currentUser.displayName ||
-        "Customer";
-
+    const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
     const surname = currentProfile?.surname || "";
 
-    document.getElementById("account-name").innerText =
-        `${firstName} ${surname}`.trim();
+    document.getElementById("account-name").innerText = `${firstName} ${surname}`.trim();
+    document.getElementById("account-email").innerText = currentUser.email || "";
 
-    document.getElementById("account-email").innerText =
-        currentUser.email || "";
-
-    document.getElementById("profile-first").innerText =
-        currentProfile?.firstName || currentUser.displayName || "";
-
-    document.getElementById("profile-surname").innerText =
-        currentProfile?.surname || "";
-
-    document.getElementById("profile-phone").innerText =
-        currentProfile?.phone || "";
-
-    document.getElementById("profile-location").innerText =
-        currentProfile?.location || "";
-
-    document.getElementById("profile-city").innerText =
-        currentProfile?.city || "";
-
-    document.getElementById("profile-province").innerText =
-        currentProfile?.province || "";
+    document.getElementById("profile-first").innerText = currentProfile?.firstName || currentUser.displayName || "";
+    document.getElementById("profile-surname").innerText = currentProfile?.surname || "";
+    document.getElementById("profile-phone").innerText = currentProfile?.phone || "";
+    document.getElementById("profile-location").innerText = currentProfile?.location || "";
+    document.getElementById("profile-city").innerText = currentProfile?.city || "";
+    document.getElementById("profile-province").innerText = currentProfile?.province || "";
 
     const verificationBox = document.getElementById("verification-box");
     const verificationTitle = document.getElementById("verification-title");
     const verificationText = document.getElementById("verification-text");
     const verificationIcon = document.getElementById("verification-icon");
+    const verificationActions = document.getElementById("verification-actions");
 
     if (currentUser.emailVerified) {
-        verificationBox.className =
-            "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
-
-        verificationIcon.className =
-            "fa-solid fa-circle-check text-green-700 mt-1";
-
-        verificationTitle.className =
-            "font-bold text-xs text-green-900";
-
+        verificationBox.className = "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
+        verificationIcon.className = "fa-solid fa-circle-check text-green-700 mt-1";
+        verificationTitle.className = "font-bold text-xs text-green-900";
         verificationTitle.innerText = "Email verified";
-
-        verificationText.className =
-            "text-[11px] text-green-700 mt-1";
-
-        verificationText.innerText =
-            "Your email address has been successfully verified.";
+        verificationText.className = "text-[11px] text-green-700 mt-1";
+        verificationText.innerText = "Your email address has been successfully verified.";
+        verificationActions.classList.add("hidden");
     } else {
-        verificationBox.className =
-            "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
-
-        verificationIcon.className =
-            "fa-solid fa-envelope text-amber-700 mt-1";
-
-        verificationTitle.className =
-            "font-bold text-xs text-leather-900";
-
-        verificationTitle.innerText =
-            "Verify your email";
-
-        verificationText.className =
-            "text-[11px] text-leather-700 mt-1";
-
+        verificationBox.className = "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
+        verificationIcon.className = "fa-solid fa-envelope text-amber-700 mt-1";
+        verificationTitle.className = "font-bold text-xs text-leather-900";
+        verificationTitle.innerText = "Verify your email";
+        verificationText.className = "text-[11px] text-leather-700 mt-1";
         verificationText.innerText =
             "We have sent a verification email to your email address. You can continue shopping while waiting.";
+        verificationActions.classList.remove("hidden");
     }
 };
 
@@ -3121,22 +2242,19 @@ document.getElementById("signin-form").addEventListener("submit", async (e) => {
     const password = document.getElementById("signin-password").value;
 
     if (!email || !password) return;
+    if (!firebaseReady()) return;
 
     setAuthButtonLoading("signin-btn", true, "Sign In");
 
     try {
-        const credential = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
+        const credential = await signInWithEmailAndPassword(auth, email, password);
 
         currentUser = credential.user;
 
         try {
             await reload(currentUser);
         } catch (_) {
-            // The authentication itself succeeded; continue even if reload fails.
+            // Sign-in succeeded; continue even if reload fails.
         }
 
         currentUser = auth.currentUser;
@@ -3145,25 +2263,15 @@ document.getElementById("signin-form").addEventListener("submit", async (e) => {
             throw new Error("Login completed but the customer session could not be loaded.");
         }
 
-        const profileSnap = await getDoc(
-            customerProfileRef(currentUser.uid)
-        );
+        const profileSnap = await getDoc(customerProfileRef(currentUser.uid));
+        currentProfile = profileSnap.exists() ? profileSnap.data() : null;
 
-        currentProfile = profileSnap.exists()
-            ? profileSnap.data()
-            : null;
+        document.getElementById("signin-password").value = "";
 
         showLoggedInAccount();
         updateAccountLabel();
 
-        showToast(
-            "Welcome Back",
-            `You are now signed in as ${currentUser.email}.`,
-            true
-        );
-
-        // Important: stay on index.html. Do not redirect the customer to the main page.
-        // The account modal remains open so the customer can see that login succeeded.
+        showToast("Welcome Back", `You are now signed in as ${currentUser.email}.`, true);
 
     } catch (error) {
         console.error("Customer sign-in error:", error);
@@ -3203,22 +2311,18 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     const province = document.getElementById("signup-province").value.trim();
     const password = document.getElementById("signup-password").value;
 
+    if (!firebaseReady()) return;
+
     setAuthButtonLoading("signup-btn", true, "Create Account");
 
     try {
-        const credential = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
+        const credential = await createUserWithEmailAndPassword(auth, email, password);
 
         currentUser = credential.user;
 
-        await updateProfile(currentUser, {
-            displayName: firstName
-        });
+        await updateProfile(currentUser, { displayName: firstName });
 
-        currentProfile = {
+        const profileData = {
             uid: currentUser.uid,
             firstName,
             surname,
@@ -3230,11 +2334,10 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
             createdAt: serverTimestamp()
         };
 
-        await setDoc(
-            customerProfileRef(currentUser.uid),
-            currentProfile,
-            { merge: true }
-        );
+        await setDoc(customerProfileRef(currentUser.uid), profileData, { merge: true });
+
+        // Keep a local copy without the serverTimestamp() placeholder.
+        currentProfile = { ...profileData, createdAt: null };
 
         try {
             await sendEmailVerification(currentUser);
@@ -3242,14 +2345,12 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
             console.warn("Verification email could not be sent:", verificationError);
         }
 
+        document.getElementById("signup-form").reset();
+
         showLoggedInAccount();
         updateAccountLabel();
 
-        showToast(
-            "Account Created",
-            "Your customer account has been created successfully.",
-            true
-        );
+        showToast("Account Created", "Your customer account has been created successfully.", true);
 
     } catch (error) {
         console.error("Customer signup error:", error);
@@ -3282,31 +2383,27 @@ document.getElementById("reset-form").addEventListener("submit", async (e) => {
     const messageBox = document.getElementById("reset-message");
 
     if (!email) return;
+    if (!firebaseReady()) return;
 
     try {
         await sendPasswordResetEmail(auth, email);
 
-        messageBox.innerText =
-            "Password reset email sent. Please check your inbox and spam folder.";
-
-        messageBox.className =
-            "text-xs p-3 rounded text-green-700 bg-green-50";
+        messageBox.innerText = "Password reset email sent. Please check your inbox and spam folder.";
+        messageBox.className = "text-xs p-3 rounded text-green-700 bg-green-50";
 
     } catch (error) {
         console.error("Password reset error:", error);
 
-        messageBox.innerText =
-            error.code === "auth/user-not-found"
-                ? "No customer account was found with this email address."
-                : "We could not send the reset email. Please check the email address and try again.";
+        messageBox.innerText = error.code === "auth/user-not-found"
+            ? "No customer account was found with this email address."
+            : "We could not send the reset email. Please check the email address and try again.";
 
-        messageBox.className =
-            "text-xs p-3 rounded text-red-700 bg-red-50";
+        messageBox.className = "text-xs p-3 rounded text-red-700 bg-red-50";
     }
 });
 
 window.checkEmailVerification = async (showMessage = false) => {
-    if (!auth.currentUser) return;
+    if (!auth || !auth.currentUser) return;
 
     try {
         await reload(auth.currentUser);
@@ -3314,61 +2411,38 @@ window.checkEmailVerification = async (showMessage = false) => {
 
         if (currentUser.emailVerified) {
             showLoggedInAccount();
-
             if (showMessage) {
-                showToast(
-                    "Email Verified",
-                    "Your email address is now verified.",
-                    true
-                );
+                showToast("Email Verified", "Your email address is now verified.", true);
             }
         } else if (showMessage) {
-            showToast(
-                "Not Verified Yet",
-                "Please check your email and click the verification link.",
-                false
-            );
+            showToast("Not Verified Yet", "Please check your email and click the verification link.", false);
         }
     } catch (error) {
         console.error("Verification check error:", error);
-
         if (showMessage) {
-            showToast(
-                "Verification Check Failed",
-                "Please try again.",
-                false
-            );
+            showToast("Verification Check Failed", "Please try again.", false);
         }
     }
 };
 
 window.resendVerificationEmail = async () => {
-    if (!auth.currentUser) {
+    if (!auth || !auth.currentUser) {
         showCustomerSignIn();
         return;
     }
 
     try {
         await sendEmailVerification(auth.currentUser);
-
-        showToast(
-            "Verification Sent",
-            "A new verification email has been sent.",
-            true
-        );
+        showToast("Verification Sent", "A new verification email has been sent.", true);
     } catch (error) {
         console.error("Resend verification error:", error);
-
-        showToast(
-            "Could Not Send",
-            "Please wait a moment and try again.",
-            false
-        );
+        showToast("Could Not Send", "Please wait a moment and try again.", false);
     }
 };
 
 window.signOutCustomer = async () => {
     try {
+        if (!firebaseReady()) return;
         await signOut(auth);
 
         currentUser = null;
@@ -3377,55 +2451,31 @@ window.signOutCustomer = async () => {
         showCustomerSignIn();
         updateAccountLabel();
 
-        showToast(
-            "Signed Out",
-            "You have been signed out of your customer account.",
-            true
-        );
+        showToast("Signed Out", "You have been signed out of your customer account.", true);
     } catch (error) {
         console.error("Customer sign-out error:", error);
-
-        showToast(
-            "Sign Out Failed",
-            "Please try again.",
-            false
-        );
+        showToast("Sign Out Failed", "Please try again.", false);
     }
 };
 
 function updateAccountLabel() {
     const label = document.getElementById("account-label");
-
     if (!label) return;
 
-    if (currentUser) {
-        const firstName =
-            currentProfile?.firstName ||
-            currentUser.displayName ||
-            "Account";
-
-        label.innerText = firstName;
-    } else {
-        label.innerText = "Account";
-    }
+    label.innerText = currentUser
+        ? (currentProfile?.firstName || currentUser.displayName || "Account")
+        : "Account";
 }
 
-/* Restore the customer session whenever the page loads.
-   Firebase Auth persists the session, so refreshing index.html
-   must NOT log the customer out or redirect them. */
-onAuthStateChanged(auth, async (user) => {
+/* Restore the customer session whenever the page loads. */
+async function handleAuthChange(user) {
     currentUser = user || null;
     currentProfile = null;
 
     if (user) {
         try {
-            const profileSnap = await getDoc(
-                customerProfileRef(user.uid)
-            );
-
-            currentProfile = profileSnap.exists()
-                ? profileSnap.data()
-                : null;
+            const profileSnap = await getDoc(customerProfileRef(user.uid));
+            currentProfile = profileSnap.exists() ? profileSnap.data() : null;
         } catch (error) {
             console.error("Could not load customer profile:", error);
         }
@@ -3433,7 +2483,6 @@ onAuthStateChanged(auth, async (user) => {
 
     updateAccountLabel();
 
-    // If the account modal is already open, immediately show the correct state.
     const modal = document.getElementById("account-modal");
     if (modal && !modal.classList.contains("hidden")) {
         if (currentUser) {
@@ -3442,128 +2491,107 @@ onAuthStateChanged(auth, async (user) => {
             showCustomerSignIn();
         }
     }
-});
+}
+
 
 /* ============================================================
    ACCOUNT MODAL
 ============================================================ */
 
 window.openAccountModal = () => {
-
-    const modal =
-        document.getElementById(
-            "account-modal"
-        );
-
-
-    modal.classList.remove(
-        "hidden"
-    );
-
-
-    modal.classList.add(
-        "flex"
-    );
-
+    const modal = document.getElementById("account-modal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
 
     if (currentUser) {
-
         showLoggedInAccount();
-
     } else {
-
         showCustomerSignIn();
-
     }
-
 };
-
 
 window.closeAccountModal = () => {
-
-    const modal =
-        document.getElementById(
-            "account-modal"
-        );
-
-
-    modal.classList.add(
-        "hidden"
-    );
-
-
-    modal.classList.remove(
-        "flex"
-    );
-
+    const modal = document.getElementById("account-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
 };
-
 
 window.showAuthTab = tab => {
 
-    document.getElementById(
-        "reset-form"
-    ).classList.add("hidden");
+    clearAuthMessages();
 
+    document.getElementById("reset-form").classList.add("hidden");
+    document.getElementById("account-logged-in").classList.add("hidden");
+    document.getElementById("auth-tabs").classList.remove("hidden");
 
-    document.getElementById(
-        "account-logged-in"
-    ).classList.add("hidden");
+    document.getElementById("signin-form").classList.toggle("hidden", tab !== "signin");
+    document.getElementById("signup-form").classList.toggle("hidden", tab !== "signup");
 
+    const active = "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold";
+    const inactive = "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
 
-    document.getElementById(
-        "auth-tabs"
-    ).classList.remove("hidden");
-
-
-    document.getElementById(
-        "signin-form"
-    ).classList.toggle(
-        "hidden",
-        tab !== "signin"
-    );
-
-
-    document.getElementById(
-        "signup-form"
-    ).classList.toggle(
-        "hidden",
-        tab !== "signup"
-    );
-
-
-    document.getElementById(
-        "signin-tab"
-    ).className =
-        tab === "signin"
-
-        ?
-
-        "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
-
-        :
-
-        "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-
-
-    document.getElementById(
-        "signup-tab"
-    ).className =
-        tab === "signup"
-
-        ?
-
-        "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold"
-
-        :
-
-        "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-
+    document.getElementById("signin-tab").className = tab === "signin" ? active : inactive;
+    document.getElementById("signup-tab").className = tab === "signup" ? active : inactive;
 };
+
+
+/* Close any open popup with the Escape key */
+document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    closeProductModal();
+    closeAccountModal();
+    closeCheckoutModal();
+    toggleCart(false);
+});
+
 
 // Render collection on load
 renderProducts();
 updateCartUI();
+
+
+/* ============================================================
+   LOAD FIREBASE (after the collection is already on screen)
+============================================================ */
+
+try {
+
+    const FB = "https://www.gstatic.com/firebasejs/10.8.0/";
+
+    const [fbApp, fbAuth, fbStore] = await Promise.all([
+        import(FB + "firebase-app.js"),
+        import(FB + "firebase-auth.js"),
+        import(FB + "firebase-firestore.js")
+    ]);
+
+    ({ initializeApp } = fbApp);
+
+    ({
+        getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+        onAuthStateChanged, signOut, updateProfile, sendEmailVerification,
+        sendPasswordResetEmail, reload
+    } = fbAuth);
+
+    ({
+        getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp
+    } = fbStore);
+
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+
+    onAuthStateChanged(auth, handleAuthChange);
+
+} catch (error) {
+
+    console.error("Firebase could not be loaded:", error);
+
+    showToast(
+        "Offline Mode",
+        "You can browse the collection, but sign in and checkout need an internet connection. Please refresh the page to try again.",
+        false
+    );
+}
 
 </script>
 
