@@ -1,2599 +1,594 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TegoKgatso Leather Bags | Timeless & Genuine</title>
-
-    <meta name="description"
-          content="TegoKgatso Leather Bags - premium handcrafted genuine leather bags serving customers across South Africa.">
-
-    <link rel="icon" type="image/jpeg" href="logo.jpeg">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        leather: {
-                            50: '#FAF6F0',
-                            100: '#F4ECE1',
-                            200: '#E2D1BC',
-                            300: '#C2A37E',
-                            500: '#A3723D',
-                            700: '#734B21',
-                            800: '#523416',
-                            900: '#2C1A09'
-                        },
-                        amber: {
-                            gold: '#D4AF37'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Cinzel', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
+<html lang="en">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Nail by Miss J | Luxury Beauty Studio</title> 
+    <meta name="description" content="Nail by Miss J – luxury nail studio in Pretoria Central. Gel, acrylic, French tips, stiletto, ombre nails, pedicure gel and eyelash extensions. Book via WhatsApp.">
+    <meta name="keywords" content="nails Pretoria, nail salon Pretoria Central, acrylic nails, gel nails, French tips, stiletto nails, ombre nails, pedicure gel, eyelash extensions, Nail by Miss J">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Nail by Miss J | Luxury Beauty Studio">
+    <meta property="og:description" content="Gel, acrylic, French tips, stiletto nails, pedicure gel and eyelashes in Pretoria Central. Book via WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="WhatsApp%20Image%202026-10-23%20at%2012.36.04%20%281%29.jpeg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NailSalon",
+      "name": "Nail by Miss J",
+      "image": "WhatsApp%20Image%202026-10-23%20at%2012.36.04%20%281%29.jpeg",
+      "telephone": "+27640821906",
+      "priceRange": "R150 - R350",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "270 Paul Kruger Street",
+        "addressLocality": "Pretoria Central",
+        "addressRegion": "Gauteng",
+        "postalCode": "0002",
+        "addressCountry": "ZA"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"]
+      }]
+    }
     </script>
-
-    <style>
-        .glass-nav {
-            background: rgba(44,26,9,.92);
-            backdrop-filter: blur(12px);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(180deg, rgba(44,26,9,.75) 0%, rgba(44,26,9,.98) 100%);
-        }
-
-        .modal-scroll {
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #734B21;
-            cursor: pointer;
-        }
-
-        .profile-card {
-            background: linear-gradient(135deg, #FAF6F0, #F4ECE1);
-        }
-
-        /* object-contain keeps the complete bag visible without cropping */
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            padding: 6px;
-            transition: transform 700ms ease;
-            cursor: pointer;
-        }
-
-        @media (min-width: 640px) {
-            .product-image { padding: 12px; }
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .product-image-container {
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            background: #F4ECE1;
+    <style> 
+        /* Modern Reset & Luxury Typography */ 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', 'Didot', 'Georgia', serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #faf6f0; color: #2c2c2c; line-height: 1.6; overflow-x: hidden; }
+        header { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 8%; border-bottom: 1px solid rgba(212, 175, 55, 0.15); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; }
+        nav h1 { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; color: #1a1a1a; text-transform: uppercase; }
+        ul { display: flex; flex-direction: column; gap: 10px; list-style: none; position: absolute; top: 60px; left: -20px; right: -20px; background-color: #ffffff; padding: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.15); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; }
+        ul.mobile-open { max-height: 360px; opacity: 1; }
+        a { color: #555; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; display: block; padding: 10px 0; }
+        a:hover { color: #d4af37; }
+        .menu-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; background: transparent; border: none; cursor: pointer; z-index: 1001; }
+        .menu-toggle span { width: 100%; height: 2px; background-color: #1a1a1a; border-radius: 2px; transition: all 0.3s ease-in-out; }
+        .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .hero { display: flex; flex-direction: column-reverse; align-items: center; justify-content: center; gap: 40px; padding: 140px 8% 60px 8%; max-width: 1400px; margin: 0 auto; min-height: 90vh; }
+        .hero img { width: 100%; max-width: 420px; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 4px; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
+        .hero-text { max-width: 550px; text-align: center; }
+        .hero-text h2 { font-size: 2.8rem; color: #1a1a1a; line-height: 1.2; margin-bottom: 20px; font-weight: 400; }
+        .hero-text p { font-size: 1.1rem; color: #666; margin-bottom: 30px; letter-spacing: 0.5px; }
+        .btn { background-color: #1a1a1a; color: #ffffff; padding: 14px 32px; font-weight: 600; display: inline-block; cursor: pointer; border: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; text-align: center; width: 100%; max-width: 280px; }
+        .btn:hover { transform: translateY(-2px); background-color: #d4af37; color: #ffffff; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15); }
+        section { padding: 80px 8%; max-width: 1400px; margin: 0 auto; text-align: center; }
+        section h2 { color: #1a1a1a; font-size: 2.2rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; position: relative; }
+        section h2::after { content: ''; display: block; width: 50px; height: 2px; background: #d4af37; margin: 15px auto 0 auto; }
+        .cards { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+        .card { background: #ffffff; padding: 40px 30px; width: 100%; max-width: 360px; border-radius: 0px; border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .card h3 { color: #1a1a1a; font-size: 1.4rem; margin-bottom: 15px; font-weight: 400; letter-spacing: 1px; }
+        .card p { color: #666; font-size: 0.95rem; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.5); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.05); }
+        .gallery-category-title { color: #1a1a1a; font-size: 1.5rem; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; margin: 50px 0 25px 0; text-align: center; width: 100%; }
+        .marquee-container { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; overflow-x: auto; overflow-y: hidden; margin-bottom: 30px; padding: 10px 0; cursor: grab; scrollbar-width: thin; scrollbar-color: #d4af37 #faf6f0; -webkit-overflow-scrolling: touch; }
+        .marquee-container:active { cursor: grabbing; }
+        .marquee-container::-webkit-scrollbar { height: 6px; }
+        .marquee-container::-webkit-scrollbar-track { background: #faf6f0; }
+        .marquee-container::-webkit-scrollbar-thumb { background-color: #d4af37; border-radius: 3px; }
+        .marquee-track { display: flex; width: max-content; gap: 20px; animation: scrollRightToLeft 45s linear infinite; }
+        .marquee-container:nth-of-type(2) .marquee-track { animation-duration: 50s; }
+        .marquee-container:hover .marquee-track, .marquee-container.dragging .marquee-track { animation-play-state: paused; }
+        .marquee-track img { width: 240px; height: 240px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: transform 0.3s ease, border-color 0.3s ease; flex-shrink: 0; cursor: pointer; user-select: none; -webkit-user-drag: none; }
+        .marquee-track img:hover { transform: scale(1.03); border-color: #d4af37; }
+        @keyframes scrollRightToLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .lightbox-modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 254, 252, 0.98); backdrop-filter: blur(5px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .lightbox-modal.show { display: flex; opacity: 1; }
+        .lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 90%; width: 400px; position: relative; }
+        .lightbox-content img { width: 100%; height: auto; max-height: 65vh; object-fit: cover; border-radius: 4px; border: 1px solid #d4af37; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .lightbox-close { position: absolute; top: -45px; right: 0; color: #1a1a1a; font-size: 35px; font-weight: 300; cursor: pointer; transition: color 0.2s; }
+        .lightbox-close:hover { color: #d4af37; }
+        .gallery-grid { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; margin-bottom: 30px; }
+        .gallery-grid img { width: 100%; max-width: 340px; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 4px; border: 1px solid rgba(0, 0, 0, 0.05); box-shadow: 0 10px 25px rgba(0,0,0,0.04); cursor: pointer; }
+        #about p { max-width: 750px; margin: 0 auto; font-size: 1.1rem; color: #4a4a4a; line-height: 1.8; text-align: justify; }
+        .policy-box { background: #ffffff; border: 1px solid rgba(212, 175, 55, 0.4); border-left: 4px solid #d4af37; padding: 25px 30px; max-width: 650px; margin: 0 auto 30px auto; text-align: left; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02); }
+        .policy-box h3 { color: #1a1a1a; font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
+        .policy-box p { color: #4a4a4a; font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6; }
+        .policy-box p:last-child { margin-bottom: 0; }
+        .policy-box ul { position: static; display: block; background: none; box-shadow: none; border: none; padding: 0 0 0 18px; max-height: none; opacity: 1; text-align: left; margin-bottom: 12px; list-style: disc; }
+        .policy-box ul li { color: #4a4a4a; font-size: 0.95rem; margin-bottom: 4px; }
+        .booking-container { background: #ffffff; padding: 35px 24px; border-radius: 0px; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03); width: 100%; max-width: 650px; margin: 0 auto; text-align: left; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; color: #1a1a1a; margin-bottom: 8px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .form-group input, .form-group select { width: 100%; padding: 14px; border-radius: 0px; border: 1px solid rgba(0, 0, 0, 0.1); background: #fafafa; color: #2c2c2c; font-size: 15px; transition: all 0.3s ease; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: #d4af37; background: #ffffff; box-shadow: 0 0 8px rgba(212, 175, 55, 0.15); }
+        .services-checkboxes { background: #fafafa; padding: 20px; border-radius: 0px; border: 1px solid rgba(0, 0, 0, 0.05); }
+        .service-row-item { display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .service-row-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .checkbox-wrapper { display: flex; align-items: center; justify-content: space-between; }
+        .service-row-item label { margin-bottom: 0; font-weight: normal; color: #444; text-transform: none; letter-spacing: 0; font-size: 15px; cursor: pointer; }
+        .service-row-item input[type="checkbox"] { width: auto; transform: scale(1.2); cursor: pointer; accent-color: #d4af37; }
+        .service-select { margin-top: 5px; font-size: 14px !important; padding: 8px 10px !important; border-color: rgba(212, 175, 55, 0.15) !important; }
+        .price-summary { font-size: 1.2rem; font-weight: 600; color: #1a1a1a; text-align: center; margin: 30px 0 20px 0; padding: 15px; background: #f4eae1; border-radius: 0px; border: 1px dashed #d4af37; letter-spacing: 0.5px; }
+        .booking-container .btn { max-width: 100%; }
+        .contact-container { display: flex; flex-direction: column; gap: 30px; max-width: 1000px; margin: 0 auto; align-items: center; }
+        .contact-box { background: #ffffff; padding: 40px 30px; border-radius: 0px; width: 100%; max-width: 480px; border: 1px solid rgba(0, 0, 0, 0.05); text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .contact-box p { margin-bottom: 15px; font-size: 15px; color: #555; line-height: 1.5; }
+        .map-wrapper { width: 100%; max-width: 480px; height: 320px; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
+        footer { background: #1a1a1a; padding: 30px; text-align: center; color: #a0a0a0; font-size: 12px; letter-spacing: 1px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .search-wrap { max-width: 650px; margin: 0 auto; padding: 0 8% 20px 8%; position: relative; }
+        .search-box { display: flex; align-items: center; background: #ffffff; border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+        .search-box svg { width: 20px; height: 20px; margin: 0 6px 0 16px; flex-shrink: 0; stroke: #d4af37; }
+        .search-box input { flex: 1; border: none; outline: none; padding: 16px 12px; font-size: 15px; background: transparent; color: #2c2c2c; min-width: 0; }
+        .search-box input::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+        .search-clear { background: none; border: none; font-size: 22px; color: #999; cursor: pointer; padding: 0 16px; display: none; }
+        .search-results { list-style: none; position: static; display: none; flex-direction: column; gap: 0; max-height: none; opacity: 1; overflow: visible; background: #ffffff; border: 1px solid rgba(212, 175, 55, 0.25); border-top: none; padding: 0; text-align: left; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .search-results.show { display: flex; }
+        .search-results li { padding: 14px 18px; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+        .search-results li:last-child { border-bottom: none; }
+        .search-results li:hover, .search-results li.active { background: #f4eae1; }
+        .search-results .r-name { color: #1a1a1a; font-size: 15px; }
+        .search-results .r-tag { color: #d4af37; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
+        .search-results .r-empty { cursor: default; color: #777; font-size: 14px; }
+        .search-results .r-empty:hover { background: none; }
+        @keyframes flashGold { 0%,100% { box-shadow: 0 15px 40px rgba(0,0,0,0.03); } 50% { box-shadow: 0 0 0 4px rgba(212,175,55,0.5); } }
+        .flash { animation: flashGold 1.2s ease 2; }
+        @media(min-width: 768px) {
+            header { padding: 20px 8%; }
+            .menu-toggle { display: none; }
+            ul { display: flex; flex-direction: row; gap: 30px; position: static; padding: 0; background: transparent; border-bottom: none; max-height: none; opacity: 1; overflow: visible; width: auto; box-shadow: none; }
+            a { font-size: 0.95rem; padding: 0; }
+            .hero { flex-direction: row; padding: 180px 8% 100px 8%; gap: 80px; text-align: left; }
+            .hero-text { text-align: left; }
+            .hero img { max-width: 460px; }
+            .hero-text h2 { font-size: 3.5rem; line-height: 1.2; }
+            section { padding: 100px 8%; }
+            section h2 { font-size: 2.5rem; }
+            .cards { flex-direction: row; justify-content: center; gap: 30px; }
+            .card { width: 340px; }
+            .gallery-grid { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 25px; }
+            .gallery-grid img { width: 260px; }
+            .booking-container { padding: 50px; }
+            .contact-container { flex-direction: row; justify-content: center; align-items: stretch; }
+            .contact-box, .map-wrapper { max-width: 480px; width: 50%; }
         }
     </style>
+    <script>
+        function nextSrc(img) {
+            const list = (img.dataset.alt || '').split('|').filter(Boolean);
+            if (!list.length) { img.onerror = null; return; }
+            img.src = list.shift();
+            img.dataset.alt = list.join('|');
+        }
+    </script>
 </head>
-
-<body class="bg-leather-50 font-sans text-leather-900 selection:bg-leather-300 selection:text-leather-900 antialiased overflow-x-hidden">
-
-
-<!-- ============================================================
-     NAVIGATION
-============================================================ -->
-
-<nav class="sticky top-0 z-40 glass-nav border-b border-leather-800 text-leather-100">
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-3 sm:py-4 flex items-center justify-between">
-
-        <a href="#" class="flex items-center gap-3">
-            <img src="logo.jpeg"
-                 alt="TegoKgatso Logo"
-                 class="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border border-amber-gold">
-            <div class="flex flex-col">
-                <span class="font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-wider text-amber-gold uppercase leading-none">
-                    TegoKgatso
-                </span>
-                <span class="text-[8px] sm:text-[10px] tracking-[0.25em] text-leather-200 font-light uppercase mt-1">
-                    Leather Bags
-                </span>
-            </div>
-        </a>
-
-        <div class="hidden md:flex items-center space-x-8 text-xs lg:text-sm uppercase tracking-widest font-medium">
-            <a href="#featured" class="hover:text-amber-gold transition">Collection</a>
-            <a href="#about" class="hover:text-amber-gold transition">Our Craft</a>
-            <a href="#contact" class="hover:text-amber-gold transition">Contact</a>
-        </div>
-
-        <div class="flex items-center space-x-2 sm:space-x-4">
-
-            <button onclick="openAccountModal()"
-                    class="hidden sm:flex items-center gap-2 p-2 text-leather-200 hover:text-amber-gold transition"
-                    title="Account">
-                <i class="fa-solid fa-user"></i>
-                <span id="account-label" class="text-[10px] uppercase tracking-wider">Account</span>
-            </button>
-
-            <button onclick="toggleCart()"
-                    class="relative p-2 text-leather-200 hover:text-amber-gold transition">
-                <i class="fa-solid fa-bag-shopping text-lg sm:text-xl"></i>
-                <span id="cart-count"
-                      class="absolute top-0 right-0 bg-amber-gold text-leather-900 text-[9px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
-                    0
-                </span>
-            </button>
-
-            <button onclick="connectToWhatsApp()"
-                    class="hidden lg:inline-flex items-center space-x-2 bg-amber-gold hover:bg-yellow-500 text-leather-900 px-4 py-2.5 rounded-sm font-semibold text-xs tracking-wider uppercase transition">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </button>
-
-            <button onclick="toggleMobileMenu()"
-                    class="md:hidden text-leather-100 p-2 hover:text-amber-gold">
-                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- MOBILE MENU -->
-
-    <div id="mobile-menu"
-         class="hidden md:hidden bg-leather-900 border-b border-leather-800 px-6 py-4 space-y-3 text-center text-xs uppercase tracking-widest font-medium">
-
-        <a href="#featured" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Collection</a>
-
-        <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Our Craft</a>
-
-        <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-leather-200 hover:text-amber-gold">Contact</a>
-
-        <button onclick="openAccountModal();toggleMobileMenu()" class="block w-full text-leather-200 py-2">
-            My Account
+<body>
+<header>
+    <nav>
+        <h1>Nail by Miss J</h1>
+        <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+        <ul id="navMenu">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+            <li><a href="#search" onclick="closeMenu(); setTimeout(()=>document.getElementById('siteSearch').focus(),400)">Search</a></li>
+            <li><a href="#booking" onclick="closeMenu()">Book Now</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <button onclick="connectToWhatsApp();toggleMobileMenu()" class="block w-full text-green-400 py-2">
-            <i class="fa-brands fa-whatsapp mr-1"></i>
-            WhatsApp
-        </button>
-
+<section id="home" class="hero">
+    <div class="hero-text">
+        <h2>Luxury Beauty Experience</h2>
+        <p>Indulge in professional nail designs and structural acrylic extensions custom-tailored for your style.</p>
+        <a href="#booking" class="btn">Book Appointment</a>
     </div>
-
-</nav>
-
-
-<!-- ============================================================
-     HERO
-============================================================ -->
-
-<section class="relative min-h-[75vh] sm:min-h-[85vh] flex items-center justify-center bg-leather-900 overflow-hidden">
-
-    <div class="absolute inset-0 z-0">
-        <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
-             alt="TegoKgatso Leather Bag"
-             class="w-full h-full object-contain object-center opacity-30 scale-105">
-        <div class="hero-gradient absolute inset-0"></div>
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 py-12 sm:py-20">
-
-        <div class="inline-block border border-amber-gold/40 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-4 sm:mb-6">
-            <p class="text-amber-gold text-[10px] sm:text-xs tracking-[0.2em] uppercase font-semibold">
-                Master Artisanship
-            </p>
-        </div>
-
-        <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl text-leather-50 font-bold tracking-tight mb-4 sm:mb-6 leading-tight">
-            TIMELESS & GENUINE
-        </h1>
-
-        <p class="text-leather-200 text-xs sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed">
-            Handcrafted premium full-grain leather bags engineered for executives,
-            travelers, and style connoisseurs. Built to age gracefully and last a lifetime.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a href="#featured"
-               class="w-full sm:w-auto bg-amber-gold hover:bg-yellow-500 text-leather-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-bold text-xs tracking-[0.15em] uppercase transition shadow-lg">
-                Explore Collection
-            </a>
-            <a href="#about"
-               class="w-full sm:w-auto border border-leather-200 text-leather-100 hover:bg-leather-100/10 px-6 py-3.5 sm:px-8 sm:py-4 rounded-sm font-semibold text-xs tracking-[0.15em] uppercase transition">
-                Discover Our Story
-            </a>
-        </div>
-
-    </div>
-
 </section>
 
-
-<!-- ============================================================
-     FEATURES
-============================================================ -->
-
-<section class="bg-leather-800 border-y border-leather-700 py-6 sm:py-8 text-leather-200">
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-
-        <div class="p-2">
-            <i class="fa-solid fa-shield-halved text-xl sm:text-2xl text-amber-gold mb-2"></i>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">100% Genuine Leather</h4>
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Ethically sourced hide</p>
-        </div>
-
-        <div class="p-2">
-            <i class="fa-solid fa-gem text-xl sm:text-2xl text-amber-gold mb-2"></i>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Handcrafted Detail</h4>
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Reinforced brass hardware</p>
-        </div>
-
-        <div class="p-2">
-            <i class="fa-solid fa-clock-rotate-left text-xl sm:text-2xl text-amber-gold mb-2"></i>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Timeless Patina</h4>
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Grows richer over time</p>
-        </div>
-
-        <div class="p-2">
-            <i class="fa-solid fa-truck-fast text-xl sm:text-2xl text-amber-gold mb-2"></i>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider">Direct Courier</h4>
-            <p class="text-[10px] sm:text-xs text-leather-300 mt-1">Safe nationwide delivery</p>
-        </div>
-
+<div class="search-wrap" id="search">
+    <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="siteSearch" placeholder="Search styles, prices or info (e.g. stiletto, lashes, deposit)" autocomplete="off" aria-label="Search the website">
+        <button class="search-clear" id="searchClear" aria-label="Clear search">&times;</button>
     </div>
+    <ul class="search-results" id="searchResults"></ul>
+</div>
 
+<section id="about">
+    <h2>About Our Studio</h2>
+    <p>
+        At Nail by Miss J, we specialize in luxury aesthetic services curated to empower your beauty. We are proud nail instructors, nail tutors, and beauty mentors dedicated to precision, artistry, and exceptional salon training. From bespoke nail extensions to signature overlays, we focus on perfection down to every single detail.
+    </p>
 </section>
 
-
-<!-- ============================================================
-     COLLECTION
-============================================================ -->
-
-<section id="featured" class="py-12 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-
-    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <p class="text-leather-500 font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">Curated Handcrafts</p>
-        <h2 class="font-serif text-2xl sm:text-4xl text-leather-900 font-bold uppercase tracking-wide">The Signature Collection</h2>
-        <div class="w-12 sm:w-16 h-0.5 bg-amber-gold mx-auto mt-3 sm:mt-4"></div>
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Nail Art & Extensions</h3>
+            <p>Bespoke gel overlays, acrylic sets, French styles, custom nail designs, and long length options.</p>
+        </div>
+        <div class="card">
+            <h3>Pedicure Gel</h3>
+            <p>Pedicure gel overlays applied to toes for a lasting high-shine finish (R150 plain / R200 with design).</p>
+        </div>
+        <div class="card">
+            <h3>Eyelashes</h3>
+            <p>Enhance your natural beauty with expertly applied eyelash extensions for an elegant look (R250).</p>
+        </div>
     </div>
-
-    <div class="flex justify-center flex-wrap gap-2 mb-8 sm:mb-12">
-
-        <button onclick="filterProducts('all', this)"
-                class="filter-btn bg-leather-900 text-leather-50 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-            All Models
-        </button>
-
-        <button onclick="filterProducts('backpack', this)"
-                class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-            Backpacks
-        </button>
-
-        <button onclick="filterProducts('briefcase', this)"
-                class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-            Briefcases & Satchels
-        </button>
-
-        <button onclick="filterProducts('duffel', this)"
-                class="filter-btn bg-white text-leather-800 border border-leather-200 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-widest font-semibold">
-            Travel Duffels
-        </button>
-
-    </div>
-
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8" id="product-grid"></div>
-
 </section>
 
-
-<!-- ============================================================
-     ABOUT
-============================================================ -->
-
-<section id="about" class="bg-leather-900 text-leather-100 py-16 sm:py-24 relative overflow-hidden">
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-
-        <div class="relative">
-
-            <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                <img src="WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg"
-                     alt="Leather Detail 1"
-                     class="rounded-sm object-contain h-48 sm:h-64 w-full shadow-lg border border-leather-800 bg-leather-800">
-                <img src="WhatsApp Image 2026-09-09 at 16.46.51.jpeg"
-                     alt="Leather Detail 2"
-                     class="rounded-sm object-contain h-48 sm:h-64 w-full shadow-lg border border-leather-800 bg-leather-800 mt-4 sm:mt-8">
-            </div>
-
-            <div class="absolute -bottom-4 -left-2 bg-amber-gold text-leather-900 p-4 sm:p-6 rounded-sm font-serif shadow-xl">
-                <p class="text-2xl sm:text-3xl font-bold">100%</p>
-                <p class="text-[9px] sm:text-xs font-semibold uppercase tracking-widest">Genuine Leather</p>
-            </div>
-
+<section id="gallery">
+    <h2>Beauty Gallery</h2>
+    
+    <h3 class="gallery-category-title">French tips R200+ depending on the Style</h3>
+    
+    <div class="marquee-container">
+        <div class="marquee-track dynamic-marquee">
+            <img src="1.jpeg" alt="French Tips Style 1" onclick="openLightbox(this)">
+            <img src="2.jpeg" alt="French Tips Style 2" onclick="openLightbox(this)">
+            <img src="3.jpeg" alt="French Tips Style 3" onclick="openLightbox(this)">
+            <img src="4.jpeg" alt="French Tips Style 4" onclick="openLightbox(this)">
+            <img src="5.jpeg" alt="French Tips Style 5" onclick="openLightbox(this)">
+            <img src="6.jpeg" alt="French Tips Style 6" onclick="openLightbox(this)">
+            <img src="7.jpeg" alt="French Tips Style 7" onclick="openLightbox(this)">
+            <img src="8.jpeg" alt="French Tips Style 8" onclick="openLightbox(this)">
+            <img src="9.jpeg" alt="French Tips Style 9" onclick="openLightbox(this)">
+            <img src="10.jpeg" alt="French Tips Style 10" onclick="openLightbox(this)">
+            <img src="11.jpeg" alt="French Tips Style 11" onclick="openLightbox(this)">
+            <img src="12.jpeg" alt="French Tips Style 12" onclick="openLightbox(this)">
+            <img src="13.jpeg" alt="French Tips Style 13" onclick="openLightbox(this)">
+            <img src="14.jpeg" alt="French Tips Style 14" onclick="openLightbox(this)">
+            <img src="15.jpeg" alt="French Tips Style 15" onclick="openLightbox(this)">
+            <img src="16.jpeg" alt="French Tips Style 16" onclick="openLightbox(this)">
+            <img src="17.jpeg" alt="French Tips Style 17" onclick="openLightbox(this)">
+            <img src="18.jpeg" alt="French Tips Style 18" onclick="openLightbox(this)">
+            <img src="19.jpeg" alt="French Tips Style 19" onclick="openLightbox(this)">
         </div>
-
-        <div>
-
-            <p class="text-amber-gold font-semibold tracking-[0.2em] text-[10px] sm:text-xs uppercase mb-2">Our Philosophy</p>
-
-            <h2 class="font-serif text-2xl sm:text-4xl font-bold text-leather-50 mb-4 sm:mb-6 leading-tight">
-                Crafted For Generations,
-                <br>
-                Not Just Seasons.
-            </h2>
-
-            <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 font-light">
-                At <strong>TegoKgatso Leather Bags</strong>, we believe true luxury lies
-                in authenticity and longevity. Every piece in our collection is carefully
-                cut, stitched, and finished using premium full-grain hides that develop a
-                rich patina over time.
-            </p>
-
-            <p class="text-leather-200 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8 font-light">
-                From heavy-duty brass buckles to reinforced stitching and padded laptop
-                compartments, our bags combine old-world artisanship with modern functionality.
-            </p>
-
-            <div class="grid grid-cols-3 gap-4 sm:gap-6 border-t border-leather-800 pt-4 sm:pt-6">
-                <div>
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">100%</span>
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Full Grain</span>
-                </div>
-                <div>
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">Brass</span>
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Hardware</span>
-                </div>
-                <div>
-                    <span class="font-serif text-xl sm:text-2xl font-bold text-amber-gold block">Lifetime</span>
-                    <span class="text-[9px] sm:text-[11px] text-leather-300 uppercase">Stitch Guarantee</span>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
+    <div class="marquee-container">
+        <div class="marquee-track dynamic-marquee">
+            <img src="20.jpeg" alt="French Tips Style 20" onclick="openLightbox(this)">
+            <img src="21.jpeg" alt="French Tips Style 21" onclick="openLightbox(this)">
+            <img src="22.jpeg" alt="French Tips Style 22" onclick="openLightbox(this)">
+            <img src="23.jpeg" alt="French Tips Style 23" onclick="openLightbox(this)">
+            <img src="24.jpeg" alt="French Tips Style 24" onclick="openLightbox(this)">
+            <img src="25.jpeg" alt="French Tips Style 25" onclick="openLightbox(this)">
+            <img src="26.jpeg" alt="French Tips Style 26" onclick="openLightbox(this)">
+            <img src="27.jpeg" alt="French Tips Style 27" onclick="openLightbox(this)">
+            <img src="28.jpeg" alt="French Tips Style 28" onclick="openLightbox(this)">
+            <img src="29.jpeg" alt="French Tips Style 29" onclick="openLightbox(this)">
+            <img src="30.jpeg" alt="French Tips Style 30" onclick="openLightbox(this)">
+            <img src="31.jpeg" alt="French Tips Style 31" onclick="openLightbox(this)">
+            <img src="32.jpeg" alt="French Tips Style 32" onclick="openLightbox(this)">
+            <img src="33.jpeg" alt="French Tips Style 33" onclick="openLightbox(this)">
+            <img src="34.jpeg" alt="French Tips Style 34" onclick="openLightbox(this)">
+            <img src="35.jpeg" alt="French Tips Style 35" onclick="openLightbox(this)">
+            <img src="36.jpeg" alt="French Tips Style 36" onclick="openLightbox(this)">
+            <img src="37.jpeg" alt="French Tips Style 37" onclick="openLightbox(this)">
+            <img src="38.jpeg" alt="French Tips Style 38" onclick="openLightbox(this)">
+            <img src="39.jpeg" alt="French Tips Style 39" onclick="openLightbox(this)">
+            <img src="40.jpeg" alt="French Tips Style 40" onclick="openLightbox(this)">
+            <img src="41.jpeg" alt="French Tips Style 41" onclick="openLightbox(this)">
+            <img src="42.jpeg" alt="French Tips Style 42" onclick="openLightbox(this)">
+            <img src="43.jpeg" alt="French Tips Style 43" onclick="openLightbox(this)">
+            <img src="44.jpeg" alt="French Tips Style 44" onclick="openLightbox(this)">
+            <img src="45.jpeg" alt="French Tips Style 45" onclick="openLightbox(this)">
+            <img src="46.jpeg" alt="French Tips Style 46" onclick="openLightbox(this)">
+            <img src="47.jpeg" alt="French Tips Style 47" onclick="openLightbox(this)">
+            <img src="48.jpeg" alt="French Tips Style 48" onclick="openLightbox(this)">
+            <img src="49.jpeg" alt="French Tips Style 49" onclick="openLightbox(this)">
+            <img src="50.jpeg" alt="French Tips Style 50" onclick="openLightbox(this)">
+            <img src="51.jpeg" alt="French Tips Style 51" onclick="openLightbox(this)">
+            <img src="52.jpeg" alt="French Tips Style 52" onclick="openLightbox(this)">
+            <img src="53.jpeg" alt="French Tips Style 53" onclick="openLightbox(this)">
+            <img src="54.jpeg" alt="French Tips Style 54" onclick="openLightbox(this)">
+            <img src="55.jpeg" alt="French Tips Style 55" onclick="openLightbox(this)">
+            <img src="56.jpeg" alt="French Tips Style 56" onclick="openLightbox(this)">
+            <img src="57.jpeg" alt="French Tips Style 57" onclick="openLightbox(this)">
+        </div>
+    </div>
+
+    <h3 class="gallery-category-title">Latest Designs</h3>
+    <div class="marquee-container">
+        <div class="marquee-track dynamic-marquee">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.04%20%281%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.04_1.jpeg|58.jpeg" onerror="nextSrc(this)" alt="Latest Design 1" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.04.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.04.jpeg|59.jpeg" onerror="nextSrc(this)" alt="Latest Design 2" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.05%20%281%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.05_1.jpeg|60.jpeg" onerror="nextSrc(this)" alt="Latest Design 3" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.05%20%282%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.05_2.jpeg|61.jpeg" onerror="nextSrc(this)" alt="Latest Design 4" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.05.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.05.jpeg|62.jpeg" onerror="nextSrc(this)" alt="Latest Design 5" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.06%20%281%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.06_1.jpeg|63.jpeg" onerror="nextSrc(this)" alt="Latest Design 6" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.06%20%282%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.06_2.jpeg|64.jpeg" onerror="nextSrc(this)" alt="Latest Design 7" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.06.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.06.jpeg|65.jpeg" onerror="nextSrc(this)" alt="Latest Design 8" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.07.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.07.jpeg|66.jpeg" onerror="nextSrc(this)" alt="Latest Design 9" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.01.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.01.jpeg|67.jpeg" onerror="nextSrc(this)" alt="Latest Design 10" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.02%20%281%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.02_1.jpeg|68.jpeg" onerror="nextSrc(this)" alt="Latest Design 11" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.02.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.02.jpeg|69.jpeg" onerror="nextSrc(this)" alt="Latest Design 12" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.03%20%282%29.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.03_2.jpeg|70.jpeg" onerror="nextSrc(this)" alt="Latest Design 13" onclick="openLightbox(this)">
+            <img src="WhatsApp%20Image%202026-10-23%20at%2012.36.03.jpeg" data-alt="WhatsApp_Image_2026-10-23_at_12.36.03.jpeg|71.jpeg" onerror="nextSrc(this)" alt="Latest Design 14" onclick="openLightbox(this)">
+        </div>
+    </div>
+
+    <h3 class="gallery-category-title">Pedicure gel R150 with design R200</h3>
+    <div class="gallery-grid">
+       <img src="A.png" alt="Toes Gel Style A" onclick="openLightbox(this)">
+       <img src="B.png" alt="Toes Gel Style B" onclick="openLightbox(this)">
+    </div>
+
+    <h3 class="gallery-category-title">Eyelashes R250</h3>
+    <div class="gallery-grid">
+       <img src="AA.png" alt="Eyelashes Style AA" onclick="openLightbox(this)">
+       <img src="BB.png" alt="Eyelashes Style BB" onclick="openLightbox(this)">
+    </div>
 </section>
 
+<div id="imageLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <img id="lightboxImg" src="" alt="Expanded View">
+        <button id="lightboxBookBtn" class="btn">Book This Style Now</button>
+    </div>
+</div>
 
-<!-- ============================================================
-     FOOTER
-============================================================ -->
+<section id="booking">
+    <h2>Schedule Your Visit</h2>
+    
+    <div class="policy-box">
+        <h3>NB: Important Studio Policies</h3>
+        <p>A R100 deposit via direct bank transfer is required to confirm your booking before coming.</p>
+        <p><strong>Direct Bank Transfer Details:</strong></p>
+        <ul>
+            <li><strong>Account Holder:</strong> Julienne Aimee</li>
+            <li><strong>Bank:</strong> FNB</li>
+            <li><strong>Account Number:</strong> 63156087223</li>
+        </ul>
+        <p>Please respect our schedule and arrive 5 minutes early prior to your scheduled time (e.g., if booked for 12:00, please arrive by 11:55).</p>
+        <p>In the event that you are running late or need to cancel, please notify us in advance via WhatsApp.</p>
+    </div>
 
-<footer id="contact" class="bg-leather-900 text-leather-200 pt-12 sm:pt-16 pb-10 border-t border-leather-800">
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
-
-        <div>
-            <a href="#" class="flex items-center gap-3 mb-4">
-                <img src="logo.jpeg" alt="TegoKgatso Logo" class="h-10 w-10 rounded-full object-cover border border-amber-gold">
-                <div class="flex flex-col">
-                    <span class="font-serif text-2xl font-bold tracking-wider text-amber-gold uppercase leading-none">TegoKgatso</span>
-                    <span class="text-[9px] tracking-[0.3em] text-leather-300 font-light uppercase mt-1">Leather Bags</span>
+    <div class="booking-container">
+        <form id="whatsappForm" onsubmit="sendBooking(event)">
+            <div class="form-group">
+                <label for="clientName">Your Full Name</label>
+                <input type="text" id="clientName" required placeholder="Enter your first and last name">
+            </div>
+            <div class="form-group">
+                <label for="bookingDate">Select Appointment Date</label>
+                <input type="date" id="bookingDate" required>
+            </div>
+            <div class="form-group">
+                <label for="bookingTime">Select Preferred Time</label>
+                <input type="time" id="bookingTime" required>
+            </div>
+            <div class="form-group">
+                <label>Select Services</label>
+                <div class="services-checkboxes">
+                    <div class="service-row-item">
+                        <div class="checkbox-wrapper">
+                            <label for="srv_nails">Bespoke Services</label>
+                            <input type="checkbox" id="srv_nails" value="Nail Art" onchange="calculateTotal()">
+                        </div>
+                        <select id="nail_style" class="form-group service-select" onchange="calculateTotal()">
+                            <option value="200">Gel plain (R200)</option>
+                            <option value="250">Gel with design (R250)</option>
+                            <option value="230">Acrylic plain (R230)</option>
+                            <option value="250_french">Acrylic with design french (R250)</option>
+                            <option value="280">Acrylic extra design (R280)</option>
+                            <option value="300_long">Acrylic long (R300)</option>
+                            <option value="250_ombre">Ombre short (R250)</option>
+                            <option value="300_ombre">Ombre long (R300)</option>
+                            <option value="300_stiletto">Stiletto (R300)</option>
+                            <option value="350">Stiletto with design (R350)</option>
+                            <option value="150">Pedicure gel (R150)</option>
+                            <option value="200_pedi">Pedicure gel with design (R200)</option>
+                            <option value="250_lashes">Eyelashes (R250)</option>
+                        </select>
+                    </div>
                 </div>
-            </a>
-            <p class="text-xs text-leather-300 leading-relaxed font-light mb-4">
-                Timeless & Genuine luxury handcrafted leather bags designed for enduring elegance.
-            </p>
-        </div>
-
-        <div>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Quick Links</h4>
-            <ul class="space-y-2 text-xs">
-                <li><a href="#featured" class="hover:text-amber-gold">Shop All Collection</a></li>
-                <li><a href="#about" class="hover:text-amber-gold">Our Artisanship</a></li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Customer Care</h4>
-            <ul class="space-y-2 text-xs">
-                <li><i class="fa-solid fa-truck text-amber-gold mr-2"></i>Nationwide Delivery</li>
-                <li><i class="fa-solid fa-rotate-left text-amber-gold mr-2"></i>Hassle-Free Returns</li>
-                <li><i class="fa-solid fa-shield text-amber-gold mr-2"></i>Craftsmanship Warranty</li>
-            </ul>
-        </div>
-
-        <div>
-            <h4 class="font-serif text-xs sm:text-sm font-semibold text-leather-100 uppercase tracking-wider mb-3">Direct Support</h4>
-            <p class="text-xs text-leather-300 mb-4">Need help with an order? Connect with us on WhatsApp.</p>
-            <button onclick="connectToWhatsApp()"
-                    class="inline-flex items-center gap-2 bg-amber-gold text-leather-900 px-4 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-yellow-500 transition w-full justify-center">
-                <i class="fa-brands fa-whatsapp"></i>
-                Connect On WhatsApp
-            </button>
-        </div>
-
+            </div>
+            <div class="price-summary" id="priceDisplay">
+                Estimated Total: R0
+            </div>
+            <button type="submit" class="btn">Confirm via WhatsApp</button>
+        </form>
     </div>
+</section>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-8 border-t border-leather-800 text-center text-[10px] sm:text-xs text-leather-400">
-        <p>&copy; 2026 TegoKgatso Leather Bags. Timeless & Genuine. All Rights Reserved.</p>
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-container">
+        <div class="contact-box">
+            <p><strong>Address:</strong> 270 Paul Kruger Street, Pretoria Central, 0002, South Africa</p>
+            <p><strong>WhatsApp / Contact:</strong> +27 64 082 1906</p>
+            <p><strong>Weekdays:</strong> Monday to Friday (Available Open Hours)</p>
+            <p><strong>Weekends:</strong> Weekend bookings are by appointment only</p>
+        </div>
+        
+        <div class="map-wrapper">
+            <iframe 
+                src="https://maps.google.com/maps?q=270%20paul%20kruger%20street%20pretoria%20central&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
     </div>
+</section>
 
+<footer>
+    &copy; 2026 Nail by Miss J. Crafted to Empower Your Elegance.
 </footer>
 
-
-<!-- ============================================================
-     PRODUCT IMAGE POPUP
-============================================================ -->
-
-<div id="product-modal" class="fixed inset-0 z-[70] invisible opacity-0 pointer-events-none transition-all duration-300">
-
-    <div onclick="closeProductModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div class="absolute inset-0 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
-
-        <div id="product-modal-content"
-             class="relative bg-white w-full max-w-lg rounded-xl shadow-2xl overflow-hidden pointer-events-auto transform scale-95 transition-transform duration-300 modal-scroll">
-
-            <button onclick="closeProductModal()"
-                    class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-leather-900 text-white flex items-center justify-center hover:bg-amber-gold hover:text-leather-900 transition"
-                    aria-label="Close product preview">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <div class="bg-leather-100 flex items-center justify-center">
-                <img id="product-modal-image" src="" alt="" class="w-full max-h-[65vh] object-contain p-3">
-            </div>
-
-            <div class="p-5 sm:p-6">
-
-                <span id="product-modal-category" class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold"></span>
-
-                <h3 id="product-modal-title" class="font-serif text-xl sm:text-2xl font-bold text-leather-900 mt-1 mb-2"></h3>
-
-                <p id="product-modal-price" class="hidden font-serif text-lg font-bold text-leather-700 mb-2"></p>
-
-                <p id="product-modal-description" class="text-sm text-leather-700 leading-relaxed mb-5"></p>
-
-                <button id="product-modal-cart-button"
-                        type="button"
-                        class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-3 rounded-sm text-xs font-semibold uppercase tracking-wider transition">
-                    <i class="fa-solid fa-bag-shopping mr-2"></i>
-                    Add To Cart
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     CART
-============================================================ -->
-
-<div id="cart-modal" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
-
-    <div onclick="toggleCart()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-
-    <div id="cart-panel"
-         class="absolute right-0 top-0 bottom-0 w-full max-w-full sm:max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
-
-        <div class="p-4 sm:p-6 bg-leather-900 text-leather-100 flex items-center justify-between">
-            <h3 class="font-serif text-base sm:text-lg font-bold uppercase tracking-wider">Your Shopping Bag</h3>
-            <button onclick="toggleCart()" class="p-2">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-        </div>
-
-        <div id="cart-items" class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-4"></div>
-
-        <div class="p-4 sm:p-6 bg-leather-50 border-t border-leather-200">
-
-            <div id="cart-total-row" class="hidden flex justify-between items-center mb-3 text-sm">
-                <span class="text-leather-500 uppercase text-xs tracking-wider font-semibold">Priced items total</span>
-                <strong id="cart-total" class="font-serif text-leather-900"></strong>
-            </div>
-
-            <button onclick="beginCheckout()"
-                    class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 font-bold py-3.5 rounded-sm text-xs uppercase tracking-widest transition flex items-center justify-center gap-2">
-                <i class="fa-solid fa-lock"></i>
-                <span>Secure Checkout</span>
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     ACCOUNT MODAL
-============================================================ -->
-
-<div id="account-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4">
-
-    <div onclick="closeAccountModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div class="relative z-10 bg-white w-full max-w-md rounded-xl shadow-2xl modal-scroll">
-
-        <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-            <div>
-                <h3 class="font-serif text-lg font-bold text-amber-gold">Customer Account</h3>
-                <p class="text-xs text-leather-300">Sign in, create your profile and manage your orders</p>
-            </div>
-            <button onclick="closeAccountModal()">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-        </div>
-
-        <div class="p-6">
-
-            <div id="auth-tabs" class="mb-5">
-
-                <div class="grid grid-cols-2 gap-2">
-                    <button id="signin-tab"
-                            onclick="showAuthTab('signin')"
-                            class="py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold">
-                        Sign In
-                    </button>
-                    <button id="signup-tab"
-                            onclick="showAuthTab('signup')"
-                            class="py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold">
-                        Sign Up
-                    </button>
-                </div>
-
-                <a id="admin-portal-link"
-                   href="admin-updated.html"
-                   class="mt-3 w-full border border-leather-300 text-leather-800 hover:bg-leather-50 py-2.5 rounded-lg text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 transition">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    Admin Portal
-                </a>
-
-            </div>
-
-
-            <!-- SIGN IN -->
-
-            <form id="signin-form" class="space-y-3">
-
-                <div class="text-center mb-4">
-                    <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-user text-xl text-leather-700"></i>
-                    </div>
-                    <h4 class="font-serif font-bold text-lg">Customer Sign In</h4>
-                    <p class="text-xs text-leather-500 mt-1">Sign in to purchase products and manage your orders.</p>
-                </div>
-
-                <input id="signin-email" type="email" required placeholder="Email address"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <div class="relative">
-                    <input id="signin-password" type="password" required placeholder="Password"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-                    <button type="button"
-                            onclick="togglePasswordVisibility('signin-password','signin-eye')"
-                            class="password-toggle">
-                        <i id="signin-eye" class="fa-solid fa-eye"></i>
-                    </button>
-                </div>
-
-                <button type="button" onclick="showPasswordReset()" class="text-xs text-leather-700 hover:text-amber-700 underline">
-                    Forgot Password?
-                </button>
-
-                <div id="signin-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
-
-                <button id="signin-btn" type="submit"
-                        class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-                    Sign In
-                </button>
-
-            </form>
-
-
-            <!-- PASSWORD RESET -->
-
-            <form id="reset-form" class="hidden space-y-3">
-
-                <div class="text-center mb-4">
-                    <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-key text-xl text-leather-700"></i>
-                    </div>
-                    <h4 class="font-serif font-bold text-lg">Reset Your Password</h4>
-                    <p class="text-xs text-leather-500 mt-1">Enter your email and we will send you a password reset link.</p>
-                </div>
-
-                <input id="reset-email" type="email" required placeholder="Email address"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <div id="reset-message" class="hidden text-xs p-3 rounded"></div>
-
-                <button type="submit"
-                        class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-                    Send Reset Link
-                </button>
-
-                <button type="button" onclick="showAuthTab('signin')"
-                        class="w-full border border-leather-200 py-3 rounded-lg text-xs font-bold uppercase">
-                    Back To Sign In
-                </button>
-
-            </form>
-
-
-            <!-- SIGN UP -->
-
-            <form id="signup-form" class="hidden space-y-3">
-
-                <div class="text-center mb-4">
-                    <div class="w-14 h-14 mx-auto rounded-full bg-leather-100 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-user-plus text-xl text-leather-700"></i>
-                    </div>
-                    <h4 class="font-serif font-bold text-lg">Create Your Account</h4>
-                    <p class="text-xs text-leather-500 mt-1">Your information will be securely saved to your customer profile.</p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <input id="signup-first" required placeholder="First name"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                    <input id="signup-surname" required placeholder="Surname"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                </div>
-
-                <input id="signup-email" type="email" required placeholder="Email address"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <input id="signup-phone" type="tel" required placeholder="Contact number"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <input id="signup-location" required placeholder="Location / suburb"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <div class="grid grid-cols-2 gap-3">
-                    <input id="signup-city" required placeholder="City / Town"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                    <input id="signup-province" required placeholder="Province"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                </div>
-
-                <div class="relative">
-                    <input id="signup-password" type="password" minlength="6" required placeholder="Password (min 6 characters)"
-                           class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm pr-12">
-                    <button type="button"
-                            onclick="togglePasswordVisibility('signup-password','signup-eye')"
-                            class="password-toggle">
-                        <i id="signup-eye" class="fa-solid fa-eye"></i>
-                    </button>
-                </div>
-
-                <div id="signup-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
-
-                <button id="signup-btn" type="submit"
-                        class="w-full bg-amber-gold text-leather-900 py-3 rounded-lg font-bold text-xs uppercase tracking-wider">
-                    Create Account
-                </button>
-
-            </form>
-
-
-            <!-- LOGGED IN CUSTOMER -->
-
-            <div id="account-logged-in" class="hidden space-y-4">
-
-                <div class="profile-card border border-leather-200 rounded-xl p-5">
-
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto rounded-full bg-leather-900 text-amber-gold flex items-center justify-center text-2xl mb-3">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                        <h4 id="account-name" class="font-serif font-bold text-lg"></h4>
-                        <p id="account-email" class="text-xs text-leather-500"></p>
-                    </div>
-
-                    <div id="verification-box" class="mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200">
-
-                        <div class="flex gap-3">
-                            <i id="verification-icon" class="fa-solid fa-envelope text-amber-700 mt-1"></i>
-                            <div class="flex-grow">
-                                <p id="verification-title" class="font-bold text-xs text-leather-900">Verify your email</p>
-                                <p id="verification-text" class="text-[11px] text-leather-700 mt-1">
-                                    We have sent a verification email to your email address.
-                                    You can continue shopping while waiting.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div id="verification-actions" class="grid grid-cols-2 gap-2 mt-3">
-                            <button onclick="resendVerificationEmail()"
-                                    class="bg-leather-900 text-white py-2 rounded text-[10px] uppercase font-bold">
-                                Resend
-                            </button>
-                            <button onclick="checkEmailVerification(true)"
-                                    class="border border-leather-300 text-leather-800 py-2 rounded text-[10px] uppercase font-bold">
-                                Check Now
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <div class="mt-5">
-
-                        <h5 class="font-serif font-bold text-sm mb-3">My Profile</h5>
-
-                        <div class="space-y-2 text-xs">
-                            <div class="flex justify-between border-b border-leather-200 pb-2">
-                                <span class="text-leather-500">First Name</span>
-                                <strong id="profile-first"></strong>
-                            </div>
-                            <div class="flex justify-between border-b border-leather-200 pb-2">
-                                <span class="text-leather-500">Surname</span>
-                                <strong id="profile-surname"></strong>
-                            </div>
-                            <div class="flex justify-between border-b border-leather-200 pb-2">
-                                <span class="text-leather-500">Phone</span>
-                                <strong id="profile-phone"></strong>
-                            </div>
-                            <div class="flex justify-between border-b border-leather-200 pb-2">
-                                <span class="text-leather-500">Location</span>
-                                <strong id="profile-location"></strong>
-                            </div>
-                            <div class="flex justify-between border-b border-leather-200 pb-2">
-                                <span class="text-leather-500">City</span>
-                                <strong id="profile-city"></strong>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-leather-500">Province</span>
-                                <strong id="profile-province"></strong>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <button onclick="signOutCustomer()"
-                        class="w-full border border-red-200 text-red-700 py-3 rounded-lg text-xs font-bold uppercase">
-                    Sign Out
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     CHECKOUT MODAL
-============================================================ -->
-
-<div id="checkout-modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4">
-
-    <div onclick="closeCheckoutModal()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-
-    <div class="relative z-10 bg-white w-full max-w-2xl rounded-xl shadow-2xl modal-scroll">
-
-        <div class="bg-leather-900 text-white p-6 flex justify-between items-center">
-            <div>
-                <h3 class="font-serif text-lg font-bold text-amber-gold">Complete Your Order</h3>
-                <p class="text-xs text-leather-300">Choose how you would like to receive your parcel</p>
-            </div>
-            <button onclick="closeCheckoutModal()">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-        </div>
-
-        <form id="checkout-form" class="p-6 space-y-5">
-
-            <div class="bg-leather-50 border border-leather-200 rounded-lg p-4">
-                <p class="text-[10px] uppercase tracking-wider text-leather-500 font-bold mb-2">Customer</p>
-                <div id="checkout-customer" class="text-sm font-semibold"></div>
-                <div id="checkout-customer-contact" class="text-xs text-leather-500 mt-1"></div>
-            </div>
-
-            <div>
-
-                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">Receiving Method</label>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-
-                    <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-                        <input type="radio" name="deliveryMethod" value="Courier Delivery" checked onchange="toggleDeliveryFields()">
-                        <i class="fa-solid fa-truck text-amber-gold ml-1"></i>
-                        <span class="font-semibold text-xs">Courier Delivery</span>
-                        <p class="text-[10px] text-leather-500 mt-1">Delivered to your address</p>
-                    </label>
-
-                    <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-                        <input type="radio" name="deliveryMethod" value="Collection" onchange="toggleDeliveryFields()">
-                        <i class="fa-solid fa-store text-amber-gold ml-1"></i>
-                        <span class="font-semibold text-xs">Collection</span>
-                        <p class="text-[10px] text-leather-500 mt-1">Collect in person</p>
-                    </label>
-
-                    <label class="border border-leather-200 rounded-lg p-4 cursor-pointer hover:border-amber-gold">
-                        <input type="radio" name="deliveryMethod" value="Other / Arrange" onchange="toggleDeliveryFields()">
-                        <i class="fa-solid fa-comments text-amber-gold ml-1"></i>
-                        <span class="font-semibold text-xs">Other</span>
-                        <p class="text-[10px] text-leather-500 mt-1">Arrange with TegoKgatso</p>
-                    </label>
-
-                </div>
-
-            </div>
-
-            <div id="delivery-fields" class="space-y-3">
-
-                <p class="text-xs font-bold uppercase tracking-wider text-leather-700">Delivery Address</p>
-
-                <input id="address-line1" required placeholder="Street address / house number"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <input id="address-suburb" required placeholder="Suburb"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-                <div class="grid grid-cols-2 gap-3">
-                    <input id="address-city" required placeholder="City / Town"
-                           class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                    <input id="address-postal" required placeholder="Postal code"
-                           class="border border-leather-200 rounded-lg px-4 py-3 text-sm">
-                </div>
-
-                <input id="address-province" required placeholder="Province"
-                       class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm">
-
-            </div>
-
-            <div>
-                <label class="block text-xs uppercase tracking-wider font-bold text-leather-700 mb-2">Order Notes (optional)</label>
-                <textarea id="order-notes" rows="3" placeholder="Anything we should know?"
-                          class="w-full border border-leather-200 rounded-lg px-4 py-3 text-sm"></textarea>
-            </div>
-
-            <div class="bg-leather-900 text-white rounded-lg p-5">
-                <div id="checkout-summary" class="space-y-2 text-xs"></div>
-            </div>
-
-            <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-xs text-leather-700">
-                <i class="fa-solid fa-circle-info text-amber-gold mr-1"></i>
-                Your order will be securely recorded.
-                Payment status starts as <strong>Awaiting Payment</strong>.
-                TegoKgatso will contact you with payment instructions.
-            </div>
-
-            <div id="checkout-error" class="hidden text-xs text-red-700 bg-red-50 p-3 rounded"></div>
-
-            <button id="place-order-btn" type="submit"
-                    class="w-full bg-amber-gold hover:bg-yellow-500 text-leather-900 py-3.5 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Place Order via WhatsApp</span>
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     ORDER SUCCESS
-============================================================ -->
-
-<div id="success-modal" class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
-
-    <div class="absolute inset-0 bg-black/70"></div>
-
-    <div class="relative bg-white w-full max-w-md rounded-xl shadow-2xl p-8 text-center">
-
-        <div class="w-16 h-16 mx-auto rounded-full bg-green-100 text-green-700 flex items-center justify-center text-2xl mb-4">
-            <i class="fa-solid fa-check"></i>
-        </div>
-
-        <h3 class="font-serif text-xl font-bold text-leather-900">Order Received</h3>
-
-        <p class="text-sm text-leather-600 mt-2">
-            Thank you. Your order has been successfully received by TegoKgatso Leather Bags.
-        </p>
-
-        <p class="text-xs text-leather-500 mt-4">Order reference</p>
-
-        <p id="success-order-id" class="font-mono font-bold text-leather-900 mt-1"></p>
-
-        <p class="text-xs text-leather-500 mt-4">Your order details have been saved to the database.</p>
-
-        <button id="success-whatsapp-btn" type="button"
-                class="mt-5 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg text-xs font-bold uppercase flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-base"></i>
-            Send Order On WhatsApp
-        </button>
-
-        <button onclick="closeSuccessModal()"
-                class="mt-3 w-full bg-leather-900 text-white py-3 rounded-lg text-xs font-bold uppercase">
-            Continue Shopping
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ============================================================
-     TOAST
-============================================================ -->
-
-<div id="toast" class="fixed bottom-5 right-5 z-[100] hidden">
-    <div id="toast-inner" class="bg-leather-900 text-white px-5 py-4 rounded-lg shadow-2xl max-w-sm">
-        <div class="flex gap-3">
-            <i id="toast-icon" class="fa-solid fa-check text-amber-gold mt-1"></i>
-            <div>
-                <p id="toast-title" class="font-bold text-sm"></p>
-                <p id="toast-message" class="text-xs text-leather-200 mt-1"></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- ============================================================
-     FIREBASE + JAVASCRIPT
-============================================================ -->
-
-<script type="module">
-
-/* Firebase is loaded AFTER the collection is shown (see the bottom of
-   this script). If Firebase is slow or blocked, the bags still appear. */
-let initializeApp, getAuth, createUserWithEmailAndPassword,
-    signInWithEmailAndPassword, onAuthStateChanged, signOut,
-    updateProfile, sendEmailVerification, sendPasswordResetEmail, reload;
-let getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp;
-
-let app = null;
-let auth = null;
-let db = null;
-
-/* Shows a message and returns false if Firebase has not loaded yet */
-function firebaseReady() {
-    if (auth && db) return true;
-    showToast(
-        "Still Connecting",
-        "We are still connecting to our secure server. Please check your internet connection and try again in a moment.",
-        false
-    );
-    return false;
-}
-
-
-/* ============================================================
-   FIREBASE CONFIGURATION
-============================================================ */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA3yTdx__mL8JxJZqETU7C-R2pK5mKDBKU",
-    authDomain: "tegokgatso-leather-bags.firebaseapp.com",
-    projectId: "tegokgatso-leather-bags",
-    storageBucket: "tegokgatso-leather-bags.firebasestorage.app",
-    messagingSenderId: "715889522973",
-    appId: "1:715889522973:web:f49ae557ae469ff58449f4",
-    measurementId: "G-4PPZNHMRR4"
-};
-
-
-
-/* ============================================================
-   STATE
-============================================================ */
-
-let currentUser = null;
-let currentProfile = null;
-
-let cart = [];
-try {
-    cart = JSON.parse(localStorage.getItem("tegokgatso_cart") || "[]");
-    if (!Array.isArray(cart)) cart = [];
-} catch (_) {
-    cart = [];
-}
-
-
-/* ============================================================
-   PRODUCTS
-
-   Each product is:
-   [ name, price, image, category, subtitle, description, badge ]
-
-   price  -> a NUMBER in Rand (e.g. 5000) or null if not priced yet
-   badge  -> text such as "New Arrival", or "" for no badge
-
-   SAME BAG, DIFFERENT COLOUR:
-   Give the bags EXACTLY the same name. They are then shown as one
-   card: the photos sit next to each other and the name and price
-   are shown once underneath. All colours share the first price set.
-   The colour shown under each photo is the first part of the
-   subtitle (before the "•"), e.g. "Dark Brown • Full Grain".
-============================================================ */
-
-const rawProducts = [
-
-    [
-        "Zuri Duffel",
-        5000,
-        "WhatsApp Image 2026-10-01 at 13.11.32.jpeg",
-        "duffel",
-        "Cognac Brown • Distressed Finish",
-        "Spacious travel duffel with a twin-buckle front pocket, zipped side compartments, brass hardware, rolled carry handles and a padded detachable shoulder strap.",
-        ""
-    ],
-
-    [
-        "Kwame Duffel",
-        4000,
-        "WhatsApp Image 2026-10-01 at 13.11.32_().jpeg",
-        "duffel",
-        "Saddle Tan • Smooth Barrel",
-        "Clean barrel-shaped weekender with a strap-secured top flap, full-length brass zipper, sturdy top handles and a padded detachable shoulder strap.",
-        ""
-    ],
-
-    [
-        "Amari Classic Backpack",
-          1600,
-        "WhatsApp Image 2026-09-17 at 19.22.56.jpeg",
-        "backpack",
-        "Honey Tan • Genuine Leather",
-        "Clean, structured leather backpack with a central brass buckle closure and zipped utility compartments.",
-        ""
-    ],
-
-    [
-        "Classic Director Briefcase",
-        1800,
-        "WhatsApp Image 2026-09-17 at 19.28.31.jpeg",
-        "briefcase",
-        "Vintage Brown • Double Pocket",
-        "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.",
-        ""
-    ],
-
-    [
-        "Executive Dual-Zipper Briefcase",
-        2000,
-        "WhatsApp Image 2026-09-17 at 19.22.56 (1).jpeg",
-        "briefcase",
-        "Amber Tan • Full Grain",
-        "Handcrafted premium genuine leather briefcase featuring dual top zippers, smooth finish, and brass hardware.",
-        ""
-    ],
-
-    [
-        "Executive Dual-Zipper Briefcase",
-        2000,
-        "WhatsApp Image 2026-10-10 at 13.47.31.jpeg",
-        "briefcase",
-        "Dark Brown • Full Grain",
-        "Handcrafted premium genuine leather briefcase featuring dual top zippers, smooth finish, and brass hardware.",
-        ""
-    ],
-
-    [
-        "Thati Buckle Tote",
-        2000,
-        "WhatsApp Image 2026-10-10 at 13.54.20.jpeg",
-        "briefcase",
-        "Cognac Tan • Textured Leather",
-        "Structured shoulder tote with long twin handles secured by brass buckles, roomy open interior and a clean stitched finish.",
-        ""
-    ],
-
-    [
-        "Amari Classic Backpack",
-        1600,
-        "WhatsApp Image 2026-09-17 at 19.22.56 (2).jpeg",
-        "backpack",
-        "Honey Tan • Genuine Leather",
-        "Clean, structured leather backpack with a central brass buckle closure and zipped utility compartments.",
-        ""
-    ],
-
-    [
-        "Nalla Dual-Buckle Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.50 (1).jpeg",
-        "backpack",
-        "Cognac Tan • Full Grain",
-        "Featuring reinforced front flap buckles, zipped utility compartment, and heavy-duty brass hardware.",
-        "Bestseller"
-    ],
-
-    [
-        "Nalla Dual-Buckle Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.50.jpeg",
-        "backpack",
-        "Dark Espresso • Distressed",
-        "Deep brown rich textured leather built with quick-access dual zipped front compartments and padded straps.",
-        ""
-    ],
-
-    [
-        "kwandza Urban Backpack",
-        2200,
-        "WhatsApp Image 2026-09-09 at 16.46.51 (1).jpeg",
-        "backpack",
-        "Honey Tan • Smooth Finish",
-        "Sleek, modern silhouette featuring concealed vertical zipped side pockets and ultra-smooth finishing.",
-        ""
-    ],
-
-    [
-        "Classic Director Briefcase",
-        1800,
-        "WhatsApp Image 2026-09-09 at 16.46.51.jpeg",
-        "briefcase",
-        "Vintage Brown • Double Pocket",
-        "Designed for laptops and legal files, featuring twin brass-buckled front utility pouches and robust top handles.",
-        "Executive Pick"
-    ],
-
-    [
-        "kwandza Urban Backpack",
-        2200,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (1).jpeg",
-        "backpack",
-        "Mocha Brown • Structured",
-        "Clean curved silhouette crafted with high-grade brass hardware and padded laptop sleeve.",
-        ""
-    ],
-
-    [
-        "Lesedi Zip Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.530001.jpeg",
-        "backpack",
-        "Curved Zip • Honey Tan",
-        "Structured full-grain leather backpack with a zipped front pocket, slip pocket, side pockets and brass hardware.",
-        ""
-    ],
-
-    [
-        "Lesedi Zip Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.520001.jpeg",
-        "backpack",
-        "Vertical Zip • Saddle Tan",
-        "Structured full-grain leather backpack with a zipped front pocket, slip pocket, side pockets and brass hardware.",
-        ""
-    ],
-
-    [
-        "Atlega Flap Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (2).jpeg",
-        "backpack",
-        "Chestnut Amber • Heavy Duty",
-        "Spacious interior layout with top zipper flap and dual front straps secured by authentic brass buckles.",
-        ""
-    ],
-
-    [
-        "Tshemollo Single-Buckle Satchel",
-        1900,
-        "WhatsApp Image 2026-09-09 at 16.46.52 (3).jpeg",
-        "backpack",
-        "Caramel Tan • Single Buckle",
-        "Elegant top-handle design with a center flap closure and quick-access back storage pocket.",
-        ""
-    ],
-
-    [
-        "Mali Messenger",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.53 (1).jpeg",
-        "briefcase",
-        "Mahogany Brown • Messenger",
-        "Professional horizontal laptop bag featuring dual buckle closure, leather carry handles, and shoulder strap.",
-        ""
-    ],
-
-    [
-        "Hlelo Backpack",
-        2000,
-        "WhatsApp Image 2026-09-09 at 16.46.53 (2).jpeg",
-        "backpack",
-        "Warm Tan • Zipper Shield",
-        "Ultra-slim laptop backpack built with smooth double zippers and padded leather top grab handle.",
-        ""
-    ],
-
-    
-    [
-        "Sovereign Satchel Briefcase",
-        1600,
-        "WhatsApp Image 2026-09-14 at 13.06.05 (1).jpeg",
-        "briefcase",
-        "Tan Amber • Brass Hardware",
-        "Spacious interior compartments paired with reinforced brass hardware and top carry handle.",
-        ""
-    ],
-
-    [
-        "Sovereign Satchel Briefcase",
-        1600,
-        "WhatsApp Image 2026-09-14 at 13.06.05 (2).jpeg",
-        "briefcase",
-        "Deep Mocha • Double Strap",
-        "Heavy-duty leather messenger bag crafted with dual strap closures and padded compartment.",
-        ""
-    ],
-
-    [
-        "Artisan Portfolio Briefcase",
-        1800,
-        "WhatsApp Image 2026-09-14 at 13.06.06.jpeg",
-        "briefcase",
-        "Cognac Brown • Modern Cut",
-        "Clean, professional silhouette designed to securely carry laptops, tablets, and essential documents.",
-        ""
-    ],
-
-    [
-        "Artisan Portfolio Briefcase",
-        1800,
-        "WhatsApp Image 2026-09-14 at 13.06.06 (1).jpeg",
-        "briefcase",
-        "Rustic Brown • Reinforced",
-        "Heavy-grain leather satchel engineered with multiple fast-access zip and buckle pockets.",
-        ""
-    ]
-
-];
-
-
-/* ------------------------------------------------------------
-   Group bags with the same name (same bag, different colour)
-   and order the collection: Duffels → Backpacks → Briefcases.
------------------------------------------------------------- */
-
-const CATEGORY_ORDER = ["duffel", "backpack", "briefcase"];
-
-/* productGroups: one entry per bag model = the positions of its colours in `products` */
-const productGroups = [];
-
-const products = (() => {
-
-    const groups = new Map();
-
-    rawProducts.forEach(p => {
-        const key = String(p[0]).trim().toLowerCase();
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push([...p]);
-    });
-
-    const rank = cat => {
-        const i = CATEGORY_ORDER.indexOf(cat);
-        return i === -1 ? CATEGORY_ORDER.length : i;
-    };
-
-    const sorted = [...groups.values()].sort((a, b) => rank(a[0][3]) - rank(b[0][3]));
-
-    const result = [];
-
-    sorted.forEach(group => {
-
-        const name = group[0][0];
-        const priced = group.find(p => typeof p[1] === "number");
-        const price = priced ? priced[1] : null;
-
-        const indexes = [];
-
-        group.forEach(p => {
-            p[0] = name;      // same name for every colour
-            p[1] = price;     // same price for every colour
-            indexes.push(result.length);
-            result.push(p);
-        });
-
-        productGroups.push(indexes);
-    });
-
-    return result;
-
-})();
-
-
-/* ============================================================
-   HELPERS
-============================================================ */
-
-function esc(s) {
-    return String(s ?? "").replace(/[&<>"']/g, m => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;"
-    }[m]));
-}
-
-/* Formats 5000 as "R5 000,00" (South African style) */
-function formatRand(amount) {
-    if (typeof amount !== "number" || isNaN(amount)) return "";
-    const fixed = amount.toFixed(2);
-    const [whole, cents] = fixed.split(".");
-    return "R" + whole.replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "," + cents;
-}
-
-function cartTotal() {
-    return cart.reduce((sum, item) =>
-        typeof item.price === "number" ? sum + item.price * item.qty : sum, 0);
-}
-
-function cartHasUnpriced() {
-    return cart.some(item => typeof item.price !== "number");
-}
-
-function showToast(title, message, success = true) {
-
-    const toast = document.getElementById("toast");
-
-    document.getElementById("toast-title").innerText = title;
-    document.getElementById("toast-message").innerText = message;
-
-    document.getElementById("toast-icon").className = success
-        ? "fa-solid fa-check text-amber-gold mt-1"
-        : "fa-solid fa-circle-exclamation text-red-400 mt-1";
-
-    toast.classList.remove("hidden");
-
-    clearTimeout(window.toastTimer);
-
-    window.toastTimer = setTimeout(() => {
-        toast.classList.add("hidden");
-    }, 6000);
-}
-
-
-/* ============================================================
-   WHATSAPP
-============================================================ */
-
-const DEFAULT_WHATSAPP = "27658693811";
-
-window.connectToWhatsApp = () => {
-    const message = "Hello TegoKgatso Leather Bags, I would like to make an enquiry.";
-    const waUrl = `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
-    window.open(waUrl, "_blank");
-};
-
-
-/* ============================================================
-   PRODUCT FILTER
-============================================================ */
-
-window.filterProducts = (category, clickedButton) => {
-
-    document.querySelectorAll(".product-card").forEach(card => {
-        card.style.display =
-            category === "all" || card.dataset.category === category ? "flex" : "none";
-    });
-
-    document.querySelectorAll(".filter-btn").forEach(button => {
-        button.classList.remove("bg-leather-900", "text-leather-50");
-        button.classList.add("bg-white", "text-leather-800");
-    });
-
-    if (clickedButton) {
-        clickedButton.classList.remove("bg-white", "text-leather-800");
-        clickedButton.classList.add("bg-leather-900", "text-leather-50");
+<script>
+    function toggleMenu() {
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.classList.toggle('open');
+        menu.classList.toggle('mobile-open');
     }
-};
-
-
-/* ============================================================
-   RENDER PRODUCTS
-============================================================ */
-
-/* Colour name = part of the subtitle before the "•" */
-function colourOf(i) {
-    return String(products[i][4] || "").split("•")[0].trim() || "Colour";
-}
-
-/* Colour labels for a group; identical names get numbered (Honey Tan 1, Honey Tan 2) */
-function colourLabels(indexes) {
-    const names = indexes.map(colourOf);
-    return names.map((n, k) =>
-        names.filter(x => x === n).length > 1
-            ? `${n} ${names.slice(0, k + 1).filter(x => x === n).length}`
-            : n
-    );
-}
-
-/* Colour of one product, only when its bag comes in more than one colour */
-function variantLabel(i) {
-    const group = productGroups.find(g => g.includes(i));
-    if (!group || group.length < 2 || !hasDistinctColours(group)) return "";
-    return colourLabels(group)[group.indexOf(i)];
-}
-
-/* True when every colour in the card has a different name.
-   If two colours share a name (e.g. both "Honey Tan"), no colour
-   names are shown; the customer picks by tapping the photo. */
-function hasDistinctColours(indexes) {
-    const names = indexes.map(colourOf);
-    return new Set(names).size === names.length;
-}
-
-function priceHtml(price) {
-    const t = formatRand(price);
-    return t
-        ? esc(t)
-        : '<span class="text-xs font-sans font-semibold text-leather-500 uppercase tracking-wider">Price on request</span>';
-}
-
-/* Selected colour per multi-colour card */
-const selectedVariant = {};
-
-window.selectVariant = (g, i) => {
-
-    selectedVariant[g] = i;
-
-    const card = document.querySelector(`[data-group="${g}"]`);
-    if (!card) return;
-
-    card.querySelectorAll("[data-photo]").forEach(el => {
-        const on = Number(el.dataset.photo) === i;
-        el.classList.toggle("ring-2", on);
-        el.classList.toggle("ring-amber-gold", on);
-    });
-
-    card.querySelectorAll("[data-chip]").forEach(el => {
-        const on = Number(el.dataset.chip) === i;
-        el.classList.toggle("bg-leather-900", on);
-        el.classList.toggle("text-white", on);
-        el.classList.toggle("border-leather-900", on);
-        el.classList.toggle("text-leather-800", !on);
-    });
-
-    const chosen = card.querySelector("[data-chosen]");
-    if (chosen) chosen.innerText = variantLabel(i) ? " · " + variantLabel(i) : "";
-};
-
-window.addSelectedToCart = g => {
-    addToCart(selectedVariant[g] ?? productGroups[g][0]);
-};
-
-/* ONE card for a bag that comes in several colours:
-   photos next to each other, ONE name + price underneath. */
-function renderGroupCard(indexes, g) {
-
-    const first = products[indexes[0]];
-    const labels = colourLabels(indexes);
-    const showNames = hasDistinctColours(indexes);
-    const badge = indexes.map(i => products[i][6]).find(Boolean);
-
-    selectedVariant[g] = indexes[0];
-
-    const cols = indexes.length >= 3 ? "grid-cols-3" : "grid-cols-2";
-
-    return `
-        <div class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col col-span-2"
-             data-category="${esc(first[3])}"
-             data-group="${g}">
-
-            <div class="relative grid ${cols} gap-1 bg-leather-100 p-1">
-
-                ${indexes.map((i, k) => `
-                    <div class="relative overflow-hidden rounded-sm bg-leather-100 ${k === 0 ? "ring-2 ring-amber-gold" : ""}"
-                         data-photo="${i}"
-                         style="aspect-ratio: 4 / 5;">
-
-                        <img src="${esc(products[i][2])}"
-                             alt="${esc(first[0])} - ${esc(labels[k])}"
-                             loading="lazy"
-                             onclick="selectVariant(${g}, ${i}); openProductModal(${i})"
-                             class="w-full h-full object-contain cursor-pointer transition duration-700 hover:scale-105">
-
-                        ${showNames ? `
-                        <span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white/90 text-leather-900 text-[9px] sm:text-[10px] uppercase tracking-widest font-bold px-2 py-1 rounded-full whitespace-nowrap">
-                            ${esc(labels[k])}
-                        </span>` : ""}
-
-                    </div>
-                `).join("")}
-
-                ${badge ? `
-                    <div class="absolute top-3 left-3 bg-amber-gold text-leather-900 font-bold text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
-                        ${esc(badge)}
-                    </div>` : ""}
-
-            </div>
-
-            <div class="p-4 sm:p-6 flex flex-col flex-grow">
-
-                <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold">
-                    Available in ${indexes.length} colours
-                </span>
-
-                <h3 class="font-serif text-base sm:text-lg font-bold text-leather-900 mt-1 mb-2">
-                    ${esc(first[0])}
-                </h3>
-
-                <p class="text-xs text-leather-700 leading-relaxed mb-3 flex-grow">
-                    ${esc(first[5])}
-                </p>
-
-                <p class="font-serif text-base font-bold text-leather-700 mb-3">
-                    ${priceHtml(first[1])}
-                </p>
-
-                ${showNames ? `
-                <div class="flex flex-wrap items-center gap-2 mb-4">
-                    <span class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold mr-1">Colour:</span>
-                    ${indexes.map((i, k) => `
-                        <button type="button"
-                                data-chip="${i}"
-                                onclick="selectVariant(${g}, ${i})"
-                                class="border px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-semibold transition ${k === 0 ? "bg-leather-900 text-white border-leather-900" : "border-leather-300 text-leather-800"}">
-                            ${esc(labels[k])}
-                        </button>
-                    `).join("")}
-                </div>
-                ` : `
-                <p class="text-[10px] text-leather-500 uppercase tracking-widest font-semibold mb-4">Tap a photo to choose your colour</p>`}
-
-                <div class="pt-3 border-t border-leather-100 mt-auto">
-                    <button onclick="addSelectedToCart(${g})"
-                            class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-4 py-2.5 rounded-sm text-xs font-semibold uppercase tracking-wider transition text-center">
-                        Add To Cart<span data-chosen>${showNames ? " · " + esc(labels[0]) : ""}</span>
-                    </button>
-                </div>
-
-            </div>
-
-        </div>
-    `;
-}
-
-function renderProducts() {
-
-    const grid = document.getElementById("product-grid");
-
-    grid.innerHTML = productGroups.map((indexes, g) => {
-
-        if (indexes.length > 1) {
-            return renderGroupCard(indexes, g);
+    function closeMenu() {
+        document.getElementById('menuToggle').classList.remove('open');
+        document.getElementById('navMenu').classList.remove('mobile-open');
+    }
+    function openLightbox(imgElement) {
+        const modal = document.getElementById('imageLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        lightboxImg.src = imgElement.src;
+        modal.classList.add('show');
+    }
+    function closeLightbox(event) {
+        if (event.target.id === 'imageLightbox' || event.target.className === 'lightbox-close') {
+            document.getElementById('imageLightbox').classList.remove('show');
         }
-
-        const i = indexes[0];
-        const p = products[i];
-        const priceText = formatRand(p[1]);
-
-        return `
-            <div class="product-card group bg-white border border-leather-100 rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition duration-500 flex flex-col"
-                 data-category="${esc(p[3])}">
-
-                <div class="product-image-container relative">
-
-                    <img src="${esc(p[2])}"
-                         alt="${esc(p[0])}"
-                         loading="lazy"
-                         onclick="openProductModal(${i})"
-                         class="product-image">
-
-                    ${p[6] ? `
-                        <div class="absolute top-2 left-2 sm:top-3 sm:left-3 bg-amber-gold text-leather-900 font-bold text-[8px] sm:text-[9px] uppercase tracking-widest px-2 py-1 rounded-sm">
-                            ${esc(p[6])}
-                        </div>` : ""}
-
-                </div>
-
-                <div class="p-3 sm:p-6 flex flex-col flex-grow">
-
-                    <span class="text-[8px] sm:text-[10px] text-leather-500 uppercase tracking-wider sm:tracking-widest font-semibold leading-tight">
-                        ${esc(p[4])}
-                    </span>
-
-                    <h3 class="font-serif text-sm sm:text-lg font-bold text-leather-900 mt-1 mb-1 sm:mb-2 leading-snug">
-                        ${esc(p[0])}
-                    </h3>
-
-                    <p class="hidden sm:block text-xs text-leather-700 leading-relaxed mb-4 flex-grow">
-                        ${esc(p[5])}
-                    </p>
-
-                    <p class="font-serif text-sm sm:text-base font-bold text-leather-700 mb-2 sm:mb-3 mt-auto sm:mt-0">
-                        ${priceText ? esc(priceText) : '<span class="text-xs font-sans font-semibold text-leather-500 uppercase tracking-wider">Price on request</span>'}
-                    </p>
-
-                    <div class="flex items-center justify-end pt-2 sm:pt-3 border-t border-leather-100 sm:mt-auto">
-                        <button onclick="addToCart(${i})"
-                                class="w-full bg-leather-900 hover:bg-amber-gold hover:text-leather-900 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-sm text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition text-center">
-                            Add To Cart
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-        `;
-
-    }).join("");
-}
-
-
-/* ============================================================
-   PRODUCT MODAL
-============================================================ */
-
-window.openProductModal = i => {
-
-    const p = products[i];
-    if (!p) return;
-
-    const img = document.getElementById("product-modal-image");
-    img.src = p[2];
-    img.alt = p[0];
-
-    document.getElementById("product-modal-title").innerText = p[0];
-    document.getElementById("product-modal-category").innerText = p[4] || "";
-    document.getElementById("product-modal-description").innerText = p[5] || "";
-
-    const priceEl = document.getElementById("product-modal-price");
-    const priceText = formatRand(p[1]);
-    priceEl.innerText = priceText || "Price on request";
-    priceEl.classList.remove("hidden");
-
-    document.getElementById("product-modal-cart-button").onclick = () => {
-        addToCart(i);
-        closeProductModal();
-    };
-
-    const modal = document.getElementById("product-modal");
-    const panel = document.getElementById("product-modal-content");
-
-    modal.classList.remove("invisible", "opacity-0", "pointer-events-none");
-    panel.classList.remove("scale-95");
-    panel.classList.add("scale-100");
-
-    document.body.classList.add("overflow-hidden");
-};
-
-window.closeProductModal = () => {
-
-    const modal = document.getElementById("product-modal");
-    const panel = document.getElementById("product-modal-content");
-
-    modal.classList.add("invisible", "opacity-0", "pointer-events-none");
-    panel.classList.remove("scale-100");
-    panel.classList.add("scale-95");
-
-    document.body.classList.remove("overflow-hidden");
-};
-
-
-/* ============================================================
-   CART
-============================================================ */
-
-window.addToCart = i => {
-
-    const p = products[i];
-    if (!p) return;
-
-    // Match by image, because some products share the same name
-    // but are different bags (different photos).
-    const existing = cart.find(item => item.img === p[2]);
-
-    const colour = variantLabel(i);
-    const title = colour ? `${p[0]} (${colour})` : p[0];
-
-    if (existing) {
-        existing.qty++;
-        existing.price = p[1];
-        existing.title = title;
-    } else {
-        cart.push({
-            title: title,
-            colour: colour || null,
-            img: p[2],
-            price: p[1],
-            qty: 1
-        });
     }
-
-    saveCart();
-    updateCartUI();
-    toggleCart(true);
-
-    showToast("Added To Bag", `${title} has been added to your shopping bag.`);
-};
-
-function saveCart() {
-    try {
-        localStorage.setItem("tegokgatso_cart", JSON.stringify(cart));
-    } catch (_) {
-        // Storage may be unavailable (e.g. private browsing); cart still works for this visit.
-    }
-}
-
-function updateCartUI() {
-
-    const count = cart.reduce((total, item) => total + item.qty, 0);
-
-    document.getElementById("cart-count").innerText = count;
-
-    document.getElementById("cart-items").innerHTML = cart.length
-
-        ? cart.map((item, index) => `
-            <div class="flex gap-3 border-b border-leather-100 pb-3">
-
-                <div class="w-16 h-20 bg-leather-100 rounded overflow-hidden flex-shrink-0">
-                    <img src="${esc(item.img)}" alt="${esc(item.title)}" class="w-full h-full object-contain p-1">
-                </div>
-
-                <div class="flex-grow">
-
-                    <h4 class="font-serif text-xs font-bold">${esc(item.title)}</h4>
-
-                    <p class="text-xs text-leather-500">
-                        Qty: ${item.qty}
-                        ${typeof item.price === "number"
-                            ? ` • ${esc(formatRand(item.price * item.qty))}`
-                            : " • Price on request"}
-                    </p>
-
-                    <div class="flex gap-2 mt-2">
-                        <button onclick="changeQty(${index},-1)" class="px-2 border rounded">−</button>
-                        <button onclick="changeQty(${index},1)" class="px-2 border rounded">+</button>
-                        <button onclick="removeFromCart(${index})" class="ml-auto text-red-700 text-xs">Remove</button>
-                    </div>
-
-                </div>
-
-            </div>
-        `).join("")
-
-        : `<p class="text-center text-sm text-leather-500 py-12">Your shopping bag is currently empty.</p>`;
-
-    const totalRow = document.getElementById("cart-total-row");
-    const total = cartTotal();
-
-    if (total > 0) {
-        document.getElementById("cart-total").innerText =
-            formatRand(total) + (cartHasUnpriced() ? " +" : "");
-        totalRow.classList.remove("hidden");
-        totalRow.classList.add("flex");
-    } else {
-        totalRow.classList.add("hidden");
-        totalRow.classList.remove("flex");
-    }
-}
-
-window.changeQty = (index, delta) => {
-
-    if (!cart[index]) return;
-
-    cart[index].qty += delta;
-
-    if (cart[index].qty <= 0) {
-        cart.splice(index, 1);
-    }
-
-    saveCart();
-    updateCartUI();
-};
-
-window.removeFromCart = index => {
-
-    if (!cart[index]) return;
-
-    cart.splice(index, 1);
-    saveCart();
-    updateCartUI();
-};
-
-window.toggleCart = forceOpen => {
-
-    const modal = document.getElementById("cart-modal");
-    const panel = document.getElementById("cart-panel");
-
-    const open = forceOpen ?? modal.classList.contains("invisible");
-
-    if (open) {
-        modal.classList.remove("invisible", "opacity-0", "pointer-events-none");
-        panel.classList.remove("translate-x-full");
-    } else {
-        modal.classList.add("invisible", "opacity-0", "pointer-events-none");
-        panel.classList.add("translate-x-full");
-    }
-};
-
-window.toggleMobileMenu = () => {
-    document.getElementById("mobile-menu").classList.toggle("hidden");
-};
-
-
-/* ============================================================
-   CHECKOUT
-============================================================ */
-
-window.beginCheckout = () => {
-
-    if (!cart.length) {
-        showToast("Bag is Empty", "Please add products to your bag before checking out.", false);
-        return;
-    }
-
-    if (!currentUser) {
-        toggleCart(false);
-        openAccountModal();
-        if (!firebaseReady()) return;
-        showToast("Account Required", "Please sign in or create an account to proceed to checkout.", false);
-        return;
-    }
-
-    const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
-    const surname = currentProfile?.surname || "";
-
-    document.getElementById("checkout-customer").innerText = `${firstName} ${surname}`.trim();
-
-    document.getElementById("checkout-customer-contact").innerText =
-        `${currentUser.email} | ${currentProfile?.phone || "No phone"}`;
-
-    if (currentProfile) {
-        if (currentProfile.location) document.getElementById("address-suburb").value = currentProfile.location;
-        if (currentProfile.city) document.getElementById("address-city").value = currentProfile.city;
-        if (currentProfile.province) document.getElementById("address-province").value = currentProfile.province;
-    }
-
-    const total = cartTotal();
-
-    document.getElementById("checkout-summary").innerHTML = `
-        <p class="font-bold border-b border-leather-800 pb-2 mb-2 text-amber-gold">ITEMS IN ORDER:</p>
-
-        ${cart.map(item => `
-            <div class="flex justify-between gap-4">
-                <span>${esc(item.title)} (x${item.qty})</span>
-                <span>${typeof item.price === "number"
-                    ? esc(formatRand(item.price * item.qty))
-                    : "Price on request"}</span>
-            </div>
-        `).join("")}
-
-        ${total > 0 ? `
-            <div class="flex justify-between border-t border-leather-800 pt-2 mt-2 font-bold text-amber-gold">
-                <span>TOTAL${cartHasUnpriced() ? " (priced items)" : ""}</span>
-                <span>${esc(formatRand(total))}</span>
-            </div>` : ""}
-    `;
-
-    toggleCart(false);
-
-    const modal = document.getElementById("checkout-modal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-
-    toggleDeliveryFields();
-};
-
-window.closeCheckoutModal = () => {
-    const modal = document.getElementById("checkout-modal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-};
-
-window.toggleDeliveryFields = () => {
-
-    const selectedMethod =
-        document.querySelector('input[name="deliveryMethod"]:checked')?.value;
-
-    const deliveryFields = document.getElementById("delivery-fields");
-    const requiredInputs = deliveryFields.querySelectorAll("input");
-
-    if (selectedMethod === "Courier Delivery") {
-        deliveryFields.classList.remove("hidden");
-        requiredInputs.forEach(i => i.setAttribute("required", "true"));
-    } else {
-        deliveryFields.classList.add("hidden");
-        requiredInputs.forEach(i => i.removeAttribute("required"));
-    }
-};
-
-
-/* ============================================================
-   PLACE ORDER + WHATSAPP
-============================================================ */
-
-document.getElementById("checkout-form").addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    if (!currentUser) {
-        showToast("Account Required", "Please sign in before placing an order.", false);
-        return;
-    }
-
-    const btn = document.getElementById("place-order-btn");
-    const errBox = document.getElementById("checkout-error");
-
-    errBox.classList.add("hidden");
-
-    btn.disabled = true;
-    btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Placing Order...`;
-
-    // Open the WhatsApp window now (directly from the click) so pop-up
-    // blockers don't stop it after the database save finishes.
-    const waWindow = window.open("", "_blank");
-
-    try {
-
-        const deliveryMethod =
-            document.querySelector('input[name="deliveryMethod"]:checked').value;
-
-        const notes = document.getElementById("order-notes").value.trim();
-
-        let addressData = null;
-
-        if (deliveryMethod === "Courier Delivery") {
-            addressData = {
-                line1: document.getElementById("address-line1").value.trim(),
-                suburb: document.getElementById("address-suburb").value.trim(),
-                city: document.getElementById("address-city").value.trim(),
-                postal: document.getElementById("address-postal").value.trim(),
-                province: document.getElementById("address-province").value.trim()
-            };
-        }
-
-        const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
-        const surname = currentProfile?.surname || "";
-        const fullName = `${firstName} ${surname}`.trim();
-        const phone = currentProfile?.phone || "N/A";
-
-        const total = cartTotal();
-
-        const orderData = {
-            userId: currentUser.uid,
-            customerName: fullName,
-            customerEmail: currentUser.email,
-            customerPhone: phone,
-            whatsappRecipient: DEFAULT_WHATSAPP,
-            items: cart.map(item => ({
-                title: item.title,
-                img: item.img,
-                qty: item.qty,
-                price: typeof item.price === "number" ? item.price : null
-            })),
-            totalPricedAmount: total,
-            hasUnpricedItems: cartHasUnpriced(),
-            deliveryMethod: deliveryMethod,
-            address: addressData,
-            notes: notes,
-            status: "Awaiting Payment",
-            createdAt: serverTimestamp()
-        };
-
-        const docRef = await addDoc(collection(db, "orders"), orderData);
-        const orderId = docRef.id;
-
-        /* ---------------- WHATSAPP MESSAGE ---------------- */
-
-        let message = `*NEW ORDER - TEGOKGATSO LEATHER BAGS*\n`;
-        message += `*Order ID:* ${orderId}\n\n`;
-
-        message += `*Customer Details:*\n`;
-        message += `• Name: ${fullName}\n`;
-        message += `• Email: ${currentUser.email}\n`;
-        message += `• Phone: ${phone}\n\n`;
-
-        message += `*Order Items:*\n`;
-
-        cart.forEach((item, index) => {
-            const priceText = typeof item.price === "number"
-                ? ` - ${formatRand(item.price * item.qty)}`
-                : " - Price on request";
-            message += `${index + 1}. ${item.title} (Qty: ${item.qty})${priceText}\n`;
-        });
-
-        if (total > 0) {
-            message += `\n*Total${cartHasUnpriced() ? " (priced items)" : ""}:* ${formatRand(total)}\n`;
-        }
-
-        message += `\n*Receiving Method:* ${deliveryMethod}\n`;
-
-        if (deliveryMethod === "Courier Delivery" && addressData) {
-            message += `*Delivery Address:*\n`;
-            message += `${addressData.line1}, ${addressData.suburb}, ${addressData.city}, ${addressData.province}, ${addressData.postal}\n`;
-        }
-
-        if (notes) {
-            message += `\n*Order Notes:* ${notes}\n`;
-        }
-
-        message += `\nThank you! Please provide payment instructions to finalize the order.`;
-
-        const waUrl = `https://wa.me/${DEFAULT_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
-        document.getElementById("success-order-id").innerText = orderId;
-
-        document.getElementById("success-whatsapp-btn").onclick = () => {
-            window.open(waUrl, "_blank");
-        };
-
-        closeCheckoutModal();
-
-        cart = [];
-        saveCart();
-        updateCartUI();
-
-        document.getElementById("order-notes").value = "";
-
-        const successModal = document.getElementById("success-modal");
-        successModal.classList.remove("hidden");
-        successModal.classList.add("flex");
-
-        if (waWindow && !waWindow.closed) {
-            waWindow.location.href = waUrl;
-        } else {
-            window.open(waUrl, "_blank");
-        }
-
-    } catch (err) {
-
-        console.error("Error placing order:", err);
-
-        if (waWindow && !waWindow.closed) waWindow.close();
-
-        errBox.innerText = "Error placing order: " + err.message;
-        errBox.classList.remove("hidden");
-
-    } finally {
-
-        btn.disabled = false;
-        btn.innerHTML = `
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>Place Order via WhatsApp</span>
-        `;
-    }
-});
-
-
-/* ============================================================
-   SUCCESS MODAL
-============================================================ */
-
-window.closeSuccessModal = () => {
-    const modal = document.getElementById("success-modal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-};
-
-
-/* ============================================================
-   PASSWORD VISIBILITY
-============================================================ */
-
-window.togglePasswordVisibility = (inputId, iconId) => {
-
-    const input = document.getElementById(inputId);
-    const icon = document.getElementById(iconId);
-
-    if (input.type === "password") {
-        input.type = "text";
-        icon.className = "fa-solid fa-eye-slash";
-    } else {
-        input.type = "password";
-        icon.className = "fa-solid fa-eye";
-    }
-};
-
-
-/* ============================================================
-   CUSTOMER AUTHENTICATION
-============================================================ */
-
-const customerProfileRef = (uid) => doc(db, "customers", uid);
-
-function clearAuthMessages() {
-    document.getElementById("signin-error")?.classList.add("hidden");
-    document.getElementById("signup-error")?.classList.add("hidden");
-    document.getElementById("reset-message")?.classList.add("hidden");
-}
-
-function setAuthMessage(id, message, success = false) {
-    const box = document.getElementById(id);
-    if (!box) return;
-
-    box.innerText = message;
-    box.classList.remove("hidden", "text-red-700", "bg-red-50", "text-green-700", "bg-green-50");
-    box.classList.add(success ? "text-green-700" : "text-red-700");
-    box.classList.add(success ? "bg-green-50" : "bg-red-50");
-}
-
-function setAuthButtonLoading(buttonId, loading, text) {
-    const button = document.getElementById(buttonId);
-    if (!button) return;
-
-    button.disabled = loading;
-    button.innerText = loading ? "Please wait..." : text;
-    button.classList.toggle("opacity-60", loading);
-    button.classList.toggle("cursor-not-allowed", loading);
-}
-
-window.showCustomerSignIn = () => {
-    clearAuthMessages();
-
-    document.getElementById("auth-tabs").classList.remove("hidden");
-    document.getElementById("signin-form").classList.remove("hidden");
-    document.getElementById("signup-form").classList.add("hidden");
-    document.getElementById("reset-form").classList.add("hidden");
-    document.getElementById("account-logged-in").classList.add("hidden");
-
-    document.getElementById("signin-tab").className =
-        "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold";
-
-    document.getElementById("signup-tab").className =
-        "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-};
-
-window.showLoggedInAccount = () => {
-    if (!currentUser) {
-        showCustomerSignIn();
-        return;
-    }
-
-    clearAuthMessages();
-
-    document.getElementById("auth-tabs").classList.add("hidden");
-    document.getElementById("signin-form").classList.add("hidden");
-    document.getElementById("signup-form").classList.add("hidden");
-    document.getElementById("reset-form").classList.add("hidden");
-    document.getElementById("account-logged-in").classList.remove("hidden");
-
-    const firstName = currentProfile?.firstName || currentUser.displayName || "Customer";
-    const surname = currentProfile?.surname || "";
-
-    document.getElementById("account-name").innerText = `${firstName} ${surname}`.trim();
-    document.getElementById("account-email").innerText = currentUser.email || "";
-
-    document.getElementById("profile-first").innerText = currentProfile?.firstName || currentUser.displayName || "";
-    document.getElementById("profile-surname").innerText = currentProfile?.surname || "";
-    document.getElementById("profile-phone").innerText = currentProfile?.phone || "";
-    document.getElementById("profile-location").innerText = currentProfile?.location || "";
-    document.getElementById("profile-city").innerText = currentProfile?.city || "";
-    document.getElementById("profile-province").innerText = currentProfile?.province || "";
-
-    const verificationBox = document.getElementById("verification-box");
-    const verificationTitle = document.getElementById("verification-title");
-    const verificationText = document.getElementById("verification-text");
-    const verificationIcon = document.getElementById("verification-icon");
-    const verificationActions = document.getElementById("verification-actions");
-
-    if (currentUser.emailVerified) {
-        verificationBox.className = "mt-5 p-4 rounded-lg bg-green-50 border border-green-200";
-        verificationIcon.className = "fa-solid fa-circle-check text-green-700 mt-1";
-        verificationTitle.className = "font-bold text-xs text-green-900";
-        verificationTitle.innerText = "Email verified";
-        verificationText.className = "text-[11px] text-green-700 mt-1";
-        verificationText.innerText = "Your email address has been successfully verified.";
-        verificationActions.classList.add("hidden");
-    } else {
-        verificationBox.className = "mt-5 p-4 rounded-lg bg-amber-50 border border-amber-200";
-        verificationIcon.className = "fa-solid fa-envelope text-amber-700 mt-1";
-        verificationTitle.className = "font-bold text-xs text-leather-900";
-        verificationTitle.innerText = "Verify your email";
-        verificationText.className = "text-[11px] text-leather-700 mt-1";
-        verificationText.innerText =
-            "We have sent a verification email to your email address. You can continue shopping while waiting.";
-        verificationActions.classList.remove("hidden");
-    }
-};
-
-window.showPasswordReset = () => {
-    clearAuthMessages();
-
-    document.getElementById("auth-tabs").classList.add("hidden");
-    document.getElementById("signin-form").classList.add("hidden");
-    document.getElementById("signup-form").classList.add("hidden");
-    document.getElementById("account-logged-in").classList.add("hidden");
-    document.getElementById("reset-form").classList.remove("hidden");
-
-    const signinEmail = document.getElementById("signin-email").value.trim();
-    if (signinEmail) {
-        document.getElementById("reset-email").value = signinEmail;
-    }
-};
-
-document.getElementById("signin-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("signin-email").value.trim();
-    const password = document.getElementById("signin-password").value;
-
-    if (!email || !password) return;
-    if (!firebaseReady()) return;
-
-    setAuthButtonLoading("signin-btn", true, "Sign In");
-
-    try {
-        const credential = await signInWithEmailAndPassword(auth, email, password);
-
-        currentUser = credential.user;
-
-        try {
-            await reload(currentUser);
-        } catch (_) {
-            // Sign-in succeeded; continue even if reload fails.
-        }
-
-        currentUser = auth.currentUser;
-
-        if (!currentUser) {
-            throw new Error("Login completed but the customer session could not be loaded.");
-        }
-
-        const profileSnap = await getDoc(customerProfileRef(currentUser.uid));
-        currentProfile = profileSnap.exists() ? profileSnap.data() : null;
-
-        document.getElementById("signin-password").value = "";
-
-        showLoggedInAccount();
-        updateAccountLabel();
-
-        showToast("Welcome Back", `You are now signed in as ${currentUser.email}.`, true);
-
-    } catch (error) {
-        console.error("Customer sign-in error:", error);
-
-        let message = "Unable to sign in. Please check your email and password.";
-
-        if (error.code === "auth/invalid-credential" ||
-            error.code === "auth/wrong-password" ||
-            error.code === "auth/user-not-found") {
-            message = "Incorrect email or password.";
-        } else if (error.code === "auth/invalid-email") {
-            message = "Please enter a valid email address.";
-        } else if (error.code === "auth/too-many-requests") {
-            message = "Too many login attempts. Please wait a moment and try again.";
-        } else if (error.code === "auth/network-request-failed") {
-            message = "Network error. Please check your internet connection and try again.";
-        } else if (error.message) {
-            message = error.message;
-        }
-
-        setAuthMessage("signin-error", message, false);
-
-    } finally {
-        setAuthButtonLoading("signin-btn", false, "Sign In");
-    }
-});
-
-document.getElementById("signup-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const firstName = document.getElementById("signup-first").value.trim();
-    const surname = document.getElementById("signup-surname").value.trim();
-    const email = document.getElementById("signup-email").value.trim();
-    const phone = document.getElementById("signup-phone").value.trim();
-    const location = document.getElementById("signup-location").value.trim();
-    const city = document.getElementById("signup-city").value.trim();
-    const province = document.getElementById("signup-province").value.trim();
-    const password = document.getElementById("signup-password").value;
-
-    if (!firebaseReady()) return;
-
-    setAuthButtonLoading("signup-btn", true, "Create Account");
-
-    try {
-        const credential = await createUserWithEmailAndPassword(auth, email, password);
-
-        currentUser = credential.user;
-
-        await updateProfile(currentUser, { displayName: firstName });
-
-        const profileData = {
-            uid: currentUser.uid,
-            firstName,
-            surname,
-            email,
-            phone,
-            location,
-            city,
-            province,
-            createdAt: serverTimestamp()
-        };
-
-        await setDoc(customerProfileRef(currentUser.uid), profileData, { merge: true });
-
-        // Keep a local copy without the serverTimestamp() placeholder.
-        currentProfile = { ...profileData, createdAt: null };
-
-        try {
-            await sendEmailVerification(currentUser);
-        } catch (verificationError) {
-            console.warn("Verification email could not be sent:", verificationError);
-        }
-
-        document.getElementById("signup-form").reset();
-
-        showLoggedInAccount();
-        updateAccountLabel();
-
-        showToast("Account Created", "Your customer account has been created successfully.", true);
-
-    } catch (error) {
-        console.error("Customer signup error:", error);
-
-        let message = "Unable to create your account. Please try again.";
-
-        if (error.code === "auth/email-already-in-use") {
-            message = "An account with this email already exists. Please sign in instead.";
-        } else if (error.code === "auth/weak-password") {
-            message = "Password must be at least 6 characters.";
-        } else if (error.code === "auth/invalid-email") {
-            message = "Please enter a valid email address.";
-        } else if (error.code === "auth/network-request-failed") {
-            message = "Network error. Please check your internet connection and try again.";
-        } else if (error.message) {
-            message = error.message;
-        }
-
-        setAuthMessage("signup-error", message, false);
-
-    } finally {
-        setAuthButtonLoading("signup-btn", false, "Create Account");
-    }
-});
-
-document.getElementById("reset-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("reset-email").value.trim();
-    const messageBox = document.getElementById("reset-message");
-
-    if (!email) return;
-    if (!firebaseReady()) return;
-
-    try {
-        await sendPasswordResetEmail(auth, email);
-
-        messageBox.innerText = "Password reset email sent. Please check your inbox and spam folder.";
-        messageBox.className = "text-xs p-3 rounded text-green-700 bg-green-50";
-
-    } catch (error) {
-        console.error("Password reset error:", error);
-
-        messageBox.innerText = error.code === "auth/user-not-found"
-            ? "No customer account was found with this email address."
-            : "We could not send the reset email. Please check the email address and try again.";
-
-        messageBox.className = "text-xs p-3 rounded text-red-700 bg-red-50";
-    }
-});
-
-window.checkEmailVerification = async (showMessage = false) => {
-    if (!auth || !auth.currentUser) return;
-
-    try {
-        await reload(auth.currentUser);
-        currentUser = auth.currentUser;
-
-        if (currentUser.emailVerified) {
-            showLoggedInAccount();
-            if (showMessage) {
-                showToast("Email Verified", "Your email address is now verified.", true);
+    function calculateTotal() {
+        let total = 0;
+        const nailChecked = document.getElementById('srv_nails').checked;
+        
+        if (nailChecked) {
+            const styleVal = document.getElementById('nail_style').value;
+            const numVal = parseInt(styleVal);
+            if (!isNaN(numVal)) {
+                total = numVal;
             }
-        } else if (showMessage) {
-            showToast("Not Verified Yet", "Please check your email and click the verification link.", false);
         }
-    } catch (error) {
-        console.error("Verification check error:", error);
-        if (showMessage) {
-            showToast("Verification Check Failed", "Please try again.", false);
+        
+        document.getElementById('priceDisplay').innerText = `Estimated Total: R${total}`;
+    }
+    function sendBooking(e) {
+        e.preventDefault();
+        const name = document.getElementById('clientName').value;
+        const date = document.getElementById('bookingDate').value;
+        const time = document.getElementById('bookingTime').value;
+        
+        const nailChecked = document.getElementById('srv_nails').checked;
+        let selectedStyle = "None selected";
+        let calculatedPrice = "R0";
+        if (nailChecked) {
+            const styleSelect = document.getElementById('nail_style');
+            selectedStyle = styleSelect.options[styleSelect.selectedIndex].text;
+            const numVal = parseInt(styleSelect.value);
+            calculatedPrice = isNaN(numVal) ? "R0" : `R${numVal}`;
         }
+        
+        const message = `Hello Miss J, I'd like to book an appointment.\n\n` +
+                        `Name: ${name}\n` +
+                        `Date: ${date}\n` +
+                        `Time: ${time}\n` +
+                        `Style: ${selectedStyle}\n` +
+                        `Price: ${calculatedPrice}`;
+                        
+        window.open(`https://wa.me/27640821906?text=${encodeURIComponent(message)}`, '_blank');
     }
-};
 
-window.resendVerificationEmail = async () => {
-    if (!auth || !auth.currentUser) {
-        showCustomerSignIn();
-        return;
-    }
-
-    try {
-        await sendEmailVerification(auth.currentUser);
-        showToast("Verification Sent", "A new verification email has been sent.", true);
-    } catch (error) {
-        console.error("Resend verification error:", error);
-        showToast("Could Not Send", "Please wait a moment and try again.", false);
-    }
-};
-
-window.signOutCustomer = async () => {
-    try {
-        if (!firebaseReady()) return;
-        await signOut(auth);
-
-        currentUser = null;
-        currentProfile = null;
-
-        showCustomerSignIn();
-        updateAccountLabel();
-
-        showToast("Signed Out", "You have been signed out of your customer account.", true);
-    } catch (error) {
-        console.error("Customer sign-out error:", error);
-        showToast("Sign Out Failed", "Please try again.", false);
-    }
-};
-
-function updateAccountLabel() {
-    const label = document.getElementById("account-label");
-    if (!label) return;
-
-    label.innerText = currentUser
-        ? (currentProfile?.firstName || currentUser.displayName || "Account")
-        : "Account";
-}
-
-/* Restore the customer session whenever the page loads. */
-async function handleAuthChange(user) {
-    currentUser = user || null;
-    currentProfile = null;
-
-    if (user) {
-        try {
-            const profileSnap = await getDoc(customerProfileRef(user.uid));
-            currentProfile = profileSnap.exists() ? profileSnap.data() : null;
-        } catch (error) {
-            console.error("Could not load customer profile:", error);
+    document.querySelectorAll('.marquee-container').forEach(container => {
+        const track = container.querySelector('.marquee-track');
+        if (track) {
+            track.innerHTML += track.innerHTML;
         }
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('dragging');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.classList.remove('dragging');
+        });
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.classList.remove('dragging');
+        });
+        container.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+    });
+
+    // ---------- Site search ----------
+    const searchIndex = [
+        { name: 'Address & directions', tag: 'Contact', target: '#contact', keys: 'address location where directions map pretoria paul kruger street central find' },
+        { name: 'WhatsApp / phone number', tag: 'Contact', target: '#contact', keys: 'whatsapp phone number call contact message cell' },
+        { name: 'Opening hours', tag: 'Contact', target: '#contact', keys: 'hours open time weekdays weekend saturday sunday monday friday when' },
+        { name: 'Booking deposit (R100) & bank details', tag: 'Policy', target: '#booking', keys: 'deposit pay payment bank fnb account transfer eft r100 policy confirm' },
+        { name: 'Late arrival & cancellation policy', tag: 'Policy', target: '#booking', keys: 'late cancel cancellation reschedule policy arrive early rules' },
+        { name: 'French tips gallery', tag: 'Gallery', target: '#gallery', keys: 'french tips gallery photos pictures designs' },
+        { name: 'Latest designs gallery', tag: 'Gallery', target: '#gallery', keys: 'latest new designs gallery photos pictures rhinestones gems cherry flowers' },
+        { name: 'Training & mentoring', tag: 'About', target: '#about', keys: 'training course class learn tutor instructor mentor teach about' }
+    ];
+    document.querySelectorAll('#nail_style option').forEach((opt, i) => {
+        searchIndex.push({ name: opt.text, tag: 'Book', option: i, keys: opt.text.toLowerCase() + ' nails nail price cost how much' +
+            (/lash/i.test(opt.text) ? ' lashes eyelash extensions' : '') + (/pedi/i.test(opt.text) ? ' toes feet pedicure' : '') });
+    });
+
+    const searchInput = document.getElementById('siteSearch');
+    const resultsBox = document.getElementById('searchResults');
+    const clearBtn = document.getElementById('searchClear');
+    let currentResults = [], activeIdx = -1;
+
+    function runSearch() {
+        const q = searchInput.value.trim().toLowerCase();
+        clearBtn.style.display = q ? 'block' : 'none';
+        if (!q) { resultsBox.classList.remove('show'); return; }
+        const words = q.split(/\s+/);
+        currentResults = searchIndex.filter(item => {
+            const hay = (item.name + ' ' + item.keys).toLowerCase();
+            return words.every(w => hay.includes(w));
+        }).slice(0, 8);
+        activeIdx = -1;
+        resultsBox.innerHTML = currentResults.length
+            ? currentResults.map((r, i) => `<li data-i="${i}"><span class="r-name">${r.name}</span><span class="r-tag">${r.tag}</span></li>`).join('')
+            : '<li class="r-empty">No results. Try "gel", "stiletto", "lashes" or "deposit", or WhatsApp us.</li>';
+        resultsBox.classList.add('show');
     }
 
-    updateAccountLabel();
-
-    const modal = document.getElementById("account-modal");
-    if (modal && !modal.classList.contains("hidden")) {
-        if (currentUser) {
-            showLoggedInAccount();
+    function chooseResult(r) {
+        resultsBox.classList.remove('show');
+        searchInput.value = '';
+        clearBtn.style.display = 'none';
+        if (r.option !== undefined) {
+            document.getElementById('srv_nails').checked = true;
+            document.getElementById('nail_style').selectedIndex = r.option;
+            calculateTotal();
+            const box = document.querySelector('.booking-container');
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            box.classList.remove('flash'); void box.offsetWidth; box.classList.add('flash');
         } else {
-            showCustomerSignIn();
+            document.querySelector(r.target).scrollIntoView({ behavior: 'smooth' });
         }
     }
-}
 
-
-/* ============================================================
-   ACCOUNT MODAL
-============================================================ */
-
-window.openAccountModal = () => {
-    const modal = document.getElementById("account-modal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-
-    if (currentUser) {
-        showLoggedInAccount();
-    } else {
-        showCustomerSignIn();
-    }
-};
-
-window.closeAccountModal = () => {
-    const modal = document.getElementById("account-modal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-};
-
-window.showAuthTab = tab => {
-
-    clearAuthMessages();
-
-    document.getElementById("reset-form").classList.add("hidden");
-    document.getElementById("account-logged-in").classList.add("hidden");
-    document.getElementById("auth-tabs").classList.remove("hidden");
-
-    document.getElementById("signin-form").classList.toggle("hidden", tab !== "signin");
-    document.getElementById("signup-form").classList.toggle("hidden", tab !== "signup");
-
-    const active = "py-2 rounded bg-leather-900 text-white text-xs uppercase tracking-wider font-bold";
-    const inactive = "py-2 rounded border border-leather-200 text-leather-800 text-xs uppercase tracking-wider font-bold";
-
-    document.getElementById("signin-tab").className = tab === "signin" ? active : inactive;
-    document.getElementById("signup-tab").className = tab === "signup" ? active : inactive;
-};
-
-
-/* Close any open popup with the Escape key */
-document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    closeProductModal();
-    closeAccountModal();
-    closeCheckoutModal();
-    toggleCart(false);
-});
-
-
-// Render collection on load
-renderProducts();
-updateCartUI();
-
-
-/* ============================================================
-   LOAD FIREBASE (after the collection is already on screen)
-============================================================ */
-
-try {
-
-    const FB = "https://www.gstatic.com/firebasejs/10.8.0/";
-
-    const [fbApp, fbAuth, fbStore] = await Promise.all([
-        import(FB + "firebase-app.js"),
-        import(FB + "firebase-auth.js"),
-        import(FB + "firebase-firestore.js")
-    ]);
-
-    ({ initializeApp } = fbApp);
-
-    ({
-        getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-        onAuthStateChanged, signOut, updateProfile, sendEmailVerification,
-        sendPasswordResetEmail, reload
-    } = fbAuth);
-
-    ({
-        getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp
-    } = fbStore);
-
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-
-    onAuthStateChanged(auth, handleAuthChange);
-
-} catch (error) {
-
-    console.error("Firebase could not be loaded:", error);
-
-    showToast(
-        "Offline Mode",
-        "You can browse the collection, but sign in and checkout need an internet connection. Please refresh the page to try again.",
-        false
-    );
-}
-
+    searchInput.addEventListener('input', runSearch);
+    searchInput.addEventListener('keydown', e => {
+        const items = resultsBox.querySelectorAll('li[data-i]');
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            if (!items.length) return;
+            e.preventDefault();
+            activeIdx = (activeIdx + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length;
+            items.forEach((li, i) => li.classList.toggle('active', i === activeIdx));
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (currentResults.length) chooseResult(currentResults[activeIdx >= 0 ? activeIdx : 0]);
+        } else if (e.key === 'Escape') {
+            resultsBox.classList.remove('show');
+        }
+    });
+    resultsBox.addEventListener('click', e => {
+        const li = e.target.closest('li[data-i]');
+        if (li) chooseResult(currentResults[+li.dataset.i]);
+    });
+    clearBtn.addEventListener('click', () => { searchInput.value = ''; runSearch(); searchInput.focus(); });
+    document.addEventListener('click', e => { if (!e.target.closest('#search')) resultsBox.classList.remove('show'); });
 </script>
-
 </body>
 </html>
